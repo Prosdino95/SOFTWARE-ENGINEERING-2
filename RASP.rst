@@ -5,7 +5,11 @@ Introduction
 
 Purpose
 -------
-
+Travlendar+ e' un sistema di gestione di appuntamenti in modo da schedulare in modo efficiente la calendarizzazione degli impegni dell'utente. Grazie all'applicazione e' possibile calcolare in anticipo il tempo stimato per raggiungere il luogo di incontro in funzione del mezzo di trasporto scelto dall'utente. 
+ L'applicazione e' pensata non solo per organizzare viaggi interregionale ma anche per gli impegni personali o di leavoro dell'utente. L'utente una volta registrato potra' impostare le sue preferenze sui mezzi di trasporto per raggiungere la location dell'appuntamento. In funzione alla scelta dell'utente l'applicazione potra' suggerire diversi itinerari con diverse stime di tempo per oguna di esse. 
+ 
+ Il sistema si presenta come una 'daily' applicazione che ha lo scopo di aiutare la vita di ogni giorno degli utenti.
+  
 Scope
 -----
 
