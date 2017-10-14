@@ -1,5 +1,17 @@
 IngSw2
 
+Introduction
+============
+
+Purpose
+-------
+
+Scope
+-----
+
+Definitions
+-----------
+
 Requirements
 ------------
 
@@ -61,3 +73,45 @@ Requirements
   - 8.6 aggiunta altri tipi di breaks/eventi ricorrenti
 
 9) comprare i biglietti
+
+Overall Description
+===================
+
+Product Perspective
+-------------------
+
+Product Functions
+-----------------
+
+User Characteristics
+--------------------
+
+Assumptions
+-----------
+
+Specific Requirements
+=====================
+
+External Interface Requirements
+-------------------------------
+
+Functional Requirements
+-----------------------
+
+Performance Requirements
+------------------------
+
+Design Constraints
+------------------
+
+Software System Attributes
+--------------------------
+
+Alloy
+=====
+
+Effort Spent
+============
+
+References
+==========
