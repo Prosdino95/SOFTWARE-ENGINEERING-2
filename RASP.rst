@@ -6,10 +6,11 @@ Introduction
 Purpose
 -------
 Travlendar+ e' un sistema di gestione di appuntamenti in modo da schedulare in modo efficiente la calendarizzazione degli impegni dell'utente. Grazie all'applicazione e' possibile calcolare in anticipo il tempo stimato per raggiungere il luogo di incontro in funzione del mezzo di trasporto scelto dall'utente. 
- L'applicazione e' pensata non solo per organizzare viaggi interregionale ma anche per gli impegni personali o di leavoro dell'utente. L'utente una volta registrato potra' impostare le sue preferenze sui mezzi di trasporto per raggiungere la location dell'appuntamento. In funzione alla scelta dell'utente l'applicazione potra' suggerire diversi itinerari con diverse stime di tempo per oguna di esse. 
- 
- Il sistema si presenta come una 'daily' applicazione che ha lo scopo di aiutare la vita di ogni giorno degli utenti.
-  
+
+L'applicazione e' pensata non solo per organizzare viaggi interregionale ma anche per gli impegni personali o di leavoro dell'utente. L'utente una volta registrato potra' impostare le sue preferenze sui mezzi di trasporto per raggiungere la location dell'appuntamento. In funzione alla scelta dell'utente l'applicazione potra' suggerire diversi itinerari con diverse stime di tempo per oguna di esse. 
+
+Il sistema si presenta come una 'daily' applicazione che ha lo scopo di aiutare la vita di ogni giorno degli utenti.
+
 Scope
 -----
 
@@ -109,6 +110,30 @@ Performance Requirements
 
 Design Constraints
 ------------------
+
+--------------------
+Standards Compliance
+--------------------
+The software will use the following standards when deployed:
+
+- JavaEE for the server backend
+- utilize a JSON REST API for communication between the backend and frontend
+
+--------------------
+Hardware Limitations
+--------------------
+The mobile app will have the following hardware limitations:
+
+- Android or iOS operating system
+- Semi-continuous [*]_ internet access (3G/4G/WiFi)
+- GPS
+
+.. [*] Semi-continuous meaning that the system can loose connection briefly but overall needs to be able to access the internet on a reoccurring basis
+
+-----------------
+Other Constraints
+-----------------
+Since the system relies on confidential information in order to work the system will need to store the data securely, especially regarding saved addresses. None of the information provided by the user will be used for commercial purposes.
 
 Software System Attributes
 --------------------------
