@@ -22,7 +22,7 @@ Requirements
 
 1) Schedule appuntamenti
 
-2) Contollare possibilità trasporti
+2) Contollare possibilit?? trasporti
 
 3) Evitare ritardi
 
@@ -41,7 +41,7 @@ Requirements
 
     - 4.2.4 tipo di appuntamento
 
-    - 4.2.5 altri appuntamenti in giornata(es. uno non può essere raggiunto con i mezzi, verra suggerito di muoversi con mezzi propri tutta la giornata)
+    - 4.2.5 altri appuntamenti in giornata(es. uno non pu?? essere raggiunto con i mezzi, verra suggerito di muoversi con mezzi propri tutta la giornata)
     
     - 4.2.6 aggiornare ed eventualmente mandare un warning per eventuali cambiamenti di itinerario. 
 
@@ -63,7 +63,7 @@ Requirements
 
   - 7.3 Carbon footprint
 
-  - 7.4 possibilità di inserire gli abbonamenti a trasporti ecc...
+  - 7.4 possibilita' di inserire gli abbonamenti a trasporti ecc...
 
 8) Fexible Lunch
 
@@ -143,23 +143,23 @@ Scenario
 
 Scenario 1
 -----------
-Karla è una donna in piena cariera e ha bisogno di una app che la aiuti a gestire i suoi appuntamenti.
+Karla e' una donna in piena cariera e ha bisogno di una app che la aiuti a gestire i suoi appuntamenti.
 Seguendo i consigli di una sua amica decide di prendere il suo smartphone e scaricare l'app Travlender+.
 Karla si registra all'applicazione inserendo i suoi dati (username, mail e pasword) e completando un form in cui vengoni chieste le preferenze sui mezzi di trasporto.
-l'app manda una mail con un link per verificare la correttezza e l'esistenza dell'indirizzo mail inserito, dopo che Karla avrà premuto sul link la registrazione sara completate e Karla potra iniziare ad usare Travelender +.
+L'app manda una mail con un link per verificare la correttezza e l'esistenza dell'indirizzo mail inserito, dopo che Karla avra' premuto sul link la registrazione sara completate e Karla potra iniziare ad usare Travelender +.
 L'applicazione al primo accesso show un breve tutorial sul suo utilizzo e su come modificare e/o aggiungere preferenze.
 
 Scenario 2
 -----------
 John vuole aggiungere un nuovo appuntamento ad una giornata che non presenta altri impegni.
 Dopo aver premuto sul pulsante aggiungi appuntamento si apre un breve form in cui vengono inserite data,ora,luogo,nome.
-L'aplicazione chiede inoltre quale sarà la posizione di partenza(tra un location salvata, la posizione attuale o la posizione del precedente appuntamento).
-Travelendere+ effetua un controllo per verificare eventuali sovrapposizioni con altri appuntamenti oppure l'impossibilità di pranzare quel giorno e in caso di assenza di conflitti procede a calcolare il percorso ideale.
-Travelendere+ ofre all'iutente un insieme di percori in ordine dal più adatto al meno che l'utente può decidere di seguire. 
+L'aplicazione chiede inoltre quale sara' la posizione di partenza(tra un location salvata, la posizione attuale o la posizione del precedente appuntamento).
+Travelendere+ effetua un controllo per verificare eventuali sovrapposizioni con altri appuntamenti oppure l'impossibilita' di pranzare quel giorno e in caso di assenza di conflitti procede a calcolare il percorso ideale.
+Travelendere+ ofre all'iutente un insieme di percori in ordine dal piu' adatto al meno che l'utente piu` decidere di seguire. 
 John sceglie uno tra i percorsi proposti e viene salvato dall'app.
 
 Scenario 3  (riguardare)
------------
+------------------------
 Jennifer inserisce un appuntamento in un qualsiasi giorno.
 Travelander+ verifica la prefenza di una sovrapposizione e quindi l'app genera un segnale di warning sul giorno relativo.
 Jennifere a quel punto premendo sul segnale puo decidere se modificare i dati di uno degli appuntamenti in modo da evitare sovrapposizioni oppure eliminare gli appuntamenti ritenuti da lei meno importnati, sempre in modo da evitare sovrapposizioni.
@@ -167,12 +167,26 @@ Jennifere a quel punto premendo sul segnale puo decidere se modificare i dati di
 Scenario 4
 -----------
 Riccardo aveva inserito un appuntamento scegliendo un itinerario che prevedeva un vioggio in bicicletta.
-l'applicazione il giorno prima dell'appuntamento dopo aver fatto un controllo delle condizioni meteo scopre che per il giorno succesivo è prevista pioggia.
+l'applicazione il giorno prima dell'appuntamento dopo aver fatto un controllo delle condizioni meteo scopre che per il giorno succesivo sara' prevista pioggia.
 Sapendo che riccardo ha selezionato un itinerarrio che prevede la bicicletta manda una notifica chiedendo se, data la possibile pioggia, Riccardo vuole cambiare itinerario e/o mezzo di trasporto offrendogli delle possibili alternative.
 
 Scenario 5
 -----------
+Chiara durante la configurazione dell'app aveva inserito come orario del possibile pranzo un intervallo che andava delle 12.00 alle 2.30 specificando una durata di 45min.
+Chiara e' consapevole che Travelander+ considera in automatico 45 min di pranzo e sa inoltre che inserendo appuntamenti in quella fascia oraria l'applicazione provvedera' in automacoco a reschedulare il pranzo per evitare sovrapposizioni.
+Un particolare giorno Chiara inserisce una serie di appuntamenti nela facia oraria del pranzo in modo da renderlo impossibile.
+A quel punto l'app genera un warning e Chiara puo' decidere se reschedulare glia appuntamenti o saltare il pranzo.
 
+Scenario 6 (scritto male)
+---------------------------
+Alex e' un uomo che tiene particolarmente all'ecologia, essendo molto impegnato decide di utilizzare Travelander+ per schedulare i suoi appuntamenti.
+Alex ha scelto Tralevander+ perche' sa che l'applucazione e' ingrado di calcolare il migior percorso per raggiungere la destinazione in modo tale da rispettare gli orari e le sue perferenze, tra di esse infatti Alex ha inserito il fatto di voler tenere bassa la sua impronta ecologica.
+Travelander+ provvedera' a calcolare i percorsi di Alex in modo che siano piu' Green possibile.
+
+Scenario 7
+-----------
+Newt utilizza Travelander+ per schedulare una serie di appuntamenti fuori citta'.
+Dopo aver scelto il percorso migliore l'applicazione permette ad Alex di acquistare direttamente i biglietti dei treni necesssari per raggiungere il luogo dell'appuntamneto.
 
 Alloy
 =====
