@@ -5,17 +5,58 @@ Introduction
 
 Purpose
 -------
-Travlendar+ e' un sistema di gestione di appuntamenti in modo da schedulare in modo efficiente la calendarizzazione degli impegni dell'utente. Grazie all'applicazione e' possibile calcolare in anticipo il tempo stimato per raggiungere il luogo di incontro in funzione del mezzo di trasporto scelto dall'utente. 
+ *Travlendar+ e' un sistema di gestione di appuntamenti capace di schedulare in modo efficiente la calendarizzazione degli impegni dell'utente. Grazie all'applicazione e' possibile calcolare in anticipo il tempo stimato per raggiungere il luogo di incontro in funzione del mezzo di trasporto scelto dall'utente.* 
 
-L'applicazione e' pensata non solo per organizzare viaggi interregionale ma anche per gli impegni personali o di leavoro dell'utente. L'utente una volta registrato potra' impostare le sue preferenze sui mezzi di trasporto per raggiungere la location dell'appuntamento. In funzione alla scelta dell'utente l'applicazione potra' suggerire diversi itinerari con diverse stime di tempo per oguna di esse. 
+ *L'applicazione e' pensata non solo per organizzare viaggi interregionale ma anche per gli impegni personali o di lavoro dell'utente. L'utente una volta registrato potra' impostare le sue preferenze sui mezzi di trasporto per raggiungere la location dell'appuntamento. In funzione alla scelta dell'utente l'applicazione potra' suggerire diversi itinerari con diverse stime di tempo per oguna di esse.* 
 
-Il sistema si presenta come una 'daily' applicazione che ha lo scopo di aiutare la vita di ogni giorno degli utenti.
+ *Travlendar+ si propone al pubblico come una mobile applicazione web based capace di migliorare la vita quotidiana dei suoi utenti in modo semplice, sicuro ed efficiente.* 
 
 Scope
 -----
+*GOALS:*
 
+ **Calendar**
+
+ 
+ 1) Visionare un calendario online personale di "Eventi" registrati.
+ 2) Permettere la registrazione di un "Evento" specificando una data, una "Starting Location", una "Meeting Location" e una fascia oraria.
+ 3) Notificare l'inizio di un evento all'utente (Alarm function).
+ 4) (Facoltativo?) Permettere la modifica/eliminazione degli "Eventi".
+ 5) ...
+ 
+ **Maps**
+ 
+ 1) Identificare la "Starting Location" e il "Meeting Location" su una mappa satellitare virtuale tramite tecnologia gps.
+ 2) Individuare una lista di itinerari piu' brevi possibili per raggiungere la "Meeting Location" dalla "Starting Location" con diversi mezzi di trasporto disponibili.
+ 3) Segnalare il "Best Itinerary" all'utente. (L'itinerario piu' breve possibile indipendentemente dai "Costraint" inseriti dall'utente).
+ 4) Inserire tra i vari mezzi di trasporto disponibili da scegliere eventuali mezzi di trasporto pubblici disponibili in citta' e stazioni di bike e car sharing.
+ 5) Permettere all'utente la modifica dell'itinerario inserendo delle "Itermidiate Location" (tappe intermedie) o delle preferenze su mezzi di trasporto in particolare tratte del viaggio ("Costraint").
+ 6) Addattare il "Best Itinerary" alle condizioni metereologiche del giorno.
+ 7) (Facoltativo?) Notificare all'utente la presenza di un itinerario piu' breve da quello impostato tramite i "Costraint"
+ 8) Segnalare tramite un "Warning" all'utente se l'itinerario scelto dalla lista di quelli possibili potrebbe farlo arrivare in ritardo all "Meeting".
+ 9) ...
+ 
+ **User Profile**
+ 
+ 1) Permettere la registrazione al servizio tramite numero di telefono, email, nome, cognome e codice fiscale. (cf per patente)
+ 2) Permettere il login a Travlendar+ tramite indirizzo https www.travelendar.com su Broswer o tramite client app da GooglePLayStore e IOs.
+ 3) Update, modifica e remove dei dati personali sulla pagina utente.
+ 4) Gestione delle preferenze dei veicoli per itinerari brevi.
+ 5) (Facoltativo) Impostazione preferenze algoritmo di calcolo dell'itinerario ("GreenMode Activated","No traffic lighters", "No Schools at 16:00", "Show Autovelox")
+ 6) (Facoltativo) Permettere l'inserimento di abbonamenti per mezzi di trasporto, coupon o dati su patente.
+ 7) ...
+ 
+ 
 Definitions
 -----------
+
+* *Best Itinerary*:
+* *Costraint*:
+* *Event*:
+* *Green Mode*:
+* *Meeting Location*:
+* *Starting Location*:
+* *Warning*:
 
 Requirements
 ------------
