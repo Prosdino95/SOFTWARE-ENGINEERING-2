@@ -20,7 +20,7 @@ Scope
  
  1) Visionare un calendario online personale di "Eventi" registrati.
  2) Permettere la registrazione di un "Evento" specificando una data, una "Starting Location", una "Meeting Location" e una fascia oraria.
- 3) Notificare l'inizio di un evento all'utente (Alarm function).
+ 3) Notificare l'inizio di un evento all'utente ("Alarm" function).
  4) (Facoltativo?) Permettere la modifica/eliminazione degli "Eventi".
  5) ...
  
@@ -49,7 +49,7 @@ Scope
  
 Definitions
 -----------
-
+* *Alarm*:
 * *Best Itinerary*:
 * *Costraint*:
 * *Event*:
@@ -134,6 +134,44 @@ Product Functions
 User Characteristics
 --------------------
 
+*Travelendar+ e' pensata per aiutare ad organizzare e pianificare in modo efficiente gli impegni settimanali mensili e annuali dei suoi utenti registrati. La sua semplicita'la rende versatile e facilmente accessibile a ogni tipologia di utente.*
+
+Le categorie di utenti principali a cui si rivolge Travelendar+ sono:
+ - *Business men*
+ - *Travelers*
+ - *City Lovers*
+
+*Business men* sono tutti gli utenti che installerano l'applicazione principalemente per annotare appuntamenti di lavoro e meeting importanti tra partners. Il loro behaviour sara' percio' caratterizzato da:
+ #) submit rate of meetings per week and month *very high*.
+ #) meetings location *very distant* and often *different*.
+ #) *high* interest on arriving on time at meetings
+ #) *high* interest on buyng via internet tickets for the vehicle
+ #) *medium* interest on addictional feature, such as interconnect other technologies for a better organization (email notifiation, smart alarm, notifiche sul palmare o sullo smart clock...)
+ #) *minimal* interest on user interface and graphical feature
+ #) *vehicle preferences* are public transport for city meetings or *train* and *aeroplane* for outside city meetings.
+ #) Long term users (utilizzeranno piu' volte e spesso l'app anche nel lungo periodo)
+ 
+*Travelers* sono tutti coloro che si affidano all'app per organizzare e pianificare il proprio viaggio turistico or convegno di lavoro abroad. Le loro attivita' sono per lo piu' raggiungere alberghi, aeroporti stazioni, treni o musei di citta' d'arte. Il loro behaviour sara' caratterizzato da:
+ #) submit rate of meetings per week and day *very high*
+ #) Two important 'Event' which are the 'Departure' and the 'Arrival' Event. For these events the interest on arriving on time is *crucial*.
+ #) Several intermediate 'Event' on the week between the 'Arrival' and the 'Departure'. For these event the interest on arriving on time si *medium* and for the most of the locations are museums, restaurants, hotels.
+ #) The 'Routes' have often intermediate 'locations' (tappe intermedie) and the 'Vehicle' used is often 'By Foot'. 
+ #) Sometimes 'Event' planned for a day can be modified and switched with other 'Event' scheduled for the next days.
+ #) *medium* interest on graphical feature and user interfaces. Sometimes they could think usefull put verbose descriptions on 'Events'.
+ #) Short term users. When they will end the trip, they will probably disinstall the Application.
+ 
+*City Lovers* (Faggots) are people that will use the application to schedule all the things he/she does in the free time. They are technology enthusiast or smart guys who needs to annotate all his/her appointment during the week and are often curious of the limit of the Application. For example their 'Events' are linked with their social activities like going to the cinema with friends or going shopping with the girlfriend, or are sport activities, like going to the gym or jogging on Sunday morning. So their 'Behaviour' is characterized by:
+ #) submit rate of meetings per week and day *very high*
+ #) *low* interest on arriving on time on their appointments.
+ #) *high* interest on user interface and additional feature, like vocal message warning.
+ #) *high* rate of modified 'Event'
+ #) *high* interest on the 'Personal Profile' page of the App or feature like adding secondary information, uploading profile images, recording all the kilometers of his/her 'Routes' and all the location visited.
+ #) *high* interest on 'Green Mode'
+ #) *Vehicle* preferences are often bike, public transports and car/bike sharing.
+ #) They are *often* young age users, university students and sportmen.
+ #) *High* interest on Technical performance of the App, like memory storage consuption, cpu memory usage, heat burst.
+ #) *Short* term and *occasional* user
+ 
 Assumptions
 -----------
 
