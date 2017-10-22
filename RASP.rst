@@ -22,16 +22,16 @@ Scope
  2) Permettere la registrazione di un "Evento" specificando una data, una "Starting Location", una "Meeting Location" e una fascia oraria.
  3) Notificare l'inizio di un evento all'utente ("Alarm" function).
  4) (Facoltativo?) Permettere la modifica/eliminazione degli "Eventi".
- 5) ...
+ 5) Let the User to create 'Flexible Event' for everyday  short and low priority appointment.
  
  **Maps**
  
  1) Identificare la "Starting Location" e il "Meeting Location" su una mappa satellitare virtuale tramite tecnologia gps.
  2) Individuare una lista di itinerari piu' brevi possibili per raggiungere la "Meeting Location" dalla "Starting Location" con diversi mezzi di trasporto disponibili.
- 3) Segnalare il "Best Itinerary" all'utente. (L'itinerario piu' breve possibile indipendentemente dai "Costraint" inseriti dall'utente).
+ 3) Segnalare il "Best Route" all'utente. (L'itinerario piu' breve possibile indipendentemente dai "Costraint" inseriti dall'utente).
  4) Inserire tra i vari mezzi di trasporto disponibili da scegliere eventuali mezzi di trasporto pubblici disponibili in citta' e stazioni di bike e car sharing.
  5) Permettere all'utente la modifica dell'itinerario inserendo delle "Itermidiate Location" (tappe intermedie) o delle preferenze su mezzi di trasporto in particolare tratte del viaggio ("Costraint").
- 6) Addattare il "Best Itinerary" alle condizioni metereologiche del giorno.
+ 6) Addattare il "Best Route" alle condizioni metereologiche del giorno.
  7) (Facoltativo?) Notificare all'utente la presenza di un itinerario piu' breve da quello impostato tramite i "Costraint"
  8) Segnalare tramite un "Warning" all'utente se l'itinerario scelto dalla lista di quelli possibili potrebbe farlo arrivare in ritardo all "Meeting".
  9) ...
@@ -44,18 +44,21 @@ Scope
  4) Gestione delle preferenze dei veicoli per itinerari brevi.
  5) (Facoltativo) Impostazione preferenze algoritmo di calcolo dell'itinerario ("GreenMode Activated","No traffic lighters", "No Schools at 16:00", "Show Autovelox")
  6) (Facoltativo) Permettere l'inserimento di abbonamenti per mezzi di trasporto, coupon o dati su patente.
- 7) ...
+ 7) The User can buy online a ticket for a pubblic transportation suggested on the "Best Route".
  
  
 Definitions
 -----------
 * *Alarm*:
-* *Best Itinerary*:
+* *Best Route*:
 * *Costraint*:
 * *Event*:
 * *Green Mode*:
+* *Itermidiate Location*:
 * *Meeting Location*:
+* *Route*:
 * *Starting Location*:
+* *Vehicle*:
 * *Warning*:
 
 Requirements
@@ -183,18 +186,49 @@ Assumptions
 4. The Algorithm doesn't take into account for a 'By Foot' vehicle preference if the sidewalk is crowded in that day and time which could slow down the walk of the user.(example: Cso BuonosAires)
 5. The Algorithm doesn't take into account for a 'By foot' or a 'Bike' It avoids to track the route across a park or a green area on the map if it is not specified by the user.
 
+*Query external DBs Assumptions*:
+
+1. The Application can access informations on:
+    -Local public transportations timetables such tram, bus, Coach.
+    -Positions and availability of Car and Bike sharing *private* and public service stations
+    -Positions of public transportations stops and stations like railway stations, train stations, bus stops.
+2. The Application can redirect the user during the navigation on secure Payments service page allowing the user to buy tickets online for public transports.
 
 Specific Requirements
 =====================
 
 External Interface Requirements
 -------------------------------
+In these section it will presented in the details all the specific interface of Travelandar+.
+
+**User Interface**
+
+UI and Graphical features are suited for all kind of users. It is essential a simple and immediate design which is characteristic of nowday applications.
+
+**Hardware Interface**
+
+**Software Interface**
+
+**Communication Interface**
 
 Functional Requirements
 -----------------------
 
 Performance Requirements
 ------------------------
+
+*Performance for Apple iOS and Android App*:
+
+#) Battery Consuption should be not greater than 0.96mah (non consuma piu' di Pokemon GO)
+#) 'Best Route' Calculation time should be not graeter 2.0 seconds
+#) 'Alarm' function ('Event-reminder') should be configurable to be active even if the cellphone is Power Off.
+#) The graphical effects of the 'Virtual Map' should not slow down the runtime execution of the App.
+#) Memory Storage Consumption of the application should not be greater than 128MB.
+
+*Performance for Browser Application*:
+
+#) Loading of the Home Page should be as fast as possible.
+#) Javascript Animations should be performed after that the login bar is loaded.
 
 Design Constraints
 ------------------
@@ -206,6 +240,7 @@ The software will use the following standards when deployed:
 
 - JavaEE for the server backend
 - utilize a JSON REST API for communication between the backend and frontend
+- Google Maps library for the 'Virtual Map' creation
 
 --------------------
 Hardware Limitations
@@ -217,6 +252,12 @@ The mobile app will have the following hardware limitations:
 - GPS
 
 .. [*] Semi-continuous meaning that the system can loose connection briefly but overall needs to be able to access the internet on a reoccurring basis
+
+--------------------------
+Mobile Systems Limitations
+--------------------------
+
+#) Android Mobile Systems should have installed the latest Google Play Service avilable.
 
 -----------------
 Other Constraints
