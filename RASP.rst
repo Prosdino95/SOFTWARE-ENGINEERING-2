@@ -267,6 +267,46 @@ Since the system relies on confidential information in order to work the system 
 Software System Attributes
 --------------------------
 
+-----------------
+Reliability	
+-----------------
+
+*The main focus is on the 'Best Route' Algorithm and the calcolation of the 'Expected time' of Arrival at the 'Meeting Location'.*
+
+ #) 'Best Route' Algorithm should be tested and have a coverage greater than 80%
+ #) 'Expected time' of arrival at the 'Meeting Location' should be have a relative error of 5% of the time exstimated.
+ #) If the user does not have internet connectivity on the mobile, he/she still could open the app and access to 'Calendar' function and view the meetings submitted.
+ #) (FACOLTATIVO?) The 'Expected time' of arrival at the 'Meeting Location' should be updated constantly in case of changing of weather forecast or unexpected event (public transport goes off...)
+ 
+
+-----------------
+Availability	
+-----------------
+
+*Travlendar+ helps its users to schedule their personal life appoinment and shold be as much open and accessible as possible even with the absence of Internet*
+
+#) The 'Calendar' function should be accessible on the App even if the Mobile is in Offline Mode.
+#) A pdf description of the 'Best Route' can be downloaded on the Travelndar+ Broswer.
+#) (FACOLTATIVO) User can import a 'Calendar' configuration package and simply update his/her personal schedule of appointments.
+
+-----------------
+Security	
+-----------------
+
+*Travlendar+ manages personal informaton of the user registered. For this reason it is very important the Security issue and some achievements have to be taken.*
+
+#) https protocol
+#) Cryptograpy
+#) ...
+
+-----------------
+Maintainability
+-----------------
+
+-----------------
+Portability
+-----------------
+
 Scenario
 =====================
 
