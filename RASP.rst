@@ -175,6 +175,15 @@ Le categorie di utenti principali a cui si rivolge Travelendar+ sono:
 Assumptions
 -----------
 
+*Algorithm 'Best Route' Calculation Assumptions*:
+
+1. The Algorithm with the 'By Foot' 'Veichle' assume that the user can walk with the standard average walk speed. 
+2. The Algorithm doesn't take into account for a 'By Foot' 'veichle preference' various ground impacts that could slow down the walk, such as road stairs, rough terrain, long street climbs (salite). 
+3. The Algorithm doesn't take into account the traffic exstimation on that street. (DA DISCUTERE)
+4. The Algorithm doesn't take into account for a 'By Foot' vehicle preference if the sidewalk is crowded in that day and time which could slow down the walk of the user.(example: Cso BuonosAires)
+5. The Algorithm doesn't take into account for a 'By foot' or a 'Bike' It avoids to track the route across a park or a green area on the map if it is not specified by the user.
+
+
 Specific Requirements
 =====================
 
