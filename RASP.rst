@@ -201,15 +201,24 @@ External Interface Requirements
 -------------------------------
 In these section it will presented in the details all the specific interface of Travelandar+.
 
-**User Interface**
+--------------
+User Interface
+--------------
 
-UI and Graphical features are suited for all kind of users. It is essential a simple and immediate design which is characteristic of nowday applications.
+*UI and Graphical features are suited for all kind of users. It is essential a simple and immediate design which is characteristic of nowday applications.*
 
-**Hardware Interface**
+------------------
+Hardware Interface
+------------------
 
-**Software Interface**
+------------------
+Software Interface
+------------------
 
-**Communication Interface**
+-----------------------
+Communication Interface
+-----------------------
+
 
 Functional Requirements
 -----------------------
