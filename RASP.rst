@@ -3,29 +3,56 @@ IngSw2
 Introduction
 ============
 
-Purpose
--------
- *Travlendar+ e' un sistema di gestione di appuntamenti capace di schedulare in modo efficiente la calendarizzazione degli impegni dell'utente. Grazie all'applicazione e' possibile calcolare in anticipo il tempo stimato per raggiungere il luogo di incontro in funzione del mezzo di trasporto scelto dall'utente.* 
+*Travlendar+ e' un sistema di gestione di appuntamenti capace di schedulare in modo efficiente la calendarizzazione degli impegni dell'utente. Grazie all'applicazione e' possibile calcolare in anticipo il tempo stimato per raggiungere il luogo di incontro in funzione del mezzo di trasporto scelto dall'utente.* 
 
  *L'applicazione e' pensata non solo per organizzare viaggi interregionale ma anche per gli impegni personali o di lavoro dell'utente. L'utente una volta registrato potra' impostare le sue preferenze sui mezzi di trasporto per raggiungere la location dell'appuntamento. In funzione alla scelta dell'utente l'applicazione potra' suggerire diversi itinerari con diverse stime di tempo per oguna di esse.* 
 
  *Travlendar+ si propone al pubblico come una mobile applicazione web based capace di migliorare la vita quotidiana dei suoi utenti in modo semplice, sicuro ed efficiente.* 
 
-Scope
------
-*GOALS:*
+Purpose
+-------
 
- **Calendar**
-
+*The main functions offered by Travlendar+ are substantially three:*
+    * **Calendar** App purpose functions
+    * **Maps Geolocalization** App functions
+    * Customizable **Personal User** page and preferences functions.
+     
+*To make more readable the document, we divided the main Goals of Travlendar+ for these category*
  
- 1) Visionare un calendario online personale di "Eventi" registrati.
+ The Goals are:
+ 
+------------------
+Calendar Functions
+------------------
+
+ #) Show a personal calendar of 'Events' submitted.
+ #) Let the User submit 'Events' on the calendar to plan his/her future appointments.
+ #) Notify the User when the 'Event' is about to start and she/he needs to leave to be in time to the 'Event Meeting Location'.
+ #) Let the User to create 'Flexible Event' for everyday short and low priority appointments.
+ #) (**optional**)  
+ 
+::
+
+ Visionare un calendario online personale di "Eventi" registrati.
  2) Permettere la registrazione di un "Evento" specificando una data, una "Starting Location", una "Meeting Location" e una fascia oraria.
  3) Notificare l'inizio di un evento all'utente ("Alarm" function).
  4) (Facoltativo?) Permettere la modifica/eliminazione degli "Eventi".
  5) Let the User to create 'Flexible Event' for everyday  short and low priority appointment.
- 
- **Maps**
- 
+
+------------------------------
+Maps Geolocalization Functions
+------------------------------
+ #) Geolocalize the gps coordinates of the "Starting Location" and the "Meeting Location" on a virtual map.
+ #) Calculate a list of possible shortest routes from a "Starting Location" and the "Meeting Location" with the 'Vehicles' available.
+ #) Calculate the Extimation time of arrival at the destination for each route.
+ #) Let the User choose a route from the list of "Best Route" provided by the algorithm
+ #) Let the User modify the "Best Route" adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.
+ #) Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.
+ #) notify with a Warning message if the 'best Route' chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.
+ #) Suggest a "Best Route" to the User with a 'Vehicle' which is appropriate for the day time of the appointment, the geographical location, the type of the meeting and the weather.
+
+::
+
  1) Identificare la "Starting Location" e il "Meeting Location" su una mappa satellitare virtuale tramite tecnologia gps.
  2) Individuare una lista di itinerari piu' brevi possibili per raggiungere la "Meeting Location" dalla "Starting Location" con diversi mezzi di trasporto disponibili.
  3) Segnalare il "Best Route" all'utente. (L'itinerario piu' breve possibile indipendentemente dai "Costraint" inseriti dall'utente).
@@ -34,10 +61,20 @@ Scope
  6) Addattare il "Best Route" alle condizioni metereologiche del giorno.
  7) (Facoltativo?) Notificare all'utente la presenza di un itinerario piu' breve da quello impostato tramite i "Costraint"
  8) Segnalare tramite un "Warning" all'utente se l'itinerario scelto dalla lista di quelli possibili potrebbe farlo arrivare in ritardo all "Meeting".
- 9) ...
+
+------------------------------
+User Profile Manager Functions
+------------------------------
  
- **User Profile**
+ #) Let the User to sign in to the Service filling an online form.
+ #) Let the User to login to their personal User page and update their informations.
+ #) Let the User fill their 'Vehicle' preferences or dislike for best result on Algorithm 'Best Route' calculus.
+ #) Let the User buy online tickets for the majority of the public transports involved on the 'Best Route' chosen.
+ #) (**optional**)  Let the User modify settings for the Algorithm 'Best Route'such activating 'Green Mode' or enabling options like "No traffic lighters", "No Schools at 16:00", "Show Autovelox".
+ #) (**optional**) Let the User submit on his/her page the availability of public transports subcription, driver licence, coupons for special transports for best result on Algorithm 'Best Route' calculus. 
  
+::
+
  1) Permettere la registrazione al servizio tramite numero di telefono, email, nome, cognome e codice fiscale. (cf per patente)
  2) Permettere il login a Travlendar+ tramite indirizzo https www.travelendar.com su Broswer o tramite client app da GooglePLayStore e IOs.
  3) Update, modifica e remove dei dati personali sulla pagina utente.
@@ -45,6 +82,11 @@ Scope
  5) (Facoltativo) Impostazione preferenze algoritmo di calcolo dell'itinerario ("GreenMode Activated","No traffic lighters", "No Schools at 16:00", "Show Autovelox")
  6) (Facoltativo) Permettere l'inserimento di abbonamenti per mezzi di trasporto, coupon o dati su patente.
  7) The User can buy online a ticket for a pubblic transportation suggested on the "Best Route".
+
+Scope
+-----
+
+asffasdfasdf
  
  
 Definitions
