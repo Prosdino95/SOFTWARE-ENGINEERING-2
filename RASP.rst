@@ -59,7 +59,21 @@ User Profile Manager Functions
 Scope
 -----
 
-analysis	of	the	world	and	of	the	shared	phenomena (**DA FARE**)
+ *Travelandar+ has a simple scope, helping the Users to planning efficiently their appoinments. We can analyze all the shareded phenomena by the App and the Users.*
+ 
+ *Shared Phenomena*:
+ 
+ #) Registration on the Travlendar+ Service
+ #) Submitting the 'Event'
+ #) Submitting the preferences of the User
+ #) Alarm function
+ #) Calculus of the 'Best Route'
+ 
+ *Not Shared Phenomena*:
+
+ #) Geographical positions of the 'Event's Locations.
+ #) Presence of roads, streets, railway stations, public transports in the city.
+ #) Preferences of the User.
  
  
 Definitions
