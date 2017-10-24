@@ -3,20 +3,17 @@ IngSw2
 Introduction
 ============
 
-Purpose
--------
- *Travlendar+ e' un sistema di gestione di appuntamenti capace di schedulare in modo efficiente la calendarizzazione degli impegni dell'utente. Grazie all'applicazione e' possibile calcolare in anticipo il tempo stimato per raggiungere il luogo di incontro in funzione del mezzo di trasporto scelto dall'utente.* 
+*Travlendar+ e' un sistema di gestione di appuntamenti capace di schedulare in modo efficiente la calendarizzazione degli impegni dell'utente. Grazie all'applicazione e' possibile calcolare in anticipo il tempo stimato per raggiungere il luogo di incontro in funzione del mezzo di trasporto scelto dall'utente.* 
 
  *L'applicazione e' pensata non solo per organizzare viaggi interregionale ma anche per gli impegni personali o di lavoro dell'utente. L'utente una volta registrato potra' impostare le sue preferenze sui mezzi di trasporto per raggiungere la location dell'appuntamento. In funzione alla scelta dell'utente l'applicazione potra' suggerire diversi itinerari con diverse stime di tempo per oguna di esse.* 
 
  *Travlendar+ si propone al pubblico come una mobile applicazione web based capace di migliorare la vita quotidiana dei suoi utenti in modo semplice, sicuro ed efficiente.* 
 
-Scope
------
-*GOALS:*
+Purpose
+-------
 
 *The main functions offered by Travlendar+ are substantially three:*
-    * **Calendar** App purpose functions
+    * **Calendar** App manager functions
     * **Maps Geolocalization** App functions
     * Customizable **Personal User** page and preferences functions.
      
@@ -32,20 +29,12 @@ Calendar Functions
  #) Let the User submit 'Events' on the calendar to plan his/her future appointments.
  #) Notify the User when the 'Event' is about to start and she/he needs to leave to be in time to the 'Event Meeting Location'.
  #) Let the User to create 'Flexible Event' for everyday short and low priority appointments.
- #) (**optional**)  
  
-::
-
- 1) See a personal caledar of events.
- 2) Allows the registration of an "Event" by specifying a date, a "Starting Location" and a "Meeting Location"
- 3) Notify the user of the start of an event ("Alarm" function).
- 4) (Facoltativo?) Allow modification/deletion of events.
- 5) Let the User to create 'Flexible Event' for everyday  short and low priority appointments.
 
 ------------------------------
 Maps Geolocalization Functions
 ------------------------------
- #) Geolocalize the gps coordinates of the "Starting Location" and the "Meeting Location" on a virtual map.
+ #) Geolocate the gps coordinates of the "Starting Location" and the "Meeting Location" on a virtual map.
  #) Calculate a list of possible shortest routes from a "Starting Location" and the "Meeting Location" with the 'Vehicles' available.
  #) Calculate the Extimation time of arrival at the destination for each route.
  #) Let the User choose a route from the list of "Best Route" provided by the algorithm
@@ -54,14 +43,6 @@ Maps Geolocalization Functions
  #) notify with a Warning message if the 'best Route' chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.
  #) Suggest a "Best Route" to the User with a 'Vehicle' which is appropriate for the day time of the appointment, the geographical location, the type of the meeting and the weather.
 
- 1) Identify the starting and meeting location on a satellite map via gps technology.
- 2) Identify a list of shortest itineraries to get to the meeting location from the starting location based on different methods of transportation available.
- 3) Segnalare il "Best Route" all'utente. (L'itinerario piu' breve possibile indipendentemente dai "Costraint" inseriti dall'utente).
- 4) Inserire tra i vari mezzi di trasporto disponibili da scegliere eventuali mezzi di trasporto pubblici disponibili in citta' e stazioni di bike e car sharing.
- 5) Permettere all'utente la modifica dell'itinerario inserendo delle "Itermidiate Location" (tappe intermedie) o delle preferenze su mezzi di trasporto in particolare tratte del viaggio ("Costraint").
- 6) Addattare il "Best Route" alle condizioni metereologiche del giorno.
- 7) (Facoltativo?) Notificare all'utente la presenza di un itinerario piu' breve da quello impostato tramite i "Costraint"
- 8) Segnalare tramite un "Warning" all'utente se l'itinerario scelto dalla lista di quelli possibili potrebbe farlo arrivare in ritardo all "Meeting".
 
 ------------------------------
 User Profile Manager Functions
@@ -74,20 +55,11 @@ User Profile Manager Functions
  #) (**optional**)  Let the User modify settings for the Algorithm 'Best Route'such activating 'Green Mode' or enabling options like "No traffic lighters", "No Schools at 16:00", "Show Autovelox".
  #) (**optional**) Let the User submit on his/her page the availability of public transports subcription, driver licence, coupons for special transports for best result on Algorithm 'Best Route' calculus. 
  
-::
-
- 1) Permettere la registrazione al servizio tramite numero di telefono, email, nome, cognome e codice fiscale. (cf per patente)
- 2) Permettere il login a Travlendar+ tramite indirizzo https www.travelendar.com su Broswer o tramite client app da GooglePLayStore e IOs.
- 3) Update, modifica e remove dei dati personali sulla pagina utente.
- 4) Gestione delle preferenze dei veicoli per itinerari brevi.
- 5) (Facoltativo) Impostazione preferenze algoritmo di calcolo dell'itinerario ("GreenMode Activated","No traffic lighters", "No Schools at 16:00", "Show Autovelox")
- 6) (Facoltativo) Permettere l'inserimento di abbonamenti per mezzi di trasporto, coupon o dati su patente.
- 7) The User can buy online a ticket for a pubblic transportation suggested on the "Best Route".
 
 Scope
 -----
 
-asffasdfasdf
+analysis	of	the	world	and	of	the	shared	phenomena (**DA FARE**)
  
  
 Definitions
@@ -104,79 +76,145 @@ Definitions
 * *Vehicle*:
 * *Warning*:
 
-Requirements
-------------
-
-1) Schedule appointments
-
-2) Check transportation availabilities
-
-3) Avoid delays
-
-  - 3.1 have a "buffer time" (to factor in possible delays inherently derived from the transportation used)
-
-4) Use various APIs with eterogeneous protocols to check for the various transports
-
-  - 4.1 transportation and user profile check(history, preferences etc...)
-  - 4.2 identify the best transportation method(s)
-
-    - 4.2.1 discriminate based on time/cost/walking time
-
-    - 4.2.2 user preferences (learning system)
-
-    - 4.2.3 weather conditions
-
-    - 4.2.4 appointment type
-
-    - 4.2.5 neighboring appointments (e.g. a car-only destination will make the options for the other appointments discriminate towards cars rather than public transport)
-
-    - 4.2.6 warn the user about itinerary changes.
-
-5) Send warnings to the user based on various events
-
-  - 5.1 creazioni di meeting irraggiungibili in tempo (??)
-
-  - 5.2 Lunch (see:8.5)
-
-6) Users can create meetings
-
-7) Users preferences
-
-  - 7.1 enable/disable types of transportations
-
-  - 7.1.1 have preferences and forbidden types of transportation
-
-  - 7.2 insert rules regarding individual transport types (e.g. time, distance)
-
-  - 7.3 Carbon footprint discriminance
-
-  - 7.4 ability to insert montly/yearly passes
-
-8) Fexible Lunch
-
-  - 8.1 allow optional suppression
-
-  - 8.2 have a timeframe for each day
-
-  - 8.3 customizable length
-
-  - 8.4 automatic rescheduling in case of conflicting appointments
-
-  - 8.5 generate a warning in case lunch is unattendable
-
-  - 8.6 possibility to add other types of reoccurrent events (such as breaks)
-
-9) ticket purchase
 
 Overall Description
 ===================
 
 Product Perspective
 -------------------
+analysis	of	the	world	and	of	the	shared	phenomena
+
+(**DA FARE**)
 
 Product Functions
 -----------------
 
+*Focusing on each category of the Goals of Travelander+ the principal Requirements can be summarized in this sections*
+
+-------------------------------
+Calendar Functions Requirements
+-------------------------------
+
+ #) *Show a personal calendar of 'Events' submitted.*
+  
+     #) The App must store the submit of 'Event' of the User
+     
+     #) The App must have a visual calendar showing the 'Event' of the User.
+     
+     #) The App must have a page navigation system.
+     
+     
+ #) *Let the User submit 'Events' on the calendar to plan his/her future appointments.*
+ 
+     #) The App must store an "Event" when the User specifies a "Starting Location", a "Meeting Location" a date and the time.
+    
+     #) The App must not let the User to create 'Event' in the past days.
+     
+     #) The App must provide a message of 'Warning' if the User is creating an 'Event' which can be overlapped to an existing 'Event'.
+     
+     
+ #) *Notify the User when the 'Event' is about to start and she/he needs to leave to be in time to the 'Event Meeting Location'.*
+ 
+    #) The App must have an 'Alarm System' which warns the User that can miss or be late to an appointment if he/she doesn't leave.
+    
+    #) The 'Alarm System' can be configurate by the User and can have different ways of notify.
+    
+    #) The 'Alarm System' if activated must start before the start time of the 'Event'
+    
+ #) *Let the User to create 'Flexible Event' for everyday short and low priority appointments.*
+ 
+    #) The App must provide a 'Flexible Event' flag when the User is creating a new 'Event'
+    
+    #) A 'Flexible Event' can be overlapped to an another 'Event'
+    
+    #) A 'Flexible Event' can be copied and pasted on the Calendar and be repeated on several days of the same Week.
+    
+    #) A 'Flexible Event' can be easly suppressed.
+     
+
+---------------------------------
+Maps Geolocalization Requirements
+---------------------------------
+
+ #) *Geolocate the gps coordinates of the "Starting Location" and the "Meeting Location" on a virtual map.*
+    
+   #) The App must provide gps API and be able to locate the position on a graphical map.
+    
+ #) *Calculate a list of possible shortest routes from a "Starting Location" and the "Meeting Location" with the 'Vehicles' available.*
+    
+   #) The 'Best Route' Algorithm must return a list of shortest routes, one for each 'Vehicle' specified.
+    
+ #) *Calculate the Extimation time of arrival at the destination for each route.*
+    
+   #) The App with the support of external API can calculate an Extimation time of arrival for a specified 'Best Route'.
+    
+ #) *Let the User choose a route from the list of "Best Route" provided by the algorithm*
+    
+   #) The App must provide a grphical list in which are presented all the possible 'Best Routes' and details of the itinerary.
+    
+   #) The App must wait a choice of the User to save the 'BEst route' for the specified 'Event'.
+    
+ #) *Let the User modify the "Best Route" adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.*
+    
+   #) The App must provide a graphical feature in which the user can modify the path adding location on the virtual maps.
+    
+   #) The 'Best Route' Algorithm must update the Extimate time of arrival at destination depending on the geographical position of the 'Intermidiate Locations' added or the new 'Vehicle' speed average chosen.
+   #) In case of 'Costraint' too much strict the App can return a 'Warning' message notifing the User that a 'Best Route' does not exist with that 'Costraint'.
+    
+ #) *Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.*
+    
+   #) The App must have information on timetables of the public transports of the city.
+    
+   #) The App must notify on the virtual map stations of the public transports of the city.
+    
+    
+ #) *Notify with a Warning message if the 'best Route' chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.*
+ 
+   #) Before subitting the 'Event', the App must check if the time of the 'Event' and the 'Extimation' time of Arrival of the corrisponding 'Best Route' overlap with other 'Event' time start.
+    
+ #) *Suggest a "Best Route" to the User with a 'Vehicle' which is appropriate for the day time of the appointment, the geographical location, the type of the meeting and the weather*
+ 
+   #) The App when provide the list of 'Best Route' to the User must provide a suggested one.
+    
+
+---------------------------------
+User Profile Manager Requirements
+---------------------------------
+ 
+ #) *Let the User to sign in to the Service filling an online form.*
+    
+    #) The App must provide a registration form to the User.
+    #) The User is not signed in until all the fields of the form are not filled and valid.
+    #) The App must verify if the information on the registration form are valid.
+    
+    
+ #) *Let the User to login to their personal User page and update their informations.*
+ 
+    #) The App must provide an update function on the User pofile page.
+    #) The App must verify if the new indormations are valid.
+    
+    
+ #) *Let the User fill their 'Vehicle' preferences or dislike for best result on Algorithm 'Best Route' calculus.*
+ 
+    #) The App must store the preference or dislike of the User
+    #) The 'Best Route' Algorithm must not present 'Best Routes' with 'Vehicles' that the User dislikes
+    
+    
+ #) *Let the User buy online tickets for the majority of the public transports involved on the 'Best Route' chosen.*
+ 
+    #) The App must provide a link to a Payment service page in which the User can buy the tickets.
+    
+    
+ #) (**optional**)  *Let the User modify settings for the Algorithm 'Best Route'such activating 'Green Mode' or enabling options like "No traffic lighters", "No Schools at 16:00", "Show Autovelox".* 
+ 
+    #) The App must store all the setting of the Algorithm chosed by the User
+    
+ #) (**optional**) *Let the User submit on his/her page the availability of public transports subcription, driver licence, coupons for special transports for best result on Algorithm 'Best Route' calculus.* 
+ 
+    #) The App must use if available those information when calculating the 'Best Route'
+    
+    
+ 
 User Characteristics
 --------------------
 
@@ -223,11 +261,11 @@ Assumptions
 
 *Algorithm 'Best Route' Calculation Assumptions*:
 
-1. The Algorithm will take into account statistics from the user to determine its walking pace and better optimize the algoritm.
-2. The Algorithm doesn't take into account for a 'Vehicles' various ground impacts that could slow down the walk, such as stairs, rough terrain, long street climbs. 
-3. The Algorithm doesn't take into account the traffic jams on that street. (DA DISCUTERE)
-4. The Algorithm doesn't take into account for a 'By Foot' vehicle preference if the sidewalk is crowded in that day and time which could slow down the walk of the user.(example: Cso BuonosAires)
-5. The Algorithm doesn't take into account for a 'By foot' or a 'Bike' It avoids to track the route across a park or a green area on the map if it is not specified by the user.
+#) The Algorithm will take into account statistics from the user to determine its walking pace and better optimize the algoritm.
+#) The Algorithm doesn't take into account for a 'Vehicles' various ground impacts that could slow down the walk, such as stairs, rough terrain, long street climbs. 
+
+#) The Algorithm doesn't take into account for a 'By Foot' vehicle preference if the sidewalk is crowded in that day and time which could slow down the walk of the user.(example: Cso BuonosAires)
+#) The Algorithm doesn't take into account for a 'By foot' or a 'Bike' It avoids to track the route across a park or a green area on the map if it is not specified by the user.
 
 *Query external DBs Assumptions*:
 
