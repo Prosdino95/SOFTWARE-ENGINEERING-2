@@ -1,13 +1,16 @@
 IngSw2
 
+.. contents:: Table of Contents
+ :depth: 2
+
 Introduction
 ============
 
-*Travlendar+ e' un sistema di gestione di appuntamenti capace di schedulare in modo efficiente la calendarizzazione degli impegni dell'utente. Grazie all'applicazione e' possibile calcolare in anticipo il tempo stimato per raggiungere il luogo di incontro in funzione del mezzo di trasporto scelto dall'utente.* 
+ *Travlendar+ a appointment management system capable of efficently scheduling a user's calendar. Thanks to this application it is possible to calculate in advance the estimated time to reach a meeting point based on the transportation choices made my the user.*
 
- *L'applicazione e' pensata non solo per organizzare viaggi interregionale ma anche per gli impegni personali o di lavoro dell'utente. L'utente una volta registrato potra' impostare le sue preferenze sui mezzi di trasporto per raggiungere la location dell'appuntamento. In funzione alla scelta dell'utente l'applicazione potra' suggerire diversi itinerari con diverse stime di tempo per oguna di esse.* 
+ *The application not only is used for interregional travels but also for personal   and/or work appointments. Once the user is registered he or she will be able to set their preferences regarding transportation choices to reach their destination. The application will suggest different itineraries to the user based on different transportation methods, based on metrics such as transportation time and cost.*
 
- *Travlendar+ si propone al pubblico come una mobile applicazione web based capace di migliorare la vita quotidiana dei suoi utenti in modo semplice, sicuro ed efficiente.* 
+ *Travelendar+ is a mobile and web application capable of improving its user's everyday life with simplicity, efficency and safety.*
 
 Purpose
 -------
@@ -512,6 +515,10 @@ Use Case Map Geolocalization Functions
 +---------------------+------------------------------------------------------------------------------------------------------+
 
 
+Class Diagram
+-------------
+
+.. image:: class_diagram.png
 
 
 
