@@ -3,23 +3,21 @@ open util/boolean
 
 
 //Signatures
+
 sig User{
 	events: set Event,
-	username:one String,
+	email:one String,
 	prohibitedVehicles:set Vehicle
 }
 
 sig Vehicle{}
 
 sig Event{
-	//?? ho dovuto fare questa cosa di mettere una data perche' il tipo Time di alloy non ha una 
-	//?? relazione d'ordine(o io non sono riuscito a generarla) 
-	//??quindi non potevo fare i confronti >,< e quindi ho usato interi senza dividere 
-	//??data da giorno per ora
 	initialTime:one Date,
 	finalTime:one Date,
 	position:one Position,	
-	warning:one Bool
+	warning:one Bool,
+	paths:set Path
 }
 
 sig Date{
@@ -46,23 +44,30 @@ fact creatingEvents{
 all e:Event | some u:User | e in u.events
 }
 
-//an event can't end before start
+//an event and a path can't end before start
 fact timeLinearity{
 	all e:Event | e.initialTime.time<e.finalTime.time
+	all p:Path | p.startTime.time<p.endTime.time
 }
 
-//not ugual usernameusername
-fact usernameUnique{
-	no disjoint u1,u2:User | u1.username=u2.username
+//email are unique
+fact emailUnique{
+	no disjoint u1,u2:User | u1.email=u2.email
 }
 
-//not ugual date
+//date are unique
 fact dateUnique{
 	no disjoint d1,d2:Date | d1.time=d2.time
 }
 
+//single event not gen warning
+fact warninGen1{
+	all u:User| #u.events=1 implies
+				u.events.warning=False
+}
+
 //event without sovrapposition mustn't gen warning
-fact warningGen1{
+fact warningGen2{
 	all disj e1,e2:Event|e1.warning=False implies
 						//there aren't sovrappositions
 						(e1.finalTime.time<=e2.initialTime.time or
@@ -71,8 +76,8 @@ fact warningGen1{
 						e2.warning=False					
 }
 
-//event without sovrapposition must gen warning
-fact warningGen2{
+//event with sovrapposition must gen warning
+fact warningGen3{
 	all disj e1,e2:Event|e1.warning=True implies
 						//there are sovrappositions
 						e1.finalTime.time>e2.initialTime.time and
@@ -80,11 +85,11 @@ fact warningGen2{
 						e2.warning=True					
 }
 
-//unreachable events gen warnings
-fact unreachableEvents{
-	//non sono sicuro sia giusta
-	some e:Event| e.warning=True implies
-	(some p:Position,e:Event,u:User | choosePath[p,e,u])
+
+
+//Events have only possible path
+fact eventPath{
+	all e:Event | some u:User,p:Position| choosePath[p,e,u]
 }
 
 
@@ -103,7 +108,7 @@ assert addAndDel {
 
 //the algorithm choose the paths from start position to event position 
 pred choosePath[p1:Position,e:Event,u:User]{
-	some ph:Path |
+	some ph:Path | 
 			//start and arrive in the right position
 			ph.startPosition=p1 and ph.endPosition=e.position and
 			//arrive at event with no delay
@@ -122,10 +127,22 @@ pred delEvent[u1,u2:User,e:Event]{
 	u2.events=u1.events-e
 }
 
-pred show{
-	#User.events>=3
+pred normalSchedule{
+	#User.events>=2
+	all e:Event | e.warning=False
 }
 
-run choosePath for 6 but exactly 1 User, exactly 1 String,3 Event, exactly 1 Path
-//check addAndDel
-//check bestPath
+pred warningSchedule{
+	#User.events>=2
+	some e:Event | e.warning=True
+}
+
+pred show{}
+
+
+run normalSchedule for 5 but exactly 1 String
+run normalSchedule for 5 but exactly 1 String
+run choosePath for 4 but 1 User,2 Position,2 Vehicle, exactly 1 String, 1 Event, 2 Path
+check addAndDel
+run show  for 4 but 2 Position, exactly 1 String,exactly 1 Event,2 Path
+
