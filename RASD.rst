@@ -178,7 +178,7 @@ Maps Geolocalization Requirements
    #) The 'Best Route' Algorithm must update the Extimate time of arrival at destination depending on the geographical position of the 'Intermidiate Locations' added or the new 'Vehicle' speed average chosen.
    #) In case of 'Costraint' too much strict the App can return a 'Warning' message notifing the User that a 'Best Route' does not exist with that 'Costraint'.
     
- #) *Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.*
+ #) *Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.*       
     
    #) The App must have information on timetables of the public transports of the city.
     
@@ -307,15 +307,15 @@ User Interface
 
 The User Interface of the Broswer Application and of Mobile Application must be as similar as possible like the most popular application web based.
 
-    .. image:: ./Resources/MockUp/MockUp.png
-    .. image:: ./Resources/MockUp/User-Profile.png
-    .. image:: ./Resources/MockUp/Preference.png
-    .. image:: ./Resources/MockUp/login_template.png
-    .. image:: ./Resources/MockUp/loading_template.png
-    .. image:: ./Resources/MockUp/Event_Setting.png
-    .. image:: ./Resources/MockUp/Calendar_01.png
-    .. image:: ./Resources/MockUp/Calendar.png
-    .. image:: ./Resources/MockUp/BestRoutes.png
+    .. image:: Resources/MockUp/MockUp.png
+    .. image:: Resources/MockUp/User-Profile.png
+    .. image:: Resources/MockUp/Preference.png
+    .. image:: Resources/MockUp/login_template.png
+    .. image:: Resources/MockUp/loading_template.png
+    .. image:: Resources/MockUp/Event_Setting.png
+    .. image:: Resources/MockUp/Calendar_01.png
+    .. image:: Resources/MockUp/Calendar.png
+    .. image:: Resources/MockUp/BestRoutes.png
 
 
  
@@ -339,7 +339,7 @@ Functional Requirements
 ----------------------------
 Use Case about User Profile
 ----------------------------
-    .. image:: ./Resources/UseCase/UC1.1.png
+    .. image:: Resources/UseCase/UC1.1.png
     
 +---------------------+-----------------------------------------------------------------------------------------------------------+
 | **Name**            |   Register Proces                                                                                         |
@@ -468,7 +468,7 @@ Use Case Calendar Functions
 Use Case Map Geolocalization Functions
 ----------------------------------------
 
-    .. image:: ./Resources/UseCase/UC3.png
+    .. image:: Resources/UseCase/UC3.png
 
 
 +---------------------+----------------------------------------------------------------------------------------------+
@@ -533,7 +533,7 @@ Use Case Map Geolocalization Functions
 Class Diagram
 -------------
 
-    .. image:: ./Resources/class_diagram.png
+    .. image:: Resources/class_diagram.png
 
 
 
@@ -835,13 +835,13 @@ Dynamic model
 Proof of consistency
 ---------------------
 
-    .. image:: ./Resources/Proof.png
+    .. image:: Resources/Proof.png
 
 
 Generated World
 ----------------
 
-    .. image:: ./Resources/GeneratedWorld.png
+    .. image:: Resources/GeneratedWorld.png
 
 
 
