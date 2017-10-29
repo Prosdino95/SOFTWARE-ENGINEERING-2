@@ -6,7 +6,7 @@ Introduction
 
  *Travlendar+ is an appointment management system capable of efficently scheduling a user's calendar. Thanks to this application it is possible to calculate in advance the estimated time to reach a meeting point based on the transportation choices made my the user.*
 
- *The application not only is used for interregional travels but also for personal  and/or work appointments. Once the user is registered he or she will be able to set their preferences regarding transportation choices to reach their destination. The application will suggest different itineraries to the user based on different transportation methods, based on metrics such as transportation time and cost.*
+ *The application not only is used for interregional travels but also for personal or work appointments. Once the user is registered he or she will be able to set their preferences regarding transportation choices to reach their destination. The application will suggest different itineraries to the user based on different transportation methods, based on metrics such as transportation time and cost.*
 
  *Travelendar+ is a mobile and web application capable of improving its user's everyday life with simplicity, efficency and safety.*
 
@@ -37,7 +37,7 @@ Maps Geolocalization Functions
 ------------------------------
  #) Geolocate the gps coordinates of the "Starting Location" and the "Meeting Location" on a virtual map.
  #) Calculate a list of possible shortest routes from a "Starting Location" and the "Meeting Location" with the 'Vehicles' available.
- #) Calculate the Extimation time of arrival at the destination for each route.
+ #) Calculate the extimation time of arrival at the destination for each route.
  #) Let the User choose a route from the list of "Best Route" provided by the algorithm
  #) Let the User modify the "Best Route" adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.
  #) Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.
@@ -79,17 +79,18 @@ Scope
  
 Definitions
 -----------
-* *Alarm*:
-* *Best Route*:
-* *Costraint*:
-* *Event*:
-* *Green Mode*:
-* *Itermidiate Location*:
-* *Meeting Location*:
-* *Route*:
-* *Starting Location*:
-* *Vehicle*:
-* *Warning*:
+* *Alarm function*: a way in which the phone can notify the user that something important is happening. It is often a sound or a vibration according to the phone used.
+* *API:* Application programming interface; it is a common way to communicate with another system.
+* *Best Route*: The best route calculated by the algorithm to reach a given event without any delay. The algorithm also considers the user's preferences.
+* *Costraint*: Something that controls what you do by keeping you within particular limits.
+* *Event*: The users can create some events and submit them to the calendar. The application checks if there are some overlaps and calculates the best route to reach the events.
+* *Green Mode*: A user's preference which means that the user prefers to keep his Ecological Footprint as lower as possible. (for instance the user prefer to use a bike instead of a bus)
+* *Itermidiate Location*: Any locations between the start point and where the event take place.
+* *Meeting Location*: The place or position that the user specifies during the submission of a new event.
+* *Route*: The roads you follow to get from one place to another place. The routes are calculated after an event submission.
+* *Starting Location*: The position where the algorithm starts to calculate the routes to reach the event.
+* *Vehicle*: Something such as a car, bike or bus that takes people from one place to another, also "by foot" is considered a vehicle.
+* *Warning*: If there are some problems with an event (like overlapping) the application produces a notify that is attached to the event. The user can select the warning and see more details.
 
 
 Overall Description
@@ -151,43 +152,44 @@ Calendar Functions Requirements
 Maps Geolocalization Requirements
 ---------------------------------
 
- #) *Geolocate the gps coordinates of the "Starting Location" and the "Meeting Location" on a virtual map.*
+ 1 *Geolocate the gps coordinates of the "Starting Location" and the "Meeting Location" on a virtual map.*
     
    #) The App must provide gps API and be able to locate the position on a graphical map.
     
- #) *Calculate a list of possible shortest routes from a "Starting Location" and the "Meeting Location" with the 'Vehicles' available.*
+
+ 2 *Calculate a list of possible shortest routes from a "Starting Location" and the "Meeting Location" with the 'Vehicles' available.*
     
-   #) The 'Best Route' Algorithm must return a list of shortest routes, one for each 'Vehicle' specified.
+   #) The 'Best Route' Algorithm must return a list of shortest routes.
     
- #) *Calculate the Extimation time of arrival at the destination for each route.*
+ 3 *Calculate the Extimation time of arrival at the destination for each route.*
     
    #) The App with the support of external API can calculate an Extimation time of arrival for a specified 'Best Route'.
     
- #) *Let the User choose a route from the list of "Best Route" provided by the algorithm*
+ 4 *Let the User choose a route from the list of "Best Route" provided by the algorithm*
     
    #) The App must provide a grphical list in which are presented all the possible 'Best Routes' and details of the itinerary.
     
-   #) The App must wait a choice of the User to save the 'BEst route' for the specified 'Event'.
+   #) The App must wait a choice of the User to save the 'Best route' for the specified 'Event'.
     
- #) *Let the User modify the "Best Route" adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.*
+ 5 *Let the User modify the "Best Route" adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.*
     
    #) The App must provide a graphical feature in which the user can modify the path adding location on the virtual maps.
     
    #) The 'Best Route' Algorithm must update the Extimate time of arrival at destination depending on the geographical position of the 'Intermidiate Locations' added or the new 'Vehicle' speed average chosen.
    #) In case of 'Costraint' too much strict the App can return a 'Warning' message notifing the User that a 'Best Route' does not exist with that 'Costraint'.
     
- #) *Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.*       
+ 6 *Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.*       
     
    #) The App must have information on timetables of the public transports of the city.
     
    #) The App must notify on the virtual map stations of the public transports of the city.
     
     
- #) *Notify with a Warning message if the 'best Route' chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.*
+ 7 *Notify with a Warning message if the 'best Route' chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.*
  
    #) Before subitting the 'Event', the App must check if the time of the 'Event' and the 'Extimation' time of Arrival of the corrisponding 'Best Route' overlap with other 'Event' time start.
     
- #) *Suggest a "Best Route" to the User with a 'Vehicle' which is appropriate for the day time of the appointment, the geographical location, the type of the meeting and the weather*
+ 8 *Suggest a "Best Route" to the User with a 'Vehicle' which is appropriate for the day time of the appointment, the geographical location, the type of the meeting and the weather*
  
    #) The App when provide the list of 'Best Route' to the User must provide a suggested one.
     
@@ -205,8 +207,8 @@ User Profile Manager Requirements
     
  #) *Let the User to login to their personal User page and update their informations.*
  
-    #) The App must provide an update function on the User pofile page.
-    #) The App must verify if the new indormations are valid.
+    #) The App must provide an update function on the User profile page.
+    #) The App must verify if the new informations are valid.
     
     
  #) *Let the User fill their 'Vehicle' preferences or dislike for best result on Algorithm 'Best Route' calculus.*
@@ -230,17 +232,22 @@ User Profile Manager Requirements
     
     
  
+
 User Characteristics
 --------------------
 
 *Travelendar+ was made to aid organizations to effectively plan appointments throughout the year for its registered users. Its simplicity makes it versatile and easily accessible for all users.*
 
-There are 3 user categories that travelendar is aimed at:  
+There are 3 user categories that travelendar is aimed at:
  - *Business men*
  - *Travelers*
  - *City Lovers*
 
-*Businessmen* are all individuals that use the app for business appointments and meetings. Their behaviour will be characterized by:  
+-----------
+Businessmen
+-----------
+
+*Businessmen* are all individuals that use the app for business appointments and meetings. Their behaviour will be characterized by:
  #) submit rate of meetings per week and month *very high*.
  #) meetings location *very distant* and often *different*.
  #) *high* interest on arriving on time at meetings
@@ -250,6 +257,10 @@ There are 3 user categories that travelendar is aimed at:
  #) *vehicle preferences* are public transport for city meetings or *train* and *airplane* for outside city meetings.
  #) Long term users (will have a prolonged use the app consistently)
  
+---------
+Travelers
+---------
+
 *Travelers* are those who use the app for planing their trip or work conference. Their main goals are to reach airports, hotels, train stations or museums. Their behaviour will be:
  #) submit rate of meetings per week and day *very high*
  #) Two important 'Event' which are the 'Departure' and the 'Arrival' Event. For these events the interest on arriving on time is *crucial*.
@@ -259,6 +270,10 @@ There are 3 user categories that travelendar is aimed at:
  #) *medium* interest on graphical feature and user interfaces. The 'Events' could have useful verbose information attached to them.
  #) Short term users. Once the trip is over, they will probably uninstall the Application.
  
+-----------
+City Lovers
+-----------
+
 *City Lovers* are people that will use the application to schedule free time activities. They are tech savvy enthusiast who needs to annotate all their appointment during the week and are often curious of the limit of the Application. For example their 'Events' are linked with their social activities like going to the movies with friends or going shopping with their girlfriends, or sport activities, like going to the gym or jogging on Sunday morning. So their 'Behaviour' is characterized by:
  #) submit rate of meetings per week and day *very high*
  #) *low* interest on arriving on time on their appointments.
@@ -279,8 +294,8 @@ Assumptions
 #) The Algorithm will take into account statistics from the user to determine its walking pace and better optimize the algoritm.
 #) The Algorithm doesn't take into account for a 'Vehicles' various ground impacts that could slow down the walk, such as stairs, rough terrain, long street climbs. 
 
-#) The Algorithm doesn't take into account for a 'By Foot' vehicle preference if the sidewalk is crowded in that day and time which could slow down the walk of the user.(example: Cso BuonosAires)
-#) The Algorithm doesn't take into account for a 'By foot' or a 'Bike' It avoids to track the route across a park or a green area on the map if it is not specified by the user.
+#) The Algorithm doesn't take into account for a 'By Foot' vehicle preference if the sidewalk is crowded in that day and time which could slow down the walk of the user.
+#) For a 'By foot' or a 'Bike' the Algorithm avoids to track the route across a park or a green area on the map if it is not specified by the user.
 
 *Query external DBs Assumptions*:
 
@@ -317,8 +332,9 @@ The User Interface of the Broswer Application and of Mobile Application must be 
         
        **Figure 02:** The Broswer Gui is the same and extended version of th App Gui.
        
-       
 
+       
+--------
 Features
 --------
 
@@ -336,6 +352,7 @@ Features
 #) User Page
 #) Preferences Page
 
+----------------
 The Main Screens
 ----------------
          
@@ -368,6 +385,7 @@ The Main Screens
        **Figure 07:** The Preference page in which the user can modify and update his/her preferences on the transport to use.
     
     
+-----------------------
 The Submit Event Screen
 -----------------------
 
@@ -389,15 +407,15 @@ The Submit Event Screen
     
  
 
-------------------
+
 Hardware Interface
 ------------------
 
-------------------
+
 Software Interface
 ------------------
 
------------------------
+
 Communication Interface
 -----------------------
 
@@ -419,17 +437,17 @@ Use Case about User Profile
 +---------------------+-----------------------------------------------------------------------------------------------------------+
 | **Entry Condiction**|  There are no entry conditions                                                                            |
 +---------------------+-----------------------------------------------------------------------------------------------------------+
-| **Flow Event**      | #)  The visttor on the home page click on the register button to start the registration process.          |
+| **Flow Event**      | #)  The visitor on the home page clicks on the register button to start the registration process.         |
 |                     | #)  The visitor fields the form and provides the informations.                                            |
-|                     | #)  The System salve the data                                                                             |
-|                     | #)  The system send an e-mail with a link for verify the acuracy of the information provides by the user. |
+|                     | #)  The System saves the data                                                                             |
+|                     | #)  The system sends an e-mail with a link for verify the accuracy of the information provided by the user|
 +---------------------+-----------------------------------------------------------------------------------------------------------+
-| **Exit Condiction** | #)  after the user  veryfy the e-mail adress                                                              |
+| **Exit Condiction** | #)  after the user  verifies the e-mail address                                                           |
 +---------------------+-----------------------------------------------------------------------------------------------------------+
-| **Exceptions**      | #)  The visitor is alrady an user.                                                                        |
-|                     | #)  The visiyon not provides all the informations.                                                        |
-|                     | #)  The Visitor choose an email adress that has beenassociate whit another user.                          |
-|                     | #)  The visitir don't verify the email adres in a period of 10 days                                       |
+| **Exceptions**      | #)  The visitor is already an user.                                                                       |
+|                     | #)  The visitor does not provide all the informations.                                                    |
+|                     | #)  The visitor chooses an email address that has been associated with another user.                      |
+|                     | #)  The visitor does not verify the email address in a period of 10 days                                  |
 +---------------------+-----------------------------------------------------------------------------------------------------------+
 
     .. image:: ./Resources/UseCase/UC1.2.png
@@ -443,11 +461,11 @@ Use Case about User Profile
 +---------------------+-------------------------------------------------------------------+
 | **Entry Condiction**|  User is in the login page or in start screen of the app.         |
 +---------------------+-------------------------------------------------------------------+
-| **Flow Event**      | #)  The User insert his credential into "Username" and "passwors".|
+| **Flow Event**      | #)  The User inserts his credential into "Username" and "Password"|
 +---------------------+-------------------------------------------------------------------+
-| **Exit Condiction** | #)  after insert the right credentials.                           |
+| **Exit Condiction** | #)  after the user has inserted the right credentials.            |
 +---------------------+-------------------------------------------------------------------+
-| **Exceptions**      | #)  The user insert the wrong credenetials.                       |
+| **Exceptions**      | #)  The user inserts the wrong credentials.                       |
 +---------------------+-------------------------------------------------------------------+
 
 +---------------------+-----------------------------------------------------------------------------+
@@ -457,17 +475,17 @@ Use Case about User Profile
 +---------------------+-----------------------------------------------------------------------------+
 | **Goals**           |   G1,G4,G5,G6                                                               |
 +---------------------+-----------------------------------------------------------------------------+
-| **Entry Condiction**|  User has been alrady logged                                                |
+| **Entry Condiction**|  The Login in of the User was valid                                         |
 +---------------------+-----------------------------------------------------------------------------+
-| **Flow Event**      | #)  The user visit his profile pages                                        |
-|                     | #)  The user choose the tab whit the information that he want change        |
-|                     | #)  The user change his information                                         |
-|                     | #)  Choose the best path from a list show by the system                     |
-|                     | #)  Press the save button                                                   |
+| **Flow Event**      | #)  The user visits his profile pages                                       |
+|                     | #)  The user chooses the tab with the information that he wants to change   |
+|                     | #)  The user changes his informations                                       |
+|                     | #)  The user chooses the best path from a list showed by the system         |
+|                     | #)  The user presses the save button                                        |
 +---------------------+-----------------------------------------------------------------------------+
-| **Exit Condiction** | #)  when the user psess the save button                                     |
+| **Exit Condiction** | #)  when the user presses the save button                                   |
 +---------------------+-----------------------------------------------------------------------------+
-| **Exceptions**      | #)  The user miss to fill or delete an important informations in the profile|
+| **Exceptions**      | #)  The user inserts not valid informatons                                  |
 +---------------------+-----------------------------------------------------------------------------+
 
 -----------------------------
@@ -481,15 +499,15 @@ Use Case Calendar Functions
 +---------------------+-------------------------------------------------------------------------------------------------------------+
 | **Actors**          |   User                                                                                                      |
 +---------------------+-------------------------------------------------------------------------------------------------------------+
-| **Goals**           |   G1??                                                                                                      |
+| **Goals**           |   G1                                                                                                        |
 +---------------------+-------------------------------------------------------------------------------------------------------------+
-| **Entry Condiction**|  User has been alrady logged                                                                                |
+| **Entry Condiction**|  The Login in of the User was valid                                                                         |
 +---------------------+-------------------------------------------------------------------------------------------------------------+
-| **Flow Event**      | #)  The user visit the calendar of the events and see the events.                                           |
+| **Flow Event**      | #)  The user visits the calendar of the events and see the events.                                          |
 |                     | #)  The user chose to delete/change an event **or**                                                         |
-|                     | #)  ?? The user clik on a warning to see what i sthe problem and the possible solution offert by the system.|
-|                     | #)  Psess the the save button                                                                               |
-|                     | #)  The Sistem register the changes                                                                         |
+|                     | #)  The user clicks on a warning to see what is the problem and the possible solution offert by the system. |
+|                     | #)  The user presses the save button                                                                        |
+|                     | #)  The Sistem stores the changes                                                                           |
 +---------------------+-------------------------------------------------------------------------------------------------------------+
 | **Exit Condiction** | #)  when the user psess the save button at the end of modify.                                               |
 +---------------------+-------------------------------------------------------------------------------------------------------------+
@@ -503,16 +521,16 @@ Use Case Calendar Functions
 +---------------------+--------------------------------------------------------------+
 | **Goals**           |   G2,G4                                                      |
 +---------------------+--------------------------------------------------------------+
-| **Entry Condiction**|  User has been alrady logged                                 |
+| **Entry Condiction**|  User has been already logged                                |
 +---------------------+--------------------------------------------------------------+
-| **Flow Event**      | #)  The user visit the calendar of the events.               |
-|                     | #)  The user chose to add an event.                          |
-|                     | #)  the user submit all the information about the events     |
-|                     | #)  Psess tho the save button                                |
+| **Flow Event**      | #)  The user visits the calendar of the events.              |
+|                     | #)  The user chooses to add an event.                        |
+|                     | #)  the user submits all the information about the events    |
+|                     | #)  The user presses the save button                         |
 +---------------------+--------------------------------------------------------------+
-| **Exit Condiction** | #)  when the user psess the save button at the end of modify.|
+| **Exit Condiction** | #) when the user presses the save button at the end of modify|
 +---------------------+--------------------------------------------------------------+
-| **Exceptions**      | #)  The user miss to fill important informations.            |
+| **Exceptions**      | #)  The user misses to fill important informations.          |
 +---------------------+--------------------------------------------------------------+
 
 +---------------------+------------------------------------------------------------------------------------------+
@@ -522,13 +540,13 @@ Use Case Calendar Functions
 +---------------------+------------------------------------------------------------------------------------------+
 | **Goals**           |   G2                                                                                     |
 +---------------------+------------------------------------------------------------------------------------------+
-| **Entry Condiction**|   the system have one or some notify for the user                                        |
+| **Entry Condiction**|   The system has one or some notifies for the user                                       |
 +---------------------+------------------------------------------------------------------------------------------+
-| **Flow Event**      | #)  The system check the calendar of the user.                                           |
-|                     | #)  The system generate a notify when the user needs to leave to be in time at the event |
-|                     | #)  The system generate a notify if there are one or plus warning about the events.      |
+| **Flow Event**      | #)  The system checks the calendar of the user.                                          |
+|                     | #)  The system generates a notify when the user needs to leave to be in time at an event |
+|                     | #)  The system generates a notify if there are one or more warning about the events.     |
 +---------------------+------------------------------------------------------------------------------------------+
-| **Exit Condiction** | #)  when the system has finish to gnerate the notify                                     |
+| **Exit Condiction** | #)  When the system has finished to generate the notifies                                |
 +---------------------+------------------------------------------------------------------------------------------+
 | **Exceptions**      |                                                                                          |
 +---------------------+------------------------------------------------------------------------------------------+
@@ -547,18 +565,18 @@ Use Case Map Geolocalization Functions
 +---------------------+----------------------------------------------------------------------------------------------+
 | **Goals**           |   G1,G2,G3,G6,G8                                                                             |
 +---------------------+----------------------------------------------------------------------------------------------+
-| **Entry Condiction**|  The User submit an events                                                                   |
+| **Entry Condiction**|  The User submits an events                                                                  |
 +---------------------+----------------------------------------------------------------------------------------------+
-| **Flow Event**      | #)  After the user submit the system proceed to apply the Best Route Algorithm               |
-|                     | #)  The system scan the user reference about the veichle                                     |
-|                     | #)  The system choos a list of path and veichle that the user can follow to attend the events|
-|                     | #)  The system wait the user choose.                                                         |
-|                     | #)  The system save the event and the best route choose by the user                          |
+| **Flow Event**      | #)  After the user submits the system proceeds to apply the Best Route Algorithm             |
+|                     | #)  The system scans the user reference about the vehicle                                    |
+|                     | #)  The system creates a list of path which the user can choose to go to the meeting         |
+|                     | #)  The system waits the user's choice.                                                      |
+|                     | #)  The system stores the event and the best route chosen by the user                        |
 +---------------------+----------------------------------------------------------------------------------------------+
-| **Exit Condiction** | #)  when the user psess the save button at the end of modify.                                |
+| **Exit Condiction** | #)  when the user presses the save button at the end of the proccess                         |
 +---------------------+----------------------------------------------------------------------------------------------+
-| **Exceptions**      | #)  The user close the application before the save                                           |
-|                     | #)  The system can't calcolate the best path for some reason                                 |
+| **Exceptions**      | #)  The user closes the application before the save                                          |
+|                     | #)  The system can't calcolate the best path for external reason                             |
 +---------------------+----------------------------------------------------------------------------------------------+
 
 +---------------------+--------------------------------------------------------------------------------------------------+
@@ -568,13 +586,13 @@ Use Case Map Geolocalization Functions
 +---------------------+--------------------------------------------------------------------------------------------------+
 | **Goals**           |   G7                                                                                             |
 +---------------------+--------------------------------------------------------------------------------------------------+
-| **Entry Condiction**|  The User submit an events                                                                       |
+| **Entry Condiction**|  The User submits an event                                                                       |
 +---------------------+--------------------------------------------------------------------------------------------------+
 | **Flow Event**      | #)  The system can't calcolate the best path because there are no way to attend the event in time|
-|                     | #)  The system generate and add a warning at the event                                           |
-|                     | #)  The system generate a notify for the user.                                                   |
+|                     | #)  The system generates a warning for the event                                                 |
+|                     | #)  The system generates a notify for the user                                                   |
 +---------------------+--------------------------------------------------------------------------------------------------+
-| **Exit Condiction** | #)  when the system has finish to gnerate the notify                                             |
+| **Exit Condiction** | #)  When the system has finish to generate the notifies                                          |
 +---------------------+--------------------------------------------------------------------------------------------------+
 | **Exceptions**      |                                                                                                  |
 +---------------------+--------------------------------------------------------------------------------------------------+
@@ -586,16 +604,16 @@ Use Case Map Geolocalization Functions
 +---------------------+------------------------------------------------------------------------------------------------------+
 | **Goals**           |   G4,G5                                                                                              |
 +---------------------+------------------------------------------------------------------------------------------------------+
-| **Entry Condiction**|  the system has been calcolated a list of best path for the user                                     |
+| **Entry Condiction**|  the system has calcolated a list of best path for the user                                          |
 +---------------------+------------------------------------------------------------------------------------------------------+
-| **Flow Event**      | #)  The user chose one of the route propose by the system                                            |
-|                     | #)  The user choose to modify one or plus aspect of the path                                         |
-|                     | #)  User wait a positive the response of the system that cechk if the modify can create some problems|
-|                     | #)  User press the save button to submit the changes                                                 |
+| **Flow Event**      | #)  The user chooses one of the route suggested by the system                                        |
+|                     | #)  The user chooses to modify the path                                                              |
+|                     | #)  User waits a positive response of the system which it checks if the modify is valid              |
+|                     | #)  User presses the save button to submit the changes                                               |
 +---------------------+------------------------------------------------------------------------------------------------------+
-| **Exit Condiction** | #)  when the user psess the save button at the end of modify.                                        |
+| **Exit Condiction** | #)  when the user presses the save button at the end of modify.                                      |
 +---------------------+------------------------------------------------------------------------------------------------------+
-| **Exceptions**      | #)  The system give a negative response to the user modify                                       --- |
+| **Exceptions**      | #)  The system gives a negative response to the user modify                                          |
 +---------------------+------------------------------------------------------------------------------------------------------+
 
 
@@ -611,15 +629,15 @@ Performance Requirements
 
 *Performance for Apple iOS and Android App*:
 
-#) Battery Consuption should be not greater than 0.96mah (non consuma piu' di Pokemon GO) - come requirement mi sembra difficile da ottenere, dati vari problemi tecnici (es. scheduling)
+#) Battery Consuption should be not greater than 0.96mah.
 #) 'Best Route' Calculation time should be not graeter 2.0 seconds
 #) 'Alarm' function ('Event-reminder') should be configurable to be active even if the cellphone is Power Off. - tech difficulty to implement
 #) The graphical effects of the 'Virtual Map' should not slow down the runtime execution of the App.
 #) Memory Storage Consumption of the application should not be greater than 128MB.
+#) (**optional**)'Alarm function' should be configurable to be active even if the cellphone is Power Off.
 
 *Performance for Browser Application*:
 
-#) Loading of the Home Page should be as fast as possible. - not a requirement
 #) Javascript Animations should be performed after that the login bar is loaded.
 
 Design Constraints
@@ -654,7 +672,7 @@ Mobile Systems Limitations
 -----------------
 Other Constraints
 -----------------
-Since the system relies on confidential information in order to work the system will need to store the data securely, especially regarding saved addresses. None of the information provided by the user will be used for commercial purposes.
+Since the system relies on confidential information in order to work the system will need to store the data securely, especially regarding saved addresses. **None of the information provided by the user will be used for commercial purposes**.
 
 Software System Attributes
 --------------------------
@@ -668,7 +686,7 @@ Reliability
  #) 'Best Route' Algorithm should be tested and have a coverage greater than 80%
  #) 'Expected time' of arrival at the 'Meeting Location' should be have a relative error of 5% of the time exstimated.
  #) If the user does not have internet connectivity on the mobile, he/she still could open the app and access to 'Calendar' function and view the meetings submitted.
- #) (FACOLTATIVO?) The 'Expected time' of arrival at the 'Meeting Location' should be updated constantly in case of changing of weather forecast or unexpected event (public transport goes off...)
+ #) The 'Expected time' of arrival at the 'Meeting Location' should be updated constantly in case of changing of weather forecast or (**optional**) unexpected event (public transport goes off...)
  
 
 -----------------
@@ -678,8 +696,8 @@ Availability
 *Travlendar+ helps its users to schedule their personal life appoinment and shold be as much open and accessible as possible even with the absence of Internet*
 
 #) The 'Calendar' function should be accessible on the App even if the Mobile is in Offline Mode.
-#) A pdf description of the 'Best Route' can be downloaded on the Travelndar+ Broswer.
-#) (FACOLTATIVO) User can import a 'Calendar' configuration package and simply update his/her personal schedule of appointments.
+#) (**optional**) A pdf description of the 'Best Route' can be downloaded on the Travelndar+ Broswer.
+#) (**optional**) User can import a 'Calendar' configuration package and simply update his/her personal schedule of appointments.
 
 -----------------
 Security	
@@ -688,8 +706,7 @@ Security
 *Travlendar+ manages personal informaton of the user registered. For this reason it is very important the Security issue and some achievements have to be taken.*
 
 #) https protocol
-#) Cryptograpy
-#) ...
+#) Cryptography
 
 -----------------
 Maintainability
@@ -700,7 +717,7 @@ Portability
 -----------------
 
 Scenarios
-=========
+=====================
 
 Scenario 1
 -----------
@@ -713,36 +730,36 @@ Scenario 2
 -----------
 John wants to add an appointment to a day that has none. After pressing on the 'add appointment' button, a form is presented to him asking date, time, place and name.
 Moreover the application asks the starting position by offering a choice between the current position, from a list of saved locations or the position of the preceding appointment.
-Afterwards travelendar+ checks if there are any overlaps with other appointments and the possibility of having lunch given the current schedule status. If no overlap is found then it computes the optimal paths to reach the appointment location, presenting a ranked list of alternatives.
+Afterwards Travlendar+ checks if there are any overlaps with other appointments and the possibility of having lunch given the current schedule status. If no overlap is found then it computes the optimal paths to reach the appointment location, presenting a ranked list of alternatives.
 John picks one of the proposed itineraries, which is saved by the app.
 
 Scenario 3 
 ------------
-Jennifer submit a new event in her calendar.
+Jennifer submits a new event in her calendar.
 Travelander + verifies the present of an overlay and if there is the app generates a warning signal on that day.
-Jennifere by pressing on the signal can decide to modify the date of one of the appointments, in order to avoid overlapping, or delete appointments considered by her least essential, always in order to avoid overlapping.
+Jennifer by pressing on the signal can decide to modify the date of one of the appointments, in order to avoid overlapping, or delete appointments considered by her least essential, always in order to avoid overlapping.
 
 Scenario 4
 -----------
-Riccardo has inserted an appointment that involves using a bicycle.
-The app check the day previous to the appointment weather condition, discovering that rain is forecasted. Knowing that the itinerary contains a part on bicycle, it sends a notification to Riccardo asking whether or not he wants to change che itinerary/transportation mean, offerring him alternatives.
+Greg has inserted an appointment that involves using a bicycle.
+The app check the day previous to the appointment weather condition, discovering that rain is forecasted. Knowing that the itinerary contains a part on bicycle, it sends a notification to Greg asking whether or not he wants to change the itinerary/transportation mean, offerring him alternatives.
 
 Scenario 5
 -----------
-Chiara added its lunch time between 12:00 and 2:30, with a duration of 45 min, during the configuration of the app. Chiara knows that Travelendar+ will automatically add a 'Lunch' event to each day's timetable and, if needed, will shift the event in case of overlap.
-One day Chiara adds enough appointments to make it unfeasible to have lunch, due to this the app will generate a warning, giving Chiara the choice to reschedule the appointments or to skip lunch.
+Mary added its lunch time between 12:00 and 2:30, with a duration of 45 min, during the configuration of the app. Mary knows that Travelendar+ will automatically add a 'Lunch' event to each day's timetable and, if needed, will shift the event in case of overlap.
+One day Mary adds enough appointments to make it unfeasible to have lunch, due to this the app will generate a warning, giving Mary the choice to reschedule the appointments or to skip lunch.
 
 Scenario 6
 ------------
-Alex is a man who is particularly concerned with ecology.
+James is a man who is particularly concerned with ecology.
 He decides to use Travelander + to schedule his appointments.
-Alex chose Tralevander + because he knows that application is able to calculate the best path to reach the destination in order to respect the timetables and its preference. among them Alex has put in the fact that he wants to keep low his ecological footprint.
-Travelander + can calculate Alex's routes so that they can be Green as much as possible.
+James chose Tralevander + because he knows that application is able to calculate the best path to reach the destination in order to respect the timetables and its preference. Among them James has put in the fact that he wants to keep low his ecological footprint.
+Travelander + can calculate James's routes so that they can be Green as much as possible.
 
 
 Scenario 7
 -----------
-Newt uses Travelendar+ to schedule a series of out of town appointments. After having picked the best path, the app offers Newt the option to directly purchase the tickets needed for the trip.
+Kevin uses Travelendar+ to schedule a series of out of town appointments. After having picked the best path, the app offers Kevin the option to directly purchase the tickets needed for the trip.
 
 Sequence Diagrams
 =================
@@ -955,21 +972,78 @@ Prosdocimi Marco
 
     
 
-    15/09/2017 2h
+    15/10/2017 2h
      
-    18/09/2017 2h
+    18/10/2017 2h
     
-    21/09/2017 7h
+    21/10/2017 7h
      
-    22/09/2017 4h
+    22/10/2017 4h
      
-    25/09/2017 3h
+    25/10/2017 3h
     
-    26/09/2017 1h
+    26/10/2017 1h
     
-    28/09/2017 3h
+    28/10/2017 3h
      
-    29/09/2017 2h 	
+    29/10/2017 2h 	
+
+Ruggiano Enrico
+-----------------
+
+    15/10/2017 2h
+     
+    16/10/2017 2h
+    
+    18/10/2017 1h
+    
+    20/10/2017 4h
+     
+    21/10/2017 2h
+     
+    22/10/2017 3h
+     
+    24/10/2017 2h
+
+    25/10/2017 3h
+    
+    28/10/2017 2h
+     
+    29/10/2017 5h 	
+    
 
 References
 ==========
+
+-------
+Picture
+-------
+
+All the picture used for the UI are desiged by yanalya / Freepik.
+
+*Those were free downloded from http://www.freepik.com with a Free Licence.*
+
+*For more informations just read the "Licence free.txt" file in the repository or visit*
+    - *http://www.freepik.com/terms_of_use*
+   
+------------ 
+Icon Credits
+------------
+
+* Position, Setting Icon: 
+    
+     *Icon made by CC 3.0 BY from www.flaticon.com*
+     
+* Calendar, Upload, Menu, Submit Event, Cancel, Accept, Exit, Like, Dislike, Partial like, Hour, Destination Icons: 
+    
+     *Icon made by Flaticon Basic License BY from www.flaticon.com*
+      
+* Vehicle Icons:
+    
+     *Icon made by Flaticon Basic License BY from www.flaticon.com* 
+     
+-------------
+Standard IEEE
+-------------
+
+standard ISO/IEC/IEEE 29148
