@@ -235,12 +235,12 @@ User Characteristics
 
 *Travelendar+ was made to aid organizations to effectively plan appointments throughout the year for its registered users. Its simplicity makes it versatile and easily accessible for all users.*
 
-There are 3 user categories that travelendar is aimed at:
+There are 3 user categories that travelendar is aimed at:  
  - *Business men*
  - *Travelers*
  - *City Lovers*
 
-*Businessmen* are all individuals that use the app for business appointments and meetings. Their behaviour will be characterized by:
+*Businessmen* are all individuals that use the app for business appointments and meetings. Their behaviour will be characterized by:  
  #) submit rate of meetings per week and month *very high*.
  #) meetings location *very distant* and often *different*.
  #) *high* interest on arriving on time at meetings
@@ -700,7 +700,7 @@ Portability
 -----------------
 
 Scenarios
-=====================
+=========
 
 Scenario 1
 -----------
@@ -743,6 +743,34 @@ Travelander + can calculate Alex's routes so that they can be Green as much as p
 Scenario 7
 -----------
 Newt uses Travelendar+ to schedule a series of out of town appointments. After having picked the best path, the app offers Newt the option to directly purchase the tickets needed for the trip.
+
+Sequence Diagrams
+=================
+
+User Registration
+-----------------
+ .. image:: Resources/SequenceDiagrams/scenario_1.png
+
+User Event Creation
+-------------------
+ .. image:: Resources/SequenceDiagrams/scenario_2.png
+
+Overlap Resolution
+------------------
+ .. image:: Resources/SequenceDiagrams/scenario_3.png
+
+Weather Check
+-------------
+ .. image:: Resources/SequenceDiagrams/scenario_4.png
+
+Lunch Conflict
+--------------
+ .. image:: Resources/SequenceDiagrams/scenario_5.png
+
+Ticket Purchase
+---------------
+ .. image:: Resources/SequenceDiagrams/scenario_7.png
+
 
 Alloy
 =====
