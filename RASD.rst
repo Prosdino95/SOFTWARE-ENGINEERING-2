@@ -230,6 +230,7 @@ User Profile Manager Requirements
     
     
  
+--------------------
 User Characteristics
 --------------------
 
@@ -239,6 +240,9 @@ There are 3 user categories that travelendar is aimed at:
  - *Business men*
  - *Travelers*
  - *City Lovers*
+
+Businessmen
+-----------
 
 *Businessmen* are all individuals that use the app for business appointments and meetings. Their behaviour will be characterized by:
  #) submit rate of meetings per week and month *very high*.
@@ -250,6 +254,10 @@ There are 3 user categories that travelendar is aimed at:
  #) *vehicle preferences* are public transport for city meetings or *train* and *airplane* for outside city meetings.
  #) Long term users (will have a prolonged use the app consistently)
  
+
+Travelers
+---------
+
 *Travelers* are those who use the app for planing their trip or work conference. Their main goals are to reach airports, hotels, train stations or museums. Their behaviour will be:
  #) submit rate of meetings per week and day *very high*
  #) Two important 'Event' which are the 'Departure' and the 'Arrival' Event. For these events the interest on arriving on time is *crucial*.
@@ -259,6 +267,10 @@ There are 3 user categories that travelendar is aimed at:
  #) *medium* interest on graphical feature and user interfaces. The 'Events' could have useful verbose information attached to them.
  #) Short term users. Once the trip is over, they will probably uninstall the Application.
  
+
+City Lovers
+-----------
+
 *City Lovers* are people that will use the application to schedule free time activities. They are tech savvy enthusiast who needs to annotate all their appointment during the week and are often curious of the limit of the Application. For example their 'Events' are linked with their social activities like going to the movies with friends or going shopping with their girlfriends, or sport activities, like going to the gym or jogging on Sunday morning. So their 'Behaviour' is characterized by:
  #) submit rate of meetings per week and day *very high*
  #) *low* interest on arriving on time on their appointments.
@@ -943,5 +955,55 @@ Prosdocimi Marco
      
     29/09/2017 2h 	
 
+Ruggiano Enrico
+-----------------
+
+    15/09/2017 2h
+     
+    16/09/2017 2h
+    
+    18/09/2017 1h
+    
+    20/09/2017 4h
+     
+    21/09/2017 2h
+     
+    22/09/2017 3h
+     
+    24/09/2017 2h
+
+    25/09/2017 3h
+    
+    28/09/2017 2h
+     
+    29/09/2017 5h 	
+    
+
 References
 ==========
+
+Picture
+-------
+
+All the picture used for the Ui are desiged by yanalya / Freepik.
+
+*Those were free downloded from   http://www.freepik.com with a Free Licence.*
+
+*For more informations just read the "Licence free.txt" file in the repository or visit*
+    - *http://www.freepik.com/terms_of_use*
+    
+Icon Credits
+------------
+
+* Position, Setting Icon: 
+    
+     *Icon made by CC 3.0 BY from www.flaticon.com*
+     
+* Calendar, Upload, Menu, Submit Event, Cancel, Accept, Exit, Like, Dislike, Partial like, Hour, Destination Icons: 
+    
+     *Icon made by Flaticon Basic License BY from www.flaticon.com*
+      
+* Vehicle Icons:
+    
+     *Icon made by Flaticon Basic License BY from www.flaticon.com* 
+     
