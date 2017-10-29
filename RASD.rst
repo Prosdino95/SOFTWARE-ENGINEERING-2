@@ -629,15 +629,14 @@ Performance Requirements
 
 *Performance for Apple iOS and Android App*:
 
-#) Battery Consuption should be not greater than 0.96mah (non consuma piu' di Pokemon GO) - come requirement mi sembra difficile da ottenere, dati vari problemi tecnici (es. scheduling)
+#) Battery Consuption should be not greater than 0.96mah.
 #) 'Best Route' Calculation time should be not graeter 2.0 seconds
-#) 'Alarm' function ('Event-reminder') should be configurable to be active even if the cellphone is Power Off. - tech difficulty to implement
 #) The graphical effects of the 'Virtual Map' should not slow down the runtime execution of the App.
 #) Memory Storage Consumption of the application should not be greater than 128MB.
+#) (**optional**)'Alarm function' should be configurable to be active even if the cellphone is Power Off.
 
 *Performance for Browser Application*:
 
-#) Loading of the Home Page should be as fast as possible. - not a requirement
 #) Javascript Animations should be performed after that the login bar is loaded.
 
 Design Constraints
@@ -672,7 +671,7 @@ Mobile Systems Limitations
 -----------------
 Other Constraints
 -----------------
-Since the system relies on confidential information in order to work the system will need to store the data securely, especially regarding saved addresses. None of the information provided by the user will be used for commercial purposes.
+Since the system relies on confidential information in order to work the system will need to store the data securely, especially regarding saved addresses. **None of the information provided by the user will be used for commercial purposes**.
 
 Software System Attributes
 --------------------------
@@ -686,7 +685,7 @@ Reliability
  #) 'Best Route' Algorithm should be tested and have a coverage greater than 80%
  #) 'Expected time' of arrival at the 'Meeting Location' should be have a relative error of 5% of the time exstimated.
  #) If the user does not have internet connectivity on the mobile, he/she still could open the app and access to 'Calendar' function and view the meetings submitted.
- #) (FACOLTATIVO?) The 'Expected time' of arrival at the 'Meeting Location' should be updated constantly in case of changing of weather forecast or unexpected event (public transport goes off...)
+ #) The 'Expected time' of arrival at the 'Meeting Location' should be updated constantly in case of changing of weather forecast or (**optional**) unexpected event (public transport goes off...)
  
 
 -----------------
@@ -696,8 +695,8 @@ Availability
 *Travlendar+ helps its users to schedule their personal life appoinment and shold be as much open and accessible as possible even with the absence of Internet*
 
 #) The 'Calendar' function should be accessible on the App even if the Mobile is in Offline Mode.
-#) A pdf description of the 'Best Route' can be downloaded on the Travelndar+ Broswer.
-#) (FACOLTATIVO) User can import a 'Calendar' configuration package and simply update his/her personal schedule of appointments.
+#) (**optional**) A pdf description of the 'Best Route' can be downloaded on the Travelndar+ Broswer.
+#) (**optional**) User can import a 'Calendar' configuration package and simply update his/her personal schedule of appointments.
 
 -----------------
 Security	
@@ -706,8 +705,7 @@ Security
 *Travlendar+ manages personal informaton of the user registered. For this reason it is very important the Security issue and some achievements have to be taken.*
 
 #) https protocol
-#) Cryptograpy
-#) ...
+#) Cryptography
 
 -----------------
 Maintainability
