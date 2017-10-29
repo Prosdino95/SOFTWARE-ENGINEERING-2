@@ -729,36 +729,36 @@ Scenario 2
 -----------
 John wants to add an appointment to a day that has none. After pressing on the 'add appointment' button, a form is presented to him asking date, time, place and name.
 Moreover the application asks the starting position by offering a choice between the current position, from a list of saved locations or the position of the preceding appointment.
-Afterwards travelendar+ checks if there are any overlaps with other appointments and the possibility of having lunch given the current schedule status. If no overlap is found then it computes the optimal paths to reach the appointment location, presenting a ranked list of alternatives.
+Afterwards Travlendar+ checks if there are any overlaps with other appointments and the possibility of having lunch given the current schedule status. If no overlap is found then it computes the optimal paths to reach the appointment location, presenting a ranked list of alternatives.
 John picks one of the proposed itineraries, which is saved by the app.
 
 Scenario 3 
 ------------
-Jennifer submit a new event in her calendar.
+Jennifer submits a new event in her calendar.
 Travelander + verifies the present of an overlay and if there is the app generates a warning signal on that day.
-Jennifere by pressing on the signal can decide to modify the date of one of the appointments, in order to avoid overlapping, or delete appointments considered by her least essential, always in order to avoid overlapping.
+Jennifer by pressing on the signal can decide to modify the date of one of the appointments, in order to avoid overlapping, or delete appointments considered by her least essential, always in order to avoid overlapping.
 
 Scenario 4
 -----------
-Riccardo has inserted an appointment that involves using a bicycle.
-The app check the day previous to the appointment weather condition, discovering that rain is forecasted. Knowing that the itinerary contains a part on bicycle, it sends a notification to Riccardo asking whether or not he wants to change che itinerary/transportation mean, offerring him alternatives.
+Greg has inserted an appointment that involves using a bicycle.
+The app check the day previous to the appointment weather condition, discovering that rain is forecasted. Knowing that the itinerary contains a part on bicycle, it sends a notification to Greg asking whether or not he wants to change the itinerary/transportation mean, offerring him alternatives.
 
 Scenario 5
 -----------
-Chiara added its lunch time between 12:00 and 2:30, with a duration of 45 min, during the configuration of the app. Chiara knows that Travelendar+ will automatically add a 'Lunch' event to each day's timetable and, if needed, will shift the event in case of overlap.
-One day Chiara adds enough appointments to make it unfeasible to have lunch, due to this the app will generate a warning, giving Chiara the choice to reschedule the appointments or to skip lunch.
+Mary added its lunch time between 12:00 and 2:30, with a duration of 45 min, during the configuration of the app. Mary knows that Travelendar+ will automatically add a 'Lunch' event to each day's timetable and, if needed, will shift the event in case of overlap.
+One day Mary adds enough appointments to make it unfeasible to have lunch, due to this the app will generate a warning, giving Mary the choice to reschedule the appointments or to skip lunch.
 
 Scenario 6
 ------------
-Alex is a man who is particularly concerned with ecology.
+James is a man who is particularly concerned with ecology.
 He decides to use Travelander + to schedule his appointments.
-Alex chose Tralevander + because he knows that application is able to calculate the best path to reach the destination in order to respect the timetables and its preference. among them Alex has put in the fact that he wants to keep low his ecological footprint.
-Travelander + can calculate Alex's routes so that they can be Green as much as possible.
+James chose Tralevander + because he knows that application is able to calculate the best path to reach the destination in order to respect the timetables and its preference. Among them James has put in the fact that he wants to keep low his ecological footprint.
+Travelander + can calculate James's routes so that they can be Green as much as possible.
 
 
 Scenario 7
 -----------
-Newt uses Travelendar+ to schedule a series of out of town appointments. After having picked the best path, the app offers Newt the option to directly purchase the tickets needed for the trip.
+Kevin uses Travelendar+ to schedule a series of out of town appointments. After having picked the best path, the app offers Kevin the option to directly purchase the tickets needed for the trip.
 
 Alloy
 =====
@@ -986,16 +986,18 @@ Ruggiano Enrico
 References
 ==========
 
+-------
 Picture
 -------
 
-All the picture used for the Ui are desiged by yanalya / Freepik.
+All the picture used for the UI are desiged by yanalya / Freepik.
 
-*Those were free downloded from   http://www.freepik.com with a Free Licence.*
+*Those were free downloded from http://www.freepik.com with a Free Licence.*
 
 *For more informations just read the "Licence free.txt" file in the repository or visit*
     - *http://www.freepik.com/terms_of_use*
-    
+   
+------------ 
 Icon Credits
 ------------
 
@@ -1011,3 +1013,8 @@ Icon Credits
     
      *Icon made by Flaticon Basic License BY from www.flaticon.com* 
      
+-------------
+Standard IEEE
+-------------
+
+standard ISO/IEC/IEEE 29148
