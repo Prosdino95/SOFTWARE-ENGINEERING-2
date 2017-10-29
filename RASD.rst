@@ -647,11 +647,11 @@ Moreover the application asks the starting position by offering a choice between
 Afterwards travelendar+ checks if there are any overlaps with other appointments and the possibility of having lunch given the current schedule status. If no overlap is found then it computes the optimal paths to reach the appointment location, presenting a ranked list of alternatives.
 John picks one of the proposed itineraries, which is saved by the app.
 
-Scenario 3  (riguardare)
-------------------------
-Jennifer inserisce un appuntamento in un qualsiasi giorno.
-Travelander+ verifica la prefenza di una sovrapposizione e quindi l'app genera un segnale di warning sul giorno relativo.
-Jennifere a quel punto premendo sul segnale puo decidere se modificare i dati di uno degli appuntamenti in modo da evitare sovrapposizioni oppure eliminare gli appuntamenti ritenuti da lei meno importnati, sempre in modo da evitare sovrapposizioni.
+Scenario 3 
+------------
+Jennifer submit a new event in her calendar.
+Travelander + verifies the present of an overlay and if there is the app generates a warning signal on that day.
+Jennifere by pressing on the signal can decide to modify the date of one of the appointments, in order to avoid overlapping, or delete appointments considered by her least essential, always in order to avoid overlapping.
 
 Scenario 4
 -----------
@@ -663,11 +663,13 @@ Scenario 5
 Chiara added its lunch time between 12:00 and 2:30, with a duration of 45 min, during the configuration of the app. Chiara knows that Travelendar+ will automatically add a 'Lunch' event to each day's timetable and, if needed, will shift the event in case of overlap.
 One day Chiara adds enough appointments to make it unfeasible to have lunch, due to this the app will generate a warning, giving Chiara the choice to reschedule the appointments or to skip lunch.
 
-Scenario 6 (scritto male)
----------------------------
-Alex e' un uomo che tiene particolarmente all'ecologia, essendo molto impegnato decide di utilizzare Travelander+ per schedulare i suoi appuntamenti.
-Alex ha scelto Tralevander+ perche' sa che l'applucazione e' ingrado di calcolare il migior percorso per raggiungere la destinazione in modo tale da rispettare gli orari e le sue perferenze, tra di esse infatti Alex ha inserito il fatto di voler tenere bassa la sua impronta ecologica.
-Travelander+ provvedera' a calcolare i percorsi di Alex in modo che siano piu' Green possibile.
+Scenario 6
+------------
+Alex is a man who is particularly concerned with ecology.
+He decides to use Travelander + to schedule his appointments.
+Alex chose Tralevander + because he knows that application is able to calculate the best path to reach the destination in order to respect the timetables and its preference. among them Alex has put in the fact that he wants to keep low his ecological footprint.
+Travelander + can calculate Alex's routes so that they can be Green as much as possible.
+
 
 Scenario 7
 -----------
