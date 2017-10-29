@@ -98,9 +98,22 @@ Overall Description
 
 Product Perspective
 -------------------
-analysis	of	the	world	and	of	the	shared	phenomena
 
-(**DA FARE**)
+-------------
+Class Diagram
+-------------
+
+    .. image:: Resources/class_diagram.png
+
+
+
+-------------
+State Chart
+-------------
+
+    .. image:: Resources/stateChart.png
+
+
 
 Product Functions
 -----------------
@@ -617,13 +630,6 @@ Use Case Map Geolocalization Functions
 +---------------------+------------------------------------------------------------------------------------------------------+
 
 
-Class Diagram
--------------
-
-    .. image:: Resources/class_diagram.png
-
-
-
 Performance Requirements
 ------------------------
 
@@ -1015,7 +1021,6 @@ Ruggiano Enrico
 References
 ==========
 
--------
 Picture
 -------
 
