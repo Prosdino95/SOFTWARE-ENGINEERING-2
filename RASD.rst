@@ -249,9 +249,10 @@ User Profile Manager Requirements
 User Characteristics
 --------------------
 
-*Travelendar+ was made to aid organizations to effectively plan appointments throughout the year for its registered users. Its simplicity makes it versatile and easily accessible for all users.*
+* Travelendar+ was made to aid organizations to effectively plan appointments throughout the year for its registered users. Its simplicity makes it versatile and easily accessible for all users. *
 
 There are 3 user categories that travelendar is aimed at:
+
  - *Business men*
  - *Travelers*
  - *City Lovers*
@@ -261,6 +262,7 @@ Businessmen
 -----------
 
 *Businessmen* are all individuals that use the app for business appointments and meetings. Their behaviour will be characterized by:
+
  #) submit rate of meetings per week and month *very high*.
  #) meetings location *very distant* and often *different*.
  #) *high* interest on arriving on time at meetings
@@ -275,6 +277,7 @@ Travelers
 ---------
 
 *Travelers* are those who use the app for planing their trip or work conference. Their main goals are to reach airports, hotels, train stations or museums. Their behaviour will be:
+
  #) submit rate of meetings per week and day *very high*
  #) Two important 'Event' which are the 'Departure' and the 'Arrival' Event. For these events the interest on arriving on time is *crucial*.
  #) Several intermediate 'Event' on the week between the 'Arrival' and the 'Departure'. For these event the interest on arriving on time is *medium* since most of the locations are museums, restaurants, hotels.
@@ -288,6 +291,7 @@ City Lovers
 -----------
 
 *City Lovers* are people that will use the application to schedule free time activities. They are tech savvy enthusiast who needs to annotate all their appointment during the week and are often curious of the limit of the Application. For example their 'Events' are linked with their social activities like going to the movies with friends or going shopping with their girlfriends, or sport activities, like going to the gym or jogging on Sunday morning. So their 'Behaviour' is characterized by:
+
  #) submit rate of meetings per week and day *very high*
  #) *low* interest on arriving on time on their appointments.
  #) *high* interest on user interface and additional feature, like vocal message warning.
@@ -416,21 +420,11 @@ The Submit Event Screen
     .. figure:: Resources/MockUp/BestRoutes.png
     
        **Figure 09:** The Second page in which the user can modify the routes and has a graphic map feature.
-    
-    
- 
-
-
-Hardware Interface
-------------------
 
 
 Software Interface
 ------------------
-
-
-Communication Interface
------------------------
+The software will not present interoperable software interfaces in its first release.
 
 
 Functional Requirements
@@ -501,9 +495,9 @@ Use Case about User Profile
 | **Exceptions**      | #)  The user inserts not valid informatons                                  |
 +---------------------+-----------------------------------------------------------------------------+
 
------------------------------
+---------------------------
 Use Case Calendar Functions
------------------------------
+---------------------------
 
     .. image:: ./Resources/UseCase/UC2.png
 
@@ -564,9 +558,9 @@ Use Case Calendar Functions
 | **Exceptions**      |                                                                                          |
 +---------------------+------------------------------------------------------------------------------------------+
 
-----------------------------------------
+--------------------------------------
 Use Case Map Geolocalization Functions
-----------------------------------------
+--------------------------------------
 
     .. image:: Resources/UseCase/UC3.png
 
@@ -711,16 +705,9 @@ Security
 
 *Travlendar+ manages personal informaton of the user registered. For this reason it is very important the Security issue and some achievements have to be taken.*
 
-#) https protocol
-#) Cryptography
+- https protocol used for all the calls
+- salted password hashes are used in the backend DB
 
------------------
-Maintainability
------------------
-
------------------
-Portability
------------------
 
 Scenarios
 =====================
@@ -1016,6 +1003,25 @@ Ruggiano Enrico
     28/10/2017 2h
      
     29/10/2017 5h 	
+
+Giacomo Vercesi
+---------------
+
+    14/10/2017 5h
+
+    15/10/2017 3h
+
+    17/10/2017 1h
+
+    20/10/2017 3h
+
+    22/10/2017 2h
+
+    27/10/2017 3h
+
+    28/10/2017 5h
+
+    29/10/2017 7h
     
 
 References
