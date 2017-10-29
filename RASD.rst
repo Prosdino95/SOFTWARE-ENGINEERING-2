@@ -81,16 +81,16 @@ Definitions
 -----------
 * *Alarm function*: a way in which the phone can notify the user that something important is happening. It is often a sound or a vibration according to the phone used.
 * *API:* Application programming interface; it is a common way to communicate with another system.
-* *Best Route*: The best route calculate by the algorithm to reach a given event without any delay. The algorithm also consider the user's preference(for instance the forbid Vehicles).
+* *Best Route*: The best route calculated by the algorithm to reach a given event without any delay. The algorithm also considers the user's preferences.
 * *Costraint*: Something that controls what you do by keeping you within particular limits.
-* *Event*: The users can create some events and submit they to the calendar. The aplication check if there are some overlapping and calculate the best route to reach the events.
-* *Green Mode*: A user's preference that means that he prefer to keep his Ecological Footprint lower possible. (for instance the user prefer to use a bike instead bus)
-* *Itermidiate Location*:Any locations between the start point and where the event take place.
-* *Meeting Location*: The place or position that the user specify when submit a new event.
+* *Event*: The users can create some events and submit them to the calendar. The application checks if there are some overlaps and calculates the best route to reach the events.
+* *Green Mode*: A user's preference which means that the user prefers to keep his Ecological Footprint as lower as possible. (for instance the user prefer to use a bike instead of a bus)
+* *Itermidiate Location*: Any locations between the start point and where the event take place.
+* *Meeting Location*: The place or position that the user specifies during the submission of a new event.
 * *Route*: The roads you follow to get from one place to another place. The routes are calculated after an event submission.
-* *Starting Location*:The positions whence the algorithm start to calcolate the routes to reach a event.
-* *Vehicle*:Something such as a car,bike or bus that takes people from one place to another, also "by foot" is conseder avheicle.
-* *Warning*: If there are some problems with an event (like overlapping) the application produces a warning that is attached to the event. The user can select the warning and see more details.
+* *Starting Location*: The position where the algorithm starts to calculate the routes to reach the event.
+* *Vehicle*: Something such as a car, bike or bus that takes people from one place to another, also "by foot" is considered a vehicle.
+* *Warning*: If there are some problems with an event (like overlapping) the application produces a notify that is attached to the event. The user can select the warning and see more details.
 
 
 Overall Description
