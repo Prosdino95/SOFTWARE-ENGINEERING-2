@@ -79,17 +79,18 @@ Scope
  
 Definitions
 -----------
-* *Alarm*:
-* *Best Route*:
-* *Costraint*:
-* *Event*:
-* *Green Mode*:
-* *Itermidiate Location*:
-* *Meeting Location*:
-* *Route*:
-* *Starting Location*:
-* *Vehicle*:
-* *Warning*:
+* *Alarm function*: a way in which the phone can notify the user that something important is happening. It is often a sound or a vibration according to the phone used.
+* *API:* Application programming interface; it is a common way to communicate with another system.
+* *Best Route*: The best route calculate by the algorithm to reach a given event without any delay. The algorithm also consider the user's preference(for instance the forbid Vehicles).
+* *Costraint*: Something that controls what you do by keeping you within particular limits.
+* *Event*: The users can create some events and submit they to the calendar. The aplication check if there are some overlapping and calculate the best route to reach the events.
+* *Green Mode*: A user's preference that means that he prefer to keep his Ecological Footprint lower possible. (for instance the user prefer to use a bike instead bus)
+* *Itermidiate Location*:Any locations between the start point and where the event take place.
+* *Meeting Location*: The place or position that the user specify when submit a new event.
+* *Route*: The roads you follow to get from one place to another place. The routes are calculated after an event submission.
+* *Starting Location*:The positions whence the algorithm start to calcolate the routes to reach a event.
+* *Vehicle*:Something such as a car,bike or bus that takes people from one place to another, also "by foot" is conseder avheicle.
+* *Warning*: If there are some problems with an event (like overlapping) the application produces a warning that is attached to the event. The user can select the warning and see more details.
 
 
 Overall Description
@@ -311,7 +312,7 @@ External Interface Requirements
 -------------------------------
 In these section it will presented in the details all the specific interface of Travelandar+.
 
---------------
+
 User Interface
 --------------
 
@@ -331,8 +332,9 @@ The User Interface of the Broswer Application and of Mobile Application must be 
         
        **Figure 02:** The Broswer Gui is the same and extended version of th App Gui.
        
-       
 
+       
+--------
 Features
 --------
 
@@ -350,6 +352,7 @@ Features
 #) User Page
 #) Preferences Page
 
+----------------
 The Main Screens
 ----------------
          
@@ -382,6 +385,7 @@ The Main Screens
        **Figure 07:** The Preference page in which the user can modify and update his/her preferences on the transport to use.
     
     
+-----------------------
 The Submit Event Screen
 -----------------------
 
@@ -403,15 +407,15 @@ The Submit Event Screen
     
  
 
-------------------
+
 Hardware Interface
 ------------------
 
-------------------
+
 Software Interface
 ------------------
 
------------------------
+
 Communication Interface
 -----------------------
 
@@ -433,17 +437,17 @@ Use Case about User Profile
 +---------------------+-----------------------------------------------------------------------------------------------------------+
 | **Entry Condiction**|  There are no entry conditions                                                                            |
 +---------------------+-----------------------------------------------------------------------------------------------------------+
-| **Flow Event**      | #)  The visttor on the home page click on the register button to start the registration process.          |
+| **Flow Event**      | #)  The visitor on the home page clicks on the register button to start the registration process.         |
 |                     | #)  The visitor fields the form and provides the informations.                                            |
-|                     | #)  The System salve the data                                                                             |
-|                     | #)  The system send an e-mail with a link for verify the acuracy of the information provides by the user. |
+|                     | #)  The System saves the data                                                                             |
+|                     | #)  The system sends an e-mail with a link for verify the accuracy of the information provided by the user|
 +---------------------+-----------------------------------------------------------------------------------------------------------+
-| **Exit Condiction** | #)  after the user  veryfy the e-mail adress                                                              |
+| **Exit Condiction** | #)  after the user  verifies the e-mail address                                                           |
 +---------------------+-----------------------------------------------------------------------------------------------------------+
-| **Exceptions**      | #)  The visitor is alrady an user.                                                                        |
-|                     | #)  The visiyon not provides all the informations.                                                        |
-|                     | #)  The Visitor choose an email adress that has beenassociate whit another user.                          |
-|                     | #)  The visitir don't verify the email adres in a period of 10 days                                       |
+| **Exceptions**      | #)  The visitor is already an user.                                                                       |
+|                     | #)  The visitor does not provide all the informations.                                                    |
+|                     | #)  The visitor chooses an email address that has been associated with another user.                      |
+|                     | #)  The visitor does not verify the email address in a period of 10 days                                  |
 +---------------------+-----------------------------------------------------------------------------------------------------------+
 
     .. image:: ./Resources/UseCase/UC1.2.png
@@ -457,11 +461,11 @@ Use Case about User Profile
 +---------------------+-------------------------------------------------------------------+
 | **Entry Condiction**|  User is in the login page or in start screen of the app.         |
 +---------------------+-------------------------------------------------------------------+
-| **Flow Event**      | #)  The User insert his credential into "Username" and "passwors".|
+| **Flow Event**      | #)  The User inserts his credential into "Username" and "Password"|
 +---------------------+-------------------------------------------------------------------+
-| **Exit Condiction** | #)  after insert the right credentials.                           |
+| **Exit Condiction** | #)  after the user has inserted the right credentials.            |
 +---------------------+-------------------------------------------------------------------+
-| **Exceptions**      | #)  The user insert the wrong credenetials.                       |
+| **Exceptions**      | #)  The user inserts the wrong credentials.                       |
 +---------------------+-------------------------------------------------------------------+
 
 +---------------------+-----------------------------------------------------------------------------+
@@ -471,17 +475,17 @@ Use Case about User Profile
 +---------------------+-----------------------------------------------------------------------------+
 | **Goals**           |   G1,G4,G5,G6                                                               |
 +---------------------+-----------------------------------------------------------------------------+
-| **Entry Condiction**|  User has been alrady logged                                                |
+| **Entry Condiction**|  The Login in of the User was valid                                         |
 +---------------------+-----------------------------------------------------------------------------+
-| **Flow Event**      | #)  The user visit his profile pages                                        |
-|                     | #)  The user choose the tab whit the information that he want change        |
-|                     | #)  The user change his information                                         |
-|                     | #)  Choose the best path from a list show by the system                     |
-|                     | #)  Press the save button                                                   |
+| **Flow Event**      | #)  The user visits his profile pages                                       |
+|                     | #)  The user chooses the tab with the information that he wants to change   |
+|                     | #)  The user changes his informations                                       |
+|                     | #)  The user chooses the best path from a list showed by the system         |
+|                     | #)  The user presses the save button                                        |
 +---------------------+-----------------------------------------------------------------------------+
-| **Exit Condiction** | #)  when the user psess the save button                                     |
+| **Exit Condiction** | #)  when the user presses the save button                                   |
 +---------------------+-----------------------------------------------------------------------------+
-| **Exceptions**      | #)  The user miss to fill or delete an important informations in the profile|
+| **Exceptions**      | #)  The user inserts not valid informatons                                  |
 +---------------------+-----------------------------------------------------------------------------+
 
 -----------------------------
@@ -495,15 +499,15 @@ Use Case Calendar Functions
 +---------------------+-------------------------------------------------------------------------------------------------------------+
 | **Actors**          |   User                                                                                                      |
 +---------------------+-------------------------------------------------------------------------------------------------------------+
-| **Goals**           |   G1??                                                                                                      |
+| **Goals**           |   G1                                                                                                        |
 +---------------------+-------------------------------------------------------------------------------------------------------------+
-| **Entry Condiction**|  User has been alrady logged                                                                                |
+| **Entry Condiction**|  The Login in of the User was valid                                                                         |
 +---------------------+-------------------------------------------------------------------------------------------------------------+
-| **Flow Event**      | #)  The user visit the calendar of the events and see the events.                                           |
+| **Flow Event**      | #)  The user visits the calendar of the events and see the events.                                          |
 |                     | #)  The user chose to delete/change an event **or**                                                         |
-|                     | #)  ?? The user clik on a warning to see what i sthe problem and the possible solution offert by the system.|
-|                     | #)  Psess the the save button                                                                               |
-|                     | #)  The Sistem register the changes                                                                         |
+|                     | #)  The user clicks on a warning to see what is the problem and the possible solution offert by the system. |
+|                     | #)  The user presses the save button                                                                        |
+|                     | #)  The Sistem stores the changes                                                                           |
 +---------------------+-------------------------------------------------------------------------------------------------------------+
 | **Exit Condiction** | #)  when the user psess the save button at the end of modify.                                               |
 +---------------------+-------------------------------------------------------------------------------------------------------------+
@@ -517,16 +521,16 @@ Use Case Calendar Functions
 +---------------------+--------------------------------------------------------------+
 | **Goals**           |   G2,G4                                                      |
 +---------------------+--------------------------------------------------------------+
-| **Entry Condiction**|  User has been alrady logged                                 |
+| **Entry Condiction**|  User has been already logged                                |
 +---------------------+--------------------------------------------------------------+
-| **Flow Event**      | #)  The user visit the calendar of the events.               |
-|                     | #)  The user chose to add an event.                          |
-|                     | #)  the user submit all the information about the events     |
-|                     | #)  Psess tho the save button                                |
+| **Flow Event**      | #)  The user visits the calendar of the events.              |
+|                     | #)  The user chooses to add an event.                        |
+|                     | #)  the user submits all the information about the events    |
+|                     | #)  The user presses the save button                         |
 +---------------------+--------------------------------------------------------------+
-| **Exit Condiction** | #)  when the user psess the save button at the end of modify.|
+| **Exit Condiction** | #) when the user presses the save button at the end of modify|
 +---------------------+--------------------------------------------------------------+
-| **Exceptions**      | #)  The user miss to fill important informations.            |
+| **Exceptions**      | #)  The user misses to fill important informations.          |
 +---------------------+--------------------------------------------------------------+
 
 +---------------------+------------------------------------------------------------------------------------------+
@@ -536,13 +540,13 @@ Use Case Calendar Functions
 +---------------------+------------------------------------------------------------------------------------------+
 | **Goals**           |   G2                                                                                     |
 +---------------------+------------------------------------------------------------------------------------------+
-| **Entry Condiction**|   the system have one or some notify for the user                                        |
+| **Entry Condiction**|   The system has one or some notifies for the user                                       |
 +---------------------+------------------------------------------------------------------------------------------+
-| **Flow Event**      | #)  The system check the calendar of the user.                                           |
-|                     | #)  The system generate a notify when the user needs to leave to be in time at the event |
-|                     | #)  The system generate a notify if there are one or plus warning about the events.      |
+| **Flow Event**      | #)  The system checks the calendar of the user.                                          |
+|                     | #)  The system generates a notify when the user needs to leave to be in time at an event |
+|                     | #)  The system generates a notify if there are one or more warning about the events.     |
 +---------------------+------------------------------------------------------------------------------------------+
-| **Exit Condiction** | #)  when the system has finish to gnerate the notify                                     |
+| **Exit Condiction** | #)  When the system has finished to generate the notifies                                |
 +---------------------+------------------------------------------------------------------------------------------+
 | **Exceptions**      |                                                                                          |
 +---------------------+------------------------------------------------------------------------------------------+
@@ -561,18 +565,18 @@ Use Case Map Geolocalization Functions
 +---------------------+----------------------------------------------------------------------------------------------+
 | **Goals**           |   G1,G2,G3,G6,G8                                                                             |
 +---------------------+----------------------------------------------------------------------------------------------+
-| **Entry Condiction**|  The User submit an events                                                                   |
+| **Entry Condiction**|  The User submits an events                                                                  |
 +---------------------+----------------------------------------------------------------------------------------------+
-| **Flow Event**      | #)  After the user submit the system proceed to apply the Best Route Algorithm               |
-|                     | #)  The system scan the user reference about the veichle                                     |
-|                     | #)  The system choos a list of path and veichle that the user can follow to attend the events|
-|                     | #)  The system wait the user choose.                                                         |
-|                     | #)  The system save the event and the best route choose by the user                          |
+| **Flow Event**      | #)  After the user submits the system proceeds to apply the Best Route Algorithm             |
+|                     | #)  The system scans the user reference about the vehicle                                    |
+|                     | #)  The system creates a list of path which the user can choose to go to the meeting         |
+|                     | #)  The system waits the user's choice.                                                      |
+|                     | #)  The system stores the event and the best route chosen by the user                        |
 +---------------------+----------------------------------------------------------------------------------------------+
-| **Exit Condiction** | #)  when the user psess the save button at the end of modify.                                |
+| **Exit Condiction** | #)  when the user presses the save button at the end of the proccess                         |
 +---------------------+----------------------------------------------------------------------------------------------+
-| **Exceptions**      | #)  The user close the application before the save                                           |
-|                     | #)  The system can't calcolate the best path for some reason                                 |
+| **Exceptions**      | #)  The user closes the application before the save                                          |
+|                     | #)  The system can't calcolate the best path for external reason                             |
 +---------------------+----------------------------------------------------------------------------------------------+
 
 +---------------------+--------------------------------------------------------------------------------------------------+
@@ -582,13 +586,13 @@ Use Case Map Geolocalization Functions
 +---------------------+--------------------------------------------------------------------------------------------------+
 | **Goals**           |   G7                                                                                             |
 +---------------------+--------------------------------------------------------------------------------------------------+
-| **Entry Condiction**|  The User submit an events                                                                       |
+| **Entry Condiction**|  The User submits an event                                                                       |
 +---------------------+--------------------------------------------------------------------------------------------------+
 | **Flow Event**      | #)  The system can't calcolate the best path because there are no way to attend the event in time|
-|                     | #)  The system generate and add a warning at the event                                           |
-|                     | #)  The system generate a notify for the user.                                                   |
+|                     | #)  The system generates a warning for the event                                                 |
+|                     | #)  The system generates a notify for the user                                                   |
 +---------------------+--------------------------------------------------------------------------------------------------+
-| **Exit Condiction** | #)  when the system has finish to gnerate the notify                                             |
+| **Exit Condiction** | #)  When the system has finish to generate the notifies                                          |
 +---------------------+--------------------------------------------------------------------------------------------------+
 | **Exceptions**      |                                                                                                  |
 +---------------------+--------------------------------------------------------------------------------------------------+
@@ -600,16 +604,16 @@ Use Case Map Geolocalization Functions
 +---------------------+------------------------------------------------------------------------------------------------------+
 | **Goals**           |   G4,G5                                                                                              |
 +---------------------+------------------------------------------------------------------------------------------------------+
-| **Entry Condiction**|  the system has been calcolated a list of best path for the user                                     |
+| **Entry Condiction**|  the system has calcolated a list of best path for the user                                          |
 +---------------------+------------------------------------------------------------------------------------------------------+
-| **Flow Event**      | #)  The user chose one of the route propose by the system                                            |
-|                     | #)  The user choose to modify one or plus aspect of the path                                         |
-|                     | #)  User wait a positive the response of the system that cechk if the modify can create some problems|
-|                     | #)  User press the save button to submit the changes                                                 |
+| **Flow Event**      | #)  The user chooses one of the route suggested by the system                                        |
+|                     | #)  The user chooses to modify the path                                                              |
+|                     | #)  User waits a positive response of the system which it checks if the modify is valid              |
+|                     | #)  User presses the save button to submit the changes                                               |
 +---------------------+------------------------------------------------------------------------------------------------------+
-| **Exit Condiction** | #)  when the user psess the save button at the end of modify.                                        |
+| **Exit Condiction** | #)  when the user presses the save button at the end of modify.                                      |
 +---------------------+------------------------------------------------------------------------------------------------------+
-| **Exceptions**      | #)  The system give a negative response to the user modify                                       --- |
+| **Exceptions**      | #)  The system gives a negative response to the user modify                                          |
 +---------------------+------------------------------------------------------------------------------------------------------+
 
 
