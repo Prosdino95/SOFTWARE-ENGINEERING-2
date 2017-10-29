@@ -293,8 +293,8 @@ Assumptions
 #) The Algorithm will take into account statistics from the user to determine its walking pace and better optimize the algoritm.
 #) The Algorithm doesn't take into account for a 'Vehicles' various ground impacts that could slow down the walk, such as stairs, rough terrain, long street climbs. 
 
-#) The Algorithm doesn't take into account for a 'By Foot' vehicle preference if the sidewalk is crowded in that day and time which could slow down the walk of the user.(example: Cso BuonosAires)
-#) The Algorithm doesn't take into account for a 'By foot' or a 'Bike' It avoids to track the route across a park or a green area on the map if it is not specified by the user.
+#) The Algorithm doesn't take into account for a 'By Foot' vehicle preference if the sidewalk is crowded in that day and time which could slow down the walk of the user.
+#) For a 'By foot' or a 'Bike' the Algorithm avoids to track the route across a park or a green area on the map if it is not specified by the user.
 
 *Query external DBs Assumptions*:
 
