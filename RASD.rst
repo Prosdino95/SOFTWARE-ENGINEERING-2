@@ -6,7 +6,7 @@ Introduction
 
  *Travlendar+ is an appointment management system capable of efficently scheduling a user's calendar. Thanks to this application it is possible to calculate in advance the estimated time to reach a meeting point based on the transportation choices made my the user.*
 
- *The application not only is used for interregional travels but also for personal  and/or work appointments. Once the user is registered he or she will be able to set their preferences regarding transportation choices to reach their destination. The application will suggest different itineraries to the user based on different transportation methods, based on metrics such as transportation time and cost.*
+ *The application not only is used for interregional travels but also for personal or work appointments. Once the user is registered he or she will be able to set their preferences regarding transportation choices to reach their destination. The application will suggest different itineraries to the user based on different transportation methods, based on metrics such as transportation time and cost.*
 
  *Travelendar+ is a mobile and web application capable of improving its user's everyday life with simplicity, efficency and safety.*
 
@@ -37,7 +37,7 @@ Maps Geolocalization Functions
 ------------------------------
  #) Geolocate the gps coordinates of the "Starting Location" and the "Meeting Location" on a virtual map.
  #) Calculate a list of possible shortest routes from a "Starting Location" and the "Meeting Location" with the 'Vehicles' available.
- #) Calculate the Extimation time of arrival at the destination for each route.
+ #) Calculate the extimation time of arrival at the destination for each route.
  #) Let the User choose a route from the list of "Best Route" provided by the algorithm
  #) Let the User modify the "Best Route" adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.
  #) Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.
@@ -151,43 +151,44 @@ Calendar Functions Requirements
 Maps Geolocalization Requirements
 ---------------------------------
 
- #) *Geolocate the gps coordinates of the "Starting Location" and the "Meeting Location" on a virtual map.*
+ 1 *Geolocate the gps coordinates of the "Starting Location" and the "Meeting Location" on a virtual map.*
     
    #) The App must provide gps API and be able to locate the position on a graphical map.
     
- #) *Calculate a list of possible shortest routes from a "Starting Location" and the "Meeting Location" with the 'Vehicles' available.*
+
+ 2 *Calculate a list of possible shortest routes from a "Starting Location" and the "Meeting Location" with the 'Vehicles' available.*
     
-   #) The 'Best Route' Algorithm must return a list of shortest routes, one for each 'Vehicle' specified.
+   #) The 'Best Route' Algorithm must return a list of shortest routes.
     
- #) *Calculate the Extimation time of arrival at the destination for each route.*
+ 3 *Calculate the Extimation time of arrival at the destination for each route.*
     
    #) The App with the support of external API can calculate an Extimation time of arrival for a specified 'Best Route'.
     
- #) *Let the User choose a route from the list of "Best Route" provided by the algorithm*
+ 4 *Let the User choose a route from the list of "Best Route" provided by the algorithm*
     
    #) The App must provide a grphical list in which are presented all the possible 'Best Routes' and details of the itinerary.
     
-   #) The App must wait a choice of the User to save the 'BEst route' for the specified 'Event'.
+   #) The App must wait a choice of the User to save the 'Best route' for the specified 'Event'.
     
- #) *Let the User modify the "Best Route" adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.*
+ 5 *Let the User modify the "Best Route" adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.*
     
    #) The App must provide a graphical feature in which the user can modify the path adding location on the virtual maps.
     
    #) The 'Best Route' Algorithm must update the Extimate time of arrival at destination depending on the geographical position of the 'Intermidiate Locations' added or the new 'Vehicle' speed average chosen.
    #) In case of 'Costraint' too much strict the App can return a 'Warning' message notifing the User that a 'Best Route' does not exist with that 'Costraint'.
     
- #) *Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.*       
+ 6 *Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.*       
     
    #) The App must have information on timetables of the public transports of the city.
     
    #) The App must notify on the virtual map stations of the public transports of the city.
     
     
- #) *Notify with a Warning message if the 'best Route' chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.*
+ 7 *Notify with a Warning message if the 'best Route' chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.*
  
    #) Before subitting the 'Event', the App must check if the time of the 'Event' and the 'Extimation' time of Arrival of the corrisponding 'Best Route' overlap with other 'Event' time start.
     
- #) *Suggest a "Best Route" to the User with a 'Vehicle' which is appropriate for the day time of the appointment, the geographical location, the type of the meeting and the weather*
+ 8 *Suggest a "Best Route" to the User with a 'Vehicle' which is appropriate for the day time of the appointment, the geographical location, the type of the meeting and the weather*
  
    #) The App when provide the list of 'Best Route' to the User must provide a suggested one.
     
@@ -205,8 +206,8 @@ User Profile Manager Requirements
     
  #) *Let the User to login to their personal User page and update their informations.*
  
-    #) The App must provide an update function on the User pofile page.
-    #) The App must verify if the new indormations are valid.
+    #) The App must provide an update function on the User profile page.
+    #) The App must verify if the new informations are valid.
     
     
  #) *Let the User fill their 'Vehicle' preferences or dislike for best result on Algorithm 'Best Route' calculus.*
@@ -230,7 +231,7 @@ User Profile Manager Requirements
     
     
  
---------------------
+
 User Characteristics
 --------------------
 
@@ -241,6 +242,7 @@ There are 3 user categories that travelendar is aimed at:
  - *Travelers*
  - *City Lovers*
 
+-----------
 Businessmen
 -----------
 
@@ -254,7 +256,7 @@ Businessmen
  #) *vehicle preferences* are public transport for city meetings or *train* and *airplane* for outside city meetings.
  #) Long term users (will have a prolonged use the app consistently)
  
-
+---------
 Travelers
 ---------
 
@@ -267,7 +269,7 @@ Travelers
  #) *medium* interest on graphical feature and user interfaces. The 'Events' could have useful verbose information attached to them.
  #) Short term users. Once the trip is over, they will probably uninstall the Application.
  
-
+-----------
 City Lovers
 -----------
 
