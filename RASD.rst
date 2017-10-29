@@ -6,9 +6,9 @@ IngSw2
 Introduction
 ============
 
- *Travlendar+ a appointment management system capable of efficently scheduling a user's calendar. Thanks to this application it is possible to calculate in advance the estimated time to reach a meeting point based on the transportation choices made my the user.*
+ *Travlendar+ is an appointment management system capable of efficently scheduling a user's calendar. Thanks to this application it is possible to calculate in advance the estimated time to reach a meeting point based on the transportation choices made my the user.*
 
- *The application not only is used for interregional travels but also for personal   and/or work appointments. Once the user is registered he or she will be able to set their preferences regarding transportation choices to reach their destination. The application will suggest different itineraries to the user based on different transportation methods, based on metrics such as transportation time and cost.*
+ *The application not only is used for interregional travels but also for personal  and/or work appointments. Once the user is registered he or she will be able to set their preferences regarding transportation choices to reach their destination. The application will suggest different itineraries to the user based on different transportation methods, based on metrics such as transportation time and cost.*
 
  *Travelendar+ is a mobile and web application capable of improving its user's everyday life with simplicity, efficency and safety.*
 
@@ -106,7 +106,7 @@ analysis	of	the	world	and	of	the	shared	phenomena
 Product Functions
 -----------------
 
-*Focusing on each category of the Goals of Travelander+ the principal Requirements can be summarized in this sections*
+*Focusing on each category of the Goals of Travelander+ the principal requirements can be summarized in this sections*
 
 -------------------------------
 Calendar Functions Requirements
@@ -304,6 +304,21 @@ User Interface
 --------------
 
 *UI and Graphical features are suited for all kind of users. It is essential a simple and immediate design which is characteristic of nowday applications.*
+
+The User Interface of the Broswer Application and of Mobile Application must be as similar as possible like the most popular application web based.
+
+    .. image:: ./Resources/MockUp/MockUp.png
+    .. image:: ./Resources/MockUp/User-Profile.png
+    .. image:: ./Resources/MockUp/Preference.png
+    .. image:: ./Resources/MockUp/login_template.png
+    .. image:: ./Resources/MockUp/loading_template.png
+    .. image:: ./Resources/MockUp/Event_Setting.png
+    .. image:: ./Resources/MockUp/Calendar_01.png
+    .. image:: ./Resources/MockUp/Calendar.png
+    .. image:: ./Resources/MockUp/BestRoutes.png
+
+
+ 
 
 ------------------
 Hardware Interface
