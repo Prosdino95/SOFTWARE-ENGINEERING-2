@@ -1,5 +1,3 @@
-IngSw2
-
 .. contents:: Table of Contents
  :depth: 2
 
