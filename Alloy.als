@@ -141,7 +141,7 @@ pred show{}
 
 
 run normalSchedule for 5 but exactly 1 String
-run normalSchedule for 5 but exactly 1 String
+run warningSchedule for 5 but exactly 1 String
 run choosePath for 4 but 1 User,2 Position,2 Vehicle, exactly 1 String, 1 Event, 2 Path
 check addAndDel
 run show  for 4 but 2 Position, exactly 1 String,exactly 1 Event,2 Path
