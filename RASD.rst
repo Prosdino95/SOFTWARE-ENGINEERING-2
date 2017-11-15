@@ -38,10 +38,10 @@ Maps Geolocalization Functions
  #) Geolocate the gps coordinates of the "Starting Location" and the "Meeting Location" on a virtual map.
  #) Calculate a list of possible shortest routes from a "Starting Location" and the "Meeting Location" with the 'Vehicles' available.
  #) Calculate the extimation time of arrival at the destination for each route.
- #) Let the User choose a route from the list of "Best Route" provided by the algorithm
- #) Let the User modify the "Best Route" adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.
+ #) Let the User choose a route from the list of routes provided by the algorithm
+ #) Let the User modify the routes adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.
  #) Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.
- #) notify with a Warning message if the 'best Route' chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.
+ #) notify with a Warning message if the route chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.
  #) Suggest a "Best Route" to the User with a 'Vehicle' which is appropriate for the day time of the appointment, the geographical location, the type of the meeting and the weather.
 
 
@@ -54,7 +54,7 @@ User Profile Manager Functions
  #) Let the User fill their 'Vehicle' preferences or dislike for best result on Algorithm 'Best Route' calculus.
  #) Let the User buy online tickets for the majority of the public transports involved on the 'Best Route' chosen.
  #) (**optional**)  Let the User modify settings for the Algorithm 'Best Route'such activating 'Green Mode' or enabling options like "No traffic lighters", "No Schools at 16:00", "Show Autovelox".
- #) (**optional**) Let the User submit on his/her page the availability of public transports subcription, driver licence, coupons for special transports for best result on Algorithm 'Best Route' calculus. 
+ #) (**optional**) Let the User submit on his/her page the availability of public transports subcription, driver licence, coupons for special transports for best result on Algorithm route calculus. 
  
 
 Scope
@@ -178,11 +178,11 @@ Maps Geolocalization Requirements
     
    #) The App with the support of external API can calculate an Extimation time of arrival for a specified 'Best Route'.
     
- 4 *Let the User choose a route from the list of "Best Route" provided by the algorithm*
+ 4 *Let the User choose a route from the list of routes provided by the algorithm*
     
    #) The App must provide a grphical list in which are presented all the possible 'Best Routes' and details of the itinerary.
     
-   #) The App must wait a choice of the User to save the 'Best route' for the specified 'Event'.
+   #) The App must wait a choice of the User to save the route for the specified 'Event'.
     
  5 *Let the User modify the "Best Route" adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.*
     
@@ -193,18 +193,18 @@ Maps Geolocalization Requirements
     
  6 *Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.*       
     
-   #) The App must have information on timetables of the public transports of the city.
+   #) The App must query information on timetables of the public transports of the city.
     
    #) The App must notify on the virtual map stations of the public transports of the city.
     
     
- 7 *Notify with a Warning message if the 'best Route' chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.*
+ 7 *Notify with a Warning message if the route chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.*
  
    #) Before subitting the 'Event', the App must check if the time of the 'Event' and the 'Extimation' time of Arrival of the corrisponding 'Best Route' overlap with other 'Event' time start.
     
  8 *Suggest a "Best Route" to the User with a 'Vehicle' which is appropriate for the day time of the appointment, the geographical location, the type of the meeting and the weather*
  
-   #) The App when provide the list of 'Best Route' to the User must provide a suggested one.
+   #) The App must provide a "Suggested Route"
     
 
 ---------------------------------
@@ -227,12 +227,14 @@ User Profile Manager Requirements
  #) *Let the User fill their 'Vehicle' preferences or dislike for best result on Algorithm 'Best Route' calculus.*
  
     #) The App must store the preference or dislike of the User
-    #) The 'Best Route' Algorithm must not present 'Best Routes' with 'Vehicles' that the User dislikes
     
     
- #) *Let the User buy online tickets for the majority of the public transports involved on the 'Best Route' chosen.*
+ #) *Let the User buy online tickets for the majority of the public transports involved on the route chosen.*
  
-    #) The App must provide a link to a Payment service page in which the User can buy the tickets.
+    #) The App must provide an "Arrange System".
+    #) The "Arrange System" can query external systems and reserve vehicles for user.
+    #) The "Arrange System" can redirect the user to secure pages in which can be buyed tickets for tranports inolved on the route chosen.
+    
     
     
  #) (**optional**)  *Let the User modify settings for the Algorithm 'Best Route'such activating 'Green Mode' or enabling options like "No traffic lighters", "No Schools at 16:00", "Show Autovelox".* 
