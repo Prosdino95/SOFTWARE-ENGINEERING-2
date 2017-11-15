@@ -96,7 +96,18 @@ Definitions
 Architectural Design
 ====================
 
-Overview: High-level	components and their interaction	-----------------------------------------------------
+High-level components and their interaction
+-----------------------------------------------
+
+The architecture of the system is a 3 Logic Tiers.
+
+    .. image:: Resources/High_level_component.png
+
+When the User submit an event via Web or App the Engine proceed to update the DB and calcolate the route to propose to the user.
+When the sistem need external information the Arrange System provides through a query to external API (for istance: the ATM schedule or Google Maps route)
+
+The Database store all user informations about his profile preference and his shedule (Events and Best route chosen by the user)
+
 
 Component View
 --------------
