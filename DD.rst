@@ -133,97 +133,18 @@ Algorithm Design
 User Interface Design
 =====================
 
-User Interface
---------------
+User Interface MockUp
+---------------------
 
-*UI and Graphical features are suited for all kind of users. It is essential a simple and immediate design which is characteristic of nowday applications.*
+see Section on RASD document.
 
-The User Interface of the Broswer Application and of Mobile Application must be as similar as possible like the most popular application web based. 
-
-  *Except for the first image we will assume that all the following mock up presented are for the Broswer Application and Mobile Application*
-
-    .. figure:: Resources/MockUp/MockUp.png 
-
-        
-        **Figure 01:** The App Gui is intuitive and easy to use.
-        
-        
-    .. figure:: Resources/MockUp/Calendar.png
-        
-       **Figure 02:** The Broswer Gui is the same and extended version of th App Gui.
-       
-
-       
---------
-Features
---------
-
-*The Gui elements are*:
-
-#) Slide left menu
-#) First loading screen which shows the Travlendar Logo;
-#) Push buttons.
-#) Input text field.
-
-*The main screen are*:
-
-#) Calendar screen
-#) Submit Event Screen
-#) User Page
-#) Preferences Page
-
-----------------
-The Main Screens
-----------------
-         
- .. figure:: Resources/MockUp/loading_template.png
+UX Diagram
+----------
     
-    **Figure 03:** The Loading page shows the Travlendar+ logo and has a nice interface.
-    
-    
+    .. image:: Resources/UxDiagram/UxDiagram.png
+
+
  
- 
- .. figure:: Resources/MockUp/login_template.png  
-   
-    **Figure 04:** The Login Page in which the user must enter his user name and a password.
-    
-    
-   
-    .. figure:: Resources/MockUp/Calendar_01.png
-   
-       **Figure 05:** The Calendar Page shows a calendar with all the event submitted by the user. There is a submit button in which the user can submit a new event.
-    
-    
-    
-    .. figure:: Resources/MockUp/User-Profile.png
-   
-       **Figure 06:** The User page in which the user can modify his/her personal informations
-    
-    
-    .. figure:: Resources/MockUp/Preference.png
-   
-       **Figure 07:** The Preference page in which the user can modify and update his/her preferences on the transport to use.
-    
-    
------------------------
-The Submit Event Screen
------------------------
-
-*The Submit event screen has a first page in which the user submits the destination, the date, the starting location and the time of the event.*
-
-*In the second page there is a list of the routes calculated by the algorithm with the specific extimational time of arrive.*
-
-*The warning shows if with the extimational time of arrive the user can be late for the meeting. The first and the second page are linked by a Scroll Down animation.*
-    
-    .. figure:: Resources/MockUp/Event_Setting.png
-
-       **Figure 08:** The First page in which the user submits the main informations.
-
-
-    .. figure:: Resources/MockUp/BestRoutes.png
-    
-       **Figure 09:** The Second page in which the user can modify the routes and has a graphic map feature.
-
 Requirements Traceability
 =========================
 
