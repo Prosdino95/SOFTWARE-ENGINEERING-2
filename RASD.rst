@@ -14,6 +14,7 @@ Purpose
 -------
 
 *The main functions offered by Travlendar+ are substantially three:*
+
     * **Calendar** App manager functions
     * **Maps Geolocalization** App functions
     * Customizable **Personal User** page and preferences functions.
@@ -343,13 +344,12 @@ The User Interface of the Broswer Application and of Mobile Application must be 
 
     .. figure:: Resources/MockUp/MockUp.png 
 
-        
-        **Figure 01:** The App Gui is intuitive and easy to use.
+        The App Gui is intuitive and easy to use.
         
         
     .. figure:: Resources/MockUp/Calendar.png
-        
-       **Figure 02:** The Broswer Gui is the same and extended version of th App Gui.
+
+       The Broswer Gui is the same and extended version of th App Gui.
        
 
        
@@ -376,32 +376,31 @@ The Main Screens
 ----------------
          
  .. figure:: Resources/MockUp/loading_template.png
-    
-    **Figure 03:** The Loading page shows the Travlendar+ logo and has a nice interface.
-    
-    
- 
- 
- .. figure:: Resources/MockUp/login_template.png  
-   
-    **Figure 04:** The Login Page in which the user must enter his user name and a password.
+
+    The Loading page shows the Travlendar+ logo and has a nice interface.
     
     
-   
+    
+ .. figure:: Resources/MockUp/login_template.png
+
+    The Login Page in which the user must enter his user name and a password.
+    
+    
+    
     .. figure:: Resources/MockUp/Calendar_01.png
-   
-       **Figure 05:** The Calendar Page shows a calendar with all the event submitted by the user. There is a submit button in which the user can submit a new event.
+
+    The Calendar Page shows a calendar with all the event submitted by the user. There is a submit button in which the user can submit a new event.
     
     
     
     .. figure:: Resources/MockUp/User-Profile.png
-   
-       **Figure 06:** The User page in which the user can modify his/her personal informations
+
+    The User page in which the user can modify his/her personal informations
     
     
     .. figure:: Resources/MockUp/Preference.png
-   
-       **Figure 07:** The Preference page in which the user can modify and update his/her preferences on the transport to use.
+
+    The Preference page in which the user can modify and update his/her preferences on the transport to use.
     
     
 -----------------------
@@ -416,12 +415,12 @@ The Submit Event Screen
     
     .. figure:: Resources/MockUp/Event_Setting.png
 
-       **Figure 08:** The First page in which the user submits the main informations.
+    The First page in which the user submits the main informations.
 
 
     .. figure:: Resources/MockUp/BestRoutes.png
     
-       **Figure 09:** The Second page in which the user can modify the routes and has a graphic map feature.
+    The Second page in which the user can modify the routes and has a graphic map feature.
 
 
 Software Interface
@@ -651,7 +650,7 @@ Standards Compliance
 The software will use the following standards when deployed:
 
 - JavaEE for the server backend
-- utilize a JSON REST API for communication between the backend and frontend
+- Utilize a JSON REST API for communication between the backend and frontend
 - Google Maps library for the 'Virtual Map' creation
 
 --------------------
@@ -663,7 +662,7 @@ The mobile app will have the following hardware limitations:
 - Semi-continuous [*]_ internet access (3G/4G/WiFi)
 - GPS
 
-.. [*] Semi-continuous meaning that the system can loose connection briefly but overall needs to be able to access the internet on a reoccurring basis
+.. [*] Semi-continuous meaning that the system can loose connection briefly but overall needs to be able to access the internet on a reoccurring basis, mostly to allow traffic/weather updates
 
 --------------------------
 Mobile Systems Limitations
@@ -697,7 +696,7 @@ Availability
 
 *Travlendar+ helps its users to schedule their personal life appoinment and shold be as much open and accessible as possible even with the absence of Internet*
 
-#) The 'Calendar' function should be accessible on the App even if the Mobile is in Offline Mode.
+#) The 'Calendar' function should be accessible on the App even if the phone is without Internet.
 #) (**optional**) A pdf description of the 'Best Route' can be downloaded on the Travelndar+ Broswer.
 #) (**optional**) User can import a 'Calendar' configuration package and simply update his/her personal schedule of appointments.
 

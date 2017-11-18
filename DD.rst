@@ -101,7 +101,7 @@ High-level components and their interaction
 
 The architecture of the system is a 3 Logic Tiers.
 
-    .. image:: Resources/High_level_component.png
+    .. image:: Resources/architecture.png
 
 When the User submit an event via Web or App the Engine proceed to update the DB and calcolate the route to propose to the user.
 When the sistem need external information the Arrange System provides through a query to external API (for istance: the ATM schedule or Google Maps route)
@@ -123,6 +123,60 @@ Component Interfaces
 
 Architectural Styles
 --------------------
+
+--------------------
+Overall Architecture
+--------------------
+
+
+The software is divided in multiple tiers. On the server side there will be the following components:
+
+#) Frontend endpoint server
+
+#) Web scraping and API daemon to obtain transportation and weather data
+
+#) RethinkDB document-oriented database
+
+#) Routing server
+
+The client will be thin in both the web and android version.
+
+------------------------
+Frontend Endpoint Server
+------------------------
+
+The frontend endpoint server's purpose is to provide REST endpoint in JSON, it is the main and only interface between the client and the server. The API calls will be done through HTTP and will use a token infrastructure for authentication. All API calls will be processed through a secure connection. It will also include a portion of the business logic needed by travelendar+.
+
+The following endpoints will be present in the first (v1) release:
+
+* /v1/get_token
+   * POST - user provides credentials and obtains a token to use for further transactions
+* /v1/get_appointments
+   * GET - receive a JSON describing the appointments specified in the date range
+* /v1/get_route_options
+   * POST - provides the routing alternatives given a source and destination point
+* /v1/register_appointment
+   * POST - registers an appointment, if id is specified the appointment is modified
+* /v1/delete_appointment
+   * POST - deletes the appointment
+
+--------------------
+Web Scraping and API
+--------------------
+
+This server is needed to obtain information pertaining the various transportation methods. As a architectural choice API will be favoured over raw website scraping if possible.
+
+--------------
+Routing Server
+--------------
+
+The routing server's purpose is to calculate the optimal transportation options given a starting and ending point and user preferences. The routing server will exclusively communicate with the FES via a JSON REST API.
+
+In the first release there will be the following endpoints:
+
+* /v1/calculate_path
+    * calculates a list of optimal paths
+
 
 Other Design Decisions
 ----------------------
