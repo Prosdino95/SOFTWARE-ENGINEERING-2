@@ -197,7 +197,22 @@ UX Diagram
     
     .. image:: Resources/UxDiagram/UxDiagram.png
 
+Gui Scheme
+----------
 
+    .. image:: Resources/gui.png
+     
+Client can access to Travlendar+ services in two different ways:
+    -  Broswer: Mozilla, Chrome any broswer with html5, javascript support
+    -  Android App: Avaiable for any Android 5.x Systems (API level 21)
+
+
+The different GUI will be as much as possible similar focusing on the https://material.io/ design guidelines.
+
+Communication between Gui and client logic is EventBased:
+    - Html5 Window Events and Javascript for the Broswer Client
+    - onCreate(), onStart() methods and Intents between Activities for Android Client.
+     
  
 Requirements Traceability
 =========================
