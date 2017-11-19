@@ -7,7 +7,7 @@ Introduction
 Purpose
 -------
 
-In these document will be analyzed all the design features needed to develop Travlendar+ system.
+In this document will be analyzed all the design features needed to develop Travlendar+ system.
 
 We suppose that the readers are familiar to what is the Travlendar+ system and all its features. If it is not, we suggest them to read the RASD document before continuing. 
 
@@ -110,7 +110,7 @@ In the first release there will be the following endpoints:
 Other Design Decisions
 ----------------------
 
--RESTful with transition support architecture system.
+* RESTful with transition support architecture system.
 
 Algorithm Design
 ================
