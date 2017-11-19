@@ -4,93 +4,19 @@
 Introduction
 ============
 
- *Travlendar+ is an appointment management system capable of efficently scheduling a user's calendar. Thanks to this application it is possible to calculate in advance the estimated time to reach a meeting point based on the transportation choices made my the user.*
-
- *The application not only is used for interregional travels but also for personal or work appointments. Once the user is registered he or she will be able to set their preferences regarding transportation choices to reach their destination. The application will suggest different itineraries to the user based on different transportation methods, based on metrics such as transportation time and cost.*
-
- *Travelendar+ is a mobile and web application capable of improving its user's everyday life with simplicity, efficency and safety.*
-
 Purpose
 -------
 
-*The main functions offered by Travlendar+ are substantially three:*
-    * **Calendar** App manager functions
-    * **Maps Geolocalization** App functions
-    * Customizable **Personal User** page and preferences functions.
-     
-*To make more readable the document, we divided the main Goals of Travlendar+ for these category*
- 
- The Goals are:
- 
-------------------
-Calendar Functions
-------------------
+In these document will be analyzed all the design features needed to develop Travlendar+ system.
 
- #) Show a personal calendar of 'Events' submitted.
- #) Let the User submit 'Events' on the calendar to plan his/her future appointments.
- #) Notify the User when the 'Event' is about to start and she/he needs to leave to be in time to the 'Event Meeting Location'.
- #) Let the User to create 'Flexible Event' for everyday short and low priority appointments.
- 
-
-------------------------------
-Maps Geolocalization Functions
-------------------------------
- #) Geolocate the gps coordinates of the "Starting Location" and the "Meeting Location" on a virtual map.
- #) Calculate a list of possible shortest routes from a "Starting Location" and the "Meeting Location" with the 'Vehicles' available.
- #) Calculate the extimation time of arrival at the destination for each route.
- #) Let the User choose a route from the list of "Best Route" provided by the algorithm
- #) Let the User modify the "Best Route" adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.
- #) Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.
- #) notify with a Warning message if the 'best Route' chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.
- #) Suggest a "Best Route" to the User with a 'Vehicle' which is appropriate for the day time of the appointment, the geographical location, the type of the meeting and the weather.
-
-
-------------------------------
-User Profile Manager Functions
-------------------------------
- 
- #) Let the User to sign in to the Service filling an online form.
- #) Let the User to login to their personal User page and update their informations.
- #) Let the User fill their 'Vehicle' preferences or dislike for best result on Algorithm 'Best Route' calculus.
- #) Let the User buy online tickets for the majority of the public transports involved on the 'Best Route' chosen.
- #) (**optional**)  Let the User modify settings for the Algorithm 'Best Route'such activating 'Green Mode' or enabling options like "No traffic lighters", "No Schools at 16:00", "Show Autovelox".
- #) (**optional**) Let the User submit on his/her page the availability of public transports subcription, driver licence, coupons for special transports for best result on Algorithm 'Best Route' calculus. 
- 
+We suppose that the readers are familiar to what is the Travlendar+ system and all its features. If it is not, we suggest them to read the RASD document before continuing. 
 
 Scope
 -----
 
- *Travelandar+ has a simple scope, helping the Users to planning efficiently their appoinments. We can analyze all the shareded phenomena by the App and the Users.*
- 
- *Shared Phenomena*:
- 
- #) Registration on the Travlendar+ Service
- #) Submitting the 'Event'
- #) Submitting the preferences of the User
- #) Alarm function
- #) Calculus of the 'Best Route'
- 
- *Not Shared Phenomena*:
+We will focus on mapping all the functions analyzed on the RASD document on different components and modules in a specific structure. 
 
- #) Geographical positions of the 'Event's Locations.
- #) Presence of roads, streets, railway stations, public transports in the city.
- #) Preferences of the User.
- 
- 
-Definitions
------------
-* *Alarm function*: a way in which the phone can notify the user that something important is happening. It is often a sound or a vibration according to the phone used.
-* *API:* Application programming interface; it is a common way to communicate with another system.
-* *Best Route*: The best route calculated by the algorithm to reach a given event without any delay. The algorithm also considers the user's preferences.
-* *Costraint*: Something that controls what you do by keeping you within particular limits.
-* *Event*: The users can create some events and submit them to the calendar. The application checks if there are some overlaps and calculates the best route to reach the events.
-* *Green Mode*: A user's preference which means that the user prefers to keep his Ecological Footprint as lower as possible. (for instance the user prefer to use a bike instead of a bus)
-* *Itermidiate Location*: Any locations between the start point and where the event take place.
-* *Meeting Location*: The place or position that the user specifies during the submission of a new event.
-* *Route*: The roads you follow to get from one place to another place. The routes are calculated after an event submission.
-* *Starting Location*: The position where the algorithm starts to calculate the routes to reach the event.
-* *Vehicle*: Something such as a car, bike or bus that takes people from one place to another, also "by foot" is considered a vehicle.
-* *Warning*: If there are some problems with an event (like overlapping) the application produces a notify that is attached to the event. The user can select the warning and see more details.
+We will do considerations about the Architecture structure of the system and the single components involved. This analysis will cover not only the Logic part of the application but the UI too.
 
 
 Architectural Design

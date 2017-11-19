@@ -4,24 +4,31 @@
 Introduction
 ============
 
+General Description
+-------------------
+
  *Travlendar+ is an appointment management system capable of efficently scheduling a user's calendar. Thanks to this application it is possible to calculate in advance the estimated time to reach a meeting point based on the transportation choices made my the user.*
 
  *The application not only is used for interregional travels but also for personal or work appointments. Once the user is registered he or she will be able to set their preferences regarding transportation choices to reach their destination. The application will suggest different itineraries to the user based on different transportation methods, based on metrics such as transportation time and cost.*
 
  *Travelendar+ is a mobile and web application capable of improving its user's everyday life with simplicity, efficency and safety.*
+ 
 
 Purpose
 -------
+
+In these document will be analyzed all the requirements and specifications needed for the design and developing of Travlendar+ System. The document is divided in sections to be more readable and linkable in external paper. 
+
+Goals
+-----
 
 *The main functions offered by Travlendar+ are substantially three:*
 
     * **Calendar** App manager functions
     * **Maps Geolocalization** App functions
     * Customizable **Personal User** page and preferences functions.
-     
-*To make more readable the document, we divided the main Goals of Travlendar+ for these category*
  
- The Goals are:
+ So we can group the goals in three categories, one for a specific function.
  
 ------------------
 Calendar Functions
@@ -61,7 +68,7 @@ User Profile Manager Functions
 Scope
 -----
 
- *Travelandar+ has a simple scope, helping the Users to planning efficiently their appoinments. We can analyze all the shareded phenomena by the App and the Users.*
+ *Travelandar+ has a simple scope, helping the Users to planning efficiently their appoitnments. We can analyze all the shareded phenomena by the App and the Users.*
  
  *Shared Phenomena*:
  
