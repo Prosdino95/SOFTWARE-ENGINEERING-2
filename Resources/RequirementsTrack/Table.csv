@@ -1,0 +1,97 @@
+Goals,Requirements,Components,Description
+C1- Show a personal calendar of 'Events' submitted.,"
+CR1- The system must store the submit of 'Event' of the User","Calendar Module, User DB",Can be used Local storage to have more Availability
+,"
+CR2- The system must have a visual calendar","Calendar Module, Broswer GUI, App GUI",
+,"
+CR3- The system must have a page navigation system","Calendar Module, Broswer GUI, App GUI",
+"
+C2- Let the User submit 'Events'
+","
+CR1- The system must store an 'Event'  with 
+Specified option","Calendar Module, User DB",
+,"
+CR2- The system must not let the User to create 'Event' in the past days.",Calendar Module,
+,"
+CR3- The system must provide a message of 'Warning' 
+if the new Event overlaps with other","Calendar Module, Alarm System",
+,,,
+"
+C3- Notify the User when the 'Event' is about to start","
+CR1- The system must warn the User that can miss or be late to an appointment","Alarm System, UserDB",Alarm System could query the UserDB to have informations on Users events or just access on Local storage
+,"
+CR2- Alarm System' can be configurate by the User","Alarm System, UserDB",
+,"
+CR3- 
+The 'Alarm System' if activated must start before the start time of the 'Event'
+",Alarm System,
+,,,
+"
+C4- Let the User to create 'Flexible Event' ","
+CR1- 'Flexible Event' flag when the User is creating a new 'Event'","Calendar Module, Broswer GUI, App GUI,UserDB",
+,"
+CR2- A 'Flexible Event' can be overlapped to an another 'Event'",Calendar Module,
+,"
+CR3- A 'Flexible Event' can be copied and pasted on the Calendar and be repeated on several days of the same Week",Calendar Module,
+,"
+CR4- A 'Flexible Event' can be easly suppressed.
+",Calendar Module,
+,,,
+M1- Geolocate the gps coordinates of the Event,"MR1- The system must provide gps API and be able to locate the position on a graphical map.
+","Route Module, App GUI, Broswer GUI ",
+,,,
+M2- Calculate a list of possible shortest routes,"MR1- The 'Best Route' Algorithm must return a list of shortest routes.
+ ",Optimal path server,
+,,,
+M3- Calculate the Extimation time of arrival at the destination,MR1- The system with the support of external API can calculate an Extimation time of arrival for a specified 'Best Route'.,Optimal path server,
+,,,
+M4- Let the User choose a route from the list provided,MR1- The system must provide a grphical list in which are presented all the possible 'Best Routes' and details of the itinerary.,"Route Module, App GUI, Broswer GUI ",
+,MR2- The system must wait a choice of the User to save the route for the specified 'Event'.  ,"Route Module, App GUI, Broswer GUI ",
+,,,
+"M5-  Let the User modify the ""Best Route"" adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.",MR1- The system must provide a graphical feature in which the user can modify the path adding location on the virtual maps.,"Route Module, App GUI, Broswer GUI ",
+,MR2- The 'Best Route' Algorithm must update the Extimate time of arrival at destination depending on the geographical position of the 'Intermidiate Locations' added or the new 'Vehicle' speed average chosen.,Optimal path server,
+,"MR3- In case of 'Costraint' too much strict the system can return a 'Warning' message notifing the User that a 'Best Route' does not exist with that 'Costraint'.
+",Optimal path server,
+,,,
+"M6- Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.
+","MR1- The system must query information on timetables of the public transports of the city.
+","Optimal path server, TransportDB, Scraper Module",
+,MR2- The system must notify on the virtual map stations of the public transports of the city.,"Route Module, TransportDB, App GUI, Broswer GUI",
+,,,
+M7- Notify with a Warning message if the route chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.,"MR1- Before subitting the 'Event', the system must check if the time of the 'Event' and the 'Extimation' time of Arrival of the corrisponding 'Best Route' overlap with other 'Event' time start.",Route Module,
+,,,
+"M8- Suggest a ""Best Route"" to the User with a 'Vehicle' which is appropriate for the day time of the appointment, the geographical location, the type of the meeting and the weather
+","MR1- The system must provide a ""Suggested Route""
+ ",Optimal path server,
+,,,
+"U1- Let the User to sign in to the Service filling an online form.
+","UR1- The system must provide a registration form to the User.
+","AccountManager, UserDataDb",
+,"UR2- The User is not signed in until all the fields of the form are not filled and valid.
+",AccountManager,
+,UR3- The system must verify if the information on the registration form are valid.,AccountManager,
+,,,
+"U2- Let the User to login to their personal User page and update their informations.
+","UR1- The system must provide an update function on the User profile page.
+
+","AccountManager, App GUI, Broswer GUI ",
+,"UR2- The system must verify if the new informations are valid.
+",AccountManager,
+,,,
+"U3- Let the User to login to their personal User page and update their informations.
+","UR1- The system must store the preference or dislike of the User
+ ","AccountManager, UserDataDb",
+,,,
+U4- Let the User buy online tickets for the majority of the public transports involved on the route chosen.,"UR1- The system must provide an ""Arrange System"".
+
+",Arrange System,
+,"UR2- The ""Arrange System"" can query external systems and reserve vehicles for user.","Arrange System, TransportDB, Scraper Module",
+,"UR3- The ""Arrange System"" can redirect the user to secure pages in which can be buyed tickets for tranports inolved on the route chosen.",Arrange System,
+,,,
+"U5- (optional) Let the User modify settings for the Algorithm 'Best Route'such activating 'Green Mode' or enabling options like ""No traffic lighters"", ""No Schools at 16:00"", ""Show Autovelox"".","
+UR1- The system must store all the setting of the Algorithm chosed by the User",UserDataDB,
+,,,
+"U6- 
+(optional) Let the User submit on his/her page the availability of public transports subcription, driver licence, coupons for special transports for best result on Algorithm 'Best Route' calculus.
+","
+UR1-The system must use if available those information when calculating the 'Best Route'","Optimal path server, UserDataDB",

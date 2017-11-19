@@ -134,25 +134,25 @@ Calendar Functions Requirements
 
  #) *Show a personal calendar of 'Events' submitted.*
   
-     #) The App must store the submit of 'Event' of the User
+     #) The system must store the submit of 'Event' of the User
      
-     #) The App must have a visual calendar showing the 'Event' of the User.
+     #) The system must have a visual calendar showing the 'Event' of the User.
      
-     #) The App must have a page navigation system.
+     #) The system must have a page navigation system.
      
      
  #) *Let the User submit 'Events' on the calendar to plan his/her future appointments.*
  
-     #) The App must store an "Event" when the User specifies a "Starting Location", a "Meeting Location" a date and the time.
+     #) The system must store an "Event" when the User specifies a "Starting Location", a "Meeting Location" a date and the time.
     
-     #) The App must not let the User to create 'Event' in the past days.
+     #) The system must not let the User to create 'Event' in the past days.
      
-     #) The App must provide a message of 'Warning' if the User is creating an 'Event' which can be overlapped to an existing 'Event'.
+     #) The system must provide a message of 'Warning' if the User is creating an 'Event' which can be overlapped to an existing 'Event'.
      
      
  #) *Notify the User when the 'Event' is about to start and she/he needs to leave to be in time to the 'Event Meeting Location'.*
  
-    #) The App must have an 'Alarm System' which warns the User that can miss or be late to an appointment if he/she doesn't leave.
+    #) The system must have an 'Alarm System' which warns the User that can miss or be late to an appointment if he/she doesn't leave.
     
     #) The 'Alarm System' can be configurate by the User and can have different ways of notify.
     
@@ -160,7 +160,7 @@ Calendar Functions Requirements
     
  #) *Let the User to create 'Flexible Event' for everyday short and low priority appointments.*
  
-    #) The App must provide a 'Flexible Event' flag when the User is creating a new 'Event'
+    #) The system must provide a 'Flexible Event' flag when the User is creating a new 'Event'
     
     #) A 'Flexible Event' can be overlapped to an another 'Event'
     
@@ -175,7 +175,7 @@ Maps Geolocalization Requirements
 
  1 *Geolocate the gps coordinates of the "Starting Location" and the "Meeting Location" on a virtual map.*
     
-   #) The App must provide gps API and be able to locate the position on a graphical map.
+   #) The system must provide gps API and be able to locate the position on a graphical map.
     
 
  2 *Calculate a list of possible shortest routes from a "Starting Location" and the "Meeting Location" with the 'Vehicles' available.*
@@ -184,35 +184,35 @@ Maps Geolocalization Requirements
     
  3 *Calculate the Extimation time of arrival at the destination for each route.*
     
-   #) The App with the support of external API can calculate an Extimation time of arrival for a specified 'Best Route'.
+   #) The system with the support of external API can calculate an Extimation time of arrival for a specified 'Best Route'.
     
  4 *Let the User choose a route from the list of routes provided by the algorithm*
     
-   #) The App must provide a grphical list in which are presented all the possible 'Best Routes' and details of the itinerary.
+   #) The system must provide a grphical list in which are presented all the possible 'Best Routes' and details of the itinerary.
     
-   #) The App must wait a choice of the User to save the route for the specified 'Event'.
+   #) The system must wait a choice of the User to save the route for the specified 'Event'.
     
  5 *Let the User modify the "Best Route" adding 'Costraint' for 'Intermidiate Locations', preferred 'Vehicle', max distance with a specified 'Vehicle' or max time on a specified 'Vehicle'.*
     
-   #) The App must provide a graphical feature in which the user can modify the path adding location on the virtual maps.
+   #) The system must provide a graphical feature in which the user can modify the path adding location on the virtual maps.
     
    #) The 'Best Route' Algorithm must update the Extimate time of arrival at destination depending on the geographical position of the 'Intermidiate Locations' added or the new 'Vehicle' speed average chosen.
-   #) In case of 'Costraint' too much strict the App can return a 'Warning' message notifing the User that a 'Best Route' does not exist with that 'Costraint'.
+   #) In case of 'Costraint' too much strict the system can return a 'Warning' message notifing the User that a 'Best Route' does not exist with that 'Costraint'.
     
  6 *Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.*       
     
-   #) The App must query information on timetables of the public transports of the city.
+   #) The system must query information on timetables of the public transports of the city.
     
-   #) The App must notify on the virtual map stations of the public transports of the city.
+   #) The system must notify on the virtual map stations of the public transports of the city.
     
     
  7 *Notify with a Warning message if the route chosen by the User is not good and he/she may arrive on late at the 'Meeting' because of its Extimation Time too long.*
  
-   #) Before subitting the 'Event', the App must check if the time of the 'Event' and the 'Extimation' time of Arrival of the corrisponding 'Best Route' overlap with other 'Event' time start.
+   #) Before subitting the 'Event', the system must check if the time of the 'Event' and the 'Extimation' time of Arrival of the corrisponding 'Best Route' overlap with other 'Event' time start.
     
  8 *Suggest a "Best Route" to the User with a 'Vehicle' which is appropriate for the day time of the appointment, the geographical location, the type of the meeting and the weather*
  
-   #) The App must provide a "Suggested Route"
+   #) The system must provide a "Suggested Route"
     
 
 ---------------------------------
@@ -221,25 +221,25 @@ User Profile Manager Requirements
  
  #) *Let the User to sign in to the Service filling an online form.*
     
-    #) The App must provide a registration form to the User.
+    #) The system must provide a registration form to the User.
     #) The User is not signed in until all the fields of the form are not filled and valid.
-    #) The App must verify if the information on the registration form are valid.
+    #) The system must verify if the information on the registration form are valid.
     
     
  #) *Let the User to login to their personal User page and update their informations.*
  
-    #) The App must provide an update function on the User profile page.
-    #) The App must verify if the new informations are valid.
+    #) The system must provide an update function on the User profile page.
+    #) The system must verify if the new informations are valid.
     
     
  #) *Let the User fill their 'Vehicle' preferences or dislike for best result on Algorithm 'Best Route' calculus.*
  
-    #) The App must store the preference or dislike of the User
+    #) The system must store the preference or dislike of the User
     
     
  #) *Let the User buy online tickets for the majority of the public transports involved on the route chosen.*
  
-    #) The App must provide an "Arrange System".
+    #) The system must provide an "Arrange System".
     #) The "Arrange System" can query external systems and reserve vehicles for user.
     #) The "Arrange System" can redirect the user to secure pages in which can be buyed tickets for tranports inolved on the route chosen.
     
@@ -247,11 +247,11 @@ User Profile Manager Requirements
     
  #) (**optional**)  *Let the User modify settings for the Algorithm 'Best Route'such activating 'Green Mode' or enabling options like "No traffic lighters", "No Schools at 16:00", "Show Autovelox".* 
  
-    #) The App must store all the setting of the Algorithm chosed by the User
+    #) The system must store all the setting of the Algorithm chosed by the User
     
  #) (**optional**) *Let the User submit on his/her page the availability of public transports subcription, driver licence, coupons for special transports for best result on Algorithm 'Best Route' calculus.* 
  
-    #) The App must use if available those information when calculating the 'Best Route'
+    #) The system must use if available those information when calculating the 'Best Route'
     
     
  

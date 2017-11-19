@@ -38,7 +38,7 @@ The Database store all user informations about his profile preference and his sh
 Component View
 --------------
 
-	 .. image:: Resources/Component_view.png.png
+	 .. image:: Resources/Component_view.png
 
 
 Deployement View
@@ -110,6 +110,8 @@ In the first release there will be the following endpoints:
 Other Design Decisions
 ----------------------
 
+-RESTful with transition support architecture system.
+
 Algorithm Design
 ================
 
@@ -119,7 +121,7 @@ User Interface Design
 User Interface MockUp
 ---------------------
 
-see Section on RASD document.
+see *External Interface Requirements* on RASD document.
 
 UX Diagram
 ----------
@@ -145,6 +147,11 @@ Communication between Gui and client logic is EventBased:
  
 Requirements Traceability
 =========================
+
+Referring to RASD document we can track the requirements on the components described.
+
+
+    .. image:: Resources//RequirementsTrack/Table.png
 
 
 Implementation, Integration an Testing
