@@ -112,6 +112,9 @@ The Database store all user informations about his profile preference and his sh
 Component View
 --------------
 
+	 .. image:: Resources/Component_view.png.png
+
+
 Deployement View
 ----------------
 
