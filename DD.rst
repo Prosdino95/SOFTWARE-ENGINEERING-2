@@ -44,6 +44,8 @@ Component View
 Deployement View
 ----------------
 
+	.. image:: Resources/Deployment_view.png
+
 Runtime View
 ------------
 
