@@ -38,13 +38,16 @@ The Database store all user informations about his profile preference and his sh
 Component View
 --------------
 
-	 .. image:: Resources/Component_view.png
+    .. image:: Resources/DD_Diagram/Component_view.png
+
+Client View:
+    .. image:: Resources/DD_Diagram/Component_view_Client.png
 
 
 Deployement View
 ----------------
 
-	.. image:: Resources/Deployment_view.png
+	.. image:: Resources/DD_Diagram/Deployment_view.png
 
 Runtime View
 ------------
