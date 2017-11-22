@@ -185,8 +185,7 @@ FrontEnd
 
     #) GUI
     #) Client Interface
-    .........
-
+    #) ...
 
 Component Integration sequence
 --------------------------------
