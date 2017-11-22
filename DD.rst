@@ -23,17 +23,58 @@ Architectural Design
 ====================
 
 High-level components and their interaction
------------------------------------------------
+-------------------------------------------
 
 The architecture of the system is a 3 Logic Tiers.
 
     .. image:: Resources/architecture.png
+    
 
-When the User submit an event via Web or App the Engine proceed to update the DB and calcolate the route to propose to the user.
-When the sistem need external information the Arrange System provides through a query to external API (for istance: the ATM schedule or Google Maps route)
+It is mainly composed by these elements:
 
-The Database store all user informations about his profile preference and his shedule (Events and Best route chosen by the user)
+* Applicational Servers
+* Firewalls
+* Databases
+* Auxiliary Server
 
+---------------------
+Applicational Servers
+---------------------
+
+Server used to provide the main service and logic of Travlendar+. 
+As in the figure above, the Applicational Servers are:
+
+#) **Web Server** which provides all the html forms and hypertext layout of the System.
+#) **Frontend Endpoint Server** which dispatches and elaborates all the client requests in a server side and safe environment
+#) **Routing Server** which has the function of computing the Best Path Algorithm and arrange a route for the user.
+
+---------------------
+Firewalls
+---------------------
+
+Protection is a quality driver essential for the System. We decide to put only two firewalls, which are:
+
+#) **Outer Firewall** which has the function to screen external packets with a light level of protection. A complete protection for a Web Server is not necessary.
+#) **Inner Firewall** which has to protect all the server side from malicious packets. It must guarantee an high level of protection, especially for the databases access. 
+
+---------
+Databases
+---------
+
+Of course the System needs to have databases. Those are:
+
+#) **User Data DB** which stores all personal information and preferences of the accounts and member registred on the System.
+#) **Transport DB** which stores all the information needed to compute the Best Path Algorithm. For istance it has stored public transports timetables. This is due to absence of valid external API. (see Scraper Section for more information)
+
+-----------------------------------
+Auxiliary Server - Scrape Module
+-----------------------------------
+
+To compute the Best Path Algorithm are needed a lot of external information, such public transport timetables, geographical position car sharing system stations and so forth. External API which could query databases of third parties do not exist. So it must implement a system which currently gives all these informations. For this reasons it could be used Auxiliary Servers which have the function to populate the Transport Database. 
+
+A good tool is the use of **Scrape Module Server**. With a list of objective website it is possible to populate the Transport Database periodically.
+ 
+ 
 
 Component View
 --------------
