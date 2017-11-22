@@ -90,7 +90,6 @@ Server Side
 Cient Side
 --------------
 
-Client View:
     .. image:: Resources/DD_Diagram/Component_view_Client.png
 
 
