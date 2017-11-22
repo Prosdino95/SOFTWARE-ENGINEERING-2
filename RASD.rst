@@ -651,23 +651,23 @@ Performance Requirements
 Design Constraints
 ------------------
 
+*see dd document for more informations*
+
 --------------------
 Standards Compliance
 --------------------
 The software will use the following standards when deployed:
 
-- JavaEE for the server backend
-- Utilize a JSON REST API for communication between the backend and frontend
-- Google Maps library for the 'Virtual Map' creation
+- Client Server protocol communications.
+- Utilize a REST standard for communication between the backend and frontend
 
 --------------------
 Hardware Limitations
 --------------------
-The mobile app will have the following hardware limitations:
+The System will have the following hardware limitations:
 
-- Android or iOS operating system
 - Semi-continuous [*]_ internet access (3G/4G/WiFi)
-- GPS
+- GPS or trackable Geographical position.
 
 .. [*] Semi-continuous meaning that the system can loose connection briefly but overall needs to be able to access the internet on a reoccurring basis, mostly to allow traffic/weather updates
 
@@ -675,7 +675,10 @@ The mobile app will have the following hardware limitations:
 Mobile Systems Limitations
 --------------------------
 
-#) Android Mobile Systems should have installed the latest Google Play Service avilable.
+#) Android system.
+
+#) Android Mobile Systems should have installed the latest Google Play Service avilable API level 21 or more.
+
 
 -----------------
 Other Constraints
@@ -715,6 +718,7 @@ Security
 
 - https protocol used for all the calls
 - salted password hashes are used in the backend DB
+- use of firewall
 
 
 Scenarios
