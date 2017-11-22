@@ -70,16 +70,25 @@ Of course the System needs to have databases. Those are:
 Auxiliary Server - Scrape Module
 -----------------------------------
 
-To compute the Best Path Algorithm are needed a lot of external information, such public transport timetables, geographical position car sharing system stations and so forth. External API which could query databases of third parties do not exist. So it must implement a system which currently gives all these informations. For this reasons it could be used Auxiliary Servers which have the function to populate the Transport Database. 
+To compute the Best Path Algorithm are needed a lot of external information, such public transport timetables, geographical position car sharing system stations and so forth. External API which could query databases of third parties could be not exist. So it must implement a system which currently gives all these informations. For this reasons it could be used Auxiliary Servers which have the function to populate the Transport Database. 
 
-A good tool is the use of **Scrape Module Server**. With a list of objective website it is possible to populate the Transport Database periodically.
- 
+A good tool is the use of **Scrape Module Server**.
  
 
 Component View
 --------------
 
+The main function offered by the system can be summarized in those structure of components.
+
+--------------
+Server Side
+--------------
+
     .. image:: Resources/DD_Diagram/Component_view.png
+
+--------------
+Cient Side
+--------------
 
 Client View:
     .. image:: Resources/DD_Diagram/Component_view_Client.png
@@ -87,6 +96,9 @@ Client View:
 
 Deployement View
 ----------------
+
+Other userful information about the deployment of the components can be represented on the diagram below.
+
 
 	.. image:: Resources/DD_Diagram/Deployment_view.png
 
@@ -120,7 +132,7 @@ The client will be thin in both the web and android version.
 Frontend Endpoint Server
 ------------------------
 
-The frontend endpoint server's purpose is to provide REST endpoint in JSON, it is the main and only interface between the client and the server. The API calls will be done through HTTP and will use a token infrastructure for authentication. All API calls will be processed through a secure connection. It will also include a portion of the business logic needed by travelendar+.
+The frontend endpoint server's purpose is to provide REST endpoint in JSON, it is the main and only interface between the client and the server. The API calls will be done through HTTP and will use a token infrastructure for authentication. All API calls will be processed through a secure connection. It will also include a portion of the business logic needed by Travlendar+.
 
 The following endpoints will be present in the first (v1) release:
 
@@ -186,7 +198,7 @@ Client can access to Travlendar+ services in two different ways:
 
 The different GUI will be as much as possible similar focusing on the https://material.io/ design guidelines.
 
-Communication between Gui and client logic is EventBased:
+Communication between Gui and client logic is *Event Based*:
     - Html5 Window Events and Javascript for the Broswer Client
     - onCreate(), onStart() methods and Intents between Activities for Android Client.
      
