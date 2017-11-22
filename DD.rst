@@ -162,6 +162,45 @@ Referring to RASD document we can track the requirements on the components descr
 Implementation, Integration an Testing
 ======================================
 
+Elements to be Integrated 
+--------------------------
+
+--------
+BackEnd
+--------
+
+    #) Handler Api
+    #) RethinkDB
+        #) UserDB
+        #) TrasportDB
+    #) Optimal Path Server
+
+----------------
+Scraping Module
+----------------
+
+---------
+FrontEnd
+---------
+
+    #) GUI
+    #) Client Interface
+    .........
+
+
+Component Integration sequence
+--------------------------------
+
+In this section of the document will be described the order of integration of the components.
+As a notation, an arrow going from component A to component B means that A is necessary for B to function, so it must have already been implemented before performing the integration.
+
+    .. image:: Resources/DD_Diagram/Integration.png
+
+
+
+Elements to be Integrated 
+--------------------------
+
 
 Effort Spent
 ============
