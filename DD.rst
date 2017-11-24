@@ -96,7 +96,7 @@ Cient Side
 Deployement View
 ----------------
 
-Other userful information about the deployment of the components can be represented on the diagram below.
+Other userful information about the deployment of the BackEnd components can be represented on the diagram below.
 
 
 	.. image:: Resources/DD_Diagram/Deployment_view.png
@@ -231,13 +231,18 @@ BackEnd
 Scraping Module
 ----------------
 
+Scrap modules are not required for the testing and implementation of the other components.
+they will be used once the system has been completed to populate the DataBases.
+They can be implemented, tested and integrated independently of the other modules.
+
 ---------
 FrontEnd
 ---------
 
-    #) GUI
+    #) GUI (android and Broswer)
     #) Client Interface
-    #) ...
+    #) Client app
+    #) Allarm System
 
 Component Integration sequence
 --------------------------------
@@ -245,12 +250,18 @@ Component Integration sequence
 In this section of the document will be described the order of integration of the components.
 As a notation, an arrow going from component A to component B means that A is necessary for B to function, so it must have already been implemented before performing the integration.
 
+
+--------
+BackEnd
+--------
+
     .. image:: Resources/DD_Diagram/Integration.png
 
+---------
+FrontEnd
+---------
 
-
-Elements to be Integrated 
---------------------------
+    .. image:: Resources/DD_Diagram/IntegrationGui.png
 
 
 Effort Spent
