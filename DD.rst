@@ -190,6 +190,14 @@ Gui Scheme
 
     .. image:: Resources/gui.png
      
+Gui elements can be reassumed on those elements:
+
+    #) **Broswer Gui** which is composed by all the html pages and insert section of the client broswer interface
+    #) **Android Gui** which is composed by all the Activities and java classes of the android layout app. 
+    
+The Gui interfaces face the same application logic module, which is described in above sections.
+Broswer Gui and Android Gui arrange their elements following the UX diagram above to give to the user the same experience.
+
 Client can access to Travlendar+ services in two different ways:
     -  Broswer: Mozilla, Chrome any broswer with html5, javascript support
     -  Android App: Avaiable for any Android 5.x Systems (API level 21)
