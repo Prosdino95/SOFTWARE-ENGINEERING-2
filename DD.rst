@@ -46,7 +46,7 @@ As in the figure above, the Applicational Servers are:
 
 #) **Web Server** which provides all the html forms and hypertext layout of the System.
 #) **Frontend Endpoint Server** which dispatches and elaborates all the client requests in a server side and safe environment
-#) **Routing Server** which has the function of computing the Best Path Algorithm and arrange a route for the user.
+#) **Optima Path Server** which has the function of computing the Best Path Algorithm and arrange a route for the user.
 
 ---------------------
 Firewalls
@@ -66,13 +66,13 @@ Of course the System needs to have databases. Those are:
 #) **User Data DB** which stores all personal information and preferences of the accounts and member registred on the System.
 #) **Transport DB** which stores all the information needed to compute the Best Path Algorithm. For istance it has stored public transports timetables. This is due to absence of valid external API. (see Scraper Section for more information)
 
------------------------------------
-Auxiliary Server - Scrape Module
------------------------------------
+---------------------------------------
+Auxiliary Server - Scraper & API Module
+---------------------------------------
 
 To compute the Best Path Algorithm are needed a lot of external information, such public transport timetables, geographical position car sharing system stations and so forth. External API which could query databases of third parties could be not exist. So it must implement a system which currently gives all these informations. For this reasons it could be used Auxiliary Servers which have the function to populate the Transport Database. 
 
-A good tool is the use of **Scrape Module Server**.
+A good tool is the use of **Scraper & API Module Server**.
  
 
 Component View
@@ -123,7 +123,7 @@ The software is divided in multiple tiers. On the server side there will be the 
 
 #) RethinkDB document-oriented database
 
-#) Routing server
+#) Optimal Path server
 
 The client will be thin in both the web and android version.
 
@@ -152,11 +152,11 @@ Web Scraping and API
 
 This server is needed to obtain information pertaining the various transportation methods. As a architectural choice API will be favoured over raw website scraping if possible.
 
---------------
-Routing Server
---------------
+-------------------
+Optimal Path Server
+-------------------
 
-The routing server's purpose is to calculate the optimal transportation options given a starting and ending point and user preferences. The routing server will exclusively communicate with the FES via a JSON REST API.
+The optimal path server's purpose is to calculate the optimal transportation options given a starting and ending point and user preferences. The OPS will exclusively communicate with the FES via a JSON REST API. It will make use of a OSM routing library to handle the route computation.
 
 In the first release there will be the following endpoints:
 
