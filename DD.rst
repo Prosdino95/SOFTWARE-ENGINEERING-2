@@ -168,9 +168,93 @@ Other Design Decisions
 ----------------------
 
 * RESTful with transition support architecture system.
+* RethinkDB was chosen based on the need to store data such as geojson and other information in a structured manner, hence precluding the use of a relational database.
 
 Algorithm Design
 ================
+
+The main algorithm of this application resides in the optimal path server. The OPS' job is to provide to the endpoint server the travelling options needed at the core of the application.
+
+Transport Categories
+--------------------
+
+The algorithm considers viable transport options based on the trip distance:
+
+- 0 - 0.5km (short)
+
+    - foot
+    - bike sharing
+
+- 0.5-10km (city)
+
+    - foot
+    - bike/bike-sharing
+    - metro/bus
+    - car-sharing
+    - suburban train
+
+- 10-20km (ex-city)
+
+    - car/taxi
+    - metro/bus/suburban train
+
+- 20-100km (region)
+
+    - car/taxi
+    - train
+
+- 100+ km (long)
+
+    - airplane
+    - car
+    - train
+
+Transport Switch Penalties
+--------------------------
+Each mode of transport has a inherited "transfer delay", which is put to account for events such as parking the car, moving through the station and buying the transport ticket. It also allows to priviledge routes with less modes of transportation, while allowing fast multi-transport options to be displayed.
+
+Main Algorithm
+--------------
+Here follows an example of the path code, written in pseudocode.
+
+::
+
+    compute_path(start_coord, end_coord){
+        min_bound = calc_foot_time(start_coord, end_coord);
+        return compute_path_bound(start_coord, end_coord, min_bound);
+    }
+    
+    compute_path_bound(start_coord, end_coord, time_bound){
+        result = [];
+        distance = calc_distance(start_coord, end_coord);
+        if( distance == 0 ){
+            return valid_null;
+        }
+        transports = get_transports(distance);
+        for( single_transport : transports ){
+            single_path = transport.compute_path_nearest(start_coord, end_coord);
+            if( single_path.valid &&
+                single_path.time + single_path.time_penalty < time_bound ){
+                remaining_time = time_bound - (single_path.time + single_path.time_penalty);
+                
+                begin_distance = calc_distance(start_coord, single_path.start);
+                end_distance = calc_distance(single_path.end, end_coord);
+                
+                begin_bound = begin_distance / (begin_distance + end_distance);
+                end_bound = end_distance / (begin_distance + end_distance);
+                
+                result_begin = compute_path_bound(start_coord, single_path.begin);
+                result_end = compute_path_bound(single.path_end, end_coord);
+                
+                if( result_begin.valid && result_end.valid ){
+                    result.add( result_begin + single_path + result_end );
+                }
+            }
+        }
+        return result;
+    }
+
+
 
 User Interface Design
 =====================
