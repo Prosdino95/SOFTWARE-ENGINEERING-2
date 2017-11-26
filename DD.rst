@@ -7,7 +7,7 @@ Introduction
 Purpose
 -------
 
-In this document will be analyzed all the design features needed to develop Travlendar+ system.
+In this document it will be analyzed all the design features needed to develop Travlendar+ system.
 
 We suppose that the readers are familiar to what is the Travlendar+ system and all its features. If it is not, we suggest them to read the RASD document before continuing. 
 
@@ -18,6 +18,10 @@ We will focus on mapping all the functions analyzed on the RASD document on diff
 
 We will do considerations about the Architecture structure of the system and the single components involved. This analysis will cover not only the Logic part of the application but the UI too.
 
+Definitions
+-----------
+
+* *UI*: User Interface of the system.
 
 Architectural Design
 ====================
