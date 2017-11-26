@@ -114,6 +114,12 @@ Other userful information about the deployment of the BackEnd components can be 
 Runtime View
 ------------
 
+    .. image:: Resources/DD_Diagram/RunTime_view/Registration.png
+    .. image:: Resources/DD_Diagram/RunTime_view/AddEvent.png
+    .. image:: Resources/DD_Diagram/RunTime_view/BuyTicket.png
+    .. image:: Resources/DD_Diagram/RunTime_view/Notification.png
+    
+
 Component Interfaces
 --------------------
 
