@@ -22,8 +22,8 @@ Definitions
 -----------
 
 * *Best Path Algorithm*: the algorithm which computes the *Best Path*. See *RASD - Definitions* for more information
-* 
 * *RASD*: Requirements analysis and specification document. 
+* *REST*: Representational state transfer. See external link to have more information.
 * *UI*: User Interface of the system.
 
 Architectural Design
@@ -433,32 +433,13 @@ Giacomo Vercesi
 References
 ==========
 
-Picture
--------
+External Link
+-------------
 
-All the picture used for the UI are desiged by yanalya / Freepik.
+REST architecture systems:
 
-*Those were free downloded from http://www.freepik.com with a Free Licence.*
+* https://en.wikipedia.org/wiki/Representational_state_transfer
 
-*For more informations just read the "Licence free.txt" file in the repository or visit*
-    - *http://www.freepik.com/terms_of_use*
-   
-------------
-Icon Credits
-------------
-
-* Position, Setting Icon: 
-    
-     *Icon made by CC 3.0 BY from www.flaticon.com*
-     
-* Calendar, Upload, Menu, Submit Event, Cancel, Accept, Exit, Like, Dislike, Partial like, Hour, Destination Icons: 
-    
-     *Icon made by Flaticon Basic License BY from www.flaticon.com*
-      
-* Vehicle Icons:
-    
-     *Icon made by Flaticon Basic License BY from www.flaticon.com* 
-     
 -------------
 Standard IEEE
 -------------
