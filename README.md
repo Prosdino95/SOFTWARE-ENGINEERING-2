@@ -7,5 +7,6 @@ Software needed
 * `pandoc`
 * `ghostscript`
 * `bash`-like
+* `texlive-latex-extra` (or `texlive-latexextra` if on Arch)
 
 simply run `./make.sh`
