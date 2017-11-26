@@ -201,6 +201,11 @@ The following endpoints will be present in the first (v1) release:
 
     * POST - deletes the appointment
 
+* /v1/set_preferences
+
+    * POST - sets the user preferences
+
+
 --------------------
 Web Scraping and API
 --------------------

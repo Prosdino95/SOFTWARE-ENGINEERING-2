@@ -5,9 +5,9 @@
     <id>UMLClass</id>
     <coordinates>
       <x>210</x>
-      <y>210</y>
+      <y>200</y>
       <w>550</w>
-      <h>170</h>
+      <h>180</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 ApplicationEndpoint
@@ -20,6 +20,7 @@ ApplicationEndpoint
 + get_appointment(token: String, appointment_id: int): Appointment
 + register_appointment(token: String, appointment: Appointment): boolean
 + delete_appointment(token: String, appointment_id: int): boolean
++ update_preferences(token: String, preferences: Preference): boolean
 
 
 </panel_attributes>

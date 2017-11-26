@@ -382,25 +382,25 @@ Features
 The Main Screens
 ----------------
          
- .. figure:: Resources/MockUp/loading_template.png
+.. image:: Resources/MockUp/loading_template.png
 
     The Loading page shows the Travlendar+ logo and has a nice interface.
     
     
     
- .. figure:: Resources/MockUp/login_template.png
+.. image:: Resources/MockUp/login_template.png
 
     The Login Page in which the user must enter his user name and a password.
     
     
     
-    .. figure:: Resources/MockUp/Calendar_01.png
+.. figure:: Resources/MockUp/Calendar_01.png
 
     The Calendar Page shows a calendar with all the event submitted by the user. There is a submit button in which the user can submit a new event.
     
     
     
-    .. figure:: Resources/MockUp/User-Profile.png
+.. figure:: Resources/MockUp/User-Profile.png
 
     The User page in which the user can modify his/her personal informations
     
