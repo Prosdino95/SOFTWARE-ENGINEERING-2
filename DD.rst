@@ -178,17 +178,28 @@ The frontend endpoint server's purpose is to provide REST endpoint in JSON, it i
 The following endpoints will be present in the first (v1) release:
 
 * /v1/register_user
-   * POST - registers the user into the system
+
+    * POST - registers the user into the system
+
 * /v1/get_token
-   * POST - user provides credentials and obtains a token to use for further transactions
+
+    * POST - user provides credentials and obtains a token to use for further transactions
+
 * /v1/get_appointments
-   * GET - receive a JSON describing the appointments specified in the date range
+
+    * GET - receive a JSON describing the appointments specified in the date range
+
 * /v1/get_route_options
-   * POST - provides the routing alternatives given a source and destination point
+
+    * POST - provides the routing alternatives given a source and destination point
+
 * /v1/register_appointment
-   * POST - registers an appointment, if it is specified the appointment is modified
+
+    * POST - registers an appointment, if it is specified the appointment is modified
+
 * /v1/delete_appointment
-   * POST - deletes the appointment
+
+    * POST - deletes the appointment
 
 --------------------
 Web Scraping and API
@@ -205,6 +216,7 @@ The optimal path server's purpose is to calculate the optimal transportation opt
 In the first release there will be the following endpoints:
 
 * /v1/calculate_path
+
     * calculates a list of optimal paths
 
 
