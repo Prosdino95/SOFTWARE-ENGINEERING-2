@@ -447,6 +447,9 @@ Open Street Map library:
 
 * https://wiki.openstreetmap.org/wiki/Geo::OSM_library
 
+RethinkDB:
+
+* https://www.rethinkdb.com/
 
 -------------
 Standard IEEE
