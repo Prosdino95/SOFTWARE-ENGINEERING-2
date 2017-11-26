@@ -499,4 +499,4 @@ Table:
 
 Architecture schemes:
 
-*Inkscape
+* Inkscape
