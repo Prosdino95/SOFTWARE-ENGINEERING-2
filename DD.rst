@@ -21,6 +21,8 @@ We will do considerations about the Architecture structure of the system and the
 Definitions
 -----------
 
+* *Best Path Algorithm*: the algorithm which computes the *Best Path*. See *RASD - Definitions* for more information
+* 
 * *RASD*: Requirements analysis and specification document. 
 * *UI*: User Interface of the system.
 
@@ -51,7 +53,7 @@ As in the figure above, the Applicational Servers are:
 
 #) **Web Server** which provides all the html forms and hypertext layout of the System.
 #) **Frontend Endpoint Server** which dispatches and elaborates all the client requests in a server side and safe environment
-#) **Optima Path Server** which has the function of computing the Best Path Algorithm and arrange a route for the user.
+#) **Optimal Path Server** which has the function of computing the Best Path Algorithm and arrange a route for the user.
 
 ---------------------
 Firewalls
