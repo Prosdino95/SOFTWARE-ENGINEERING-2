@@ -297,7 +297,8 @@ Client can access to Travlendar+ services in two different ways:
     -  Android App: Avaiable for any Android 5.x Systems (API level 21)
 
 
-The different GUI will be as much as possible similar focusing on the https://material.io/ design guidelines.
+The different GUI will be as much as possible similar focusing on the Material Design guidelines.
+(see *External Link* in *References*)
 
 Communication between Gui and client logic is *Event Based*:
     - Html5 Window Events and Javascript for the Broswer Client
@@ -343,8 +344,8 @@ FrontEnd
 
     #) GUI (android and Broswer)
     #) Client Interface
-    #) Client app
-    #) Allarm System
+    #) Client logic
+    #) Alarm System
 
 Component Integration sequence
 --------------------------------
@@ -450,6 +451,10 @@ Open Street Map library:
 RethinkDB:
 
 * https://www.rethinkdb.com/
+
+MaterialIO:
+
+* https://material.io/
 
 -------------
 Standard IEEE
