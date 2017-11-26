@@ -22,6 +22,9 @@ Definitions
 -----------
 
 * *Best Path Algorithm*: the algorithm which computes the *Best Path*. See *RASD - Definitions* for more information
+* *FES*: Frontend Endpoint Server. See *Architecture Styles* for details.
+* *OPS*:Optimal Path Server. It the server which calculates the Best Path Algorithm. See *Architecture Styles* for details.
+* *OSM*: Open Street Map library. See External link for more informations.
 * *RASD*: Requirements analysis and specification document. 
 * *REST*: Representational state transfer. See external link to have more information.
 * *UI*: User Interface of the system.
@@ -149,7 +152,7 @@ The following endpoints will be present in the first (v1) release:
 * /v1/get_route_options
    * POST - provides the routing alternatives given a source and destination point
 * /v1/register_appointment
-   * POST - registers an appointment, if id is specified the appointment is modified
+   * POST - registers an appointment, if it is specified the appointment is modified
 * /v1/delete_appointment
    * POST - deletes the appointment
 
@@ -439,6 +442,11 @@ External Link
 REST architecture systems:
 
 * https://en.wikipedia.org/wiki/Representational_state_transfer
+
+Open Street Map library:
+
+* https://wiki.openstreetmap.org/wiki/Geo::OSM_library
+
 
 -------------
 Standard IEEE
