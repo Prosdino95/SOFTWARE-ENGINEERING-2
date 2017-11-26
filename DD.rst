@@ -23,7 +23,7 @@ Definitions
 
 * *Best Path Algorithm*: the algorithm which computes the *Best Path*. See *RASD - Definitions* for more information
 * *FES*: Frontend Endpoint Server. See *Architecture Styles* for details.
-* *OPS*:Optimal Path Server. It the server which calculates the Best Path Algorithm. See *Architecture Styles* for details.
+* *OPS*: Optimal Path Server. It the server which calculates the Best Path Algorithm. See *Architecture Styles* for details.
 * *OSM*: Open Street Map library. See External link for more informations.
 * *RASD*: Requirements analysis and specification document. 
 * *REST*: Representational state transfer. See external link to have more information.
@@ -173,10 +173,12 @@ The client will be thin in both the web and android version.
 Frontend Endpoint Server
 ------------------------
 
-The frontend endpoint server's purpose is to provide REST endpoint in JSON, it is the main and only interface between the client and the server. The API calls will be done through HTTP and will use a token infrastructure for authentication. All API calls will be processed through a secure connection. It will also include a portion of the business logic needed by Travlendar+.
+The frontend endpoint server's purpose is to provide REST endpoint in JSON, it is the main and only interface between the client and the server. The API calls will be done through HTTP and will use a token infrastructure for authentication. All API calls will be processed through a secure connection. It will also include a portion of the business logic needed by Travlendar+. It will also integrate a proxy architecture with the OPS.
 
 The following endpoints will be present in the first (v1) release:
 
+* /v1/register_user
+   * POST - registers the user into the system
 * /v1/get_token
    * POST - user provides credentials and obtains a token to use for further transactions
 * /v1/get_appointments
@@ -211,6 +213,7 @@ Other Design Decisions
 
 * RESTful with transition support architecture system.
 * RethinkDB was chosen based on the need to store data such as geojson and other information in a structured manner, hence precluding the use of a relational database.
+* Both GUI will employ an MVC pattern to manage the interaction between the GUI and the backend requests
 
 Algorithm Design
 ================
