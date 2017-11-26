@@ -146,6 +146,9 @@ Notification
 Component Interfaces
 --------------------
 
+    .. image:: Resources/Component_Interface.png
+
+
 Architectural Styles
 --------------------
 
