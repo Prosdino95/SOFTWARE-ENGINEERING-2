@@ -114,9 +114,32 @@ Other userful information about the deployment of the BackEnd components can be 
 Runtime View
 ------------
 
+A schematic representation of the runtime System can be summarized in those diagrams. 
+We will analyze the main functions of Travlendar+:
+
+* Registration
+* Add Event
+* Buy Ticket
+* Notification
+
+------------
+Registration
+------------
     .. image:: Resources/DD_Diagram/RunTime_view/Registration.png
+
+------------
+Add Event
+------------        
     .. image:: Resources/DD_Diagram/RunTime_view/AddEvent.png
+
+------------
+Buy Ticket
+------------
     .. image:: Resources/DD_Diagram/RunTime_view/BuyTicket.png
+
+------------
+Notification
+------------
     .. image:: Resources/DD_Diagram/RunTime_view/Notification.png
     
 
@@ -458,12 +481,22 @@ RethinkDB:
 
 * https://www.rethinkdb.com/
 
-MaterialIO:
+Material Design:
 
 * https://material.io/
 
--------------
-Standard IEEE
--------------
+Tool Used
+---------
 
-standard ISO/IEC/IEEE 29148
+Uml Diagrams:
+
+* http://umletino.com/ 
+* UMlet
+
+Table:
+
+* libreOffice Calc
+
+Architecture schemes:
+
+*Inkscape
