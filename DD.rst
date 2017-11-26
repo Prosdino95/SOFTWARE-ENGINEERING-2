@@ -21,6 +21,7 @@ We will do considerations about the Architecture structure of the system and the
 Definitions
 -----------
 
+* *RASD*: Requirements analysis and specification document. 
 * *UI*: User Interface of the system.
 
 Architectural Design
