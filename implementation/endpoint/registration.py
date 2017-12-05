@@ -1,8 +1,21 @@
 import json
 import rethinkdb as r
 import hashlib
+import flask
+from flask_cors import CORS
+
+app = flask.Flask(__name__)
+CORS(app)
 
 
+@app.route('/signUpUser', methods=['POST'])
+def signUpUser():
+    user = flask.request.form['username']
+    password = flask.request.form['password']
+    return json.dumps({'status': 'OK', 'user': user, 'pass': password})
+
+
+@app.route("/registration")
 def registration(json_file):
     user = json.load(json_file)
     hash_pass = hashlib.md5(user["password"].encode())
@@ -14,3 +27,9 @@ def save_user(user):
     r.connect("localhost", 28015, "Users").repl()
     if r.table("user").filter(r.row["name"].eq(user["name"])).count().run() == 0:
         r.table("user").insert(user).run()
+    table = r.table("user").run()
+    print(table)
+
+
+if __name__ == "__main__":
+    app.run()
