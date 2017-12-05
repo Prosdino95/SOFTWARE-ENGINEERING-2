@@ -35,7 +35,6 @@ def save_token(name, token):
     try:
         token_db.execute(" INSERT INTO token_tab VALUES(?, ?, ?)",(name, token, time.time()))
         token_db.commit()
-        token_query(token)
     except sql.IntegrityError:
         save_token(name,token_gen())
 
