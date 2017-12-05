@@ -11,6 +11,6 @@ def registration(json_file):
 
 
 def save_user(user):
-    r.connect("localhost", 28015).repl()
+    r.connect("localhost", 28015, "Users").repl()
     if r.table("user").filter(r.row["name"].eq(user["name"])).count().run() == 0:
         r.table("user").insert(user).run()
