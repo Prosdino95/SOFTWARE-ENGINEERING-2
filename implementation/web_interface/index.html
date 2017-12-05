@@ -18,6 +18,17 @@
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
+    <!-- jQuery -->
+    <script src="js/library/jquery.js"></script>
+    <!-- jQuery UI -->
+    <script src="js/library/jquery-ui.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/library/bootstrap.min.js"></script>
+
+    <!-- Change Context Script -->
+    <script src="js/change_context.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -36,7 +47,7 @@
             <ul class="sidebar-nav">
                 
                 <li class="container-fluid">
-                    <img src="res/profile01.jpg" class = "img-circle img-responsive"">
+                    <img src="res/profile01.jpg" class = "img-circle img-responsive">
                 </li>
                 
                 <li class="sidebar-brand">
@@ -60,7 +71,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="preferences.html">
+                    <a href="#" id="preferences">
                         <span class="glyphicon glyphicon-heart"> Preferences</span>
                     </a>
                 </li>
@@ -70,63 +81,26 @@
                     </a>
                 </li>
                 <li>
-                    <a href="login.html"">
+                    <a href="login.html">
                         <span class="glyphicon glyphicon-log-in"> Login</span>
                     </a>
                 </li>
             </ul>
         </div>
-        <!-- /#sidebar-wrapper -->
+
+        <!-- Top Bar -->
+
+        <div class="navbar well">
+            <div class="nav nav-pills">
+                <a href="#menu-toggle" class="btn btn-default glyphicon glyphicon-menu-left" id="menu-toggle"></a>
+            </div>
+        </div>
 
         <!-- Page Content -->
-        <div id="page-content-wrapper">
-
-            <!-- SideBar -->
-
-            <div class="navbar well well-sm">
-                <div class="nav nav-pills">
-                    <a href="#menu-toggle" class="btn btn-default glyphicon glyphicon-menu-left" id="menu-toggle"></a>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-
-                        <h1>Travlendar+</h1>
-                        <p class="text-center">
-                            <em>
-                                Travelendar+ is a mobile and web application capable of improving
-                                its user's everyday life with simplicity, efficency and safety.
-                            </em>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-fluid center-block">
-                <img src="res/Logo.png" class = "img-responsive"/>
-            </div>
-
+        <div id="stage">
         </div>
-        <!-- /#page-content-wrapper -->
 
     </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
 
 </body>
 
