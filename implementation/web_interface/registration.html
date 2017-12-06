@@ -23,7 +23,7 @@
     <script src="js/bootstrap.min.js"></script>
 
     <!-- Javascript -->
-    <script src="js/registration.js"> </script>
+    <script src="js/sign_up.js"> </script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,20 +45,20 @@
 
         <div class="panel well">
             <label> Your name</label>
-            <input class ="btn btn-block" id="name" type = "text" placeholder = "Enter Name">
+            <input class ="btn btn-block" id="name" type = "text" placeholder = "Enter Name" required>
 
             <label> Email</label>
-            <input class ="btn btn-block" id="email" type = "text" placeholder = "Enter Email">
+            <input class ="btn btn-block" id="email" type = "text" placeholder = "Enter Email" required>
 
             <label> Password</label>
-            <input class ="btn btn-block" id="password" type = "password" placeholder = "Enter password">
+            <input class ="btn btn-block" id="password" type = "password" placeholder = "Enter password" required>
 
             <label> Re-type password</label>
-            <input class ="btn btn-block" type = "password" placeholder = "Enter password">
+            <input class ="btn btn-block" id= "retype-password" type = "password" placeholder = "Enter password" required>
         </div>
 
         <div class="panel well-sm">
-            <button class = "btn btn-block" id="submit" type = "button" >Submit</button>
+            <button class = "btn btn-block" type = "submit" >Submit</button>
         </div>
 
     </div>
