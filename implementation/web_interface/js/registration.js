@@ -39,7 +39,7 @@ $(function() {
         alert("OK");
         $.ajax({
             url: 'http://127.0.0.1:5000/registration',
-            dataType: 'json',
+            dataType: 'text',
             contentType: "application/json; charset=utf-8",
             type: 'post',
             data: JSON.stringify( { "name": user, "password": pass, "email": email } ),
