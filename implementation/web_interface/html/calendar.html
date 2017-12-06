@@ -8,11 +8,13 @@
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Calendar script -->
+    <!-- FullCalendar script -->
     <script>
-        $(function() {
-            $("#calendar-widget").datepicker();
-        });
+        $("document").ready( function () {
+            $("#full-calendar").fullCalendar({
+
+            })
+        })
     </script>
 
 </head>
@@ -20,7 +22,7 @@
 <body>
     <div class = "container modal-dialog well">
 
-        <div id="calendar-widget" class="well-lg panel">
+        <div id="full-calendar">
         </div>
     </div>
 </body>
