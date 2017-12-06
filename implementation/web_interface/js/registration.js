@@ -50,6 +50,8 @@ $(function() {
                 console.log(error);
             }
         });
+        // Clear input field
+        $(":input").val('');
     });
 
 });
