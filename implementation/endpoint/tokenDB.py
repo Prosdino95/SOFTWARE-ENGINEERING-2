@@ -4,7 +4,6 @@ from time import time
 import threading
 
 
-print("hello")
 DBlock = threading.Lock()
 token_db = sql.connect(":memory:")
 token_db.execute('CREATE TABLE token_tab('
@@ -22,28 +21,21 @@ def token_gen():
 def save_user(name):
     token = token_gen()
     try:
-        token_db.execute(" INSERT INTO token_tab VALUES(?, ?, ?)", (name, token_gen(), time()))
-        token_db.commit()
-        print(token_query())
+        with DBlock:
+            token_db.execute(" INSERT INTO token_tab VALUES(?, ?, ?)", (name, token, time()))
+            token_db.commit()
         return token
     except sql.IntegrityError:
         save_user(name)
         return token
 
 
-def token_query():
+def token_query(token):
     query = token_db.execute('SELECT * '
                              'FROM token_tab '
-                             ).fetchall()
-  #  if time() - query[2] > 300:
-   #     print("new token")
-    # return the username
-    return query
+                             'WHERE TOKEN =?', (token,)).fetchone()
+    if time() - query[2] > 300:
+        print("new token")
+    # print the name just for test
+    print(query[0])
 
-if __name__ == "__main__":
-    print(token_db.execute('SELECT * '
-                             'FROM token_tab '
-                             ).fetchall())
-
-
-# 'WHERE TOKEN =?', (token, )
