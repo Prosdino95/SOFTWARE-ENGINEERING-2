@@ -10,22 +10,22 @@ CORS(app)
 @app.route('/registration', methods=['POST'])
 def registration_api():
     user = flask.request.get_json()
-    registration(user)
-    return flask.jsonify(ok="va tutto bene")
+    return registration(user)
 
 
 def registration(user):
     hash_pass = hashlib.md5(user["password"].encode())
     user["password"] = hash_pass.hexdigest()
-    save_user(user)
+    return save_user(user)
 
 
 def save_user(user):
     r.connect("localhost", 28015, "Users").repl()
-    if r.table("user").filter(r.row["name"].eq(user["name"])).count().run() == 0:
+    if r.table("user").filter(r.row["email"].eq(user["email"])).count().run() == 0:
         r.table("user").insert(user).run()
-    table = r.table("user").run()
-    print(table)
+        return "registration successful"
+    else:
+        return "email already registered"
 
 
 if __name__ == "__main__":
