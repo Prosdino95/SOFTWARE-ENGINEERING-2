@@ -8,6 +8,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
+
     <!-- FullCalendar script -->
     <script>
         $("document").ready( function () {
@@ -20,9 +21,16 @@
 </head>
 
 <body>
-    <div class = "container modal-dialog well">
+    <div class = "container well modal-dialog">
 
-        <div id="full-calendar">
+        <div class = "container-fluid">
+            <div id="full-calendar"></div>
+        </div>
+
+        <div class="container-fluid">
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <i class="material-icons">add</i>
+            </button>
         </div>
     </div>
 </body>
