@@ -25,7 +25,7 @@ body .fc { /* extra precedence to overcome jqui */
 
 .fc-highlight { /* when user is selecting cells */
 	background: #bce8f1;
-	opacity: .3;
+	opacity: .1;
 }
 
 .fc-bgevent { /* default look for background events */
@@ -711,7 +711,7 @@ TODO: more distinction between this file and common.css
 }
 
 .fc-unthemed td.fc-today {
-	background: #fcf8e3;
+	background: rgba(24, 255, 255, .3);
 }
 
 .fc-unthemed .fc-disabled-day {

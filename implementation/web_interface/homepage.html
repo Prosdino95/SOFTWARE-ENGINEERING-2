@@ -18,20 +18,30 @@
     <link href="css/library/jquery-ui.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
 
     <!-- jQuery -->
     <script src="js/library/jquery.js"></script>
     <!-- jQuery UI -->
     <script src="js/library/jquery-ui.min.js"></script>
 
+    <!-- Material Design-->
+    <link href="css/library/material.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <script src="js/library/material.min.js"></script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <!-- CSS Import -->
+    <link href="css/home-page.css" rel="stylesheet">
+
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset = "50">
 
-    <!-- NavBar -->
+<!-- NavBar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -74,26 +84,14 @@
         <div class="carousel-inner" role="listbox">
             <div class="item active">
                 <img src="res/carousel/1.jpg" class="img-responsive">
-                <div class="carousel-caption">
-                    <h3>Manager</h3>
-                    <p>The Manager is lorem ipsum.</p>
-                </div>
             </div>
 
             <div class="item">
                 <img src="res/carousel/2.jpg" class="img-responsive">
-                <div class="carousel-caption">
-                    <h3>Late</h3>
-                    <p>Late appointment is lorem.</p>
-                </div>
             </div>
 
             <div class="item">
                 <img src="res/carousel/3.jpg" class="img-responsive">
-                <div class="carousel-caption">
-                    <h3>Routing</h3>
-                    <p>Routing and path is lorem ipsum!</p>
-                </div>
             </div>
         </div>
 
@@ -107,6 +105,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
 
     <!--ABOUT-->
     <div id="about" class="container text-center">
@@ -189,43 +188,53 @@
             <h2>Pricing</h2>
             <h4>Choose a payment plan that works for you</h4>
         </div>
-        <div id="tickets" class="row slideanim center-block">
 
-            <div class="col-sm-4 col-xs-12">
-                <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                        <h1>FREE</h1>
+        <div id="tickets" class="mdl-grid">
+
+            <div class="mdl-cell--3-col mdl-cell--1-offset">
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title">
+                        <h1 class="mdl-card__title-text">COMMUNITY EDITION</h1>
                     </div>
-                    <div class="panel-body">
+
+                    <div class="mdl-card--border mdl-card__supporting-text text-center">
                         <p><strong>20</strong> Lorem</p>
                         <p><strong>15</strong> Ipsum</p>
                         <p><strong>5</strong> Dolor</p>
                         <p><strong>2</strong> Sit</p>
                         <p><strong>Endless</strong> Amet</p>
                     </div>
-                    <div class="panel-footer">
+
+                    <div class="mdl-card--border mdl-card__supporting-text text-center">
                         <h3>FREE</h3>
                         <h4>Trial per 30 days</h4>
-                        <a href="registration.html" class="btn btn-lg">Sign Up</a>
+                    </div>
+                    <div class="mdl-card__actions">
+                        <a href="registration.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Sign Up</a>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4 col-xs-12">
-                <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                        <h1>Business</h1>
+
+            <div class="mdl-cell--3-col mdl-cell--2-offset">
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title">
+                        <h1 class="mdl-card__title-text">BUSINESS EDITION</h1>
                     </div>
-                    <div class="panel-body">
+
+                    <div class="mdl-card--border mdl-card__supporting-text text-center">
                         <p><strong>100</strong> Lorem</p>
                         <p><strong>50</strong> Ipsum</p>
-                        <p><strong>25</strong> Dolor</p>
-                        <p><strong>10</strong> Sit</p>
-                        <p><strong>Endless</strong> Amet</p>
+                        <p><strong>10</strong> Dolor</p>
+                        <p><strong>Unlimited</strong> Sit</p>
+                        <p><strong>Unlimited</strong> Amet</p>
                     </div>
-                    <div class="panel-footer">
+
+                    <div class="mdl-card--border mdl-card__supporting-text text-center">
                         <h3>$49.90</h3>
                         <h4>per month</h4>
-                        <a href="registration.html" class="btn btn-lg">Sign Up</a>
+                    </div>
+                    <div class="mdl-card__actions">
+                        <a href="registration.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Sign Up</a>
                     </div>
                 </div>
             </div>
@@ -233,23 +242,23 @@
     </div>
 
     <!-- Container (Contact Section) -->
-    <div id="contact" class="container-fluid bg-grey">
-        <h2 class="text-center">CONTACT</h2>
-        <div class="row">
-            <div class="col-sm-5">
+    <div id="contact" class="mdl-grid container">
+            <div class="mdl-cell mdl-cell--middle">
+                <h2>CONTACT</h2>
                 <p>Contact us and we'll get back to you within 24 hours.</p>
                 <p><span class="glyphicon glyphicon-map-marker"></span> California, USA</p>
                 <p><span class="glyphicon glyphicon-phone"></span> +00 123123123123</p>
                 <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
             </div>
-        </div>
     </div>
 
     <!-- Footer -->
-    <footer class="container-fluid text-center">
-        <a href="#myPage" title="To Top">
-            <span class="glyphicon glyphicon-chevron-up"></span>
-        </a>
+    <footer class="mdl-mega-footer">
+        <div class="mdl-mega-footer--middle-section">
+            <a href="#myPage" title="To Top">
+                <span class="glyphicon glyphicon-chevron-up"></span>
+            </a>
+        </div>
     </footer>
 
 

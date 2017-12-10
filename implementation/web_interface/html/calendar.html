@@ -8,12 +8,18 @@
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Material Design CSS-->
+    <link href="../css/library/material.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <script src="../js/library/material.min.js"></script>
 
     <!-- FullCalendar script -->
     <script>
         $("document").ready( function () {
-            $("#full-calendar").fullCalendar({
+            componentHandler.upgradeDom();
 
+            $("#full-calendar").fullCalendar({
             })
         })
     </script>
@@ -21,16 +27,17 @@
 </head>
 
 <body>
-    <div class = "container well modal-dialog">
+    <div class = "mdl-layout">
+        <div class="container">
+            <div class = "container-fluid">
+                <div id="full-calendar"></div>
+            </div>
 
-        <div class = "container-fluid">
-            <div id="full-calendar"></div>
-        </div>
-
-        <div class="container-fluid">
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                <i class="material-icons">add</i>
-            </button>
+            <div class="container-fluid">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--accent mdl-js-ripple-effect">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
         </div>
     </div>
 </body>

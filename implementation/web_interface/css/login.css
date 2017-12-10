@@ -1,0 +1,18 @@
+.trav-background {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: url('../res/background.jpg') center/ cover;
+}
+
+.container {
+    /* remember to set a width */
+    width: auto;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 100px;
+}
+
+.trav-button{
+    margin: auto;
+    display:block;
+}

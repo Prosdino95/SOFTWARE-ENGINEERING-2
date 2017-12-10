@@ -19,8 +19,18 @@
     <!-- jQuery -->
     <script src="js/library/jquery.js"></script>
 
+    <!-- Material Design -->
+    <link href="css/library/material.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <script src="js/library/material.min.js"></script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <!-- Registration Css-->
+    <link href="css/registration.css" rel="stylesheet">
+
 
     <!-- Javascript -->
     <script src="js/registration.js"> </script>
@@ -34,35 +44,59 @@
 
 </head>
 
-<body class="container modal-dialog">
+<body class="mdl-layout trav-background">
 
-<form class = "well" role="form">
+<div class="container">
+    <form class = "mdl-color-text--blue-grey-700" role="form">
 
-    <div class = "panel-group">
-        <div class ="panel well-sm text-center">
-            Registration
+        <div class = "panel-group">
+            <div class ="panel mdl-color--indigo-500 text-center">
+                <h4 class="mdl-color-text--white"> <b>REGISTRATION</b></h4>
+            </div>
+
+            <div class="panel well mdl-color--grey-100">
+                <ul class="mdl-list">
+                    <li><label> Your name</label></li>
+                    <li><div class="mdl-textfield mdl-js-textfield">
+                        <input class ="mdl-textfield__input" id="name" type = "text" required>
+                        <label class="mdl-textfield__label" for="name">Name...</label>
+                    </div></li>
+                </ul>
+
+                <ul class="mdl-list">
+                    <li><label> Email</label></li>
+                    <li><div class="mdl-textfield mdl-js-textfield">
+                        <input class ="mdl-textfield__input" id="email" type = "text" required>
+                        <label class="mdl-textfield__label" for="email">Email...</label>
+                    </div></li>
+                </ul>
+
+                <ul class="mdl-list">
+                    <li><label>Password</label></li>
+                    <li><div class="mdl-textfield mdl-js-textfield">
+                        <input class ="mdl-textfield__input" id="password" type = "password" required>
+                        <label class="mdl-textfield__label" for="password">Password...</label>
+                    </div></li>
+                </ul>
+
+                <ul class="mdl-list">
+                    <li><label> Re-type password</label></li>
+                    <li><div class="mdl-textfield mdl-js-textfield">
+                        <input class ="mdl-textfield__input" id="retype-password" type = "password" required>
+                        <label class="mdl-textfield__label" for="retype-password">Password...</label>
+                    </div></li>
+                </ul>
+            </div>
+
+            <div class="panel well-sm mdl-color--indigo-500">
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white trav-button" type="submit">
+                    SUBMIT
+                </button>
+            </div>
+
         </div>
-
-        <div class="panel well">
-            <label> Your name</label>
-            <input class ="btn btn-block" id="name" type = "text" placeholder = "Enter Name" required>
-
-            <label> Email</label>
-            <input class ="btn btn-block" id="email" type = "text" placeholder = "Enter Email" required>
-
-            <label> Password</label>
-            <input class ="btn btn-block" id="password" type = "password" placeholder = "Enter password" required>
-
-            <label> Re-type password</label>
-            <input class ="btn btn-block" id= "retype-password" type = "password" placeholder = "Enter password" required>
-        </div>
-
-        <div class="panel well-sm">
-            <button class = "btn btn-block" type = "submit" >Submit</button>
-        </div>
-
-    </div>
-</form>
+    </form>
+</div>
 
 </body>
 

@@ -8,18 +8,27 @@ $(function (){
         $("#stage").load("./html/welcome.html");
     });
 
+    // load Welcome page
+    $("#welcome").click(function(event){
+        event.preventDefault();
+        $("#stage").load("./html/welcome.html");
+    });
+
     // load calendar page
-    $("#calendar").click(function(){
+    $("#calendar").click(function(event){
+        event.preventDefault();
         $("#stage").load("./html/calendar.html");
     });
 
     // load preference page
-    $("#preferences").click(function(){
+    $("#preferences").click(function(event){
+        event.preventDefault();
         $("#stage").load("./html/preferences.html");
     });
 
     //load sidebar menu
-    $("#menu-toggle").click(function(e){
+    $("#menu-toggle").click(function(event){
+        event.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
 });

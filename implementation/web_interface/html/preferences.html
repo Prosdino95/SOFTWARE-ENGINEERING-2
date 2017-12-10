@@ -3,87 +3,198 @@
 
 <head>
     <title>Travlendar+ - Preferences</title>
+
+    <!-- Material Design CSS -- Piallabile -->
+    <link href="../css/library/material.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <script src="../js/library/material.min.js"></script>
+    <link href="../css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- CSS-->
+    <link href="../css/preferences.css" rel="stylesheet">
+
+    <!-- Essential Script to update the Dom -->
+    <script>
+        $("document").ready( function () {
+            componentHandler.upgradeDom();
+            });
+    </script>
+
 </head>
 
 <body>
+<div class="mdl-layout">
+<div class = "container pref-container mdl-color-text--blue-grey-700 mdl-typography--font-bold">
 
-<div class = "container modal-dialog" role="form">
+    <!-- First Table -->
 
-    <label for="preferences">Preferences</label>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp pref-table">
 
-    <div class="list-group">
+        <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric ">Vehicle</th>
+            <th class="mdl-data-table__cell--non-numeric"></th>
+            <th class="mdl-data-table__cell--non-numeric">Preference</th>
 
-        <div class="well">
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">
+                    <i class="mdi mdi-walk mdi-24px"></i>
+                </td>
+                <td class="mdl-data-table__cell--non-numeric">Foot</td>
 
-            <div class="checkbox">
-                Foot
-                <label>
-                    <input type="checkbox">
+                <td class="mdl-data-table__cell--non-numeric">
+                    <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="foot-like">
+                        <input type="checkbox" id="foot-like" class="mdl-icon-toggle__input">
+                        <i class="mdl-icon-toggle__label material-icons">favorite</i>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">
+                    <i class="mdi mdi-bike mdi-24px"></i>
+                </td>
+                <td class="mdl-data-table__cell--non-numeric">Bike</td>
+
+                <td class="mdl-data-table__cell--non-numeric">
+                    <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="bike-like">
+                        <input type="checkbox" id="bike-like" class="mdl-icon-toggle__input">
+                        <i class="mdl-icon-toggle__label material-icons">favorite</i>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">
+                    <i class="mdi mdi-car mdi-24px"></i>
+                </td>
+                <td class="mdl-data-table__cell--non-numeric">Car</td>
+
+                <td class="mdl-data-table__cell--non-numeric">
+                    <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="car-like">
+                        <input type="checkbox" id="car-like" class="mdl-icon-toggle__input">
+                        <i class="mdl-icon-toggle__label material-icons">favorite</i>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">
+                    <i class="mdi mdi-subway-variant mdi-24px"></i>
+                </td>
+                <td class="mdl-data-table__cell--non-numeric">Public Transport</td>
+
+                <td class="mdl-data-table__cell--non-numeric">
+                    <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="atm-like">
+                        <input type="checkbox" id="atm-like" class="mdl-icon-toggle__input">
+                        <i class="mdl-icon-toggle__label material-icons">favorite</i>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">
+                    <i class="mdi mdi-train mdi-24px"></i>
+                </td>
+                <td class="mdl-data-table__cell--non-numeric">Train</td>
+
+                <td class="mdl-data-table__cell--non-numeric">
+                    <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="train-like">
+                        <input type="checkbox" id="train-like" class="mdl-icon-toggle__input">
+                        <i class="mdl-icon-toggle__label material-icons">favorite</i>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">
+                    <i class="mdi mdi-airplane mdi-24px"></i>
+                </td>
+                <td class="mdl-data-table__cell--non-numeric">Airplane</td>
+
+                <td class="mdl-data-table__cell--non-numeric">
+                    <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="airplane-like">
+                        <input type="checkbox" id="airplane-like" class="mdl-icon-toggle__input">
+                        <i class="mdl-icon-toggle__label material-icons">favorite</i>
+                    </label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h6 class="pref-subtitle mdl-typography--font-bold mdl-color-text--blue-grey-700">Advanced Settings</h6>
+    <!-- Advanced Settings -->
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp pref-table">
+        <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric">Vehicle</th>
+            <th class="mdl-data-table__cell--non-numeric"></th>
+            <th class="mdl-data-table__cell--non-numeric">Preference</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td class="mdl-data-table__cell--non-numeric">
+                <i class="mdi mdi-bike mdi-24px"></i>
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">Bike Sharing</td>
+
+            <td class="mdl-data-table__cell--non-numeric">
+                <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="bike-sharing-like">
+                    <input type="checkbox" id="bike-sharing-like" class="mdl-icon-toggle__input">
+                    <i class="mdl-icon-toggle__label material-icons">favorite</i>
                 </label>
-            </div>
+            </td>
+        </tr>
 
-            <div class="checkbox">
-                Bike
-                <label>
-                    <input type="checkbox">
-                </label>
-            </div>
+        <tr>
+            <td class="mdl-data-table__cell--non-numeric">
+                <i class="mdi mdi-car-connected mdi-24px"></i>
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">Car Sharing</td>
 
-            <div class="checkbox">
-                Car
-                <label>
-                    <input type="checkbox">
-                </label>
-            </div>
+        <td class="mdl-data-table__cell--non-numeric">
+            <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="car-sharing-like">
+                <input type="checkbox" id="car-sharing-like" class="mdl-icon-toggle__input">
+                <i class="mdl-icon-toggle__label material-icons">favorite</i>
+            </label>
+        </td>
+        </tr>
 
-            <div class="checkbox">
-                Public Transport
-                <label>
-                    <input type="checkbox">
-                </label>
-            </div>
+        <tr>
+            <td class="mdl-data-table__cell--non-numeric mdl-color-text--green-500">
+                <i class="mdi mdi-earth mdi-24px"></i>
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">Green Mode</td>
 
-            <div class="checkbox">
-                Train
-                <label>
-                    <input type="checkbox">
+            <td class="mdl-data-table__cell--non-numeric">
+                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="green-mode">
+                    <input type="checkbox" id="green-mode" class="mdl-switch__input">
                 </label>
-            </div>
+            </td>
+        </tr>
 
-            <div class="checkbox">
-                Aeroplane
-                <label>
-                    <input type="checkbox">
-                </label>
-            </div>
+        </tbody>
+    </table>
+
+    <div class="mdl-grid pref-button">
+        <div class="mdl-cell">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-color--grey-100" id="cancel-preferences">
+                Cancel
+            </button>
         </div>
-
-        <div class = "well">
-
-            <div class="checkbox">
-                Car Sharing
-                <label>
-                    <input type="checkbox">
-                </label>
-            </div>
-
-            <div class="checkbox">
-                Bike Sharing
-                <label>
-                    <input type="checkbox">
-                </label>
-             </div>
-
-            <div class="radio">
-                Green Mode
-                <label>
-                    <input type="radio">
-                </label>
-            </div>
-
+        <div class="mdl-cell">
+            <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" id="submit-preferences">Submit</button>
         </div>
     </div>
-</div>
 
+</div>
+</div>
 </body>
 </html>

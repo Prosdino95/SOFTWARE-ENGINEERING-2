@@ -1,0 +1,61 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+.trav-drawer-header {
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    background: url('../res/background.jpg') center;
+
+}
+
+.trav-avatar{
+    padding-top: 10px;
+    padding-left: 60px;
+}
+
+#avatar {
+    width: 100px;
+    border-width: 5px;
+}
+
+.username{
+    padding-left: 10px;
+}
+
+.trav-info-profile{
+    padding-top: 10px;
+    padding-left: 10px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.trav-separetor {
+    height: 1px;
+    background-color: #78909C;
+    margin: 8px 0;
+}
+
+.trav-background {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: url('../res/background-2.jpg') center/ cover;
+}

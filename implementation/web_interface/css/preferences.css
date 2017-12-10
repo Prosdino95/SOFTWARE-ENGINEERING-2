@@ -1,0 +1,19 @@
+.pref-container {
+    /* remember to set a width */
+    width: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.pref-table {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    width: auto;
+}
+
+.pref-button{
+    width: auto;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}

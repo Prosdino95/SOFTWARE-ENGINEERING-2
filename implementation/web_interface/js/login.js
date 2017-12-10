@@ -39,4 +39,22 @@ $(function() {
         // Clear input field
         $(":input").val('');
     });
+
+    /**
+     * BUG FIX ISSUE: MDL Library -- Required Input field
+     * Check the validity state and update field accordingly.
+     *
+     *see https://github.com/google/material-design-lite/issues/1502 for more info
+     *
+     * @public
+     */
+    MaterialTextfield.prototype.checkValidity = function () {
+        if (this.input_.validity.valid) {
+            this.element_.classList.remove(this.CssClasses_.IS_INVALID);
+        } else {
+            if (this.element_.getElementsByTagName('input')[0].value.length > 0) {
+                this.element_.classList.add(this.CssClasses_.IS_INVALID);
+            }
+        }
+    };
 });

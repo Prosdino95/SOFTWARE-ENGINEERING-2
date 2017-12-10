@@ -26,9 +26,15 @@
     <!-- Material Design CSS-->
     <link href="css/library/material.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+    <!-- Material Design Icons-->
+    <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+
 
     <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/preferences.css" rel="stylesheet">
 
     <!-- Js importing -->
 
@@ -47,6 +53,7 @@
     <!-- Material Design js -->
     <script src="js/library/material.min.js"></script>
 
+
     <!-- Change Context Script -->
     <script src="js/change_context.js"></script>
 
@@ -61,68 +68,44 @@
 
 <body>
 
-    <div id="wrapper">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                
-                <li class="container-fluid">
-                    <img src="res/profile01.jpg" class = "img-circle img-responsive">
-                </li>
-                
-                <li class="sidebar-brand">
-                    <a href="homepage.html">
-                        Homepage
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="calendar">
-                        <span class="glyphicon glyphicon-calendar"> Calendar</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-map-marker"> Maps</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-user"> User</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="preferences">
-                        <span class="glyphicon glyphicon-heart"> Preferences</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-cog"> Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="homepage.html">
-                        <span class="glyphicon glyphicon-log-in"> Exit</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Top Bar -->
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-                <a href="#menu-toggle" class="navbar-brand glyphicon glyphicon-menu-left" id="menu-toggle"></a>
+        <!-- Header -->
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
             </div>
+        </header>
+
+        <!-- Drawer -->
+        <div class=" mdl-layout__drawer">
+
+            <header class="trav-drawer-header">
+                <div class="trav-avatar">
+                    <img src="res/defaultprofile.jpg" class="img-circle" id="avatar">
+                </div>
+                <div class="trav-info-profile mdl-color-text--blue-grey-500">
+                    <i class="material-icons">person</i>
+                    <h3 class="username"> John <b>Doe</b> </h3>
+                </div>
+            </header>
+
+           <nav class="mdl-navigation trav-navigation mdl-color--blue-grey-900">
+
+                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="welcome">                    <i class="mdl-color-text--blue-grey-400 material-icons">home</i>Home</a>
+                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="calendar">      <i class="mdl-color-text--blue-grey-400 material-icons">today</i>Calendar</a>
+                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="maps">          <i class="mdl-color-text--blue-grey-400 material-icons">room</i>Maps</a>
+                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="user">          <i class="mdl-color-text--blue-grey-400 material-icons">person</i>User</a>
+                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="preferences">   <i class="mdl-color-text--blue-grey-400 material-icons">favorite</i>Preferences</a>
+                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="settings">      <i class="mdl-color-text--blue-grey-400 material-icons">settings</i>Settings</a>
+                   <div class="mdl-layout-spacer trav-separetor"></div>
+                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="homepage.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>Exit</a>
+           </nav>
         </div>
 
-        <!-- Page Content -->
-        <div id="stage">
-        </div>
-
+        <main class="mdl-layout__content trav-background">
+            <div id="stage"> </div>
+        </main>
     </div>
-
 </body>
 
 </html>

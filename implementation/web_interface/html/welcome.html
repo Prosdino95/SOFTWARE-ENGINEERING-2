@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Travlendar+ - Welcome</title>
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design -->
+    <link href="../css/library/material.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <script src="../js/library/material.min.js"></script>
+
+    <!-- Essential Script to update the Dom -->
+    <script>
+        $("document").ready( function () {
+            componentHandler.upgradeDom();
+        });
+    </script>
 </head>
 
 <body>
-    <div class = "container well">
+    <div class = "container">
+        <header class="mdl-color-text--blue-grey-700 text-center">
+            <h2>Welcome to Travlendar+</h2>
+        </header>
+        <h1 class="mdl-color-text--blue-grey-700 text-center">Name <b>Surname</b> !</h1>
 
-        <div class="panel text-center">
-            <h1>Welcome to Travlendar+</h1>
-            <p class="text-center">
+        <div class="panel mdl-color-white">
+            <p class="text-center mdl-color-text--blue-grey-700">
                 <em>
                     Travelendar+ is a mobile and web application capable of improving
                     its user's everyday life with simplicity, efficency and safety.
@@ -21,10 +36,5 @@
         </div>
     </div>
 
-    <div class="container-fluid center-block">
-        <img src="./res/Logo.png" class = "img-responsive"/>
-    </div>
-
-    </div>
 </body>
 </html>
