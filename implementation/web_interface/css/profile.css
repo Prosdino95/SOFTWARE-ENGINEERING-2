@@ -1,15 +1,31 @@
 .profile-layout{
     width: auto;
-    margin-right: auto;
-    margin-left: auto;
 }
+
+.profile-table{
+    width: auto;
+ }
+
 .profile-header-tab{
     margin-top: 10px;
     width: auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 .profile-content-tab{
+    width: auto;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
     margin-bottom: 40px;
 }
+
 .profile-picture{
-    width: 200px;
+    width: 150px;
+}
+
+/*@media only screen and (max-width: 512px) {
+    #stage {
+        background-color: transparent;
+    }
 }

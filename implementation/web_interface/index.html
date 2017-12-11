@@ -29,14 +29,13 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 
     <!-- Material Design Icons-->
-    <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css"/>
 
 
-    <!-- Custom CSS -->
+    <!-- Html imported CSS -->
     <link href="css/index.css" rel="stylesheet">
     <link href="css/preferences.css" rel="stylesheet">
     <link href="css/profile.css" rel="stylesheet">
-    <link href="css/library/fullcalendar.css.css" rel="stylesheet">
 
     <!-- Js importing -->
 
@@ -55,59 +54,65 @@
     <!-- Material Design js -->
     <script src="js/library/material.min.js"></script>
 
-
     <!-- Change Context Script -->
     <script src="js/change_context.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 
 
 <body>
 
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-        <!-- Header -->
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
+    <!-- Header -->
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+        </div>
+    </header>
+
+    <!-- Drawer -->
+    <div class=" mdl-layout__drawer">
+
+        <header class="trav-drawer-header">
+            <div class="trav-avatar">
+                <img src="res/defaultprofile.jpg" class="img-circle" id="avatar">
+            </div>
+            <div class="trav-info-profile mdl-color-text--blue-grey-500">
+                <i class="mdi mdi-account-circle mdi-24px"></i>
+                <h3 class="username">John <b>Doe</b></h3>
             </div>
         </header>
 
-        <!-- Drawer -->
-        <div class=" mdl-layout__drawer">
+        <nav class="mdl-navigation trav-navigation mdl-color--blue-grey-900">
 
-            <header class="trav-drawer-header">
-                <div class="trav-avatar">
-                    <img src="res/defaultprofile.jpg" class="img-circle" id="avatar">
-                </div>
-                <div class="trav-info-profile mdl-color-text--blue-grey-500">
-                    <i class="mdi mdi-account-circle mdi-24px"></i>
-                    <h3 class="username">John <b>Doe</b> </h3>
-                </div>
-            </header>
-
-           <nav class="mdl-navigation trav-navigation mdl-color--blue-grey-900">
-
-                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="welcome">                    <i class="mdl-color-text--blue-grey-400 material-icons">home</i>Home</a>
-                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="calendar">      <i class="mdl-color-text--blue-grey-400 material-icons">today</i>Calendar</a>
-                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="maps">          <i class="mdl-color-text--blue-grey-400 material-icons">room</i>Maps</a>
-                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="profile">       <i class="mdl-color-text--blue-grey-400 material-icons">person</i>User</a>
-                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="preferences">   <i class="mdl-color-text--blue-grey-400 material-icons">favorite</i>Preferences</a>
-                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="settings">      <i class="mdl-color-text--blue-grey-400 material-icons">settings</i>Settings</a>
-                   <div class="mdl-layout-spacer trav-separetor"></div>
-                   <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="homepage.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>Exit</a>
-           </nav>
-        </div>
-
-        <main class="mdl-layout__content trav-background">
-            <div id="stage"> </div>
-        </main>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="welcome"> <i
+                    class="mdl-color-text--blue-grey-400 material-icons">home</i>Home</a>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="calendar"> <i
+                    class="mdl-color-text--blue-grey-400 material-icons">today</i>Calendar</a>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="maps"> <i
+                    class="mdl-color-text--blue-grey-400 material-icons">room</i>Maps</a>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="profile"> <i
+                    class="mdl-color-text--blue-grey-400 material-icons">person</i>User</a>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="preferences"> <i
+                    class="mdl-color-text--blue-grey-400 material-icons">favorite</i>Preferences</a>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="settings"> <i
+                    class="mdl-color-text--blue-grey-400 material-icons">settings</i>Settings</a>
+            <div class="mdl-layout-spacer trav-separetor"></div>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="homepage.html"><i
+                    class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>Exit</a>
+        </nav>
     </div>
+
+    <main class="mdl-layout__content trav-background">
+        <div id="stage"></div>
+    </main>
+</div>
 </body>
 
 </html>

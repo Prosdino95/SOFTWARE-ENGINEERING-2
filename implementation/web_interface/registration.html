@@ -33,7 +33,7 @@
 
 
     <!-- Javascript -->
-    <script src="js/registration.js"> </script>
+    <script src="js/registration.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,60 +44,79 @@
 
 </head>
 
-<body class="mdl-layout trav-background">
+<body class="trav-background">
+<div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <form class="mdl-cell--4-col mdl-color-text--blue-grey-700" role="form">
 
-<div class="container">
-    <form class = "mdl-color-text--blue-grey-700" role="form">
-
-        <div class = "panel-group">
-            <div class ="panel mdl-color--indigo-500 text-center">
-                <h4 class="mdl-color-text--white"> <b>REGISTRATION</b></h4>
+        <div class="panel-group">
+            <div class="panel mdl-color--indigo-500 text-center">
+                <h4 class="mdl-color-text--white"><b>REGISTRATION</b></h4>
             </div>
 
             <div class="panel well mdl-color--grey-100">
                 <ul class="mdl-list">
-                    <li><label> Your name</label></li>
-                    <li><div class="mdl-textfield mdl-js-textfield">
-                        <input class ="mdl-textfield__input" id="name" type = "text" required>
-                        <label class="mdl-textfield__label" for="name">Name...</label>
-                    </div></li>
+                    <li><label> First name</label></li>
+                    <li>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" id="first-name" type="text" required>
+                            <label class="mdl-textfield__label" for="first-name">First Name...</label>
+                        </div>
+                    </li>
                 </ul>
 
                 <ul class="mdl-list">
-                    <li><label> Email</label></li>
-                    <li><div class="mdl-textfield mdl-js-textfield">
-                        <input class ="mdl-textfield__input" id="email" type = "text" required>
-                        <label class="mdl-textfield__label" for="email">Email...</label>
-                    </div></li>
+                    <li><label> Last name</label></li>
+                    <li>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" id="last-name" type="text">
+                            <label class="mdl-textfield__label" for="last-name">Last Name...</label>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="mdl-list">
+                    <li><label>Email</label></li>
+                    <li>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" id="email" type="text" required>
+                            <label class="mdl-textfield__label" for="email">Email...</label>
+                        </div>
+                    </li>
                 </ul>
 
                 <ul class="mdl-list">
                     <li><label>Password</label></li>
-                    <li><div class="mdl-textfield mdl-js-textfield">
-                        <input class ="mdl-textfield__input" id="password" type = "password" required>
-                        <label class="mdl-textfield__label" for="password">Password...</label>
-                    </div></li>
+                    <li>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" id="password" type="password" required>
+                            <label class="mdl-textfield__label" for="password">Password...</label>
+                        </div>
+                    </li>
                 </ul>
 
                 <ul class="mdl-list">
                     <li><label> Re-type password</label></li>
-                    <li><div class="mdl-textfield mdl-js-textfield">
-                        <input class ="mdl-textfield__input" id="retype-password" type = "password" required>
-                        <label class="mdl-textfield__label" for="retype-password">Password...</label>
-                    </div></li>
+                    <li>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" id="retype-password" type="password" required>
+                            <label class="mdl-textfield__label" for="retype-password">Password...</label>
+                        </div>
+                    </li>
                 </ul>
             </div>
 
             <div class="panel well-sm mdl-color--indigo-500">
-                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white trav-button" type="submit">
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white trav-button"
+                        type="submit">
                     SUBMIT
                 </button>
             </div>
 
         </div>
     </form>
+    <div class="mdl-layout-spacer"></div>
 </div>
-
 </body>
 
 </html>

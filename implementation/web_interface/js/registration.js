@@ -18,7 +18,8 @@ $(function() {
         // prevent the default http POST
         event.preventDefault();
 
-        var user = $('#name').val();
+        var user = $('#first-name').val();
+        var user = $('#last-name').val();
         var email = $('#email').val();
         var pass = $('#password').val();
         var retype_pass = $('#retype-password').val();

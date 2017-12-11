@@ -25,12 +25,14 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <script src="js/library/material.min.js"></script>
 
+    <!-- Material Design Icons-->
+    <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css"/>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
     <!-- Javascript -->
-    <script src="js/login.js"> </script>
+    <script src="js/login.js"></script>
     <link href="css/login.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -42,45 +44,49 @@
 
 </head>
 
-<body class="mdl-layout trav-background">
+<body class="trav-background">
 
-    <div class="container ">
-        <form class = "mdl-color-text--blue-grey-700" role="form">
+<div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <form class="mdl-cell--4-col mdl-color-text--blue-grey-700" role="form">
 
-            <div class = "panel-group">
-                <div class ="panel mdl-color--indigo-500 text-center">
-                    <h4 class="mdl-color-text--white"> <b>LOGIN </b></h4>
-                </div>
-
-                <div class="panel well mdl-color--grey-100">
-
-                    <ul class="mdl-list">
-                        <li>
-                            <span class = "glyphicon glyphicon-user">
-                            <div class="mdl-textfield mdl-js-textfield">
-                                <input class ="mdl-textfield__input" id="email" type = "text" id="email" required>
-                                <label class="mdl-textfield__label" for="email">Email...</label>
-                            </div>
-                        </span></li>
-
-                        <li><span class="glyphicon glyphicon-lock ">
-                            <div class="mdl-textfield mdl-js-textfield">
-                                <input class ="mdl-textfield__input" id="password" type = "password" required>
-                                <label class="mdl-textfield__label" for="password">Password...</label>
-                            </div>
-                        </span></li>
-                    </ul>
-                </div>
-
-                <div class="panel well-sm mdl-color--indigo-500">
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white trav-button" type="submit">
-                        SUBMIT
-                    </button>
-                </div>
-
+        <div class="panel-group">
+            <div class="panel mdl-color--indigo-500 text-center">
+                <h4 class="mdl-color-text--white"><b>LOGIN </b></h4>
             </div>
-        </form>
-    </div>
+
+            <div class="panel well mdl-color--grey-100">
+
+                <ul class="mdl-list">
+                    <li class="mdl-list__item">
+                        <span class="mdi mdi-account mdi-24px mdl-color-text--blue-grey-700"></span>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" id="email" type="text" required>
+                            <label class="mdl-textfield__label" for="email">Email...</label>
+                        </div>
+                    </li>
+
+                    <li class="mdl-list__item">
+                        <span class="mdi mdi-lock mdi-24px mdl-color-text--blue-grey-700"> </span>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" id="password" type="password" required>
+                            <label class="mdl-textfield__label" for="password">Password...</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="panel well-sm mdl-color--indigo-500">
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white trav-button"
+                        type="submit">
+                    SUBMIT
+                </button>
+            </div>
+
+        </div>
+    </form>
+    <div class="mdl-layout-spacer"></div>
+</div>
 
 </body>
 
