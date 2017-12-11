@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Travlendar+ - Preferences</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Material Design CSS -- Piallabile -->
+    <link href="../css/library/material.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <script src="../js/library/material.min.js"></script>
+    <link href="../css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- CSS --Piallabile -->
+    <link href="../css/profile.css" rel="stylesheet">
+
+    <!-- Essential Script to update the Dom -->
+    <script>
+        $("document").ready( function () {
+            componentHandler.upgradeDom();
+        });
+    </script>
+
+</head>
+
+<body>
+<div class="mdl-layout">
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect profile-layout mdl-typography--font-bold mdl-color-text--blue-grey-700">
+        <div class="mdl-tabs__tab-bar profile-header-tab">
+            <a href="#information-panel" class="mdl-tabs__tab is-active"> <span class="mdi mdi-human"> </span>My Information</a>
+            <a href="#photo-panel" class="mdl-tabs__tab">                 <span class="mdi mdi-account-circle"> </span>Profile Picture</a>
+            <a href="#password-panel" class="mdl-tabs__tab">              <span class="mdi mdi-lock"> </span>Change Password</a>
+        </div>
+
+        <!-- profile informations -->
+        <div class="mdl-tabs__panel is-active profile-content-tab" id="information-panel">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp pref-table">
+                <tbody>
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <label>First name</label>
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class ="mdl-textfield__input" id="first-name" type = "text">
+                            <label class="mdl-textfield__label" for="first-name">First Name...</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <label>Last name</label>
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class ="mdl-textfield__input" id="last-name" type = "text">
+                            <label class="mdl-textfield__label" for="last-name">Last Name...</label>
+                         </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <label>Email</label>
+                    </td>
+                    <td>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class ="mdl-textfield__input" id="email" type = "text">
+                            <label class="mdl-textfield__label" for="email">Email...</label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <label>Telephone number</label>
+                    </td>
+                    <td class="mdl-data-table__cell">
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class ="mdl-textfield__input" id="cellphone" type = "text">
+                            <label class="mdl-textfield__label" for="cellphone">Your Telephone...</label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <label>Gender</label>
+                    </td>
+
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gender-male">
+                            <input type="radio" id="gender-male" class="mdl-radio__button" name="options" value="1" >
+                            <span class="mdl-radio__label">Male</span>
+                        </label>
+
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gender-female">
+                            <input type="radio" id="gender-female" class="mdl-radio__button" name="options" value="2">
+                            <span class="mdl-radio__label">Female</span>
+                        </label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <label>How to notify Meetings</label>
+                    </td>
+                    <td>
+                        <ul class="mdl-list">
+                            <li class="mdl-list__item">
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="notificate-email">
+                                    <span class="mdl-checkbox__label">Email Notifications</span>
+                                    <input type="checkbox" id="notificate-email" class="mdl-checkbox__input" checked disabled>
+                                </label>
+                            </li>
+                            <li class="mdl-list__item">
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="notificate-tel">
+                                    <span class="mdl-checkbox__label mdl-color-text--blue-grey-700">Telephone Notifications</span>
+                                    <input type="checkbox" id="notificate-tel" class="mdl-checkbox__input">
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <td class="mdl-color--grey-100"></td>
+                <td class="mdl-color--grey-100">
+                    <div class="mdl-cell">
+                        <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" id="submit-info">SAVE DETAILS</button>
+                    </div>
+                </td>
+                </tbody>
+            </table>
+        </div>
+
+        <!--Change image -->
+        <div class="mdl-tabs__panel profile-content-tab" id="photo-panel">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp pref-table">
+                <tbody>
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <h3 class="mdl-typography--font-bold">CHANGE PROFILE PICTURE</h3>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                    <img src="res/defaultprofile.jpg" class="img-circle profile-picture">
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric mdl-color--grey-100">
+                        <input class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color-text--blue-grey-700" type="file">
+                    </td>
+                    <td class="mdl-color--grey-100">
+                        <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" id="submit-picture">UPDATE PICTURE</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--Password -->
+        <div class="mdl-tabs__panel profile-content-tab" id="password-panel">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp pref-table">
+                <tbody>
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <label>Current Password</label>
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class ="mdl-textfield__input" id="current-password" type = "password">
+                            <label class="mdl-textfield__label" for="current-password">Current Password...</label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <label>New Password</label>
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class ="mdl-textfield__input" id="new-password" type = "password">
+                            <label class="mdl-textfield__label" for="new-password">New Password...</label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <label>Retype new password</label>
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class ="mdl-textfield__input" id="retype-new-password" type = "password">
+                            <label class="mdl-textfield__label" for="retype-new-password">New Password...</label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="mdl-color--grey-100"></td>
+                    <td class="mdl-color--grey-100">
+                        <div class="mdl-cell">
+                            <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect" type="submit" id="submit-password">UPDATE PASSWORD</button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

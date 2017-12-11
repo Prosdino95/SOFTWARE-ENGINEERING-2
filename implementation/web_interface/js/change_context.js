@@ -26,6 +26,12 @@ $(function (){
         $("#stage").load("./html/preferences.html");
     });
 
+    // load preference page
+    $("#profile").click(function(event){
+        event.preventDefault();
+        $("#stage").load("./html/profile.html");
+    });
+
     //load sidebar menu
     $("#menu-toggle").click(function(event){
         event.preventDefault();

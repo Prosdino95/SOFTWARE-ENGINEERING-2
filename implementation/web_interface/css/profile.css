@@ -1,0 +1,15 @@
+.profile-layout{
+    width: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+.profile-header-tab{
+    margin-top: 10px;
+    width: auto;
+}
+.profile-content-tab{
+    margin-bottom: 40px;
+}
+.profile-picture{
+    width: 200px;
+}
