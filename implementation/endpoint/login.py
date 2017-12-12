@@ -1,8 +1,7 @@
 import rethinkdb as r
 from hashlib import md5
-from  flask import jsonify
+from flask import jsonify
 import tokenDB as db
-
 
 
 def login(user):

@@ -1,7 +1,5 @@
 import rethinkdb as r
 import hashlib
-import flask
-from flask_cors import CORS
 
 
 def registration(user):

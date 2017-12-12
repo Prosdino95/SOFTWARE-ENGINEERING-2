@@ -4,11 +4,9 @@ import rethinkdb as r
 def init_bd():
     r.connect("localhost", 28015).repl()
     r.db_create("Travelander").run()
-    r.db("Travelander").table_create("user").run()
-    r.db("Travelander").table("user").index_create("email").run()
+    r.db("Travelander").table_create("user", primary_key='email').run()
 
-    r.db("Travelander").table_create("preference").run()
-    r.db("Travelander").table("preference").index_create("email").run()
+    r.db("Travelander").table_create("preference", primary_key='name').run()
 
     r.db("Travelander").table_create("event").run()
     r.db("Travelander").table("preference").index_create("eventKey", [r.row["eventName"], r.row["startingTime"]]).run()
