@@ -22,15 +22,20 @@ $(function() {
         };
 
         // Post request
-        alert("OK");
         $.ajax({
             url: 'http://127.0.0.1:5000/login',
             dataType: 'text',
             contentType: "application/json; charset=utf-8",
             type: 'post',
             data: JSON.stringify( { "email" : email, "password" : pass} ),
-            success: function(response) {
-                console.log(response);
+            success: function(token) {
+
+                // Saving Token in a Cookie
+                Cookies.json = true;
+                Cookies.set("session_token", token);
+
+                // Redirect on index.html
+                window.location = "./index.html";
             },
             error: function(error) {
                 console.log(error);

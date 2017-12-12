@@ -5,6 +5,11 @@ $(function (){
 
     // Default load the welcome page
     $(document).ready(function () {
+
+        // Cookie configuring as a json
+        Cookies.json = true;
+        //console.log("COOKIE: " + Cookies.get("session_token"));
+
         $("#stage").load("./html/welcome.html");
     });
 

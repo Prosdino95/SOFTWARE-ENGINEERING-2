@@ -37,15 +37,16 @@ $(function() {
         };
 
         // Post request
-        alert("OK");
         $.ajax({
             url: 'http://127.0.0.1:5000/registration',
             dataType: 'text',
             contentType: "application/json; charset=utf-8",
             type: 'post',
             data: JSON.stringify( { "first-name": first_name, "last-name": last_name, "password": pass, "email": email } ),
-            success: function(response) {
-                console.log(response);
+            success: function() {
+
+                //Redirect to Homepage
+                window.location = "./homepage.html";
             },
             error: function(error) {
                 console.log(error);
@@ -54,6 +55,7 @@ $(function() {
         // Clear input field
         $(":input").val('');
     });
+
 
     /**
      * BUG FIX ISSUE: MDL Library -- Required Input field
