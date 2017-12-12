@@ -2,7 +2,7 @@ from flask_cors import CORS
 import flask
 from login import login
 from registration import registration
-from profile import profile_mod
+import profile
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -20,10 +20,17 @@ def login_api():
     return login(user)
 
 
-@app.route('/profile', methods=['POST'])
-def profile_api():
+@app.route('/modProfile', methods=['POST'])
+def mod_profile_api():
     user = flask.request.get_json()
-    return profile_mod(user)
+    return profile.mod_profile(user)
+
+
+@app.route('/getProfile', methods=['GET'])
+def get_profile_api():
+    token = flask.request.args.get('token', '')
+    json = profile.get_profile(token)
+    return flask.jsonify(first_name=json["first-name"], last_name=json["last-name"])
 
 
 if __name__ == "__main__":
