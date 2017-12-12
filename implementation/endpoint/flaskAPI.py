@@ -21,7 +21,7 @@ def login_api():
 
 
 @app.route('/profile', methods=['POST'])
-def registration_api():
+def profile_api():
     user = flask.request.get_json()
     return profile_mod(user)
 

@@ -7,8 +7,10 @@ import tokenDB as db
 def login(user):
     r.connect("localhost", 28015, "Travelander").repl()
     hash_pass = md5(user["password"].encode())
-    cursor = r.table("user").filter(r.row["email"] == user["email"]).run()
-    password = list(cursor)[0]["password"]
+    cursor = r.table("user").get(user["email"]).run()
+    if cursor is None:
+        return jsonify(token="none")
+    password = cursor["password"]
     if password == hash_pass.hexdigest():
         tok = db.save_user(user["email"])
         return jsonify(token=tok)
