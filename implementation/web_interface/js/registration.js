@@ -18,8 +18,8 @@ $(function() {
         // prevent the default http POST
         event.preventDefault();
 
-        var user = $('#first-name').val();
-        var user = $('#last-name').val();
+        var first_name = $('#first-name').val();
+        var last_name = $('#last-name').val();
         var email = $('#email').val();
         var pass = $('#password').val();
         var retype_pass = $('#retype-password').val();
@@ -43,7 +43,7 @@ $(function() {
             dataType: 'text',
             contentType: "application/json; charset=utf-8",
             type: 'post',
-            data: JSON.stringify( { "name": user, "password": pass, "email": email } ),
+            data: JSON.stringify( { "first-name": first_name, "last-name": last_name, "password": pass, "email": email } ),
             success: function(response) {
                 console.log(response);
             },

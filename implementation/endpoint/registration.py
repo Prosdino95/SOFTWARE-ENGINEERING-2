@@ -20,7 +20,7 @@ def registration(user):
 
 
 def save_user(user):
-    r.connect("localhost", 28015, "Users").repl()
+    r.connect("localhost", 28015, "Travelander").repl()
     if r.table("user").filter(r.row["email"].eq(user["email"])).count().run() == 0:
         r.table("user").insert(user).run()
         return "registration successful"
