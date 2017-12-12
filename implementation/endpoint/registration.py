@@ -3,15 +3,6 @@ import hashlib
 import flask
 from flask_cors import CORS
 
-app = flask.Flask(__name__)
-CORS(app)
-
-
-@app.route('/registration', methods=['POST'])
-def registration_api():
-    user = flask.request.get_json()
-    return registration(user)
-
 
 def registration(user):
     hash_pass = hashlib.md5(user["password"].encode())
@@ -27,6 +18,3 @@ def save_user(user):
     else:
         return "email already registered"
 
-
-if __name__ == "__main__":
-    app.run()

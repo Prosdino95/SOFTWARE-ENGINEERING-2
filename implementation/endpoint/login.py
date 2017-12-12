@@ -1,18 +1,8 @@
 import rethinkdb as r
 from hashlib import md5
-import flask
-from flask_cors import CORS
-import tokenDB
+from  flask import jsonify
+import tokenDB as db
 
-app = flask.Flask(__name__)
-CORS(app)
-db = tokenDB.TokenDB.get_instance()
-
-
-@app.route('/login', methods=['POST'])
-def login_api():
-    user = flask.request.get_json()
-    return login(user)
 
 
 def login(user):
@@ -22,13 +12,10 @@ def login(user):
     password = list(cursor)[0]["password"]
     if password == hash_pass.hexdigest():
         tok = db.save_user(user["email"])
-        return flask.jsonify(token=tok)
+        return jsonify(token=tok)
     else:
-        return flask.jsonify(token="none")
+        return jsonify(token="none")
 
-
-if __name__ == "__main__":
-    app.run()
 
 
 
