@@ -37,5 +37,5 @@ def token_query(token):
     if time() - query[2] > 300:
         print("new token")
     # print the name just for test
-    print(query[0])
+    return query[0]
 

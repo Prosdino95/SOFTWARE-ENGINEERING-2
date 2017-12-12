@@ -25,7 +25,7 @@ $(function() {
         alert("OK");
         $.ajax({
             url: 'http://127.0.0.1:5000/login',
-            dataType: 'text',
+            dataType: 'json',
             contentType: "application/json; charset=utf-8",
             type: 'post',
             data: JSON.stringify( { "email" : email, "password" : pass} ),
