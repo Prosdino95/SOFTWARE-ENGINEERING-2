@@ -1,8 +1,13 @@
+/*
+     Update personal user information module.
+*/
+
 // format correctly the text showed on the screen
 function render_text(string){
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
 }
 
+// main function
 $(function() {
 
     // Update the input field information value quering the database
