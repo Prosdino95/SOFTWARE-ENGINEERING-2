@@ -1,4 +1,3 @@
-
 // check valid email
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -33,7 +32,6 @@ $(function() {
                 // Saving token in a Cookie
                 Cookies.json = true;
                 Cookies.set("session_token", token['token']);
-                console.log("TOKEN LOGIN: " + token['token']);
 
                 // Redirect on index.html
                 window.location = "./index.html";

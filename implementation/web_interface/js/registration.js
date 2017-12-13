@@ -1,8 +1,12 @@
 
+// format correctly First_name and Last_name
+function render_text(string){
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+}
+
 // check if password and retype password are the same
 function passwordCheck(password, retype_password) {
     return password === retype_password;
-
 }
 
 // check valid email
@@ -18,8 +22,8 @@ $(function() {
         // prevent the default http POST
         event.preventDefault();
 
-        var first_name = $('#first_name').val();
-        var last_name = $('#last_name').val();
+        var first_name = render_text($('#first_name').val());
+        var last_name = render_text($('#last_name').val());
         var email = $('#email').val();
         var pass = $('#password').val();
         var retype_pass = $('#retype_password').val();
