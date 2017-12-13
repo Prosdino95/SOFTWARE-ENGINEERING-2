@@ -5,11 +5,10 @@
     <title>Travlendar+ - Preferences</title>
 
     <!-- Essential Script to update the Dom -->
-
     <script>
-        $("document").ready(function () {
-            componentHandler.upgradeDom();
-        });
+      $("document").ready( function () {
+          componentHandler.upgradeDom();
+      });
     </script>
 
 </head>
@@ -37,10 +36,10 @@
                         <td class="mdl-data-table__cell--non-numeric">
                             First name
                         </td>
-                        <td class="mdl-data-table__cell--non-numeric">
-                            <div class="mdl-textfield mdl-js-textfield">
-                                <input class="mdl-textfield__input" id="first-name" type="text">
-                                <label class="mdl-textfield__label" for="first-name">First Name...</label>
+                        <td class="mdl-data-table__cell--non-numeric" >
+                            <div class="mdl-textfield mdl-js-textfield" id="first_name_textfield">
+                                <input class="mdl-textfield__input" id="first_name" type="text">
+                                <label class="mdl-textfield__label" for="first_name">First Name...</label>
                             </div>
                         </td>
                     </tr>
@@ -49,9 +48,9 @@
                             Last name
                         </td>
                         <td class="mdl-data-table__cell--non-numeric">
-                            <div class="mdl-textfield mdl-js-textfield">
-                                <input class="mdl-textfield__input" id="last-name" type="text">
-                                <label class="mdl-textfield__label" for="last-name">Last Name...</label>
+                            <div class="mdl-textfield mdl-js-textfield" id="last_name_textfield">
+                                <input class="mdl-textfield__input" id="last_name" type="text">
+                                <label class="mdl-textfield__label" for="last_name">Last Name...</label>
                             </div>
                         </td>
                     </tr>
@@ -60,8 +59,8 @@
                             Email
                         </td>
                         <td>
-                            <div class="mdl-textfield mdl-js-textfield">
-                                <input class="mdl-textfield__input" id="email" type="text">
+                            <div class="mdl-textfield mdl-js-textfield" id="email_textfield">
+                                <input class="mdl-textfield__input" id="email" type="text" disabled>
                                 <label class="mdl-textfield__label" for="email">Email...</label>
                             </div>
                         </td>
@@ -72,8 +71,8 @@
                             Telephone
                         </td>
                         <td class="mdl-data-table__cell">
-                            <div class="mdl-textfield mdl-js-textfield">
-                                <input class="mdl-textfield__input" id="cellphone" type="text">
+                            <div class="mdl-textfield mdl-js-textfield" id="cellphone_textfield">
+                                <input class="mdl-textfield__input" id="cellphone" type="number">
                                 <label class="mdl-textfield__label" for="cellphone">Your Telephone...</label>
                             </div>
                         </td>
@@ -85,14 +84,14 @@
                         </td>
 
                         <td class="mdl-data-table__cell--non-numeric">
-                            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gender-male">
-                                <input type="radio" id="gender-male" class="mdl-radio__button" name="options"
+                            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gender-male" id="gender_radio_male">
+                                <input type="radio" id="gender-male" class="mdl-radio__button" name="gender"
                                        value="male">
                                 <span class="mdl-radio__label">Male</span>
                             </label>
 
-                            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gender-female">
-                                <input type="radio" id="gender-female" class="mdl-radio__button" name="options"
+                            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gender-female" id="gender_radio_female">
+                                <input type="radio" id="gender-female" class="mdl-radio__button" name="gender"
                                        value="female">
                                 <span class="mdl-radio__label">Female</span>
                             </label>
@@ -106,18 +105,18 @@
                         <td>
                             <ul class="mdl-list">
                                 <li class="mdl-list__item">
-                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id="notificate_email_checkbox"
                                            for="notificate-email">
                                         <span class="mdl-checkbox__label">Email Notifications</span>
-                                        <input type="checkbox" id="notificate-email" class="mdl-checkbox__input" checked
+                                        <input type="checkbox" id="notificate-email" class="mdl-checkbox__input" value="ON" checked
                                                disabled>
                                     </label>
                                 </li>
                                 <li class="mdl-list__item">
-                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id="notificate_tel_checkbox"
                                            for="notificate-tel">
                                         <span class="mdl-checkbox__label mdl-color-text--blue-grey-700">Telephone Notifications</span>
-                                        <input type="checkbox" id="notificate-tel" class="mdl-checkbox__input">
+                                        <input type="checkbox" id="notificate-tel" class="mdl-checkbox__input" value="ON">
                                     </label>
                                 </li>
                             </ul>
@@ -127,7 +126,7 @@
                     <td class="mdl-color--grey-100">
                         <div class="mdl-cell">
                             <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect"
-                                    type="submit" id="submit-info">SAVE DETAILS
+                                    type="button" id="submit_info">SAVE DETAILS
                             </button>
                         </div>
                     </td>

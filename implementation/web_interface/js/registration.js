@@ -18,11 +18,11 @@ $(function() {
         // prevent the default http POST
         event.preventDefault();
 
-        var first_name = $('#first-name').val();
-        var last_name = $('#last-name').val();
+        var first_name = $('#first_name').val();
+        var last_name = $('#last_name').val();
         var email = $('#email').val();
         var pass = $('#password').val();
-        var retype_pass = $('#retype-password').val();
+        var retype_pass = $('#retype_password').val();
 
         // Check passwords match
         if(!passwordCheck(pass, retype_pass)){
@@ -42,7 +42,7 @@ $(function() {
             dataType: 'text',
             contentType: "application/json; charset=utf-8",
             type: 'post',
-            data: JSON.stringify( { "first-name": first_name, "last-name": last_name, "password": pass, "email": email } ),
+            data: JSON.stringify( { "first_name": first_name, "last_name": last_name, "password": pass, "email": email } ),
             success: function() {
 
                 //Redirect to Homepage

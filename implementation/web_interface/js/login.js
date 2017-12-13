@@ -30,9 +30,10 @@ $(function() {
             data: JSON.stringify( { "email" : email, "password" : pass} ),
             success: function(token) {
 
-                // Saving Token in a Cookie
+                // Saving token in a Cookie
                 Cookies.json = true;
-                Cookies.set("session_token", token);
+                Cookies.set("session_token", token['token']);
+                console.log("TOKEN LOGIN: " + token['token']);
 
                 // Redirect on index.html
                 window.location = "./index.html";

@@ -30,8 +30,8 @@ def mod_profile_api():
 def get_profile_api():
     token = flask.request.args.get('token', '')
     json = profile.get_profile(token)
-    return flask.jsonify(first_name=json["first-name"], last_name=json["last-name"])
-
+   # return flask.jsonify(first_name=json["first-name"], last_name=json["last-name"])
+    return flask.jsonify(profile=json)
 
 if __name__ == "__main__":
     app.run()
