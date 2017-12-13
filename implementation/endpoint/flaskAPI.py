@@ -28,7 +28,7 @@ def mod_profile_api():
 
 
 @app.route('/modProfilePassword', methods=['POST'])
-def mod_profile_api():
+def mod_profile_password_api():
     user = flask.request.get_json()
     return profile.mod_profile_password(user)
 
