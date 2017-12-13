@@ -27,6 +27,12 @@ def mod_profile_api():
     return "information changed"
 
 
+@app.route('/modProfilePassword', methods=['POST'])
+def mod_profile_api():
+    user = flask.request.get_json()
+    return profile.mod_profile_password(user)
+
+
 @app.route('/getProfile', methods=['GET'])
 def get_profile_api():
     token = flask.request.args.get('token', '')
