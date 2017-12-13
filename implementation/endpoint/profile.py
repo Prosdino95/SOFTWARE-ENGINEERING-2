@@ -5,6 +5,7 @@ import tokenDB as db
 def mod_profile(user):
     r.connect("localhost", 28015, "Travelander").repl()
     email = db.token_query(user["token"])
+    del user["token"]
     r.table("user").get(email).update(user).run()
 
 

@@ -23,15 +23,17 @@ def login_api():
 @app.route('/modProfile', methods=['POST'])
 def mod_profile_api():
     user = flask.request.get_json()
-    return profile.mod_profile(user)
+    profile.mod_profile(user)
+    return "information changed"
 
 
 @app.route('/getProfile', methods=['GET'])
 def get_profile_api():
     token = flask.request.args.get('token', '')
     json = profile.get_profile(token)
-   # return flask.jsonify(first_name=json["first-name"], last_name=json["last-name"])
+    del json["password"]
     return flask.jsonify(profile=json)
+
 
 if __name__ == "__main__":
     app.run()
