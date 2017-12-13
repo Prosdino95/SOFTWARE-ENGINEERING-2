@@ -1,6 +1,5 @@
 
 // jQuery script to load the html pages on index.html
-
 $(function (){
 
     // Default load the welcome page

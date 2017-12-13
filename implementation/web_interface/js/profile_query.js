@@ -1,3 +1,7 @@
+// format correctly the text showed on the screen
+function render_text(string){
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+}
 
 $(function() {
 
@@ -50,8 +54,8 @@ $(function() {
         Cookies.json = true;  // important
         var token = Cookies.get("session_token");
 
-        var first_name = $('#first_name').val();
-        var last_name = $('#last_name').val();
+        var first_name = render_text($('#first_name').val());
+        var last_name = render_text($('#last_name').val());
         var cellphone = $('#cellphone').val();
         var gender = $('input[name = gender]:checked').val();
         var notify_tel = $('input[id = notificate-tel]').prop("checked");
