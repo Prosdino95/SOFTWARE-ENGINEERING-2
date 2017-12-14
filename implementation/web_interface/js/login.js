@@ -29,12 +29,18 @@ $(function() {
             data: JSON.stringify( { "email" : email, "password" : pass} ),
             success: function(token) {
 
-                // Saving token in a Cookie
-                Cookies.json = true;
-                Cookies.set("session_token", token['token']);
+            	if(token['token'] != 'none'){
+                	// Saving token in a Cookie
+                	Cookies.json = true;
+                	Cookies.set("session_token", token['token']);
 
-                // Redirect on index.html
-                window.location = "./index.html";
+                	// Redirect on index.html
+                	window.location = "./index.html";
+                }
+                else{
+                	//TODO print in html field
+                	console.log('wrong email or password');
+                }
             },
             error: function(error) {
                 console.log(error);

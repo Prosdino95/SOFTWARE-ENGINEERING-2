@@ -47,10 +47,19 @@ $(function() {
             contentType: "application/json; charset=utf-8",
             type: 'post',
             data: JSON.stringify( { "first_name": first_name, "last_name": last_name, "password": pass, "email": email } ),
-            success: function() {
+            success: function(response) {
 
-                //Redirect to Homepage
-                window.location = "./homepage.html";
+                if(response == 'ok'){
+
+                    //Redirect to Homepage
+                    window.location = "./homepage.html";
+                }
+                else{
+                    //TODO print in html field (response with possible error)
+                    console.log(response);
+
+                }
+
             },
             error: function(error) {
                 console.log(error);
