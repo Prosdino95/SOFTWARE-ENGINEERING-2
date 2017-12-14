@@ -6,10 +6,8 @@ def init_bd():
     r.db_create("Travelander").run()
     r.db("Travelander").table_create("user", primary_key='email').run()
 
-    r.db("Travelander").table_create("preference", primary_key='name').run()
-
     r.db("Travelander").table_create("event").run()
-    r.db("Travelander").table("preference").index_create("eventKey", [r.row["eventName"], r.row["startingTime"]]).run()
+    r.db("Travelander").table("event").index_create("eventKey", [r.row["eventName"], r.row["startingTime"]]).run()
 
     r.db("Travelander").table_create("eventSubmit").run()
     r.db("Travelander").table("eventSubmit").index_create("userEvent", [r.row["email"], r.row["eventName"], r.row["startingTime"]]).run()

@@ -27,6 +27,13 @@ def mod_profile_api():
     return "information changed"
 
 
+@app.route('/modProfilePreference', methods=['POST'])
+def mod_profile_preference_api():
+    user = flask.request.get_json()
+    profile.mod_profile_preference(user)
+    return "information changed"
+
+
 @app.route('/modProfilePassword', methods=['POST'])
 def mod_profile_password_api():
     user = flask.request.get_json()
@@ -39,6 +46,13 @@ def get_profile_api():
     json = profile.get_profile(token)
     del json["password"]
     return flask.jsonify(profile=json)
+
+
+@app.route('/getProfilePreference', methods=['GET'])
+def get_profile_preference_api():
+    token = flask.request.args.get('token', '')
+    json = profile.get_profile_preference(token)
+    return flask.jsonify(json)
 
 
 if __name__ == "__main__":
