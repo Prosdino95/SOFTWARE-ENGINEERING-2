@@ -26,6 +26,8 @@ function get_profile() {
             // Update Left Drawer
             $("#first_name_drawer").text(max_string(profile['first_name']));
 
+            (profile['image'])? document.querySelector('#avatar').src = profile['image']:
+
             componentHandler.upgradeDom();
         },
         error: function (error) {

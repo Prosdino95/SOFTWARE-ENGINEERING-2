@@ -18,8 +18,9 @@
     padding-left: 60px;
 }
 
-#avatar {
-    width: 100px;
+.drawer_avatar {
+    height: 20vmin;
+    width: 20vmin;
 }
 
 .username{

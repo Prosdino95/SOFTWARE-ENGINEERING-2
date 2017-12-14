@@ -30,4 +30,9 @@ $(function (){
         event.preventDefault();
         $("#stage").load("./html/profile.html");
     });
+
+    // TO-DO: Zoom Effect
+    //$("#avatar").click(function(event) {
+    //    event.preventDefault();
+    //});
 });

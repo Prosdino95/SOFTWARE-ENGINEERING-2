@@ -21,7 +21,8 @@
 }
 
 .profile-picture{
-    width: 150px;
+    height: 40vmin;
+    width: 40vmin;
 }
 
 /*@media only screen and (max-width: 512px) {
