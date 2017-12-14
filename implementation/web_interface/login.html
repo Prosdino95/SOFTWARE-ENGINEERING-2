@@ -33,6 +33,12 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
+    <!-- Polyfill CSS -->
+    <link rel="stylesheet" href="css/library/dialog-polyfill.css">
+
+    <!-- Polyfill JS -->
+    <script src="js/library/dialog-polyfill.js"></script>
+
     <!-- Javascript -->
     <script src="js/login.js"></script>
     <link href="css/login.css" rel="stylesheet">
@@ -84,13 +90,21 @@
                     SUBMIT
                 </button>
             </div>
-
         </div>
     </form>
     <div class="mdl-layout-spacer"></div>
 </div>
 
+<!-- Dialog -->
+<dialog class="mdl-dialog">
+    <h4 class="mdl-dialog__title mdl-color-text--blue-grey-700 mdl-typography--font-bold" id="warning_title"></h4>
+    <div class="mdl-dialog__content">
+        <p class="text-center mdl-color-text--blue-grey-700" id="warning_dialog"></p>
+    </div>
+    <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect close mdl-color-text--indigo-500">Continue</button>
+    </div>
+</dialog>
 </body>
-
 
 </html>

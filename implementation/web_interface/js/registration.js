@@ -15,6 +15,24 @@ function validateEmail(email) {
     return re.test(email);
 }
 
+// spawn a dialog
+function spawnDialog(text, title, flag) {
+    var dialog = document.querySelector('dialog');
+    if (! dialog.showModal) {
+        dialogPolyfill.registerDialog(dialog);
+    }
+    dialog.showModal();
+    $("#warning_dialog").text(text);
+    $("#warning_title").text(title);
+    dialog.querySelector('.close').addEventListener('click', function() {
+        if(flag) {
+            // redirect navigation
+            dialog.close();
+            window.location = "./homepage.html";
+        } dialog.close();
+    });
+}
+
 // sign up -- registration handler
 $(function() {
     $(document).submit(function(event) {
@@ -30,13 +48,13 @@ $(function() {
 
         // Check passwords match
         if(!passwordCheck(pass, retype_pass)){
-            alert("Passwords do not match");
+            spawnDialog("Passwords do not match.", "Error");
             throw error();
         };
 
         // Check valid email
         if(!validateEmail(email)){
-            alert("Not valid email address");
+            spawnDialog("Not valid email address.", "Error");
             throw error();
         };
 
@@ -48,19 +66,9 @@ $(function() {
             type: 'post',
             data: JSON.stringify( { "first_name": first_name, "last_name": last_name, "password": pass, "email": email } ),
             success: function(response) {
-
-                if(response == 'ok'){
-
-                    //Redirect to Homepage
-                    window.location = "./homepage.html";
-                }
-                else{
-                    //TODO print in html field (response with possible error)
-                    console.log(response);
-
-                }
-
+                (response == 'ok')? spawnDialog("Registration completed successfully!", "", true): spawnDialog("Registration failed", "Error");
             },
+
             error: function(error) {
                 console.log(error);
             }

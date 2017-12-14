@@ -4,6 +4,25 @@ function validateEmail(email) {
     return re.test(email);
 }
 
+// spawn a dialog
+function spawnDialog(text, title, flag) {
+    var dialog = document.querySelector('dialog');
+    if (! dialog.showModal) {
+        dialogPolyfill.registerDialog(dialog);
+    }
+    dialog.showModal();
+    $("#warning_dialog").text(text);
+    $("#warning_title").text(title);
+    dialog.querySelector('.close').addEventListener('click', function() {
+        if(flag) {
+
+            // redirect navigation
+            window.location = "./index.html";
+            dialog.close();
+        } dialog.close();
+    });
+}
+
 // sign in -- login in handler
 $(function() {
     $(document).submit(function(event) {
@@ -16,7 +35,7 @@ $(function() {
 
         // Check valid email
         if(!validateEmail(email)){
-            alert("Not valid email address");
+            spawnDialog("Not valid email address.", "Error");
             throw error();
         };
 
@@ -35,11 +54,10 @@ $(function() {
                 	Cookies.set("session_token", token['token']);
 
                 	// Redirect on index.html
-                	window.location = "./index.html";
+                    spawnDialog("Login successfully completed!", "", true);
                 }
                 else{
-                	//TODO print in html field
-                	console.log('wrong email or password');
+                    spawnDialog("Wrong email or password.", "Error");
                 }
             },
             error: function(error) {

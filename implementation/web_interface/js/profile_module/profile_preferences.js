@@ -1,4 +1,20 @@
-$(function() {   
+
+// spawn a dialog
+function spawnDialog(text, title) {
+    var dialog = document.querySelector('dialog');
+    if (! dialog.showModal) {
+        dialogPolyfill.registerDialog(dialog);
+    }
+    dialog.showModal();
+    $("#warning_dialog").text(text);
+    $("#warning_title").text(title);
+    dialog.querySelector('.close').addEventListener('click', function() {
+        dialog.close();
+    });
+}
+
+// main function
+$(function() {
 
      // Update the input field information value quering the database
     $("#preferences").click(function(event){
@@ -17,15 +33,12 @@ $(function() {
                     if(key != "green_mode")
                         (preference[key])?  document.querySelector('#'+key).MaterialIconToggle.check() :
                                             document.querySelector('#'+key).MaterialIconToggle.uncheck();
-
-
                     else 
                         (preference[key])?  document.querySelector('#green_mode').MaterialSwitch.on() :
                                             document.querySelector('#green_mode').MaterialSwitch.off() ;                 
                 });
 
                 componentHandler.upgradeDom();
-
             },
             error: function(error) {
                 console.log(error);
@@ -66,7 +79,10 @@ $(function() {
             data: preference,
 
             success: function(response) {
-                console.log(response)
+                console.log(response);
+
+                // Show a friendly dialog
+                spawnDialog("Preferences submitted correctly", "")
             },
             error: function(error) {
                 console.log(error);

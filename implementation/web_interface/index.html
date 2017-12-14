@@ -28,9 +28,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 
+    <!-- Polyfill CSS -->
+    <link rel="stylesheet" href="css/library/dialog-polyfill.css">
+
     <!-- Material Design Icons-->
     <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css"/>
-
 
     <!-- Html imported CSS -->
     <link href="css/index.css" rel="stylesheet">
@@ -49,6 +51,9 @@
     <script src="js/library/moment.min.js"></script>
     <!-- FullCalendar -->
     <script src="js/library/fullcalendar.js"></script>
+    <!-- Polyfill JS -->
+    <script src="js/library/dialog-polyfill.js"></script>
+
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
@@ -119,6 +124,17 @@
         <div id="stage"></div>
     </main>
 </div>
+
+<!-- Dialog -->
+<dialog class="mdl-dialog">
+    <h4 class="mdl-dialog__title mdl-color-text--blue-grey-700 mdl-typography--font-bold" id="warning_title"></h4>
+    <div class="mdl-dialog__content">
+        <p class="text-center mdl-color-text--blue-grey-700" id="warning_dialog"></p>
+    </div>
+    <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect close mdl-color-text--indigo-500">Continue</button>
+    </div>
+</dialog>
 </body>
 
 </html>

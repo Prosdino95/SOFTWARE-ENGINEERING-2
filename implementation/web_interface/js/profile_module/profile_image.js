@@ -1,6 +1,21 @@
 /*
      Update user picture.
 */
+
+// spawn a dialog
+function spawnDialog(text, title) {
+    var dialog = document.querySelector('dialog');
+    if (! dialog.showModal) {
+        dialogPolyfill.registerDialog(dialog);
+    }
+    dialog.showModal();
+    $("#warning_dialog").text(text);
+    $("#warning_title").text(title);
+    dialog.querySelector('.close').addEventListener('click', function() {
+        dialog.close();
+    });
+}
+
 $(function (){
 
     // Submit the new image profile
@@ -19,8 +34,8 @@ $(function (){
         // cancel submit if user doesn't choose an image
         if (!file){
 
-            // TO-DO: error dialog more UI
-            alert("FILE NOT SPECIFIED");
+            // spawn error
+            spawnDialog("File not selected", "Error");
             throw error;
         }
 
@@ -37,6 +52,8 @@ $(function (){
                 // if ok, update the picture in drawer too
                 document.querySelector('#avatar').src = data;
 
+                // spawn dialog
+                spawnDialog("Profile picture updated successfully!", "");
             },
             error: function(error) {
                 console.log(error);
@@ -55,8 +72,9 @@ $(function (){
 
         // max 1 Mb
         if(file.size > 1000000){
-            // TO-DO: error dialog more UI
-            alert("FILE TO BIGGER!");
+
+            // Show a friendly dialog
+            spawnDialog("Image too bigger", "Error");
             throw error();
         }
 

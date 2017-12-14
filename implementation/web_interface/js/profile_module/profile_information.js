@@ -7,6 +7,20 @@ function render_text(string){
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
 }
 
+// spawn a dialog
+function spawnDialog(text, title) {
+    var dialog = document.querySelector('dialog');
+    if (! dialog.showModal) {
+        dialogPolyfill.registerDialog(dialog);
+    }
+    dialog.showModal();
+    $("#warning_dialog").text(text);
+    $("#warning_title").text(title);
+    dialog.querySelector('.close').addEventListener('click', function() {
+        dialog.close();
+    });
+}
+
 // main function
 $(function() {
 
@@ -83,7 +97,9 @@ $(function() {
                                     "cellphone" : cellphone, "gender" : gender, "notify_tel" : notify_tel} ),
 
             success: function(response) {
-                console.log(response)
+
+                // Show a friendly dialog
+                spawnDialog("Informations updated correctly.", "");
             },
             error: function(error) {
                 console.log(error);
