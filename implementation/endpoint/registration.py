@@ -10,7 +10,7 @@ def registration(user):
 
 
 def set_preference(email):
-    file = open("basic_preference.json", 'r')
+    file = open("resource/basic_preference.json", 'r')
     preference = load(file)
     r.table("user").get(email).update({"preference": preference}).run()
 

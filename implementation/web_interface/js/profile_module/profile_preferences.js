@@ -20,8 +20,8 @@ $(function() {
 
 
                     else 
-                        (preference[key])?  document.querySelector('#green-mode').MaterialSwitch.on() :
-                                            document.querySelector('#green-mode').MaterialSwitch.off() ;                 
+                        (preference[key])?  document.querySelector('#green_mode').MaterialSwitch.on() :
+                                            document.querySelector('#green_mode').MaterialSwitch.off() ;                 
                 });
 
                 componentHandler.upgradeDom();
