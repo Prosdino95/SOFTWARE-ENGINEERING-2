@@ -1,5 +1,6 @@
 import rethinkdb as r
 import hashlib
+from json import load
 
 
 def registration(user):
@@ -8,10 +9,17 @@ def registration(user):
     return save_user(user)
 
 
+def set_preference(email):
+    file = open("resource/basic_preference.json", 'r')
+    preference = load(file)
+    r.table("user").get(email).update({"preference": preference}).run()
+
+
 def save_user(user):
     r.connect("localhost", 28015, "Travelander").repl()
     if r.table("user").filter(r.row["email"].eq(user["email"])).count().run() == 0:
         r.table("user").insert(user).run()
+        set_preference(user["email"])
         return "ok"
     else:
         return "email already registered"

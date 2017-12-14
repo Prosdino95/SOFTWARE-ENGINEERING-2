@@ -34,7 +34,7 @@ def token_query(token):
     query = token_db.execute('SELECT * '
                              'FROM token_tab '
                              'WHERE TOKEN =?', (token,)).fetchone()
-    if time() - query[2] > 300:
+    if time() - query[2] > 30000:
         print("new token")
     # print the name just for test
     return query[0]

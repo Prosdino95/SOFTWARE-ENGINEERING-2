@@ -17,6 +17,20 @@ def get_profile(token):
     return result
 
 
+def mod_profile_preference(user):
+    r.connect("localhost", 28015, "Travelander").repl()
+    email = db.token_query(user["token"])
+    del user["token"]
+    r.table("user").get(email).update({"preference": user}).run()
+
+
+def get_profile_preference(token):
+    r.connect("localhost", 28015, "Travelander").repl()
+    email = db.token_query(token)
+    result = r.table("user").get(email).get_field("preference").run()
+    return result
+
+
 def mod_profile_password(user):
     r.connect("localhost", 28015, "Travelander").repl()
     current_password = md5(user["current_password"].encode())
