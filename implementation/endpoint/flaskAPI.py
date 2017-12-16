@@ -3,6 +3,7 @@ import flask
 from login import login
 from registration import registration
 import profile
+import event
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -48,11 +49,38 @@ def get_profile_api():
     return flask.jsonify(profile=json)
 
 
+# TODO at the moment this is for test
+@app.route('/getEvent', methods=['GET'])
+def get_event():
+    # token = flask.request.args.get('token', '')
+    # json = event.get_event(token)
+    json_list = event_test
+    return flask.jsonify(event)
+
+
 @app.route('/getProfilePreference', methods=['GET'])
 def get_profile_preference_api():
     token = flask.request.args.get('token', '')
     json = profile.get_profile_preference(token)
     return flask.jsonify(json)
+
+
+# TODO remove this, at the moment is for test
+
+event_test = [
+  {
+    "title": "XXXmas-lunch",
+    "id": "821",
+    "start": "2017-12-25 09:00:00",
+    "end": "2017-12-25 16:00:00"
+  },
+  {
+    "title": "XXXmas-party",
+    "id": "822",
+    "start": "2017-12-27 22:00:00",
+    "end": "2017-12-28 04:30:00"
+  }
+]
 
 
 if __name__ == "__main__":
