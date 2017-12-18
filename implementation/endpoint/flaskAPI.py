@@ -3,7 +3,6 @@ import flask
 from login import login
 from registration import registration
 import profile
-import event
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -55,7 +54,7 @@ def get_event():
     # token = flask.request.args.get('token', '')
     # json = event.get_event(token)
     json_list = event_test
-    return flask.jsonify(event)
+    return flask.jsonify(json_list)
 
 
 @app.route('/getProfilePreference', methods=['GET'])
