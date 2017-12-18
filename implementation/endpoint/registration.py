@@ -23,4 +23,3 @@ def save_user(user):
         return "ok"
     else:
         return "email already registered"
-
