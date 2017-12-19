@@ -933,7 +933,7 @@ if (typeof jQuery === 'undefined') {
     this.options             = options
     this.$body               = $(document.body)
     this.$element            = $(element)
-    this.$dialog             = this.$element.find('.modal-dialog')
+    this.$dialog             = this.$element.find('.modal-event_section')
     this.$backdrop           = null
     this.isShown             = null
     this.originalBodyPad     = null
