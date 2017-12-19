@@ -1,18 +1,14 @@
-.profile-layout{
+.trav-tab-layout{
     width: auto;
 }
 
-.profile-table{
-    width: auto;
- }
-
-.profile-header-tab{
+.trav-header-tab{
     margin-top: 10px;
     width: auto;
     margin-right: auto;
     margin-left: auto;
 }
-.profile-content-tab{
+.trav-content-tab{
     width: auto;
     margin-top: 10px;
     margin-right: auto;

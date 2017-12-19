@@ -17,6 +17,7 @@ $(function (){
     $("#calendar").click(function(event){
         event.preventDefault();
         $("#stage").load("./html/calendar.html");
+        $("#stage").trigger("calendar_load");
     });
 
     // load preference page
@@ -25,14 +26,15 @@ $(function (){
         $("#stage").load("./html/preferences.html");
     });
 
-    // load preference page
+    // load profile page
     $("#profile").click(function(event){
         event.preventDefault();
         $("#stage").load("./html/profile.html");
     });
 
-    // TO-DO: Zoom Effect
-    //$("#avatar").click(function(event) {
-    //    event.preventDefault();
-    //});
+    // load submit event page
+    $("#stage").on("click", "#add_event", function (event) {
+        event.preventDefault();
+        $("#stage").load("./html/event_section/event_submit.html")
+    });
 });

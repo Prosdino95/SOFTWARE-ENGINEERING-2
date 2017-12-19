@@ -39,10 +39,10 @@
   }
 
   /**
-   * Finds the nearest <dialog> from the passed element.
+   * Finds the nearest <event_section> from the passed element.
    *
    * @param {Element} el to search from
-   * @return {HTMLDialogElement} dialog found
+   * @return {HTMLDialogElement} event_section found
    */
   function findNearestDialog(el) {
     while (el) {
@@ -83,7 +83,7 @@
 
   /**
    * @param {HTMLFormElement} el to check
-   * @return {boolean} whether this form has method="dialog"
+   * @return {boolean} whether this form has method="event_section"
    */
   function isFormMethodDialog(el) {
     if (!el || !el.hasAttribute('method')) {
@@ -101,7 +101,7 @@
     this.replacedStyleTop_ = false;
     this.openAsModal_ = false;
 
-    // Set a11y role. Browsers that support dialog implicitly know this already.
+    // Set a11y role. Browsers that support event_section implicitly know this already.
     if (!dialog.hasAttribute('role')) {
       dialog.setAttribute('role', 'dialog');
     }
@@ -138,7 +138,7 @@
         dialog.addEventListener(name, delayModel);
       });
     }
-    // Note that the DOM is observed inside DialogManager while any dialog
+    // Note that the DOM is observed inside DialogManager while any event_section
     // is being displayed as a modal, to catch modal removal from the DOM.
 
     Object.defineProperty(dialog, 'open', {
@@ -158,8 +158,8 @@
     },
 
     /**
-     * Maybe remove this dialog from the modal top layer. This is called when
-     * a modal dialog may no longer be tenable, e.g., when the dialog is no
+     * Maybe remove this event_section from the modal top layer. This is called when
+     * a modal event_section may no longer be tenable, e.g., when the event_section is no
      * longer open or is no longer part of the DOM.
      */
     maybeHideModal: function() {
@@ -168,15 +168,15 @@
     },
 
     /**
-     * Remove this dialog from the modal top layer, leaving it as a non-modal.
+     * Remove this event_section from the modal top layer, leaving it as a non-modal.
      */
     downgradeModal: function() {
       if (!this.openAsModal_) { return; }
       this.openAsModal_ = false;
       this.dialog_.style.zIndex = '';
 
-      // This won't match the native <dialog> exactly because if the user set top on a centered
-      // polyfill dialog, that top gets thrown away when the dialog is closed. Not sure it's
+      // This won't match the native <event_section> exactly because if the user set top on a centered
+      // polyfill event_section, that top gets thrown away when the event_section is closed. Not sure it's
       // possible to polyfill this perfectly.
       if (this.replacedStyleTop_) {
         this.dialog_.style.top = '';
@@ -189,7 +189,7 @@
     },
 
     /**
-     * @param {boolean} value whether to open or close this dialog
+     * @param {boolean} value whether to open or close this event_section
      */
     setOpen: function(value) {
       if (value) {
@@ -202,14 +202,14 @@
 
     /**
      * Handles clicks on the fake .backdrop element, redirecting them as if
-     * they were on the dialog itself.
+     * they were on the event_section itself.
      *
      * @param {!Event} e to redirect
      */
     backdropClick_: function(e) {
       if (!this.dialog_.hasAttribute('tabindex')) {
-        // Clicking on the backdrop should move the implicit cursor, even if dialog cannot be
-        // focused. Create a fake thing to focus on. If the backdrop was _before_ the dialog, this
+        // Clicking on the backdrop should move the implicit cursor, even if event_section cannot be
+        // focused. Create a fake thing to focus on. If the backdrop was _before_ the event_section, this
         // would not be needed - clicks would move the implicit cursor there.
         var fake = document.createElement('div');
         this.dialog_.insertBefore(fake, this.dialog_.firstChild);
@@ -229,8 +229,8 @@
     },
 
     /**
-     * Focuses on the first focusable element within the dialog. This will always blur the current
-     * focus, even if nothing within the dialog is found.
+     * Focuses on the first focusable element within the event_section. This will always blur the current
+     * focus, even if nothing within the event_section is found.
      */
     focus_: function() {
       // Find element with `autofocus` attribute, or fall back to the first form/tabindex control.
@@ -254,7 +254,7 @@
     },
 
     /**
-     * Sets the zIndex for the backdrop and dialog.
+     * Sets the zIndex for the backdrop and event_section.
      *
      * @param {number} dialogZ
      * @param {number} backdropZ
@@ -268,7 +268,7 @@
     },
 
     /**
-     * Shows the dialog. If the dialog is already open, this does nothing.
+     * Shows the event_section. If the event_section is already open, this does nothing.
      */
     show: function() {
       if (!this.dialog_.open) {
@@ -278,23 +278,23 @@
     },
 
     /**
-     * Show this dialog modally.
+     * Show this event_section modally.
      */
     showModal: function() {
       if (this.dialog_.hasAttribute('open')) {
-        throw new Error('Failed to execute \'showModal\' on dialog: The element is already open, and therefore cannot be opened modally.');
+        throw new Error('Failed to execute \'showModal\' on event_section: The element is already open, and therefore cannot be opened modally.');
       }
       if (!document.body.contains(this.dialog_)) {
-        throw new Error('Failed to execute \'showModal\' on dialog: The element is not in a Document.');
+        throw new Error('Failed to execute \'showModal\' on event_section: The element is not in a Document.');
       }
       if (!dialogPolyfill.dm.pushDialog(this)) {
-        throw new Error('Failed to execute \'showModal\' on dialog: There are too many open modal dialogs.');
+        throw new Error('Failed to execute \'showModal\' on event_section: There are too many open modal dialogs.');
       }
 
       if (createsStackingContext(this.dialog_.parentElement)) {
-        console.warn('A dialog is being shown inside a stacking context. ' +
+        console.warn('A event_section is being shown inside a stacking context. ' +
             'This may cause it to be unusable. For more information, see this link: ' +
-            'https://github.com/GoogleChrome/dialog-polyfill/#stacking-context');
+            'https://github.com/GoogleChrome/event_section-polyfill/#stacking-context');
       }
 
       this.setOpen(true);
@@ -311,7 +311,7 @@
       // Insert backdrop.
       this.dialog_.parentNode.insertBefore(this.backdrop_, this.dialog_.nextSibling);
 
-      // Focus on whatever inside the dialog.
+      // Focus on whatever inside the event_section.
       this.focus_();
     },
 
@@ -323,7 +323,7 @@
      */
     close: function(opt_returnValue) {
       if (!this.dialog_.hasAttribute('open')) {
-        throw new Error('Failed to execute \'close\' on dialog: The element does not have an \'open\' attribute, and therefore cannot be closed.');
+        throw new Error('Failed to execute \'close\' on event_section: The element does not have an \'open\' attribute, and therefore cannot be closed.');
       }
       this.setOpen(false);
 
@@ -332,7 +332,7 @@
         this.dialog_.returnValue = opt_returnValue;
       }
 
-      // Triggering "close" event for any attached listeners on the <dialog>.
+      // Triggering "close" event for any attached listeners on the <event_section>.
       var closeEvent = new supportCustomEvent('close', {
         bubbles: false,
         cancelable: false
@@ -401,11 +401,11 @@
    */
   dialogPolyfill.forceRegisterDialog = function(element) {
     if (window.HTMLDialogElement || element.showModal) {
-      console.warn('This browser already supports <dialog>, the polyfill ' +
+      console.warn('This browser already supports <event_section>, the polyfill ' +
           'may not work correctly', element);
     }
     if (element.localName !== 'dialog') {
-      throw new Error('Failed to register dialog: The element is not a dialog.');
+      throw new Error('Failed to register event_section: The element is not a event_section.');
     }
     new dialogPolyfillInfo(/** @type {!HTMLDialogElement} */ (element));
   };
@@ -428,10 +428,10 @@
 
     var checkDOM = this.checkDOM_.bind(this);
 
-    // The overlay is used to simulate how a modal dialog blocks the document.
-    // The blocking dialog is positioned on top of the overlay, and the rest of
-    // the dialogs on the pending dialog stack are positioned below it. In the
-    // actual implementation, the modal dialog stacking is controlled by the
+    // The overlay is used to simulate how a modal event_section blocks the document.
+    // The blocking event_section is positioned on top of the overlay, and the rest of
+    // the dialogs on the pending event_section stack are positioned below it. In the
+    // actual implementation, the modal event_section stacking is controlled by the
     // top layer, where z-index has no effect.
     this.overlay = document.createElement('div');
     this.overlay.className = '_dialog_overlay';
@@ -468,7 +468,7 @@
   };
 
   /**
-   * Called on the first modal dialog being shown. Adds the overlay and related
+   * Called on the first modal event_section being shown. Adds the overlay and related
    * handlers.
    */
   dialogPolyfill.DialogManager.prototype.blockDocument = function() {
@@ -478,7 +478,7 @@
   };
 
   /**
-   * Called on the first modal dialog being removed, i.e., when no more modal
+   * Called on the first modal event_section being removed, i.e., when no more modal
    * dialogs are visible.
    */
   dialogPolyfill.DialogManager.prototype.unblockDocument = function() {
@@ -500,7 +500,7 @@
       }
     }
 
-    // Make the overlay a sibling of the dialog itself.
+    // Make the overlay a sibling of the event_section itself.
     var last = this.pendingDialogStack[0];
     if (last) {
       var p = last.dialog.parentNode || document.body;
@@ -511,8 +511,8 @@
   };
 
   /**
-   * @param {Element} candidate to check if contained or is the top-most modal dialog
-   * @return {boolean} whether candidate is contained in top dialog
+   * @param {Element} candidate to check if contained or is the top-most modal event_section
+   * @return {boolean} whether candidate is contained in top event_section
    */
   dialogPolyfill.DialogManager.prototype.containedByTopDialog_ = function(candidate) {
     while (candidate = findNearestDialog(candidate)) {
@@ -545,7 +545,7 @@
         document.documentElement.focus();
       }
     } else {
-      // TODO: Focus after the dialog, is ignored.
+      // TODO: Focus after the event_section, is ignored.
     }
 
     return false;
@@ -591,7 +591,7 @@
 
   /**
    * @param {!dialogPolyfillInfo} dpi
-   * @return {boolean} whether the dialog was allowed
+   * @return {boolean} whether the event_section was allowed
    */
   dialogPolyfill.DialogManager.prototype.pushDialog = function(dpi) {
     var allowed = (this.zIndexHigh_ - this.zIndexLow_) / 2 - 1;
@@ -625,7 +625,7 @@
 
   /**
    * Installs global handlers, such as click listers and native method overrides. These are needed
-   * even if a no dialog is registered, as they deal with <form method="dialog">.
+   * even if a no event_section is registered, as they deal with <form method="event_section">.
    */
   if (window.HTMLDialogElement === undefined) {
 
@@ -659,7 +659,7 @@
 
     /**
      * Global 'click' handler, to capture the <input type="submit"> or <button> element which has
-     * submitted a <form method="dialog">. Needed as Safari and others don't report this inside
+     * submitted a <form method="event_section">. Needed as Safari and others don't report this inside
      * document.activeElement.
      */
     document.addEventListener('click', function(ev) {
@@ -698,7 +698,7 @@
     HTMLFormElement.prototype.submit = replacementFormSubmit;
 
     /**
-     * Global form 'dialog' method handler. Closes a dialog correctly on submit
+     * Global form 'event_section' method handler. Closes a event_section correctly on submit
      * and possibly sets its return value.
      */
     document.addEventListener('submit', function(ev) {

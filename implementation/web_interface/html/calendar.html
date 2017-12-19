@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <title>Travlendar+ - Calendar</title>
 
     <!-- Bootstrap Core CSS -->
@@ -14,31 +13,27 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <script src="../js/library/material.min.js"></script>
 
-    <!-- FullCalendar script -->
     <script>
         $("document").ready( function () {
             componentHandler.upgradeDom();
-
-            $("#full-calendar").fullCalendar({
-            })
-        })
+        });
     </script>
-
 </head>
 
 <body>
-    <div class = "mdl-layout">
-        <div class="container">
-            <div class = "container-fluid">
-                <div id="full-calendar"></div>
-            </div>
 
-            <div class="container-fluid">
-                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--accent mdl-js-ripple-effect">
-                    <i class="material-icons">add</i>
-                </button>
-            </div>
+<div class ="mdl-shadow--2dp calendar_container">
+    <div class = "calendar-content-tab">
+        <div class=" mdl-color-text--blue-grey-700 calendar_panel mdl-shadow--2dp">
+            <div id="full-calendar"></div>
+            <select id='locale-selector'></select>
         </div>
     </div>
+
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--primary mdl-js-ripple-effect add_button" id="add_event">
+        <i class="material-icons">add</i>
+    </button>
+</div>
+
 </body>
 </html>

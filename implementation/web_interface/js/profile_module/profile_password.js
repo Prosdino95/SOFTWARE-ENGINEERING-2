@@ -7,7 +7,7 @@ function passwordCheck(password, retype_password) {
      return !(password.length === 0) && (password === retype_password);
 }
 
-// spawn a dialog
+// spawn a event_section
 function spawnDialog(text, title) {
     var dialog = document.querySelector('dialog');
     if (! dialog.showModal) {
@@ -39,7 +39,7 @@ $(function() {
         // password check
         if(!passwordCheck(new_password, retype_new_password)){
 
-            // Show a friendly dialog
+            // Show a friendly event_section
             spawnDialog("The passwords do not match", "Error");
             throw error;
         }
@@ -54,7 +54,7 @@ $(function() {
                 "current_password": current_password, "new_password": new_password} ),
 
             success: function(response) {
-                // Show a friendly dialog
+                // Show a friendly event_section
                 spawnDialog("Password updated correctly.", "");
             },
             error: function(error) {

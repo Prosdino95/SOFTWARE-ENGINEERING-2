@@ -1,5 +1,5 @@
 
-// spawn a dialog
+// spawn a event_section
 function spawnDialog(text, title) {
     var dialog = document.querySelector('dialog');
     if (! dialog.showModal) {
@@ -81,7 +81,7 @@ $(function() {
             success: function(response) {
                 console.log(response);
 
-                // Show a friendly dialog
+                // Show a friendly event_section
                 spawnDialog("Preferences submitted correctly", "")
             },
             error: function(error) {

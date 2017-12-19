@@ -6,19 +6,19 @@
 
     <!-- Essential Script to update the Dom -->
     <script>
-      $("document").ready( function () {
-          componentHandler.upgradeDom();
-      });
+        $("document").ready( function () {
+            componentHandler.upgradeDom();
+        });
     </script>
 
 </head>
 
 <body>
-<div class="container-fluid profile-layout">
+<div class="container-fluid trav-tab-layout">
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-typography--font-bold mdl-color-text--blue-grey-700">
 
         <!-- Header -->
-        <div class="mdl-tabs__tab-bar profile-header-tab">
+        <div class="mdl-tabs__tab-bar trav-header-tab">
             <a href="#information-panel" class="mdl-tabs__tab is-active"> <span class="mdi mdi-human"> </span>My
                 Information</a>
             <a href="#photo-panel" class="mdl-tabs__tab"> <span class="mdi mdi-account-circle"> </span>Profile
@@ -30,7 +30,7 @@
         <div class="mdl-tabs__panel is-active mdl-tabs" id="information-panel">
 
             <div class="table-responsive">
-                <table class="mdl-data-table mdl-shadow--2dp profile-content-tab">
+                <table class="mdl-data-table mdl-shadow--2dp trav-content-tab">
                     <tbody>
                     <tr>
                         <td class="mdl-data-table__cell--non-numeric">
@@ -60,7 +60,7 @@
                         </td>
                         <td>
                             <div class="mdl-textfield mdl-js-textfield" id="email_textfield">
-                                <input class="mdl-textfield__input" id="email" type="text" disabled>
+                                <input class="mdl-textfield__input" id="email" type="email" disabled>
                                 <label class="mdl-textfield__label" for="email">Email...</label>
                             </div>
                         </td>
@@ -72,7 +72,7 @@
                         </td>
                         <td class="mdl-data-table__cell">
                             <div class="mdl-textfield mdl-js-textfield" id="cellphone_textfield">
-                                <input class="mdl-textfield__input" id="cellphone" type="number">
+                                <input class="mdl-textfield__input" id="cellphone" type="tel">
                                 <label class="mdl-textfield__label" for="cellphone">Your Telephone...</label>
                             </div>
                         </td>
@@ -137,7 +137,7 @@
 
         <!--Change image -->
         <div class="mdl-tabs__panel table-responsive" id="photo-panel">
-            <table class="profile-content-tab mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <table class="trav-content-tab mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                 <tbody>
                 <tr>
                     <td class="mdl-data-table__cell--non-numeric">
@@ -168,7 +168,7 @@
 
         <!--Password -->
         <div class="mdl-tabs__panel table-responsive" id="password-panel">
-            <table class="profile-content-tab mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <table class="trav-content-tab mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                 <tbody>
                 <tr>
                     <td class="mdl-data-table__cell--non-numeric">

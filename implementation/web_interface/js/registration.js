@@ -9,13 +9,7 @@ function passwordCheck(password, retype_password) {
     return password === retype_password;
 }
 
-// check valid email
-function validateEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-}
-
-// spawn a dialog
+// spawn a event_section
 function spawnDialog(text, title, flag) {
     var dialog = document.querySelector('dialog');
     if (! dialog.showModal) {
@@ -49,12 +43,6 @@ $(function() {
         // Check passwords match
         if(!passwordCheck(pass, retype_pass)){
             spawnDialog("Passwords do not match.", "Error");
-            throw error();
-        };
-
-        // Check valid email
-        if(!validateEmail(email)){
-            spawnDialog("Not valid email address.", "Error");
             throw error();
         };
 

@@ -1,10 +1,10 @@
 // truncate the string to first 10 chars
-function max_string(string){
-    if(string.length > 12)
-        return string.charAt(0).toUpperCase() + string.substring(1,9) + "..."
-    else
-        return string;
-}
+//function max_string(string){
+//    if(string.length > 12)
+//        return string.charAt(0).toUpperCase() + string.substring(1,9) + "..."
+//    else
+//        return string;
+//}
 
 // Renders profile information on index.html
 function get_profile() {
@@ -24,7 +24,7 @@ function get_profile() {
             $("#last_name").text(profile['last_name']);
 
             // Update Left Drawer
-            $("#first_name_drawer").text(max_string(profile['first_name']));
+            $("#first_name_drawer").text(profile['first_name']);
 
             (profile['image'])? document.querySelector('#avatar').src = profile['image']:
 

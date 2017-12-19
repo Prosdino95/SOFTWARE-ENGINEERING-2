@@ -2,7 +2,7 @@
      Update user picture.
 */
 
-// spawn a dialog
+// spawn a event_section
 function spawnDialog(text, title) {
     var dialog = document.querySelector('dialog');
     if (! dialog.showModal) {
@@ -52,7 +52,7 @@ $(function (){
                 // if ok, update the picture in drawer too
                 document.querySelector('#avatar').src = data;
 
-                // spawn dialog
+                // spawn event_section
                 spawnDialog("Profile picture updated successfully!", "");
             },
             error: function(error) {
@@ -73,7 +73,7 @@ $(function (){
         // max 1 Mb
         if(file.size > 1000000){
 
-            // Show a friendly dialog
+            // Show a friendly event_section
             spawnDialog("Image too bigger", "Error");
             throw error();
         }

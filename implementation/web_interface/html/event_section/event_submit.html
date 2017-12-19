@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        //  init time and date picker
+        $("document").ready(function () {
+            componentHandler.upgradeDom();
+
+            // 24:00 format
+            $('.time_form').datetimepicker({
+                format: 'H:mm'
+            });
+
+            // Only 5 minutes alarm
+            $('.alarm_form').datetimepicker({
+                format: 'H:mm',
+                maxDate: moment("1:00", "H:mm"),
+                minDate: moment("0:00", "H:mm"),
+                stepping: 5
+            });
+
+            // fullcalendar date format accepted - ISO8601
+            $('.date_form').datetimepicker({
+                format: 'YYYY-MM-DD'
+            });
+
+            // don't let user select invalid end day
+            $('#start_day').on("dp.change", function (e) {
+                $("#end_day").data("DateTimePicker").minDate(e.date);
+            });
+
+            // don't let user select invalid start day
+            $('#end_day').on("dp.change", function (e) {
+                $("#start_day").data("DateTimePicker").maxDate(e.date);
+            });
+
+            // don't let user select invalid end hour if one day event
+            $('#start_time').on("dp.change", function (e) {
+                if ($("#start_day").val() === $("#end_day").val()) {
+                    $("#end_time").data("DateTimePicker").minDate(e.date);
+                    $("#end_time").data("DateTimePicker").maxDate(moment("23:59", "H:mm"));
+                }
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+
+<form class="container-fluid trav-tab-layout" id="event_form">
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-typography--font-bold mdl-color-text--blue-grey-700">
+
+        <!-- Header -->
+        <div class="mdl-tabs__tab-bar trav-header-tab">
+            <a href="#event-panel" class="mdl-tabs__tab is-active"> <span class="mdi mdi-application"> </span> New Event</a>
+            <a href="#route-panel" class="mdl-tabs__tab"> <span class="mdi mdi-map-marker"> </span> Route</a>
+            <a href="#alarm-panel" class="mdl-tabs__tab"> <span class="mdi mdi-bell"> </span> Alarm</a>
+        </div>
+
+        <!-- Event informations -->
+        <div class="mdl-tabs__panel is-active mdl-tabs" id="event-panel">
+
+            <div class="table-responsive">
+                <table class="mdl-data-table mdl-shadow--2dp trav-content-tab">
+                    <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            Title
+                        </td>
+                        <td>
+                            <div class="mdl-textfield mdl-js-textfield" id="event_title_textfield">
+                                <input class="mdl-textfield__input" maxlength="20" id="event_title" type="text"
+                                       required>
+                                <label class="mdl-textfield__label" for="event_title">Title...</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            Start day
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div class="mdl-textfield mdl-js-textfield" id="start_day_textfield">
+                                <input class="mdl-textfield__input date_form" id="start_day" type="text" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            End day
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div class="mdl-textfield mdl-js-textfield" id="end_day_textfield">
+                                <input class="mdl-textfield__input date_form" id="end_day" type="text" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            Start time
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div class="mdl-textfield mdl-js-textfield input-group date" id="start_time_textfield">
+                                <input class="mdl-textfield__input time_form" id="start_time" type="text">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            End time
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div class="mdl-textfield mdl-js-textfield input-group date" id="end_time_textfield">
+                                <input class="mdl-textfield__input time_form" id="end_time" type="text">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            Type
+                        </td>
+
+                        <td class="mdl-data-table__cell--non-numeric">
+
+                            <ul class="mdl-list">
+                                <li class="mdl-list__item">
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect mdl-color-text--blue-grey-700"
+                                           for="type_business" id="type_radio_business">
+                                        <input type="radio" id="type_business" class="mdl-radio__button" name="type"
+                                               value="business" checked>
+                                        <span class="mdl-radio__label">Business
+                                        </span>
+                                    </label>
+                                </li>
+                                <li class="mdl-list__item">
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect mdl-color-text--blue-grey-700"
+                                           for="type_free_time" id="type_radio_free_time">
+                                        <input type="radio" id="type_free_time" class="mdl-radio__button" name="type"
+                                               value="free time">
+                                        <span class="mdl-radio__label">Free Time
+                                        </span>
+                                    </label>
+                                </li>
+                                <li class="mdl-list__item">
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect mdl-color-text--blue-grey-700"
+                                           for="type_hobby" id="type_radio_social">
+                                        <input type="radio" id="type_hobby" class="mdl-radio__button" name="type"
+                                               value="social">
+                                        <span class="mdl-radio__label">Social
+                                        </span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <!-- NOT IMPLEMENTED
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                Periodic
+                            </td>
+                            <td>
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id="periodic_event_checkbox"
+                                               for="periodic_event">
+                                    <span class="mdl-checkbox__label mdi-24px"></span>
+                                    <input type="checkbox" id="periodic_event" class="mdl-checkbox__input" value="ON">
+                                </label>
+                            </td>
+                        </tr>
+                       -->
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            Flexible
+                        </td>
+                        <td>
+                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                   id="flexible_event_checkbox"
+                                   for="flexible_event">
+                                <span class="mdl-checkbox__label mdi-24px"></span>
+                                <input type="checkbox" id="flexible_event" class="mdl-checkbox__input" value="ON">
+                            </label>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!--Maps -->
+        <div class="mdl-tabs__panel table-responsive" id="route-panel">
+            <div class="panel_window mdl-shadow--2dp">
+                <div id="map">
+                    <script>
+                        newMap() // calling map_load.js
+                    </script>
+                </div>
+            </div>
+
+            <table class="map_box mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <tbody>
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        Starting Location
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"
+                                id="geolocate_starting">
+                            <span class="mdi mdi-layers"> </span>
+                        </button>
+
+                        <div class="mdl-textfield mdl-js-textfield" id="starting_location_textfield">
+                            <input class="mdl-textfield__input" id="starting_location" type="text" required>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">
+                        Meeting Location
+                    </td>
+                    <td class="mdl-data-table__cell--non-numeric">
+
+                        <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored"
+                                id="geolocate_meeting">
+                            <span class="mdi mdi-layers"> </span>
+                        </button>
+
+                        <div class="mdl-textfield mdl-js-textfield" id="meeting_location_textfield">
+                            <input class="mdl-textfield__input " id="meeting_location" type="text" required>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric mdl-color--grey-100">
+                        <div class="mdl-textfield mdl-js-textfield" id="eta_textfield">
+                            <input class="mdl-textfield__input " id="eta" type="text" readonly>
+                            <label class="mdl-textfield__label" for="event_title">Exstimated Time...</label>
+                        </div>
+                    </td>
+                    <td class="mdl-color--grey-100">
+                        <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect"
+                                type="button" id="get_path">GET THE PATH
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--Alarm -->
+        <div class="mdl-tabs__panel table-responsive" id="alarm-panel">
+            <div class="table-responsive">
+                <table class="mdl-data-table mdl-shadow--2dp trav-content-tab">
+                    <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            Notify me of a starting event before
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div class="mdl-textfield mdl-js-textfield input-group date" id="alarm_time_textfield">
+                                <input class="mdl-textfield__input alarm_form" id="alarm_time" type="text">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            Remind me the event with this message
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <textarea maxlength="60" class="mdl-textfield__input" type="text" rows="2"
+                                          id="alarm_message"></textarea>
+                                <label class="mdl-textfield__label" for="alarm_message">Write a short reminder</label>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit and Cancel Buttons -->
+    <div class="text-center">
+        <button class="mdl-button mdl-js-button mdl-button mdl-button--raised mdl-js-ripple-effect"
+                type="button" id="cancel_event">CANCEL
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect"
+                type="submit" id="submit_event">SUBMIT EVENT
+        </button>
+    </div>
+</form>
+
+</body>
+</html>
