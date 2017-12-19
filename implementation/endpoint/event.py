@@ -5,7 +5,7 @@ from calendar import timegm
 
 
 def add_event(event):
-    r.connect("localhost", 28015, "Travelander").repl()
+    r.connect("localhost", 28015, "Travlendar").repl()
     token = event["token"]
     del event["token"]
     email = get_email(token)
@@ -18,14 +18,14 @@ def add_event(event):
 
 
 def del_event(token, event_id):
-    r.connect("localhost", 28015, "Travelander").repl()
+    r.connect("localhost", 28015, "Travlendar").repl()
     r.table("event").get(event_id).delete().run()
     r.table("event_submit").get(event_id).delete().run()
     check_overlays(token)
 
 
 def mod_event(event):
-    r.connect("localhost", 28015, "Travelander").repl()
+    r.connect("localhost", 28015, "Travlendar").repl()
     token = event["token"]
     del event["token"]
     r.table("event").get(event["id"]).update(event).run()
@@ -54,7 +54,7 @@ def set_alarm(e1, e2):
 
 
 def get_event(token):
-    r.connect("localhost", 28015, "Travelander").repl()
+    r.connect("localhost", 28015, "Travlendar").repl()
     email = get_email(token)
     e = r.table("event_submit").filter(r.row["email"] == email).\
         eq_join("event", r.table("event")). \

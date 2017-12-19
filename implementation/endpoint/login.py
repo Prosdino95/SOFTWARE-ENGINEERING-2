@@ -5,7 +5,7 @@ import tokenDB as db
 
 
 def login(user):
-    r.connect("localhost", 28015, "Travelander").repl()
+    r.connect("localhost", 28015, "Travlendar").repl()
     hash_pass = md5(user["password"].encode())
     cursor = r.table("user").get(user["email"]).run()
     if cursor is None:
