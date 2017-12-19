@@ -3,6 +3,7 @@ import flask
 from login import login
 from registration import registration
 import profile
+import event
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -55,6 +56,7 @@ def get_profile_api():
     json = profile.get_profile(token)
     del json["password"]
     return flask.jsonify(profile=json)
+
 
 # API for events management
 @app.route('/addEvent', methods=['POST'])

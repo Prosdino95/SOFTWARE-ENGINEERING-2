@@ -9,8 +9,8 @@ def add_event(event):
     token = event["token"]
     del event["token"]
     email = get_email(token)
-    event["starting_time"] = iso8601_to_epoch(event["starting_time"])
-    event["finish_time"] = iso8601_to_epoch(event["finish_time"])
+    event["start"] = iso8601_to_epoch(event["start"])
+    event["end"] = iso8601_to_epoch(event["end"])
     cursor = r.table("event").insert(event).run()
     id = cursor["generated_keys"][0]
     r.table("event_submit").insert({"event": id, "email": email}).run()
@@ -37,8 +37,8 @@ def check_overlays(token):
     for i in events_list:
         alarm = False
         for j in events_list:
-            if i != j and j["starting_time"] < i["finish_time"]:
-                if j["finish_time"] > i["starting_time"]:
+            if i != j and j["start"] < i["end"]:
+                if j["end"] > i["start"]:
                     set_alarm(i, j)
                     alarm = True
         if not alarm:
@@ -73,8 +73,8 @@ def epoch_to_iso8601(timestamp):
 
 def list_iso8601_to_epoch(json_list):
     for e in json_list:
-        e["starting_time"] = epoch_to_iso8601(e["starting_time"])
-        e["finish_time"] = epoch_to_iso8601(e["finish_time"])
+        e["start"] = epoch_to_iso8601(e["start"])
+        e["end"] = epoch_to_iso8601(e["end"])
     return json_list
 
 
