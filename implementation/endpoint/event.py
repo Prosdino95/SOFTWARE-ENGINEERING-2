@@ -1,5 +1,7 @@
 import rethinkdb as r
 from tokenDB import token_query
+from datetime import datetime
+from calendar import timegm
 
 
 def add_event(event):
@@ -7,6 +9,8 @@ def add_event(event):
     token = event["token"]
     del event["token"]
     email = get_email(token)
+    event["starting_time"] = iso8601_to_epoch(event["starting_time"])
+    event["finish_time"] = iso8601_to_epoch(event["finish_time"])
     cursor = r.table("event").insert(event).run()
     id = cursor["generated_keys"][0]
     r.table("event_submit").insert({"event": id, "email": email}).run()
@@ -33,8 +37,8 @@ def check_overlays(token):
     for i in events_list:
         alarm = False
         for j in events_list:
-            if i != j and j["starting_time"] < i["finish_tme"]:
-                if j["finish_tme"] > i["starting_time"]:
+            if i != j and j["starting_time"] < i["finish_time"]:
+                if j["finish_time"] > i["starting_time"]:
                     set_alarm(i, j)
                     alarm = True
         if not alarm:
@@ -56,8 +60,23 @@ def get_event(token):
         eq_join("event", r.table("event")). \
         without({"left": ["email", "event"]}).\
         zip().run()
-    return list(e)
+    return list_iso8601_to_epoch(list(e))
 
 
 def get_email(token):
     return token_query(token)
+
+
+def epoch_to_iso8601(timestamp):
+    return datetime.fromtimestamp(timestamp).isoformat()
+
+
+def list_iso8601_to_epoch(json_list):
+    for e in json_list:
+        e["starting_time"] = epoch_to_iso8601(e["starting_time"])
+        e["finish_time"] = epoch_to_iso8601(e["finish_time"])
+    return json_list
+
+
+def iso8601_to_epoch(datestring):
+    return timegm(datetime.strptime(datestring, "%Y-%m-%d %H:%M").timetuple())
