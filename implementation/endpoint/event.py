@@ -38,7 +38,7 @@ def check_overlays(token):
                 if j["end"] > i["start"]:
                     alarm = True
                     if i["flexible_lunch"]:
-                        rearrange_lunch(i, j)
+                        rearrange_lunch(i, j, token)
                     else:
                         set_alarm(i, j)
         if not alarm:
