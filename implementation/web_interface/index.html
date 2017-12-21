@@ -22,6 +22,7 @@
 
     <!-- FullCalendar CSS -->
     <link href="css/library/fullcalendar.css" rel="stylesheet">
+    <link href="css/fullcalendar_override.css" rel="stylesheet">
 
     <!-- Material Design CSS-->
     <link href="css/library/material.min.css" rel="stylesheet">
@@ -40,6 +41,9 @@
     <!-- OpenLayer CSS -->
     <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
 
+    <!-- Animate CSS-->
+    <link href="css/library/animate.min.css" rel="stylesheet">
+
     <!-- Html imported CSS -->
     <link href="css/index.css" rel="stylesheet">
     <link href="css/preferences.css" rel="stylesheet">
@@ -52,6 +56,7 @@
 
     <!-- jQuery -->
     <script src="js/library/jquery.min.js"></script>
+    <script src="js/library/jquery_animation_extend.js"></script>
     <!-- jQuery Cookie-->
     <script src="js/library/js.cookie.js"></script>
     <!-- jQuery UI -->
@@ -80,6 +85,8 @@
 
     <script src="js/change_context.js"></script>
     <script src="js/index_profile.js"></script>
+    <script src="js/dialog.js"></script>
+
 
     <!-- Profile Module -->
     <script src="js/profile_module/profile_information.js"></script>
@@ -89,7 +96,10 @@
 
     <!-- Calendar Module -->
     <script src="js/calendar_module/calendar_load.js"></script>
+    <script src="js/calendar_module/calendar_buttons.js"></script>
     <script src="js/calendar_module/event_submit.js"></script>
+    <script src="js/calendar_module/event_delete.js"></script>
+    <script src="js/calendar_module/event_modify.js"></script>
     <script src="js/calendar_module/map_load.js"></script>
 
 
@@ -149,7 +159,7 @@
 </div>
 
 <!-- Dialog -->
-<dialog class="mdl-dialog">
+<dialog class="mdl-dialog" id="trav_dialog">
     <h4 class="mdl-dialog__title mdl-color-text--blue-grey-700 mdl-typography--font-bold" id="warning_title"></h4>
     <div class="mdl-dialog__content">
         <p class="text-center mdl-color-text--blue-grey-700" id="warning_dialog"></p>
@@ -158,6 +168,8 @@
         <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect close mdl-color-text--indigo-500">Continue</button>
     </div>
 </dialog>
+
+<div id="extra"></div>
 </body>
 
 </html>

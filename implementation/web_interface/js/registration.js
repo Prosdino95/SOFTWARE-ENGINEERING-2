@@ -9,24 +9,6 @@ function passwordCheck(password, retype_password) {
     return password === retype_password;
 }
 
-// spawn a event_section
-function spawnDialog(text, title, flag) {
-    var dialog = document.querySelector('dialog');
-    if (! dialog.showModal) {
-        dialogPolyfill.registerDialog(dialog);
-    }
-    dialog.showModal();
-    $("#warning_dialog").text(text);
-    $("#warning_title").text(title);
-    dialog.querySelector('.close').addEventListener('click', function() {
-        if(flag) {
-            // redirect navigation
-            dialog.close();
-            window.location = "./homepage.html";
-        } dialog.close();
-    });
-}
-
 // sign up -- registration handler
 $(function() {
     $(document).submit(function(event) {
@@ -42,7 +24,7 @@ $(function() {
 
         // Check passwords match
         if(!passwordCheck(pass, retype_pass)){
-            spawnDialog("Passwords do not match.", "Error");
+            errorDialog("Passwords do not match.");
             throw error();
         };
 
@@ -54,11 +36,11 @@ $(function() {
             type: 'post',
             data: JSON.stringify( { "first_name": first_name, "last_name": last_name, "password": pass, "email": email } ),
             success: function(response) {
-                (response == 'ok')? spawnDialog("Registration completed successfully!", "", true): spawnDialog("Registration failed", "Error");
+                (response == 'ok')? redirectDialog("Registration completed successfully!", "./homepage.html"): errorDialog("Registration failed");
             },
 
             error: function(error) {
-                console.log(error);
+                errorDialog(error);
             }
         });
         // Clear input field

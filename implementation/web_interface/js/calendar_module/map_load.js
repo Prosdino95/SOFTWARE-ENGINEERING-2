@@ -147,18 +147,8 @@ function geolocateThisMarker(marker, view) {
 
     // geolocate may have error.
     geolocation.on('error', function (error) {
-        var dialog = document.querySelector('dialog');
-        if (!dialog.showModal) {
-            dialogPolyfill.registerDialog(dialog);
-        }
-        dialog.showModal();
-        $("#warning_title").text("Error");
-        $("#warning_dialog").text(error.message);
-        dialog.querySelector('.close').addEventListener('click', function () {
-            dialog.close();
-        });
+        errorDialog(error.message);
     });
-
 }
 
 // Setup style marker

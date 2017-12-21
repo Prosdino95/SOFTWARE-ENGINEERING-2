@@ -2,20 +2,6 @@
      Update user picture.
 */
 
-// spawn a event_section
-function spawnDialog(text, title) {
-    var dialog = document.querySelector('dialog');
-    if (! dialog.showModal) {
-        dialogPolyfill.registerDialog(dialog);
-    }
-    dialog.showModal();
-    $("#warning_dialog").text(text);
-    $("#warning_title").text(title);
-    dialog.querySelector('.close').addEventListener('click', function() {
-        dialog.close();
-    });
-}
-
 $(function (){
 
     // Submit the new image profile
@@ -35,7 +21,7 @@ $(function (){
         if (!file){
 
             // spawn error
-            spawnDialog("File not selected", "Error");
+            errorDialog("File not selected");
             throw error;
         }
 
@@ -53,10 +39,10 @@ $(function (){
                 document.querySelector('#avatar').src = data;
 
                 // spawn event_section
-                spawnDialog("Profile picture updated successfully!", "");
+                submitDialog("Profile picture updated successfully!");
             },
             error: function(error) {
-                console.log(error);
+                errorDialog(error);
             }
         });
     });
@@ -74,7 +60,7 @@ $(function (){
         if(file.size > 1000000){
 
             // Show a friendly event_section
-            spawnDialog("Image too bigger", "Error");
+            errorDialog("Image too bigger");
             throw error();
         }
 

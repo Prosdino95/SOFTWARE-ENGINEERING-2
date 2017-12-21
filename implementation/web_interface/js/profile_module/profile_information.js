@@ -7,20 +7,6 @@ function render_text(string){
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
 }
 
-// spawn a event_section
-function spawnDialog(text, title) {
-    var dialog = document.querySelector('dialog');
-    if (! dialog.showModal) {
-        dialogPolyfill.registerDialog(dialog);
-    }
-    dialog.showModal();
-    $("#warning_dialog").text(text);
-    $("#warning_title").text(title);
-    dialog.querySelector('.close').addEventListener('click', function() {
-        dialog.close();
-    });
-}
-
 // main function
 $(function() {
 
@@ -62,7 +48,7 @@ $(function() {
                 componentHandler.upgradeDom();
             },
             error: function(error) {
-                console.log(error);
+                errorDialog(error);
             }
         });
     });
@@ -99,10 +85,10 @@ $(function() {
             success: function(response) {
 
                 // Show a friendly event_section
-                spawnDialog("Informations updated correctly.", "");
+                submitDialog("Informations updated correctly.");
             },
             error: function(error) {
-                console.log(error);
+                errorDialog(error);
             }
         });
     });

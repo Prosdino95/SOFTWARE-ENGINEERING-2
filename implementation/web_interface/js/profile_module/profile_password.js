@@ -7,21 +7,6 @@ function passwordCheck(password, retype_password) {
      return !(password.length === 0) && (password === retype_password);
 }
 
-// spawn a event_section
-function spawnDialog(text, title) {
-    var dialog = document.querySelector('dialog');
-    if (! dialog.showModal) {
-        dialogPolyfill.registerDialog(dialog);
-    }
-    dialog.showModal();
-    $("#warning_dialog").text(text);
-    $("#warning_title").text(title);
-    dialog.querySelector('.close').addEventListener('click', function() {
-        dialog.close();
-    });
-}
-
-
 // main function
 $(function() {
     $("#stage").on("click", "#submit_password", function (event){
@@ -40,7 +25,7 @@ $(function() {
         if(!passwordCheck(new_password, retype_new_password)){
 
             // Show a friendly event_section
-            spawnDialog("The passwords do not match", "Error");
+            errorDialog("The passwords do not match");
             throw error;
         }
 
@@ -55,10 +40,10 @@ $(function() {
 
             success: function(response) {
                 // Show a friendly event_section
-                spawnDialog("Password updated correctly.", "");
+                submitDialog("Password updated correctly.", "");
             },
             error: function(error) {
-                console.log(error);
+                errorDialog(error);
             }
         });
     });

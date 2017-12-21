@@ -14,10 +14,29 @@
 .add_button{
     width: 20vmin;
     height: 20vmin;
-    margin: 2%;
+    position: fixed;
+ /*   margin: 2%;
     left: 70%;
-
+*/
+    bottom: 2%;
+    right: 10%;
+    left: 70%;
+    z-index: 5; /*important!*/
 }
+
+#modify_button{
+    width: 17vmin;
+    height: 17vmin;
+    background: #FAFAFA;
+}
+
+#delete_button{
+    width: 17vmin;
+    height: 17vmin;
+    left: 50%;
+    background: #D50000;
+}
+
 .calendar_container{
     padding-bottom: 5%;
     padding-top: 5%;

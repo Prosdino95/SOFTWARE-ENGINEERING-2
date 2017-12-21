@@ -31,10 +31,4 @@ $(function (){
         event.preventDefault();
         $("#stage").load("./html/profile.html");
     });
-
-    // load submit event page
-    $("#stage").on("click", "#add_event", function (event) {
-        event.preventDefault();
-        $("#stage").load("./html/event_section/event_submit.html")
-    });
 });
