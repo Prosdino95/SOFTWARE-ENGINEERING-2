@@ -8,8 +8,6 @@ def add_event(event):
     token = event["token"]
     del event["token"]
     event["flexible_lunch"] = False
-    event["start"] += "+00:00"
-    event["end"] += "+00:00"
     email = get_email(token)
     cursor = r.table("event").insert(event).run()
     id = cursor["generated_keys"][0]
