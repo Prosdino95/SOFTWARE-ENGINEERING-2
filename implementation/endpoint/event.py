@@ -28,6 +28,8 @@ def mod_event(event):
     r.connect("localhost", 28015, "Travlendar").repl()
     token = event["token"]
     del event["token"]
+    event["start"] = iso8601_to_epoch(event["start"])
+    event["end"] = iso8601_to_epoch(event["end"])
     r.table("event").get(event["id"]).update(event).run()
     check_overlays(token)
 

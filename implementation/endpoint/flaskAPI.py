@@ -73,10 +73,11 @@ def mod_event__api():
     return "event modified"
 
 
-@app.route('/delEvent', methods=['GET'])
+@app.route('/delEvent', methods=['POST'])
 def del_event__api():
-    token = flask.request.args.get('token', '')
-    event_id = flask.request.args.get('id', '')
+    event = flask.request.get_json()
+    token = event["token"]
+    event_id = event["id"]
     event.del_event(token, event_id)
     return "event deleted"
 
