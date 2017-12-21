@@ -31,7 +31,7 @@ function get_profile() {
             componentHandler.upgradeDom();
         },
         error: function (error) {
-            console.log(error);
+            errorDialog(error);
         }
     });
 }

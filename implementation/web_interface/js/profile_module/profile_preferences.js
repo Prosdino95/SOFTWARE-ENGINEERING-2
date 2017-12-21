@@ -1,18 +1,3 @@
-
-// spawn a event_section
-function spawnDialog(text, title) {
-    var dialog = document.querySelector('dialog');
-    if (! dialog.showModal) {
-        dialogPolyfill.registerDialog(dialog);
-    }
-    dialog.showModal();
-    $("#warning_dialog").text(text);
-    $("#warning_title").text(title);
-    dialog.querySelector('.close').addEventListener('click', function() {
-        dialog.close();
-    });
-}
-
 // main function
 $(function() {
 
@@ -41,7 +26,7 @@ $(function() {
                 componentHandler.upgradeDom();
             },
             error: function(error) {
-                console.log(error);
+                errorDialog(error);
             }
         });
     });
@@ -82,10 +67,10 @@ $(function() {
                 console.log(response);
 
                 // Show a friendly event_section
-                spawnDialog("Preferences submitted correctly", "")
+                submitDialog("Preferences submitted correctly")
             },
             error: function(error) {
-                console.log(error);
+                errorDialog(error);
             }
         });
     });    

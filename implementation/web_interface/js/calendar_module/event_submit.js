@@ -1,19 +1,3 @@
-// Spawn Dialog
-function spawnDialog(text, title) {
-    var dialog = document.querySelector('dialog');
-    if (!dialog.showModal) {
-        dialogPolyfill.registerDialog(dialog);
-    }
-    dialog.showModal();
-    $("#warning_dialog").text(text);
-    $("#warning_title").text(title);
-    dialog.querySelector('.close').addEventListener('click', function () {
-        // redirect navigation
-        window.location = "./index.html";
-        dialog.close();
-    });
-}
-
 // go back if cancel is performed
 $("#stage").on("click", "#cancel_event", function (event) {
     // redirect navigation
@@ -37,10 +21,16 @@ function colorfy() {
 
 // main
 $(function () {
+
+    $("#stage").on("click", "#cancel_event", function(){
+        redirectDialog("Event not submitted.", './index.html');
+    });
+
     $("#stage").on("submit", "#event_form", function (event) {
 
         event.preventDefault();
 
+        console.log("submit on submit");
         //get token from cookie
         Cookies.json = true;  // important
         var token = Cookies.get("session_token");
@@ -79,10 +69,10 @@ $(function () {
             success: function (response) {
 
                 // Show a friendly event_section
-                spawnDialog("Event submitted correctly.", "");
+                redirectDialog("Event submitted correctly.", './index.html');
             },
             error: function (error) {
-                console.log(error);
+                errorDialog(error);
             }
         });
     });

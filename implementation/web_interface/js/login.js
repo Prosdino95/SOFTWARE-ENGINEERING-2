@@ -1,22 +1,3 @@
-// spawn a dialog
-function spawnDialog(text, title, flag) {
-    var dialog = document.querySelector('dialog');
-    if (! dialog.showModal) {
-        dialogPolyfill.registerDialog(dialog);
-    }
-    dialog.showModal();
-    $("#warning_dialog").text(text);
-    $("#warning_title").text(title);
-    dialog.querySelector('.close').addEventListener('click', function() {
-        if(flag) {
-
-            // redirect navigation
-            window.location = "./index.html";
-            dialog.close();
-        } dialog.close();
-    });
-}
-
 // sign in -- login in handler
 $(function() {
     $(document).submit(function(event) {
@@ -42,14 +23,14 @@ $(function() {
                 	Cookies.set("session_token", token['token']);
 
                 	// Redirect on index.html
-                    spawnDialog("Login successfully completed!", "", true);
+                    redirectDialog("Login successfully completed!", "./index.html");
                 }
                 else{
-                    spawnDialog("Wrong email or password.", "Error");
+                    errorDialog("Wrong email or password.");
                 }
             },
             error: function(error) {
-                console.log(error);
+                errorDialog(error);
             }
         });
         // Clear input field
