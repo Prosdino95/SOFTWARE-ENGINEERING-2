@@ -38,7 +38,7 @@ def create_lunch_event(start, end, email):
 
 
 def rearrange_lunch(lunch, e, token):
-	email = token_query(token)
+    email = token_query(token)
     end_lunch_time = r.table("user").get(email).get_field("lunch").run()
     end_lunch_time = time(hour=datetime.strptime(end_lunch_time["lunch_end"], "%H:%M").hour,
                           minute=datetime.strptime(end_lunch_time["lunch_end"], "%H:%M").minute)
