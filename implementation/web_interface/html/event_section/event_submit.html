@@ -31,6 +31,7 @@
             // don't let user select invalid end day
             $('#start_day').on("dp.change", function (e) {
                 $("#end_day").data("DateTimePicker").minDate(e.date);
+                $("#end_day").data("DateTimePicker").clear(); // restart over
             });
 
             // don't let user select invalid start day
@@ -42,6 +43,7 @@
             $('#start_time').on("dp.change", function (e) {
                 if ($("#start_day").val() === $("#end_day").val()) {
                     $("#end_time").data("DateTimePicker").minDate(e.date);
+                    $("#end_time").data("DateTimePicker").clear(); // restart over
                     $("#end_time").data("DateTimePicker").maxDate(moment("23:59", "H:mm"));
                 }
             });
