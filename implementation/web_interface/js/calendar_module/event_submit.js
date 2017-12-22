@@ -30,7 +30,6 @@ $(function () {
 
         event.preventDefault();
 
-        console.log("submit on submit");
         //get token from cookie
         Cookies.json = true;  // important
         var token = Cookies.get("session_token");
@@ -39,10 +38,10 @@ $(function () {
         var title = $("#event_title").val();
         var starting_time = $("#start_time").val();
         var ending_time = $("#end_time").val();
-        var start = $("#start_day").val() + " " + (starting_time ? starting_time : "0:00");
-        var end = $("#end_day").val() + " " + (ending_time ? ending_time : "0:00");
+        var start = $("#start_day").val() + " " + (starting_time ? starting_time : "0:00") + "+00:00";
+        var end = $("#end_day").val() + " " + (ending_time ? ending_time : "0:00") + "+00:00";
         var color = colorfy();
-        var editable = $('input[id = flexible_event]').prop("checked");
+        var flexible = $('input[id = flexible_event]').prop("checked");
 
         // obtain choord of the event
         var starting_location = $("#starting_location").val();
@@ -61,7 +60,7 @@ $(function () {
             data: JSON.stringify({
                 "token": token,
                 "title": title, "start": start, "end": end,
-                "color": color, "editable": editable,
+                "color": color,
                 "starting_location": starting_location, "meeting_location": meeting_location, // Coordinates
                 "alarm_timer": alarm_timer, "alarm_message": alarm_message
             }), // Alarm

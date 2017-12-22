@@ -8,8 +8,6 @@ $(function() {
             componentHandler.upgradeDom();
 
             // update html textfield value
-            console.log(modifiedEvent.start);
-            console.log(modifiedEvent.end);
 
             $("#event_title_textfield")[0].MaterialTextfield.change(modifiedEvent.title);
             $("#start_day_textfield")[0].MaterialTextfield.change((modifiedEvent.start).format("YYYY-MM-DD"));
@@ -49,8 +47,8 @@ $(function() {
         var title = $("#event_title").val();
         var starting_time = $("#start_time").val();
         var ending_time = $("#end_time").val();
-        var start = $("#start_day").val() + " " + (starting_time ? starting_time : "0:00");
-        var end = $("#end_day").val() + " " + (ending_time ? ending_time : "0:00");
+        var start = $("#start_day").val() + " " + (starting_time ? starting_time : "0:00") + "+00:00";
+        var end = $("#end_day").val() + " " + (ending_time ? ending_time : "0:00") + "+00:00";
         var color = colorfy();
         var editable = $('input[id = flexible_event]').prop("checked");
 
@@ -75,7 +73,7 @@ $(function() {
             data: JSON.stringify({
                 "token": token, "id": modifiedEvent.id,
                 "title": title, "start": start, "end": end,
-                "color": color, "editable": editable,
+                "color": color,
                 "starting_location": starting_location, "meeting_location": meeting_location, // Coordinates
                 "alarm_timer": alarm_timer, "alarm_message": alarm_message
             }), // Alarm
@@ -93,5 +91,8 @@ $(function() {
 });
 
 function passModifyID(eventClicked){
-    modifiedEvent = eventClicked
+    modifiedEvent = eventClicked;
+    console.log(modifiedEvent.title);
+    console.log(modifiedEvent.start);
+    console.log(modifiedEvent.end);
 }
