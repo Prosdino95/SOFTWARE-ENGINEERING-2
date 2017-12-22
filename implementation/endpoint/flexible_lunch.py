@@ -27,6 +27,7 @@ def create_lunch_event(start, end, email):
     lunch_event = {"alarm": False,
                    "color": "#FF5252",
                    "editable": False,
+                   "eventOverlap": False,
                    "title": "lunch",
                    "flexible_lunch": True,
                    "start": start.strftime("%Y-%m-%d %H:%M+00:00"),
