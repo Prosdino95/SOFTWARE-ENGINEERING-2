@@ -12,14 +12,14 @@
 
             // 24:00 format
             $('.time_form').datetimepicker({
-                format: 'H:mm'
+                format: 'HH:mm'
             });
 
             // Only 5 minutes alarm
             $('.alarm_form').datetimepicker({
-                format: 'H:mm',
-                maxDate: moment("1:00", "H:mm"),
-                minDate: moment("0:00", "H:mm"),
+                format: 'HH:mm',
+                maxDate: moment("1:00", "HH:mm"),
+                minDate: moment("0:00", "HH:mm"),
                 stepping: 5
             });
 
@@ -44,7 +44,7 @@
                 if ($("#start_day").val() === $("#end_day").val()) {
                     $("#end_time").data("DateTimePicker").minDate(e.date);
                     $("#end_time").data("DateTimePicker").clear(); // restart over
-                    $("#end_time").data("DateTimePicker").maxDate(moment("23:59", "H:mm"));
+                    $("#end_time").data("DateTimePicker").maxDate(moment("23:59", "HH:mm"));
                 }
             });
 

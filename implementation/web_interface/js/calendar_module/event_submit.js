@@ -38,8 +38,8 @@ $(function () {
         var title = $("#event_title").val();
         var starting_time = $("#start_time").val();
         var ending_time = $("#end_time").val();
-        var start = $("#start_day").val() + " " + (starting_time ? starting_time : "0:00") + "+00:00";
-        var end = $("#end_day").val() + " " + (ending_time ? ending_time : "0:00") + "+00:00";
+        var start = $("#start_day").val() + " " + (starting_time ? starting_time : "00:00") + "+00:00";
+        var end = $("#end_day").val() + " " + (ending_time ? ending_time : "00:00") + "+00:00";
         var color = colorfy();
         var flexible = $('input[id = flexible_event]').prop("checked");
 

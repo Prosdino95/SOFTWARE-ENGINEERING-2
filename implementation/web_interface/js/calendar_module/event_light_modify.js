@@ -39,7 +39,7 @@ function modifyLight(event, revertFunc){
                 type: 'post',
                 data: JSON.stringify({
                     "token": token, "id": event.id,
-                    "start": (event.start).format("YYYY-MM-DD H:mm") + "+00:00", "end": end.format("YYYY-MM-DD H:mm")+ "+00:00"
+                    "start": (event.start).format("YYYY-MM-DD HH:mm") + "+00:00", "end": end.format("YYYY-MM-DD HH:mm")+ "+00:00"
                     // default format: YYYY-MM-DDTHH:mm:ss+00:00
                 }),
 

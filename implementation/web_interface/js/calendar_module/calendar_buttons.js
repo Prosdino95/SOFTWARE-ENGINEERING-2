@@ -7,7 +7,6 @@ function free()  { button_timer = true;  }
 
 function spawnButtons(eventClicked) {
 
-
     passModifyID(eventClicked);
     passRemoveID(eventClicked);
 
