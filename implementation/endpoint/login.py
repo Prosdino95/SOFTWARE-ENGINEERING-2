@@ -2,10 +2,11 @@ import rethinkdb as r
 from hashlib import md5
 from flask import jsonify
 import tokenDB as db
+import rt_server 
 
 
 def login(user):
-    r.connect("localhost", 28015, "Travlendar").repl()
+    r.connect(rt_server.ip, rt_server.port, "Travlendar").repl() 
     hash_pass = md5(user["password"].encode())
     cursor = r.table("user").get(user["email"]).run()
     if cursor is None:
