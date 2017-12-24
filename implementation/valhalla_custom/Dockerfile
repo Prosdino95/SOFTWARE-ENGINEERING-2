@@ -11,7 +11,6 @@ RUN apt update && \
     ./autogen.sh && ./configure && make install -j8 && cd .. && \
     git clone --single-branch --depth 1 https://github.com/valhalla/valhalla && \
     cd valhalla && git submodule update --init --recursive && \
-    wget -q -O - https://patch-diff.githubusercontent.com/raw/valhalla/valhalla/pull/1031.diff | patch -p1 && \
     ./autogen.sh && ./configure --prefix=/opt && make install -j8 && \
     add-apt-repository -y ppa:valhalla-core/valhalla && apt update && \
     apt remove -y autoconf automake make libtool pkg-config g++ gcc jq lcov protobuf-compiler \
