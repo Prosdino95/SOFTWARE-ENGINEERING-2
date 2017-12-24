@@ -1,0 +1,32 @@
+version: "3"
+services:
+  endpoint:
+    image: travlendar_endpoint:latest
+    ports:
+     - "5000:8000"
+    links:
+     - rethinkdb_user:rethinkdb_user
+     - optimalroute:optimalroute
+    environment:
+     - RETHINKDB_IP=rethinkdb_user
+    depends_on:
+     - rethinkdb_user
+     - optimalroute
+  rethinkdb_user:
+    image: rethinkdb
+    volumes:
+     - /opt/rethinkdb_user:/data
+  valhalla:
+    image: valhalla_server_milan
+  optimalroute:
+    image: travlendar_optimalroute
+    links:
+     - valhalla:valhalla
+    environment:
+     - VALHALLA_IP=valhalla
+    depends_on:
+     - valhalla
+  webinterface:
+    image: travlendar_webinterface
+    ports:
+     - "80:80"

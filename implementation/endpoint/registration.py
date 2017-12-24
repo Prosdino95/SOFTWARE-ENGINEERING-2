@@ -1,6 +1,7 @@
 import rethinkdb as r
 import hashlib
 from json import load
+import rt_server
 
 
 def registration(user):
@@ -16,7 +17,7 @@ def set_preference(email):
 
 
 def save_user(user):
-    r.connect("localhost", 28015, "Travlendar").repl()
+    r.connect(rt_server.ip, rt_server.port, "Travlendar").repl()
     if r.table("user").filter(r.row["email"].eq(user["email"])).count().run() == 0:
         r.table("user").insert(user).run()
         set_preference(user["email"])

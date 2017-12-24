@@ -1,8 +1,9 @@
 import rethinkdb as r
 from tokenDB import token_query
 from datetime import time, datetime, timedelta
+import rt_server
 
-r.connect("localhost", 28015, "Travlendar").repl()
+r.connect(rt_server.ip, rt_server.port, "Travlendar").repl()
 
 
 def set_lunch(option):

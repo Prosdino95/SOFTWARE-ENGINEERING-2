@@ -1,10 +1,11 @@
 import rethinkdb as r
 from tokenDB import token_query
 from flexible_lunch import rearrange_lunch
+import rt_server as rts
 
 
 def add_event(event):
-    r.connect("localhost", 28015, "Travlendar").repl()
+    r.connect(rts.ip, rts.port, "Travlendar").repl()
     token = event["token"]
     del event["token"]
     event["flexible_lunch"] = False
@@ -16,14 +17,14 @@ def add_event(event):
 
 
 def del_event(token, event_id):
-    r.connect("localhost", 28015, "Travlendar").repl()
+    r.connect(rts.ip, rts.port, "Travlendar").repl()
     r.table("event").get(event_id).delete().run()
     r.table("event_submit").get(event_id).delete().run()
     check_overlays(token)
 
 
 def mod_event(event):
-    r.connect("localhost", 28015, "Travlendar").repl()
+    r.connect(rts.ip, rts.port, "Travlendar").repl()
     token = event["token"]
     r.table("event").get(event["id"]).update(event).run()
     check_overlays(token)
@@ -54,7 +55,7 @@ def set_alarm(e1, e2):
 
 
 def get_event(token):
-    r.connect("localhost", 28015, "Travlendar").repl()
+    r.connect(rts.ip, rts.port, "Travlendar").repl()
     email = get_email(token)
     query = r.table("event_submit").filter(r.row["email"] == email).\
         eq_join("event", r.table("event")). \
