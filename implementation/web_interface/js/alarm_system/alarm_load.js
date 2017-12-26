@@ -48,7 +48,7 @@ $(function(){
 function setAlarm(event){
     setTimeout(function(){
         // TO-DO: OTHER FUNCTIONS
-        alert("ALERT " + event.alarm_message)
+        alarm_info(event)
     }, calculateTimeout(event))
 }
 

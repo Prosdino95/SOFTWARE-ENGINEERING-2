@@ -98,8 +98,8 @@ function newMap() {
     var startMarker = createMarker(0);
     var meetingMarker = createMarker(20); //with offset
 
-    startMarker.setStyle(getIconStyle());
-    meetingMarker.setStyle(getIconStyle());
+    startMarker.setStyle(getIconStyle("./res/pin.png"));
+    meetingMarker.setStyle(getIconStyle("./res/flag_finish.png"));
 
     startMarker.on('change', function () {
         $("#starting_location_textfield")[0].MaterialTextfield.change(startMarker.getGeometry().getCoordinates())
@@ -152,12 +152,12 @@ function geolocateThisMarker(marker, view) {
 }
 
 // Setup style marker
-function getIconStyle() {
+function getIconStyle(url) {
     return new ol.style.Style({
         image: new ol.style.Icon(
             ({
                 opacity: 0.95,
-                src: './res/icon1.png'
+                src: url
             }))
     })
 }

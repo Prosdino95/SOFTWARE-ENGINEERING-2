@@ -44,12 +44,17 @@
     <!-- Animate CSS-->
     <link href="css/library/animate.min.css" rel="stylesheet">
 
+    <!-- Toastr CSS -->
+    <link href="css/library/toastr.min.css" rel="stylesheet">
+
     <!-- Html imported CSS -->
     <link href="css/index.css" rel="stylesheet">
     <link href="css/preferences.css" rel="stylesheet">
     <link href="css/profile.css" rel="stylesheet">
     <link href="css/calendar.css" rel="stylesheet">
     <link href="css/event_submit.css" rel="stylesheet">
+    <link href="css/map.css" rel="stylesheet">
+
 
 
     <!-- Js importing -->
@@ -81,6 +86,10 @@
 
     <!-- OpenLayer Js  TO-DO: Substitute only with needed ol modules-->
     <script src="https://openlayers.org/en/v4.6.4/build/ol.js" type="text/javascript"></script>
+
+    <!-- Toastr JS -->
+    <script src="js/library/toastr.min.js"></script>
+
     <!-- Travlendar+ Scripts -->
 
     <script src="js/change_context.js"></script>
@@ -102,9 +111,13 @@
     <script src="js/calendar_module/event_modify.js"></script>
     <script src="js/calendar_module/event_light_modify.js"></script>
     <script src="js/calendar_module/map_load.js"></script>
+    <script src="js/calendar_module/map_show_path.js"></script>
+
 
     <!-- Alarm System-->
     <script src="js/alarm_system/alarm_load.js"></script>
+    <script src="js/alarm_system/alarm_notify.js"></script>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -120,6 +133,9 @@
     <!-- Header -->
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title mdl-typography--font-bold mdl-color-text--white" id="TITLE"></span>
+            <div class="mdl-layout-spacer"></div>
+            <nav class="mdl-navigation mdl-color-text--white" id="header_navigation"></nav>
         </div>
     </header>
 

@@ -1,12 +1,10 @@
 .calendar-content-tab{
 
-   /* background-color: rgba(236, 239, 241, 0.4); */
-    /*width: 70%;
-    margin: auto;*/
     font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
     font-size: 14px;
 
-    max-width: 70%;
+    min-width: 50%;
+    max-width: 80%;
     margin: 40px auto;
     padding: 0 10px;
 }
@@ -15,26 +13,48 @@
     width: 20vmin;
     height: 20vmin;
     position: fixed;
- /*   margin: 2%;
-    left: 70%;
-*/
     bottom: 2%;
-    right: 10%;
-    left: 70%;
     z-index: 5; /*important!*/
+}
+
+#add_event{
+    right: 5%;
 }
 
 #modify_button{
     width: 17vmin;
     height: 17vmin;
     background: #FAFAFA;
+    right: 5%;
 }
 
 #delete_button{
     width: 17vmin;
     height: 17vmin;
-    left: 50%;
     background: #D50000;
+    left: 5%;
+}
+
+#map_button{
+    width: 17vmin;
+    height: 17vmin;
+    background: #3F51B5;
+    right: 15%;
+}
+
+.calendar_slide_button{
+    width: 10vmin;
+    height: 10vmin;
+    position: fixed;
+    top: 50%;
+    z-index: 5; /*important!*/
+}
+
+#next_day_button{
+    right: 5%
+}
+#prev_day_button{
+    left: 5%
 }
 
 .calendar_container{
@@ -46,4 +66,29 @@
     background-color: white;
     padding-right: 5%;
     padding-left: 5%;
+}
+
+@media screen and (max-width: 480px) {
+    #delete_button{
+        left: 5%;
+    }
+
+    #map_button{
+        right: 25%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .add_button{
+        width: 17vmin;
+        height: 17vmin;
+    }
+
+    #delete_button{
+        left: 5%;
+    }
+
+    #map_button{
+        right: 25%;
+    }
 }

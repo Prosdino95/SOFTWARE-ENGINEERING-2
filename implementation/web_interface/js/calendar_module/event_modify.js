@@ -4,7 +4,24 @@ $(function() {
 
     $("#stage").on("click", "#modify_button", function () {
 
-        $("#stage").load("./html/event_section/event_modify.html", function(){
+        $("#stage").load("./html/event_section/event_submit.html", function(){
+
+            $("#TITLE").text("Modify an event");
+            deleteCalendarButtons();
+
+            $('<button>', {
+                class: 'mdl-button mdl-js-button mdl-button mdl-button--raised mdl-js-ripple-effect',
+                id: 'cancel_modify'
+            }).appendTo('#button_wrapper_form');
+
+            $('<button>', {
+                class: 'mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect',
+                id: 'event_modify_form'
+                //type: 'submit'
+            }).appendTo('#button_wrapper_form');
+
+            $("#cancel_modify").text("CANCEL");
+            $("#event_modify_form").text("MODIFY EVENT");
             componentHandler.upgradeDom();
 
             // update html textfield value
@@ -38,10 +55,10 @@ $(function() {
     });
 
     $("#stage").on('click', '#cancel_modify', function(){
-        redirectDialog("Changes to were not submitted.", './index.html');
+        redirectDialog("Changes were not submitted.", './index.html');
     });
 
-    $("#stage").on("submit", "#event_modify_form", function (event) {
+    $("#stage").on("click", "#event_modify_form", function (event) {
         event.preventDefault();
 
         var title = $("#event_title").val();
@@ -92,7 +109,4 @@ $(function() {
 
 function passModifyID(eventClicked){
     modifiedEvent = eventClicked;
-    console.log(modifiedEvent.title);
-    console.log(modifiedEvent.start);
-    console.log(modifiedEvent.end);
 }

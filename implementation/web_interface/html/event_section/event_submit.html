@@ -18,10 +18,11 @@
             // Only 5 minutes alarm
             $('.alarm_form').datetimepicker({
                 format: 'HH:mm',
-                maxDate: moment("1:00", "HH:mm"),
-                minDate: moment("0:00", "HH:mm"),
+                minDate: moment("00:00", "HH:mm"),
+                maxDate: moment("01:00", "HH:mm"),
                 stepping: 5
-            });
+            })
+            $('.alarm_form').val("00:00");
 
             // fullcalendar date format accepted - ISO8601
             $('.date_form').datetimepicker({
@@ -47,7 +48,6 @@
                     $("#end_time").data("DateTimePicker").maxDate(moment("23:59", "HH:mm"));
                 }
             });
-
         });
     </script>
 
@@ -55,22 +55,17 @@
 <body>
 
 <form class="container-fluid trav-tab-layout" id="event_form">
-    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-typography--font-bold mdl-color-text--blue-grey-700">
-
-        <!-- Header -->
-        <div class="mdl-tabs__tab-bar trav-header-tab">
-            <a href="#event-panel" class="mdl-tabs__tab is-active"> <span class="mdi mdi-application"> </span> New Event</a>
-            <a href="#route-panel" class="mdl-tabs__tab"> <span class="mdi mdi-map-marker"> </span> Route</a>
-            <a href="#alarm-panel" class="mdl-tabs__tab"> <span class="mdi mdi-bell"> </span> Alarm</a>
-        </div>
+    <div class="mdl-js-ripple-effect mdl-typography--font-bold mdl-color-text--blue-grey-700">
 
         <!-- Event informations -->
-        <div class="mdl-tabs__panel is-active mdl-tabs" id="event-panel">
-
+        <div id="event-panel">
             <div class="table-responsive">
                 <table class="mdl-data-table mdl-shadow--2dp trav-content-tab">
+                    <thead>
+                    <th><span class="mdi mdi-application"> </span>EVENT PROPERTY</a></th>
+                    </thead>
+
                     <tbody>
-                    <tr>
                         <td class="mdl-data-table__cell--non-numeric">
                             Title
                         </td>
@@ -182,20 +177,21 @@
                         </td>
                         <td>
                             <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
-                                   id="flexible_event_checkbox"
-                                   for="flexible_event">
+                                   id="flexible_event_checkbox" for="flexible_event">
                                 <span class="mdl-checkbox__label mdi-24px"></span>
                                 <input type="checkbox" id="flexible_event" class="mdl-checkbox__input" value="ON">
                             </label>
                         </td>
                     </tr>
+
+                    <tr id="ghost_flexible"></tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
         <!--Maps -->
-        <div class="mdl-tabs__panel table-responsive" id="route-panel">
+        <div class=" table-responsive" id="route-panel">
             <div class="panel_window mdl-shadow--2dp">
                 <div id="map">
                     <script>
@@ -205,6 +201,11 @@
             </div>
 
             <table class="map_box mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+
+                <thead>
+                <th><span class="mdi mdi-map-marker"> </span>MAP COORDINATES</th>
+                </thead>
+
                 <tbody>
                 <tr>
                     <td class="mdl-data-table__cell--non-numeric">
@@ -255,9 +256,13 @@
         </div>
 
         <!--Alarm -->
-        <div class="mdl-tabs__panel table-responsive" id="alarm-panel">
+        <div class=" table-responsive" id="alarm-panel">
             <div class="table-responsive">
                 <table class="mdl-data-table mdl-shadow--2dp trav-content-tab">
+
+                    <thead>
+                    <th><span class="mdi mdi-bell"> </span>ALARM SETTINGS</th>
+                    </thead>
                     <tbody>
                     <tr>
                         <td class="mdl-data-table__cell--non-numeric">
@@ -288,13 +293,8 @@
     </div>
 
     <!-- Submit and Cancel Buttons -->
-    <div class="text-center">
-        <button class="mdl-button mdl-js-button mdl-button mdl-button--raised mdl-js-ripple-effect"
-                type="button" id="cancel_event">CANCEL
-        </button>
-        <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect"
-                type="submit" id="submit_event">SUBMIT EVENT
-        </button>
+    <div class="text-center" id="button_wrapper_form">
+
     </div>
 </form>
 

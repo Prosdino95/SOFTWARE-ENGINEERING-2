@@ -2,7 +2,6 @@ function modifyLight(event, revertFunc){
 
     $('#extra').load("./html/event_section/event_light_modify.html", function () {
         componentHandler.upgradeDom();
-
         var modify_dialog = document.querySelector("#extra_dialog");
         if (!modify_dialog.showModal) {
             dialogPolyfill.registerDialog(modify_dialog);

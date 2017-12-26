@@ -1,6 +1,5 @@
 $(function () {
     $("#stage").on("calendar_load", function (event) {
-
         $("document").ready(function () {
             event.preventDefault();
             //  var initialLocaleCode = 'en'; NOT IMPLEMENTED
@@ -15,25 +14,29 @@ $(function () {
 
             $("#full-calendar").fullCalendar({
 
+                // title
                 header: {
                     left: '',
                     center: 'title',
                     right: ''
                 },
+                // empty footer
                 footer: {
-                    left: 'prev,next today',
+                    left: '',
                     center: '',
-                    right: 'month,agendaWeek,agendaDay, listMonth'
-
+                    right: ''
                 },
+
                 //  locale: initialLocaleCode, NOT IMPLEMENTED
-                weekNumbers: true,
+                allDaySlot: false,
                 nowIndicator: true,
-                locale: 'it',
+                locale: 'en',
                 businessHours: true,
-                editable: true,
+                editable: true, //important
 
                 events: 'http://127.0.0.1:5000/getEvent?token=' + token, // json Feed
+
+                // click on event function
                 eventClick: function (eventClicked) {
                     if(button_timer) {
                         spawnButtons(eventClicked);
@@ -43,6 +46,7 @@ $(function () {
                         }, 2000);
                     }
                 },
+
                 // event light modify
                 eventDrop: function(eventDropped, delta, revertFunc){
                     modifyLight(eventDropped, revertFunc);
@@ -51,9 +55,16 @@ $(function () {
                 // event light modify
                 eventResize: function(eventResized, delta, revertFunc){
                     modifyLight(eventResized, revertFunc);
-                }
+                },
 
+                //change day when clicking
+                dayClick: function(date, jsEvent, view){
+                    $("#full-calendar").fullCalendar("changeView", "agendaDay", date);
+                }
             });
+
+            // add prev and next button
+            setControlButton();
 
             // NOT IMPLEMENTED
             /* ALL LOCALE SUPPORT
@@ -73,11 +84,6 @@ $(function () {
                 }
             });
             */
-            // load submit event page
-            $("#stage").on("click", "#add_event", function (event) {
-                event.preventDefault();
-                $("#stage").load("./html/event_section/event_submit.html")
-            });
         });
     });
 });

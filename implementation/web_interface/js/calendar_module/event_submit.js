@@ -1,32 +1,51 @@
-// go back if cancel is performed
-$("#stage").on("click", "#cancel_event", function (event) {
-    // redirect navigation
-    window.location = "./index.html";
-});
-
 //Calculate the color of the event based on its type
 function colorfy() {
     var type = $('input[name = type]:checked').val();
     switch (type) {
         case "business":
-            return '#FF5252';
+            return '#3F51B5';
         case "free time":
-            return '#FFC400';
+            return '#5C6BC0';
         case "social":
-            return '#00E676';
+            return '#7986CB';
         default:
-            return '#FF5252';
+            return '#3F51B5';
     }
 }
 
 // main
 $(function () {
 
+    // load submit event page
+    $("#stage").on("click", "#add_event", function (event) {
+        event.preventDefault();
+        $("#stage").load("./html/event_section/event_submit.html", function(){
+
+            $("#TITLE").text("Submit a new event");
+            deleteCalendarButtons();
+            $('<button>', {
+                class: 'mdl-button mdl-js-button mdl-button mdl-button--raised mdl-js-ripple-effect',
+                id: 'cancel_event',
+            }).appendTo('#button_wrapper_form');
+
+            $('<button>', {
+                class: 'mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect',
+                id: 'submit_event',
+             //   type: 'submit'
+            }).appendTo('#button_wrapper_form');
+
+            $("#cancel_event").text("CANCEL");
+            $("#submit_event").text("SUBMIT");
+
+            componentHandler.upgradeDom();
+        });
+    });
+
     $("#stage").on("click", "#cancel_event", function(){
         redirectDialog("Event not submitted.", './index.html');
     });
 
-    $("#stage").on("submit", "#event_form", function (event) {
+    $("#stage").on("click", "#submit_event", function (event) {
 
         event.preventDefault();
 

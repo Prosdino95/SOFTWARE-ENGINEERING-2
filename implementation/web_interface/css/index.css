@@ -48,11 +48,28 @@
     padding-left: 4px;
 }
 
-@media(max-width: 320px) {
+@media(max-width: 480px) {
     .drawer_text{
         font-size: 6vmax;
     }
+
+    .drawer_avatar {
+        height: 20vmax;
+        width: 20vmax;
+    }
 }
+
+@media(max-width: 800px) {
+    .drawer_text{
+        font-size: 6vmax;
+    }
+
+    .drawer_avatar {
+        height: 20vmax;
+        width: 20vmax;
+    }
+}
+
 
 .trav-separetor {
     height: 1px;
@@ -66,4 +83,8 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.trav_calendar_header{
+    color: white!important;
 }
