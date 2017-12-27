@@ -9,6 +9,7 @@ services:
      - optimalroute:optimalroute
     environment:
      - RETHINKDB_IP=rethinkdb_user
+     - OPTIMALROUTE_IP=optimalroute
     depends_on:
      - rethinkdb_user
      - optimalroute
@@ -26,6 +27,8 @@ services:
      - VALHALLA_IP=valhalla
     depends_on:
      - valhalla
+    ports:
+     - "6000:8000"
   webinterface:
     image: travlendar_webinterface
     ports:

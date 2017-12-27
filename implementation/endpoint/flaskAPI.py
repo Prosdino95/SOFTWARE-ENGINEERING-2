@@ -4,6 +4,7 @@ from login import login
 from registration import registration
 import profile
 import event
+import route
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -87,6 +88,15 @@ def get_event():
     token = flask.request.args.get('token', '')
     json_list = event.get_event(token)
     return flask.jsonify(json_list)
+
+
+@app.route('/getRoute', methods=['POST'])
+def get_route():
+    ev = flask.request.get_json()
+    token = ev["token"]
+    gps_start = ev["gps_start"]
+    gps_stop = ev["gps_stop"]
+    return route.get_route(token, gps_start, gps_stop)
 
 
 if __name__ == "__main__":
