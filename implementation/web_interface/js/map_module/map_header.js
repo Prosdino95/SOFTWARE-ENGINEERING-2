@@ -3,7 +3,7 @@ function loadMapHeader(){
     // create buttons
     $('<a>', {
         class : "mdl-navigation__link mdl-typography--font-bold",
-        text : "My Events",
+        text : "Month Events",
         id : "map_event_list_link"
     }).appendTo("#header_navigation");
 
