@@ -16,6 +16,11 @@
     padding: 5%;
 }
 
+#map_calendar{
+    padding-top: 5%;
+    min-width: 100%;
+}
+
 @media screen and (max-width: 480px) {
     .map-content-tab{
         weight: 100%;

@@ -34,7 +34,6 @@ $(function (){
                                    "image": data }),
 
             success: function(response) {
-                console.log(response);
                 // if ok, update the picture in drawer too
                 document.querySelector('#avatar').src = data;
 
@@ -52,7 +51,6 @@ $(function (){
 
         event.preventDefault();
         var file = document.querySelector('#url_button').files[0];
-        console.log(file.size);
         var avatar = document.querySelector('#avatar_image');
         var reader = new FileReader();
 

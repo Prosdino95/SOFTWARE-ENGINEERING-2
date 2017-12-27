@@ -10,7 +10,7 @@
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
     justify-content: flex-end;
-    background: url('../res/background.jpg') center;
+    background: url('../../res/background.jpg') center;
 }
 
 .trav-avatar{
@@ -77,11 +77,9 @@
 }
 
 .trav-background {
-    background: url('../res/background-2.jpg') no-repeat center center fixed;
+    background: url('../../res/background-2.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
-
-

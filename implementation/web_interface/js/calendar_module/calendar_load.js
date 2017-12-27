@@ -28,6 +28,7 @@ $(function () {
                 },
 
                 //  locale: initialLocaleCode, NOT IMPLEMENTED
+
                 allDaySlot: false,
                 nowIndicator: true,
                 locale: 'en',
@@ -39,7 +40,7 @@ $(function () {
                 // click on event function
                 eventClick: function (eventClicked) {
                     if(button_timer) {
-                        spawnButtons(eventClicked);
+                        spawnButtons(eventClicked, true);
                         // start timing
                         setTimeout(function () {
                             deleteButtons();

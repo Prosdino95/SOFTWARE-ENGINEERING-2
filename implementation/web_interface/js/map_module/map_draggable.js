@@ -1,4 +1,7 @@
-// Open Layer script
+// global variables
+var draggableMap, draggebleFeature;
+
+// init a Draggable map
 function newMap() {
 
     // Drag and Drop Icons Setup
@@ -76,14 +79,13 @@ function newMap() {
     };
     //------------------------------------------------------------------------//
 
-    // Initial View on Cheers Pub
+    // Initial View on Milano Duomo
     var view = new ol.View({
-        center: [1026971, 5698803],
+        center: [1023046.9213,5694901.1407],
         zoom: 18
     });
 
-    // Init OpenStreetMap map
-    var map = new ol.Map({
+    draggableMap = new ol.Map({
         interactions: ol.interaction.defaults().extend([new app.Drag()]),
         layers: [
             new ol.layer.Tile({
@@ -94,17 +96,17 @@ function newMap() {
         target: 'map'
     });
 
-    // Setup Markers
+    // Setup initial Markers
     var startMarker = createMarker(0);
     var meetingMarker = createMarker(20); //with offset
 
     startMarker.setStyle(getIconStyle("./res/pin.png"));
     meetingMarker.setStyle(getIconStyle("./res/flag_finish.png"));
 
+    // on change update the textfield
     startMarker.on('change', function () {
         $("#starting_location_textfield")[0].MaterialTextfield.change(startMarker.getGeometry().getCoordinates())
     });
-
     meetingMarker.on('change', function () {
         $("#meeting_location_textfield")[0].MaterialTextfield.change(meetingMarker.getGeometry().getCoordinates())
     });
@@ -117,17 +119,17 @@ function newMap() {
         geolocateThisMarker(meetingMarker, view);
     });
 
-    // Final render of the map
+    // init the feature
+    draggebleFeature = new ol.source.Vector({
+        features: [startMarker, meetingMarker]
+    });
+
+    // Render of the map
     new ol.layer.Vector({
-        map: map,
-        source: new ol.source.Vector({
-            features: [startMarker, meetingMarker]
-        })
+        map: draggableMap,
+        source: draggebleFeature
     });
 }
-
-//------------------------------------------------------------------------//
-//  --  Functions
 
 // Geolocate a Marker
 function geolocateThisMarker(marker, view) {
@@ -160,9 +162,42 @@ function getIconStyle(url) {
                 src: url
             }))
     })
+};
+
+// create drag markers of event position
+function createDragMarkers(eventClicked) {
+
+    // coord are saved on Event object as a string: need to parse it!
+    var starting_location = fromStringToCoord(eventClicked.starting_location);
+    var meeting_location = fromStringToCoord(eventClicked.meeting_location);
+
+    // adding markers
+    var startMarker = createFixedMarker(starting_location);
+    var meetingMarker = createFixedMarker(meeting_location);
+
+    startMarker.setStyle(getIconStyle('./res/pin.png'));
+    meetingMarker.setStyle(getIconStyle('./res/flag_finish.png'));
+
+    // delete old markers
+    draggebleFeature.clear();
+
+    // add new markers
+    draggebleFeature = new ol.source.Vector({
+        features: [startMarker, meetingMarker]
+    });
+
+    // update the layers on map
+   var markers =  new ol.layer.Vector({
+        map: draggableMap,
+        source: draggebleFeature
+    });
+
+    // focus position map on markers position
+    var extent = markers.getSource().getExtent();
+    draggableMap.getView().fit(extent, draggableMap.getSize());
 }
 
-// Setup coordinate
+// create dummy initial marker
 function createMarker(offset) {
-    return new ol.Feature(new ol.geom.Point([1026971 + offset, 5698803 + offset]));
+    return new ol.Feature(new ol.geom.Point([1023046.9213 + offset, 5694901.1407 + offset]));
 }

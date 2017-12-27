@@ -8,6 +8,7 @@ $(function() {
 
             $("#TITLE").text("Modify an event");
             deleteCalendarButtons();
+            deleteMapHeader();
             loadSubmitEventHeader();
 
             $('<button>', {
@@ -51,6 +52,7 @@ $(function() {
             $("#alarm_time_textfield")[0].MaterialTextfield.change(modifiedEvent.alarm_timer);
             $("#alarm_message_textfield")[0].MaterialTextfield.change(modifiedEvent.alarm_message);
 
+            createDragMarkers(modifiedEvent);
         });
 
     });

@@ -17,7 +17,7 @@ $(function() {
             data: JSON.stringify( { "email" : email, "password" : pass} ),
             success: function(token) {
 
-            	if(token['token'] != 'none'){
+            	if(token['token'] !== 'none'){
                 	// Saving token in a Cookie
                 	Cookies.json = true;
                 	Cookies.set("session_token", token['token']);

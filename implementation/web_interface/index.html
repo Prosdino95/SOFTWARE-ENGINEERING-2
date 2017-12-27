@@ -12,7 +12,7 @@
 
     <title>Travlendar+</title>
 
-    <!-- CSS importing -->
+    <!-- CSS Libraries -->
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +22,6 @@
 
     <!-- FullCalendar CSS -->
     <link href="css/library/fullcalendar.css" rel="stylesheet">
-    <link href="css/fullcalendar_override.css" rel="stylesheet">
 
     <!-- Material Design CSS-->
     <link href="css/library/material.min.css" rel="stylesheet">
@@ -47,27 +46,33 @@
     <!-- Toastr CSS -->
     <link href="css/library/toastr.min.css" rel="stylesheet">
 
-    <!-- Html imported CSS -->
-    <link href="css/index.css" rel="stylesheet">
-    <link href="css/preferences.css" rel="stylesheet">
-    <link href="css/profile.css" rel="stylesheet">
-    <link href="css/calendar.css" rel="stylesheet">
-    <link href="css/event_submit.css" rel="stylesheet">
-    <link href="css/map.css" rel="stylesheet">
+
+    <!-- Travlendar CSS -->
+
+    <link href="css/travlendar/index.css" rel="stylesheet">
+    <link href="css/travlendar/preferences.css" rel="stylesheet">
+    <link href="css/travlendar/profile.css" rel="stylesheet">
+    <link href="css/travlendar/calendar.css" rel="stylesheet">
+    <link href="css/travlendar/event_submit.css" rel="stylesheet">
+    <link href="css/travlendar/map.css" rel="stylesheet">
+    <link href="css/travlendar/right_drawer.css" rel="stylesheet">
 
 
-
-    <!-- Js importing -->
+    <!-- JS Libraries -->
 
     <!-- jQuery -->
     <script src="js/library/jquery.min.js"></script>
     <script src="js/library/jquery_animation_extend.js"></script>
+
     <!-- jQuery Cookie-->
     <script src="js/library/js.cookie.js"></script>
+
     <!-- jQuery UI -->
     <script src="js/library/jquery-ui.min.js"></script>
+
     <!-- Moment -->
     <script src="js/library/moment.min.js"></script>
+
     <!-- FullCalendar -->
     <script src="js/library/fullcalendar.js"></script>
     <script src="js/library/locale-all.js"></script>
@@ -90,41 +95,45 @@
     <!-- Toastr JS -->
     <script src="js/library/toastr.min.js"></script>
 
+
     <!-- Travlendar+ Scripts -->
 
     <script src="js/change_context.js"></script>
     <script src="js/index_profile.js"></script>
     <script src="js/dialog.js"></script>
 
-
     <!-- Profile Module -->
     <script src="js/profile_module/profile_information.js"></script>
     <script src="js/profile_module/profile_password.js"></script>
     <script src="js/profile_module/profile_image.js"></script>
-    <script src="js/profile_module/profile_preferences.js"></script>
-    <script src="js/profile_module/profile_preferences_header.js"></script>
     <script src="js/profile_module/profile_header.js"></script>
 
+    <!-- Preference Module -->
+    <script src="js/preference_module/preferences.js"></script>
+    <script src="js/preference_module/preferences_header.js"></script>
 
     <!-- Calendar Module -->
     <script src="js/calendar_module/calendar_load.js"></script>
     <script src="js/calendar_module/calendar_buttons.js"></script>
-    <script src="js/calendar_module/event_submit.js"></script>
-    <script src="js/calendar_module/event_delete.js"></script>
-    <script src="js/calendar_module/event_modify.js"></script>
-    <script src="js/calendar_module/event_light_modify.js"></script>
-    <script src="js/calendar_module/event_submit_header.js"></script>
+
+    <!-- Event Module -->
+    <script src="js/event_module/event_submit.js"></script>
+    <script src="js/event_module/event_delete.js"></script>
+    <script src="js/event_module/event_modify.js"></script>
+    <script src="js/event_module/event_light_modify.js"></script>
+    <script src="js/event_module/event_submit_header.js"></script>
 
     <!-- Map Module -->
-    <script src="js/calendar_module/map_load.js"></script>
-    <script src="js/calendar_module/map_show_path.js"></script>
-
+    <script src="js/map_module/map_draggable.js"></script>
+    <script src="js/map_module/map_show_path.js"></script>
+    <script src="js/map_module/map.js"></script>
+    <script src="js/map_module/map_header.js"></script>
+    <script src="js/map_module/map_static.js"></script>
 
 
     <!-- Alarm System-->
     <script src="js/alarm_system/alarm_load.js"></script>
     <script src="js/alarm_system/alarm_notify.js"></script>
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -155,7 +164,7 @@
             </div>
             <div class="trav-info-profile mdl-color-text--blue-grey-500">
                 <i class="mdi mdi-account-circle mdi-24px"></i>
-                    <h4 id="first_name_drawer" class="drawer_text text-center mdl-typography--font-bold"></h4>
+                <h4 id="first_name_drawer" class="drawer_text text-center mdl-typography--font-bold"></h4>
             </div>
         </header>
 
@@ -171,8 +180,8 @@
                     class="mdl-color-text--blue-grey-400 material-icons">person</i>User</a>
             <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="preferences"> <i
                     class="mdl-color-text--blue-grey-400 material-icons">favorite</i>Preferences</a>
-            <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="settings"> <i
-                    class="mdl-color-text--blue-grey-400 material-icons">settings</i>Settings</a>
+     <!--       <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="#" id="settings"> <i
+                    class="mdl-color-text--blue-grey-400 material-icons">settings</i>Settings</a> -->
             <div class="mdl-layout-spacer trav-separetor"></div>
             <a class="mdl-navigation__link mdl-color-text--blue-grey-400" href="homepage.html"><i
                     class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>Exit</a>
@@ -182,6 +191,7 @@
     <main class="mdl-layout__content trav-background">
         <div id="stage"></div>
     </main>
+
 </div>
 
 <!-- Dialog -->
@@ -191,7 +201,9 @@
         <p class="text-center mdl-color-text--blue-grey-700" id="warning_dialog"></p>
     </div>
     <div class="mdl-dialog__actions">
-        <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect close mdl-color-text--indigo-500">Continue</button>
+        <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect close mdl-color-text--indigo-500">
+            Continue
+        </button>
     </div>
 </dialog>
 

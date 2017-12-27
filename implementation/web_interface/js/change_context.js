@@ -32,6 +32,15 @@ $(function (){
 
     });
 
+    $("#maps").click(function(event){
+        event.preventDefault();
+        refresh();
+
+        $("#stage").load("./html/map.html");
+        $("#stage").trigger("map_load");
+        $("#TITLE").text("Map");
+    });
+
     // load preference page
     $("#preferences").click(function(event){
         event.preventDefault();
@@ -52,9 +61,12 @@ $(function (){
     });
 });
 
+// remove dinamic html created
 function refresh(){
     deleteCalendarButtons();
     deleteSubmitEventHeader();
     deleteProfileHeader();
     deletePreferenceHeader();
+    deleteMapHeader();
+    deleteShowPathHeader();
 }

@@ -50,7 +50,9 @@ $(function() {
                                               document.querySelector('#notificate_tel_checkbox').MaterialCheckbox.uncheck();
 
                     //update profile image
-                    document.querySelector('#avatar_image').src = profile['image'];
+                    if(profile['image']) {
+                        document.querySelector('#avatar_image').src = profile['image'];
+                    }
                     componentHandler.upgradeDom();
                 },
                 error: function(error) {

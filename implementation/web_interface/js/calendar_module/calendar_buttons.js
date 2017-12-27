@@ -96,7 +96,7 @@ function deleteCalendarButtons(){
 
 
 // create button for submit delete and modify event
-function spawnButtons(eventClicked) {
+function spawnButtons(eventClicked, position_flag) {
 
     passModifyID(eventClicked);
     passRemoveID(eventClicked);
@@ -118,11 +118,13 @@ function spawnButtons(eventClicked) {
         id: 'delete_button'
     }).appendTo('#button_wrapper');
 
-    $('<button>', {
-        class: 'mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ' +
-        'add_button animated mdi mdi-map-marker mdl-color-text--white mdl-shadow--2dp',
-        id: 'map_button'
-    }).appendTo('#button_wrapper');
+    if(position_flag) {
+        $('<button>', {
+            class: 'mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ' +
+            'add_button animated mdi mdi-map-marker mdl-color-text--white mdl-shadow--2dp',
+            id: 'map_button'
+        }).appendTo('#button_wrapper');
+    }
 
     $('#modify_button').animateCss('bounceIn', function(){
     });

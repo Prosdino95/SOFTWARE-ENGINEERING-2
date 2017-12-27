@@ -17,7 +17,6 @@ function dialog(text, title, url){
     });
 }
 
-
 // Spawn Dialog which redirect navigation
 function redirectDialog(text, url) {
     dialog(text, false, url);
