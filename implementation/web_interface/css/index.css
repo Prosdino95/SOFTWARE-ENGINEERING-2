@@ -70,7 +70,6 @@
     }
 }
 
-
 .trav-separetor {
     height: 1px;
     background-color: #78909C;
@@ -85,6 +84,4 @@
     background-size: cover;
 }
 
-.trav_calendar_header{
-    color: white!important;
-}
+

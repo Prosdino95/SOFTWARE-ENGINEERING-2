@@ -5,6 +5,8 @@ $(function() {
     $("#preferences").click(function(event){
         event.preventDefault();
 
+        // setting header
+        loadPreferenceHeader();
         //get token from cookie
         Cookies.json = true;  // important
         var token = Cookies.get("session_token");

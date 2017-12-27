@@ -14,42 +14,50 @@ $(function() {
     $("#profile").click(function(event){
         event.preventDefault();
 
-        //get token from cookie
-        Cookies.json = true;  // important
-        var token = Cookies.get("session_token");
+        $('document').ready(function(){
 
-        // Post request
-        $.ajax({
-            url: 'http://127.0.0.1:5000/getProfile?token='+token,
-            success: function(response) {
 
-                var profile = response['profile'];
-                $("#first_name_textfield")[0].MaterialTextfield.change(profile['first_name']);
-                $("#last_name_textfield")[0].MaterialTextfield.change(profile['last_name']);
-                $("#email_textfield")[0].MaterialTextfield.change(profile['email']);
-                $("#cellphone_textfield")[0].MaterialTextfield.change(profile['cellphone']);
+            // create Profile Header
+            loadProfileHeader();
 
-                switch (profile['gender']) {
-                    case "male":
-                        document.querySelector('#gender_radio_male').MaterialRadio.check();
-                        break;
-                    case "female":
-                        document.querySelector('#gender_radio_female').MaterialRadio.check();
-                        break;
-                    default:
-                        document.querySelector('#gender_radio_male').MaterialRadio.uncheck();
-                        document.querySelector('#gender_radio_female').MaterialRadio.uncheck();
+            //get token from cookie
+            Cookies.json = true;  // important
+            var token = Cookies.get("session_token");
+
+            // Post request
+            $.ajax({
+                url: 'http://127.0.0.1:5000/getProfile?token='+token,
+                success: function(response) {
+
+                    var profile = response['profile'];
+                    $("#first_name_textfield")[0].MaterialTextfield.change(profile['first_name']);
+                    $("#last_name_textfield")[0].MaterialTextfield.change(profile['last_name']);
+                    $("#email_textfield")[0].MaterialTextfield.change(profile['email']);
+                    $("#cellphone_textfield")[0].MaterialTextfield.change(profile['cellphone']);
+
+                    switch (profile['gender']) {
+                        case "male":
+                            document.querySelector('#gender_radio_male').MaterialRadio.check();
+                            break;
+                        case "female":
+                            document.querySelector('#gender_radio_female').MaterialRadio.check();
+                            break;
+                        default:
+                            document.querySelector('#gender_radio_male').MaterialRadio.uncheck();
+                            document.querySelector('#gender_radio_female').MaterialRadio.uncheck();
+                    }
+                    (profile['notify_tel'])?  document.querySelector('#notificate_tel_checkbox').MaterialCheckbox.check() :
+                                              document.querySelector('#notificate_tel_checkbox').MaterialCheckbox.uncheck();
+
+                    //update profile image
+                    document.querySelector('#avatar_image').src = profile['image'];
+                    componentHandler.upgradeDom();
+                },
+                error: function(error) {
+                    errorDialog(error);
                 }
-                (profile['notify_tel'])?  document.querySelector('#notificate_tel_checkbox').MaterialCheckbox.check() :
-                                          document.querySelector('#notificate_tel_checkbox').MaterialCheckbox.uncheck();
+            });
 
-                //update profile image
-                document.querySelector('#avatar_image').src = profile['image'];
-                componentHandler.upgradeDom();
-            },
-            error: function(error) {
-                errorDialog(error);
-            }
         });
     });
 
@@ -66,10 +74,10 @@ $(function() {
         var last_name = render_text($('#last_name').val());
         var cellphone = $('#cellphone').val();
         var gender = $('input[name = gender]:checked').val();
-        var notify_tel = $('input[id = notificate-tel]').prop("checked");
 
         // NOT IMPLEMENTED YET
         // var email = $('#email').val();
+        //  var notify_tel = $('input[id = notificate-tel]').prop("checked");
         // var notify_email = $('input[id = notificate-email]:checked').val();
 
         // Post request to /modProfile

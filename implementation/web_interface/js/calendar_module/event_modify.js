@@ -8,6 +8,7 @@ $(function() {
 
             $("#TITLE").text("Modify an event");
             deleteCalendarButtons();
+            loadSubmitEventHeader();
 
             $('<button>', {
                 class: 'mdl-button mdl-js-button mdl-button mdl-button--raised mdl-js-ripple-effect',

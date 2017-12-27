@@ -64,6 +64,7 @@ $(function () {
             });
 
             // add prev and next button
+            addingHeaderButtons();
             setControlButton();
 
             // NOT IMPLEMENTED
