@@ -36,7 +36,7 @@ $(function() {
             type: 'post',
             data: JSON.stringify( { "first_name": first_name, "last_name": last_name, "password": pass, "email": email } ),
             success: function(response) {
-                (response == 'ok')? redirectDialog("Registration completed successfully!", "./homepage.html"): errorDialog("Registration failed");
+                (response === 'ok')? redirectDialog("Registration completed successfully!", "./homepage.html"): errorDialog("Registration failed");
             },
 
             error: function(error) {

@@ -20,9 +20,9 @@ $(function() {
                     if(key != "green_mode")
                         (preference[key])?  document.querySelector('#'+key).MaterialIconToggle.check() :
                                             document.querySelector('#'+key).MaterialIconToggle.uncheck();
-                    else 
+                    else
                         (preference[key])?  document.querySelector('#green_mode').MaterialSwitch.on() :
-                                            document.querySelector('#green_mode').MaterialSwitch.off() ;                 
+                                            document.querySelector('#green_mode').MaterialSwitch.off() ;
                 });
 
                 componentHandler.upgradeDom();

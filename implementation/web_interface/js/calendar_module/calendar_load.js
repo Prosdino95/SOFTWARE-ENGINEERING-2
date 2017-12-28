@@ -64,7 +64,7 @@ $(function () {
                 }
             });
 
-            // add prev and next button
+            // add prev, next and header buttons
             addingHeaderButtons();
             setControlButton();
 

@@ -81,7 +81,8 @@ function newMap() {
 
     // Initial View on Milano Duomo
     var view = new ol.View({
-        center: [1023046.9213,5694901.1407],
+        projection: 'EPSG:4326',
+        center: [9.1900, 45.4641], //default EPSG:3857: [1023046.9213,5694901.1407]
         zoom: 18
     });
 
@@ -98,7 +99,7 @@ function newMap() {
 
     // Setup initial Markers
     var startMarker = createMarker(0);
-    var meetingMarker = createMarker(20); //with offset
+    var meetingMarker = createMarker(0.0100); //with offset
 
     startMarker.setStyle(getIconStyle("./res/pin.png"));
     meetingMarker.setStyle(getIconStyle("./res/flag_finish.png"));
@@ -125,10 +126,14 @@ function newMap() {
     });
 
     // Render of the map
-    new ol.layer.Vector({
+   var markers = new ol.layer.Vector({
         map: draggableMap,
         source: draggebleFeature
     });
+
+    // focus position map on markers position
+    var extent = markers.getSource().getExtent();
+    draggableMap.getView().fit(extent, draggableMap.getSize());
 }
 
 // Geolocate a Marker
@@ -199,5 +204,5 @@ function createDragMarkers(eventClicked) {
 
 // create dummy initial marker
 function createMarker(offset) {
-    return new ol.Feature(new ol.geom.Point([1023046.9213 + offset, 5694901.1407 + offset]));
+    return new ol.Feature(new ol.geom.Point([9.1900 + offset, 45.4641 + offset]));
 }

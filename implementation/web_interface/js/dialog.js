@@ -12,9 +12,17 @@ function dialog(text, title, url){
         if(url) {
             // redirect navigation
             window.location = url;
+            resetDialog();
+            dialog.close();
         }
+        resetDialog();
         dialog.close();
     });
+}
+
+function resetDialog(){
+    $("#warning_dialog").text("");
+    $("#warning_title").text("");
 }
 
 // Spawn Dialog which redirect navigation
