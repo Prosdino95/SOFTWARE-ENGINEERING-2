@@ -1,0 +1,12 @@
+{
+  "type" : "object",
+  "properties": {
+      "range_min" : {"type": "string"},
+      "range_max":{"type": "string"},
+      "starting_flexible_day":{"type": "string"},
+      "ending_flexible_day":{"type": "string"},
+      "duration_event":{"type": "number"},
+      },
+  "required":["token", "range_max", "starting_flexible_day", "ending_flexible_day", "duration_event"],
+  "additionalProperties": false
+}

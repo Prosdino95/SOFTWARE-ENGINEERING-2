@@ -1,0 +1,10 @@
+{
+  "type" : "object",
+  "properties": {
+      "token" : {"type": "string"},
+      "gps_start":{"type": "string"},
+      "gps_stop":{"type": "string"}
+      },
+  "required":["token", "gps_start", "gps_stop"],
+  "additionalProperties": false
+}

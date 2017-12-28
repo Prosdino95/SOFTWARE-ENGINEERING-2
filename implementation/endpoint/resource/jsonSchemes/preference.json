@@ -1,0 +1,20 @@
+{
+  "type" : "object",
+  "properties": {
+      "airplane": {"type": "boolean"},
+      "bike": {"type": "boolean"},
+      "bike_sharing": {"type": "boolean"} ,
+      "car": {"type": "boolean"} ,
+      "car_sharing": {"type": "boolean"} ,
+      "foot": {"type": "boolean"} ,
+      "green_mode": {"type": "boolean"} ,
+      "public_transport": {"type": "boolean"} ,
+      "train": {"type": "boolean"}
+      },
+  "required":["token"],
+  "additionalProperties": false
+}
+
+
+
+

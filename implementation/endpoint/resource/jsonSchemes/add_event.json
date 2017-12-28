@@ -1,0 +1,17 @@
+{
+  "type" : "object",
+  "properties": {
+      "token": {"type": "string"},
+      "title": {"type": "string"},
+      "start": {"type": "string", "format": "date"},
+      "end": {"type": "string", "format": "date"},
+      "color": {"type": "string"},
+      "starting_location": {"type" : "string"},
+      "meeting_location": {"type" : "string"},
+      "alarm_timer": {"type" : "string"},
+      "alarm_message": {"type": "string"}
+      },
+  "required":["token", "title", "start", "end", "color", "starting_location", "meeting_location",
+      "alarm_timer", "alarm_message"],
+  "additionalProperties": false
+}
