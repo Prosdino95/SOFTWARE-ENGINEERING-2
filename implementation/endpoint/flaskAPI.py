@@ -102,7 +102,7 @@ def get_route():
 
 # API for flexible lunch
 @app.route('/flexibleLunch', methods=['POST'])
-def registration_api():
+def flexicle_lunch_api():
     user = flask.request.get_json()
     return set_lunch(user)
 
