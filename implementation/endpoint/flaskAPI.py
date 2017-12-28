@@ -94,8 +94,8 @@ def get_event():
 def get_route():
     ev = flask.request.get_json()
     token = ev["token"]
-    gps_start = ev["gps_start"]
-    gps_stop = ev["gps_stop"]
+    gps_start = ev["starting_location"]
+    gps_stop = ev["meeting_location"]
     return route.get_route(token, gps_start, gps_stop)
 
 
