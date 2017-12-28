@@ -11,6 +11,7 @@ def set_lunch(option):
     del option["token"]
     r.table("user").get(email).update({"lunch": option}).run()
     create_lunch(email)
+    return "event added"
 
 
 def create_lunch(email):

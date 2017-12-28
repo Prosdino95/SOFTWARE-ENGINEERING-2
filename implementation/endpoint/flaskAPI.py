@@ -5,6 +5,7 @@ from registration import registration
 import profile
 import event
 import route
+from flexible_lunch import set_lunch
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -97,6 +98,13 @@ def get_route():
     gps_start = ev["starting_location"]
     gps_stop = ev["meeting_location"]
     return route.get_route(token, gps_start, gps_stop)
+
+
+# API for flexible lunch
+@app.route('/flexibleLunch', methods=['POST'])
+def registration_api():
+    user = flask.request.get_json()
+    return set_lunch(user)
 
 
 if __name__ == "__main__":
