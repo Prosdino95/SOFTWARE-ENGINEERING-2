@@ -12,7 +12,10 @@ $(function(){
     });
 
     // ajax post to submit flexible event button
-    $("#stage").on('submit', '#flexible_event_form', function () {
+    $("#stage").on('submit', '#flexible_event_form', function (event) {
+
+    	event.preventDefault();
+
         //get token from cookie
         Cookies.json = true;  // important
         var token = Cookies.get("session_token");

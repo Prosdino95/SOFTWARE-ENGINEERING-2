@@ -22,13 +22,14 @@ def set_lunch(event):
 
 def create_lunch(event):
     email = token_query(event["token"])
-    starting_time = time(lunch_event["range_min"])
-    starting_day = datetime.strptime(event["starting_flexible_day"], "%Y-%m-%d %H:%M+00:00").\
+    starting_time = datetime.strptime(event["range_min"], "%H:%M")
+    starting_day = datetime.strptime(event["starting_flexible_day"], "%Y-%m-%d").\
         replace(hour=starting_time.hour, minute=starting_time.minute)
-    ending_day = datetime.strptime(event["ending_flexible_day"], "%Y-%m-%d %H:%M+00:00")
+    ending_day = datetime.strptime(event["ending_flexible_day"], "%Y-%m-%d")
     for timestamp in datespan(starting_day, ending_day):
         start = timestamp
-        end = start + timedelta(event["duration"])
+        end = start + timedelta(hours=datetime.strptime(event["duration_event"], "%H:%M").hour,
+                                minutes=datetime.strptime(event["duration_event"], "%H:%M").minute)
         create_lunch_event(start, end, email)
 
 
@@ -43,7 +44,9 @@ def create_lunch_event(start, end, email):
 def rearrange_lunch(lunch, e):
     end_lunch_time = time(hour=datetime.strptime(lunch["range_max"], "%H:%M").hour,
                           minute=datetime.strptime(lunch["range_max"], "%H:%M").minute)
-    new_end = datetime.strptime(e["end"], "%Y-%m-%d %H:%M+00:00") + timedelta(lunch["duration_event"])
+    new_end = datetime.strptime(e["end"], "%Y-%m-%d %H:%M+00:00") + \
+        timedelta(hours=datetime.strptime(lunch["duration_event"], "%H:%M").hour,
+                  minutes=datetime.strptime(lunch["duration_event"], "%H:%M").minute)
     new_end = new_end.strftime("%Y-%m-%d %H:%M+00:00")
     lunch_end = time(hour=datetime.strptime(new_end, "%Y-%m-%d %H:%M+00:00").hour,
                      minute=datetime.strptime(new_end, "%Y-%m-%d %H:%M+00:00").minute)
@@ -58,6 +61,6 @@ def rearrange_lunch(lunch, e):
 
 def datespan(start_date, end_date, delta=timedelta(days=1)):
     current_date = start_date
-    while current_date < end_date:
+    while current_date <= end_date:
         yield current_date
         current_date += delta
