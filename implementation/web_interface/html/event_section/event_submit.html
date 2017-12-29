@@ -63,12 +63,13 @@
         <!-- Event informations -->
         <div id="event-panel">
             <div class="table-responsive">
-                <table class="mdl-data-table mdl-shadow--2dp trav-content-tab">
+                <table class="mdl-data-table mdl-shadow--2dp trav-content-tab" id="submit_event_table">
                     <thead>
                     <th><span class="mdi mdi-application"> </span>EVENT PROPERTY</a></th>
                     </thead>
 
-                    <tbody>
+                    <tbody id="body_submit_form">
+                    <tr>
                         <td class="mdl-data-table__cell--non-numeric">
                             Title
                         </td>
@@ -121,10 +122,21 @@
                             </div>
                         </td>
                     </tr>
-
+                    <!--<tr id = "table_line_flexible">
+                        <td class="mdl-data-table__cell--non-numeric">
+                            Flexible Event
+                        </td>
+                        <td>
+                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                   id="flexible_event_checkbox" for="flexible_event">
+                                <span class="mdl-checkbox__label mdi-24px"></span>
+                                <input type="checkbox" id="flexible_event" class="mdl-checkbox__input" value=true>
+                            </label>
+                        </td>
+                    </tr>-->
                     <tr>
                         <td class="mdl-data-table__cell--non-numeric">
-                            TypeProfile
+                            Type of Event
                         </td>
 
                         <td class="mdl-data-table__cell--non-numeric">
@@ -157,6 +169,13 @@
                                         </span>
                                     </label>
                                 </li>
+                                <li class="mdl-list__item" id="flexible_event_label">
+                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-color-text--blue-grey-700"
+                                           id="flexible_event_checkbox" for="flexible_event">
+                                        <span class="mdl-checkbox__label mdi-24px"></span>
+                                        <input type="checkbox" id="flexible_event" class="mdl-checkbox__input" value=true>Flexible Event
+                                    </label>
+                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -174,20 +193,6 @@
                             </td>
                         </tr>
                        -->
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">
-                            Flexible
-                        </td>
-                        <td>
-                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
-                                   id="flexible_event_checkbox" for="flexible_event">
-                                <span class="mdl-checkbox__label mdi-24px"></span>
-                                <input type="checkbox" id="flexible_event" class="mdl-checkbox__input" value="ON">
-                            </label>
-                        </td>
-                    </tr>
-
-                    <tr id="ghost_flexible"></tr>
                     </tbody>
                 </table>
             </div>

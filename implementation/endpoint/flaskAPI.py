@@ -123,8 +123,8 @@ def get_route():
         post_check.get_route(ev)
     except Exception: return "Bad Request"
     token = ev["token"]
-    gps_start = ev["gps_start"]
-    gps_stop = ev["gps_stop"]
+    gps_start = ev["starting_location"]
+    gps_stop = ev["meeting_location"]
     return route.get_route(token, gps_start, gps_stop)
 
 
@@ -137,7 +137,6 @@ def flexible_lunch_api():
     except Exception: return "Bad Request"
     set_lunch(event)
     return "event added"
-
 
 if __name__ == "__main__":
     app.run()
