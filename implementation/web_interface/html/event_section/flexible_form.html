@@ -1,0 +1,135 @@
+<tbody>
+    <tr>
+        <td class="mdl-data-table__cell--non-numeric">
+            Title
+        </td>
+        <td>
+            <div class="mdl-textfield mdl-js-textfield" id="event_title_textfield">
+                <input class="mdl-textfield__input" maxlength="20" id="event_title" type="text"
+                       required>
+                <label class="mdl-textfield__label" for="event_title">Title...</label>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="mdl-data-table__cell--non-numeric">
+            First Event Day
+        </td>
+        <td class="mdl-data-table__cell--non-numeric">
+            <div class="mdl-textfield mdl-js-textfield" id="starting_flexible_day_textfield">
+                <input class="mdl-textfield__input date_form" id="starting_flexible_day" type="text" required>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="mdl-data-table__cell--non-numeric">
+            Last Event Day
+        </td>
+        <td class="mdl-data-table__cell--non-numeric">
+            <div class="mdl-textfield mdl-js-textfield" id="ending_flexible_day_textfield">
+                <input class="mdl-textfield__input date_form" id="ending_flexible_day" type="text" required>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="mdl-data-table__cell--non-numeric">
+            Minimum Flexible Time Start
+        </td>
+        <td class="mdl-data-table__cell--non-numeric">
+            <div class="mdl-textfield mdl-js-textfield input-group date" id="range_min_textfield">
+                <input class="mdl-textfield__input time_form" id="range_min" type="text" required>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="mdl-data-table__cell--non-numeric">
+            Maximum Flexible Time Start
+        </td>
+        <td class="mdl-data-table__cell--non-numeric">
+            <div class="mdl-textfield mdl-js-textfield input-group date" id="range_max_textfield">
+                <input class="mdl-textfield__input time_form" id="range_max" type="text" required>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="mdl-data-table__cell--non-numeric">
+            Duration of the Event
+        </td>
+        <td class="mdl-data-table__cell--non-numeric">
+            <div class="mdl-textfield mdl-js-textfield input-group date" id="duration_event_textfield">
+                <input class="mdl-textfield__input" id="duration_event" type="text" required>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="mdl-data-table__cell--non-numeric">
+            Flexible Event
+        </td>
+        <td>
+            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                   id="flexible_event_checkbox" for="flexible_event">
+                <span class="mdl-checkbox__label mdi-24px"></span>
+                <input type="checkbox" id="flexible_event" class="mdl-checkbox__input" value=true checked>
+            </label>
+        </td>
+    </tr>
+</tbody>
+
+<script>
+    $("document").ready(function () {
+        componentHandler.upgradeDom();
+
+        // 24:00 format
+        $('.time_form').datetimepicker({
+            format: 'HH:mm'
+        });
+
+        // fullcalendar date format accepted - ISO8601
+        $('.date_form').datetimepicker({
+            format: 'YYYY-MM-DD'
+        });
+
+        // don't let user select invalid end day
+        $('#starting_flexible_day').on("dp.change", function (e) {
+            $("#ending_flexible_day").data("DateTimePicker").minDate(e.date);
+            $("#ending_flexible_day").data("DateTimePicker").clear(); // restart over
+        });
+
+        // don't let user select invalid start day
+        $('#ending_flexible_day').on("dp.change", function (e) {
+            $("#starting_flexible_day").data("DateTimePicker").maxDate(e.date);
+        });
+
+        // don't let user select invalid end day
+        $('#range_min').on("dp.change", function (e) {
+            $("#range_max").data("DateTimePicker").minDate(e.date);
+            $("#range_max").data("DateTimePicker").clear(); // restart over
+        });
+
+        // don't let user select invalid start day
+        $('#range_max').on("dp.change", function (e) {
+            $("#range_min").data("DateTimePicker").maxDate(e.date);
+        });
+
+        // don't let user select invalid end hour if one day event
+        $('#range_min').on("dp.change", function (e) {
+            if ($("#starting_flexible_day").val() === $("#ending_flexible_day").val()) {
+                $("#range_max").data("DateTimePicker").minDate(e.date);
+                $("#range_max").data("DateTimePicker").clear(); // restart over
+                $("#range_max").data("DateTimePicker").maxDate(moment("23:59", "HH:mm"));
+            }
+        });
+
+        // duration time picker
+        $('#duration_event').datetimepicker({
+            format: 'HH:mm',
+            stepping: 5,
+            minDate: moment("00:30", "HH:mm"),
+            maxDate: moment("23:59", "HH:mm")
+        });
+        $('#duration_event').val("00:30");
+    });
+</script>

@@ -19,36 +19,14 @@ $(function () {
     // load submit event page
     $("#stage").on("click", "#add_event", function (event) {
         event.preventDefault();
-        $("#stage").load("./html/event_section/event_submit.html", function(){
-
-            $("#TITLE").text("Submit a new event");
-            deleteCalendarButtons();
-            loadSubmitEventHeader();
-            deleteMapHeader();
-
-            $('<button>', {
-                class: 'mdl-button mdl-js-button mdl-button mdl-button--raised mdl-js-ripple-effect',
-                id: 'cancel_event',
-            }).appendTo('#button_wrapper_form');
-
-            $('<button>', {
-                class: 'mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect',
-                id: 'submit_event',
-             //   type: 'submit'
-            }).appendTo('#button_wrapper_form');
-
-            $("#cancel_event").text("CANCEL");
-            $("#submit_event").text("SUBMIT");
-
-            componentHandler.upgradeDom();
-        });
+        initSubmitForm();
     });
 
     $("#stage").on("click", "#cancel_event", function(){
         redirectDialog("Event not submitted.", './index.html');
     });
 
-    $("#stage").on("click", "#submit_event", function (event) {
+    $("#stage").on("submit", "#event_form", function (event) {
 
         event.preventDefault();
 
@@ -63,7 +41,6 @@ $(function () {
         var start = $("#start_day").val() + " " + (starting_time ? starting_time : "00:00") + "+00:00";
         var end = $("#end_day").val() + " " + (ending_time ? ending_time : "00:00") + "+00:00";
         var color = colorfy();
-        var flexible = $('input[id = flexible_event]').prop("checked");
 
         // obtain choord of the event
         var starting_location = $("#starting_location").val();
@@ -98,3 +75,28 @@ $(function () {
         });
     });
 });
+    function initSubmitForm(){
+        $("#stage").load("./html/event_section/event_submit.html", function(){
+
+            $("#TITLE").text("Submit a new event");
+            deleteCalendarButtons();
+            loadSubmitEventHeader();
+            deleteMapHeader();
+
+            $('<button>', {
+                class: 'mdl-button mdl-js-button mdl-button mdl-button--raised mdl-js-ripple-effect',
+                id: 'cancel_event',
+            }).appendTo('#button_wrapper_form');
+
+            $('<button>', {
+                class: 'mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect',
+                id: 'submit_event',
+                type: 'submit'
+            }).appendTo('#button_wrapper_form');
+
+            $("#cancel_event").text("CANCEL");
+            $("#submit_event").text("SUBMIT");
+
+            componentHandler.upgradeDom();
+        });
+    }
