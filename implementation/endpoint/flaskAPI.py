@@ -106,6 +106,5 @@ def flexible_api():
     user = flask.request.get_json()
     return set_lunch(user)
 
-
 if __name__ == "__main__":
     app.run()
