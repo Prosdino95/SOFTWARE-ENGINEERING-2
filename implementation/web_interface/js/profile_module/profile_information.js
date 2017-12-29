@@ -16,7 +16,6 @@ $(function() {
 
         $('document').ready(function(){
 
-
             // create Profile Header
             loadProfileHeader();
 
@@ -64,7 +63,7 @@ $(function() {
     });
 
     // Submit new profile information -- delegate to descendants
-    $("#stage").on("click", "#submit_info", function (event){
+    $("#stage").on("submit", "#information-panel", function (event){
 
         event.preventDefault();
 
@@ -90,7 +89,7 @@ $(function() {
             type: 'post',
             data: JSON.stringify( { "token" : token,
                                     "first_name": first_name, "last_name": last_name,
-                                    "cellphone" : cellphone, "gender" : gender, "notify_tel" : notify_tel} ),
+                                    "cellphone" : cellphone, "gender" : gender} ),
 
             success: function(response) {
 

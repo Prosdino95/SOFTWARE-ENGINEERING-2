@@ -12,22 +12,31 @@ function dialog(text, title, url){
         if(url) {
             // redirect navigation
             window.location = url;
+            dialog.close();
         }
         dialog.close();
     });
 }
 
+function resetDialog(){
+    $("#warning_dialog").text("");
+    $("#warning_title").text("");
+}
+
 // Spawn Dialog which redirect navigation
 function redirectDialog(text, url) {
+    resetDialog();
     dialog(text, false, url);
 }
 
 //Spawn Error Dialog
 function errorDialog(text){
+    resetDialog();
     dialog(text, 'Error', false);
 }
 
 //Spawn warning dialog
 function submitDialog(text){
-   dialog(text, false, false);
+    resetDialog();
+    dialog(text, false, false);
 }
