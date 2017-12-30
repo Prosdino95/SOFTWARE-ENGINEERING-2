@@ -18,7 +18,6 @@ $(function (){
 
         $("#stage").load("./html/welcome.html");
         $("#TITLE").text("Home");
-
     });
 
     // load calendar page
@@ -26,19 +25,14 @@ $(function (){
         event.preventDefault();
         refresh();
 
-        $("#stage").load("./html/calendar.html");
         $("#stage").trigger("calendar_load");
-        $("#TITLE").text("Calendar");
-
     });
 
     $("#maps").click(function(event){
         event.preventDefault();
         refresh();
 
-        $("#stage").load("./html/map.html");
         $("#stage").trigger("map_load");
-        $("#TITLE").text("Map");
     });
 
     // load preference page
@@ -46,8 +40,7 @@ $(function (){
         event.preventDefault();
         refresh();
 
-        $("#stage").load("./html/preferences.html");
-        $("#TITLE").text("Preferences");
+        $("#stage").trigger("preference_load");
     });
 
     // load profile page
@@ -55,9 +48,7 @@ $(function (){
         event.preventDefault();
         refresh();
 
-        $("#stage").load("./html/profile.html");
-        $("#TITLE").text("Profile");
-
+        $("#stage").trigger("profile_load");
     });
 });
 
@@ -69,4 +60,7 @@ function refresh(){
     deletePreferenceHeader();
     deleteMapHeader();
     deleteShowPathHeader();
+
+    // scroll to top page
+    $('document').scrollTop(0);
 }

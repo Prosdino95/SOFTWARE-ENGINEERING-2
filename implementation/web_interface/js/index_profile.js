@@ -12,7 +12,7 @@ function get_profile() {
     Cookies.json = true;  // important
     var token = Cookies.get("session_token");
 
-    // Post request
+    // get request
     $.ajax({
         url: 'http://127.0.0.1:5000/getProfile?token=' + token,
         success: function (response) {

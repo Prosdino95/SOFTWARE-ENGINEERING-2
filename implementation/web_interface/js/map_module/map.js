@@ -1,13 +1,12 @@
-
 // full calendar on right drawer
 $(function () {
 
     $("#stage").on("map_load", function (event) {
 
-        // refresh the map
-        passEventRoute(null);
-
-        $("document").ready(function () {
+        $("#TITLE").text("Map");
+        $("#stage").load("./html/map.html", function () {
+            // refresh the map
+            passEventRoute(null);
 
             // load the headers
             loadMapHeader();
@@ -47,7 +46,7 @@ $(function () {
                 // click on event and update the map
                 eventClick: function (eventClicked) {
 
-                    if(button_timer) {
+                    if (button_timer) {
                         // update the map
                         passEventRoute(eventClicked);
                         addEventPositionMarker();

@@ -6,11 +6,9 @@
       "last_name": {"type": "string"},
       "cellphone" : {"type": "string"},
       "gender" : {"type": "string"},
-      "notify_tel" : {"type": "boolean"}
+      "notify_tel" : {"type": "boolean"},
+      "image": {"type": "string"}
       },
   "required":["token"],
   "additionalProperties": false
 }
-
-
-

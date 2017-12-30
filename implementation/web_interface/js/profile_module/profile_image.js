@@ -25,6 +25,9 @@ $(function (){
             throw error;
         }
 
+        // show loading page
+        showLoading();
+
         $.ajax({
             url: 'http://127.0.0.1:5000/modProfile',
             dataType: 'text',
@@ -34,6 +37,10 @@ $(function (){
                                    "image": data }),
 
             success: function(response) {
+
+                //hide loading page
+                hideLoading();
+
                 // if ok, update the picture in drawer too
                 document.querySelector('#avatar').src = data;
 
@@ -54,8 +61,8 @@ $(function (){
         var avatar = document.querySelector('#avatar_image');
         var reader = new FileReader();
 
-        // max 1 Mb
-        if(file.size > 1000000){
+        // max 10 Mb
+        if(file.size > 10000000){
 
             // Show a friendly event_section
             errorDialog("Image too bigger");

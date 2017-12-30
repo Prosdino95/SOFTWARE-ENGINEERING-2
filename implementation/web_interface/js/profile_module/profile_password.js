@@ -29,6 +29,9 @@ $(function() {
             throw error;
         }
 
+        //show loading page
+        showLoading();
+
         // ajax post request
         $.ajax({
             url: 'http://127.0.0.1:5000/modProfilePassword',
@@ -39,6 +42,10 @@ $(function() {
                 "current_password": current_password, "new_password": new_password} ),
 
             success: function(response) {
+
+                // hide loading page
+                hideLoading();
+
                 // Show a friendly event_section
                 submitDialog("Password updated correctly.", "");
             },

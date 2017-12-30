@@ -58,7 +58,8 @@ $(function() {
 
     });
 
-    $("#stage").on('click', '#cancel_modify', function(){
+    $("#stage").on('click', '#cancel_modify', function(event){
+        event.preventDefault();
         redirectDialog("Changes were not submitted.", './index.html');
     });
 
@@ -84,6 +85,9 @@ $(function() {
         Cookies.json = true;  // important
         var token = Cookies.get("session_token");
 
+        // show loading screen
+        showLoading();
+
         // Post request to /addEvent
         $.ajax({
             url: 'http://127.0.0.1:5000/modEvent',
@@ -99,6 +103,9 @@ $(function() {
             }), // Alarm
 
             success: function (response) {
+
+                //hide loading
+                hideLoading();
 
                 // Show a friendly event_section
                 redirectDialog("Event modified correctly.", './index.html');

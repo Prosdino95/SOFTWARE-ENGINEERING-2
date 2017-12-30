@@ -3,18 +3,17 @@
 */
 
 // format correctly the text showed on the screen
-function render_text(string){
+function render_text(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
 }
 
 // main function
-$(function() {
+$(function () {
 
     // Update the input field information value quering the database
-    $("#profile").click(function(event){
-        event.preventDefault();
-
-        $('document').ready(function(){
+    $("#stage").on("profile_load", function () {
+        $("#TITLE").text("Profile");
+        $("#stage").load("./html/profile.html", function () {
 
             // create Profile Header
             loadProfileHeader();
@@ -25,8 +24,8 @@ $(function() {
 
             // Post request
             $.ajax({
-                url: 'http://127.0.0.1:5000/getProfile?token='+token,
-                success: function(response) {
+                url: 'http://127.0.0.1:5000/getProfile?token=' + token,
+                success: function (response) {
 
                     var profile = response['profile'];
                     $("#first_name_textfield")[0].MaterialTextfield.change(profile['first_name']);
@@ -45,25 +44,25 @@ $(function() {
                             document.querySelector('#gender_radio_male').MaterialRadio.uncheck();
                             document.querySelector('#gender_radio_female').MaterialRadio.uncheck();
                     }
-                    (profile['notify_tel'])?  document.querySelector('#notificate_tel_checkbox').MaterialCheckbox.check() :
-                                              document.querySelector('#notificate_tel_checkbox').MaterialCheckbox.uncheck();
+                    (profile['notify_tel']) ? document.querySelector('#notificate_tel_checkbox').MaterialCheckbox.check() :
+                        document.querySelector('#notificate_tel_checkbox').MaterialCheckbox.uncheck();
 
                     //update profile image
-                    if(profile['image']) {
+                    if (profile['image']) {
                         document.querySelector('#avatar_image').src = profile['image'];
                     }
                     componentHandler.upgradeDom();
                 },
-                error: function(error) {
+                error: function (error) {
                     errorDialog(error);
                 }
             });
-
         });
     });
 
+
     // Submit new profile information -- delegate to descendants
-    $("#stage").on("submit", "#information-panel", function (event){
+    $("#stage").on("submit", "#information-panel", function (event) {
 
         event.preventDefault();
 
@@ -81,22 +80,31 @@ $(function() {
         //  var notify_tel = $('input[id = notificate-tel]').prop("checked");
         // var notify_email = $('input[id = notificate-email]:checked').val();
 
+
+        // show loading page
+        showLoading();
+
         // Post request to /modProfile
         $.ajax({
             url: 'http://127.0.0.1:5000/modProfile',
             dataType: 'text',
             contentType: "application/json; charset=utf-8",
             type: 'post',
-            data: JSON.stringify( { "token" : token,
-                                    "first_name": first_name, "last_name": last_name,
-                                    "cellphone" : cellphone, "gender" : gender} ),
+            data: JSON.stringify({
+                "token": token,
+                "first_name": first_name, "last_name": last_name,
+                "cellphone": cellphone, "gender": gender
+            }),
 
-            success: function(response) {
+            success: function (response) {
+
+                //hide loading
+                hideLoading();
 
                 // Show a friendly event_section
                 submitDialog("Informations updated correctly.");
             },
-            error: function(error) {
+            error: function (error) {
                 errorDialog(error);
             }
         });

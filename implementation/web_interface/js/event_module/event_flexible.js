@@ -36,6 +36,9 @@ $(function(){
         var alarm_timer = $("#alarm_time").val();
         var alarm_message = $("#alarm_message").val();
 
+        // show loading screen
+        showLoading();
+
         $.ajax({
             url: 'http://127.0.0.1:5000/flexibleLunch',
             dataType: 'text',
@@ -50,6 +53,9 @@ $(function(){
             }),
 
             success: function (response) {
+
+                //hide loading
+                hideLoading();
 
                 // Show a friendly event_section
                 redirectDialog("Flexible lunch submitted correctly.", './index.html');

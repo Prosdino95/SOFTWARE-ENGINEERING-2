@@ -9,7 +9,7 @@ function colorfy() {
         case "social":
             return '#7986CB';
         default:
-            return '#3F51B5';
+            return '#3F51B5'; //
     }
 }
 
@@ -22,7 +22,8 @@ $(function () {
         initSubmitForm();
     });
 
-    $("#stage").on("click", "#cancel_event", function(){
+    $("#stage").on("click", "#cancel_event", function(event){
+        event.preventDefault();
         redirectDialog("Event not submitted.", './index.html');
     });
 
@@ -50,6 +51,9 @@ $(function () {
         var alarm_timer = $("#alarm_time").val();
         var alarm_message = $("#alarm_message").val();
 
+        // show loading screen
+        showLoading();
+
         // Post request to /addEvent
         $.ajax({
             url: 'http://127.0.0.1:5000/addEvent',
@@ -65,6 +69,9 @@ $(function () {
             }), // Alarm
 
             success: function (response) {
+
+                //hide loading
+                hideLoading();
 
                 // Show a friendly event_section
                 redirectDialog("Event submitted correctly.", './index.html');

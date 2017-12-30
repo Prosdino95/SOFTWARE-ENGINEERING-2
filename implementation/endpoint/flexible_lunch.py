@@ -5,17 +5,27 @@ import rt_server
 
 r.connect(rt_server.ip, rt_server.port, "Travlendar").repl()
 lunch_event = {"alarm": False,
-               "color": "#FF5252",
+               "color": "#536DFE",
                "editable": False,
                "eventOverlap": False,
-               "title": "lunch",
                "flexible_lunch": True
                }
 
 
 def set_lunch(event):
+    lunch_event["title"] = event["title"]
+
     lunch_event["range_max"] = event["range_max"]
     lunch_event["duration_event"] = event["duration_event"]
+
+    #setting coord starting and meeting point
+    lunch_event["starting_location"] = event["starting_location"]
+    lunch_event["meeting_location"] = event["meeting_location"]
+
+    # setting alarm message and timer
+    lunch_event["alarm_timer"] = event["alarm_timer"]
+    lunch_event["alarm_message"] = event["alarm_message"]
+
     create_lunch(event)
     return ""
 

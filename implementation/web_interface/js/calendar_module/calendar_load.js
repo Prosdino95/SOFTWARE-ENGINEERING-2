@@ -1,7 +1,10 @@
 $(function () {
-    $("#stage").on("calendar_load", function (event) {
-        $("document").ready(function () {
-            event.preventDefault();
+
+    $("#stage").on("calendar_load", function () {
+
+        $("#TITLE").text("Calendar");
+        $("#stage").load("./html/calendar.html", function () {
+
             //  var initialLocaleCode = 'en'; NOT IMPLEMENTED
             componentHandler.upgradeDom();
 
@@ -39,7 +42,8 @@ $(function () {
 
                 // click on event function
                 eventClick: function (eventClicked) {
-                    if(button_timer) {
+                    console.log(eventClicked);
+                    if (button_timer) {
                         spawnButtons(eventClicked, true);
                         // start timing
                         setTimeout(function () {
@@ -49,17 +53,17 @@ $(function () {
                 },
 
                 // event light modify
-                eventDrop: function(eventDropped, delta, revertFunc){
+                eventDrop: function (eventDropped, delta, revertFunc) {
                     modifyLight(eventDropped, revertFunc);
-                    },
+                },
 
                 // event light modify
-                eventResize: function(eventResized, delta, revertFunc){
+                eventResize: function (eventResized, delta, revertFunc) {
                     modifyLight(eventResized, revertFunc);
                 },
 
                 //change day when clicking
-                dayClick: function(date, jsEvent, view){
+                dayClick: function (date, jsEvent, view) {
                     $("#full-calendar").fullCalendar("changeView", "agendaDay", date);
                 }
             });

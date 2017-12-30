@@ -31,6 +31,9 @@ function modifyLight(event, revertFunc){
             }else
                 end = event.start;
 
+            // show loading page
+            showLoading();
+
             $.ajax({
                 url: 'http://127.0.0.1:5000/modEvent',
                 dataType: 'text',
@@ -43,6 +46,9 @@ function modifyLight(event, revertFunc){
                 }),
 
                 success: function (response) {
+                    // hide loading page
+                    hideLoading();
+
                     // Show a friendly event_section
                     submitDialog("Event modified correctly.");
                 },
