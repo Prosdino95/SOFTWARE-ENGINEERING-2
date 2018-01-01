@@ -9,4 +9,4 @@ RUN cd /optimalroute && \
     apk --update add py3-gunicorn
 
 ENTRYPOINT cd /optimalroute && \
-           gunicorn -b 0.0.0.0 optimalroute:app
+           gunicorn -b '0.0.0.0:6000' optimalroute:app

@@ -3,13 +3,14 @@ services:
   endpoint:
     image: travlendar_endpoint:latest
     ports:
-     - "5000:8000"
+     - "127.0.0.1:5000:8000"
     links:
      - rethinkdb_user:rethinkdb_user
      - optimalroute:optimalroute
     environment:
      - RETHINKDB_IP=rethinkdb_user
      - OPTIMALROUTE_IP=optimalroute
+     - OPTIMALROUTE_PORT=6000
     depends_on:
      - rethinkdb_user
      - optimalroute
@@ -27,9 +28,7 @@ services:
      - VALHALLA_IP=valhalla
     depends_on:
      - valhalla
-    ports:
-     - "6000:8000"
   webinterface:
     image: travlendar_webinterface
     ports:
-     - "80:80"
+     - "127.0.0.1:80:80"
