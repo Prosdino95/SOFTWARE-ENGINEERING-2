@@ -54,13 +54,13 @@ function setAgendaView(){
 function setControlButton(){
 
     $('<button>', {
-        class: 'mdl-button mdl-js-button mdl-button--icon calendar_slide_button mdi mdi-36px ' +
+        class: 'calendar_slide_button mdl-button mdl-js-button mdl-button--icon mdi mdi-36px ' +
                 'mdl-color-text--primary mdi-chevron-right',
         id: 'next_day_button'
     }).appendTo('#stage');
 
     $('<button>', {
-        class: 'mdl-button mdl-js-button mdl-button--icon calendar_slide_button mdi mdi-36px ' +
+        class: 'mcalendar_slide_button dl-button mdl-js-button mdl-button--icon mdi mdi-36px ' +
         'mdl-color-text--primary mdi-chevron-left',
         id: 'prev_day_button'
     }).appendTo('#stage');
