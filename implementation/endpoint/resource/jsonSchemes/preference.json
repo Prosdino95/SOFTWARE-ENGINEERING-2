@@ -1,6 +1,7 @@
 {
   "type" : "object",
   "properties": {
+      "token" : {"type": "string"},
       "airplane": {"type": "boolean"},
       "bike": {"type": "boolean"},
       "bike_sharing": {"type": "boolean"} ,
