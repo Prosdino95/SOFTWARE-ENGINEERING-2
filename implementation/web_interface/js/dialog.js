@@ -12,8 +12,10 @@ function dialog(text, title, url){
         if(url) {
             // redirect navigation
             window.location = url;
+            resetDialog();
             dialog.close();
         }
+        resetDialog();
         dialog.close();
     });
 }

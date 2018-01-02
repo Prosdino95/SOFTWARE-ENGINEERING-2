@@ -7,6 +7,7 @@ import event
 import route
 from flexible_lunch import set_lunch
 import post_check
+import pprint
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -119,12 +120,16 @@ def get_event():
 @app.route('/getRoute', methods=['POST'])
 def get_route():
     ev = flask.request.get_json()
-    try:
-        post_check.get_route(ev)
-    except Exception: return "Bad Request"
+    with open('log.txt', 'a') as f:
+        pprint.pprint('routing request', f)
+        pprint.pprint(ev, f)
+    #try:
+    #    post_check.get_route(ev)
+    #except Exception: 
+    #    return "Bad Request"
     token = ev["token"]
-    gps_start = ev["starting_location"]
-    gps_stop = ev["meeting_location"]
+    gps_start = ev["gps_start"]
+    gps_stop = ev["gps_stop"]
     return route.get_route(token, gps_start, gps_stop)
 
 

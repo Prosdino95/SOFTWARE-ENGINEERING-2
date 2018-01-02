@@ -36,6 +36,7 @@ $(function () {
         });
     });
 
+
     // Submit new preference profile information
     $("#stage").on("click", "#submit-preferences", function (event) {
 

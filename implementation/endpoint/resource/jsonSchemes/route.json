@@ -2,9 +2,16 @@
   "type" : "object",
   "properties": {
       "token" : {"type": "string"},
-      "gps_start":{"type": "string"},
-      "gps_stop":{"type": "string"}
-      },
+      "gps_start":{"type": "array",
+                   "minItems": 2,
+                   "maxItems": 2,
+                   "items": {"type": "number"}
+                  },
+      "gps_stop":{"type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {"type": "number"}
+                 },
   "required":["token", "gps_start", "gps_stop"],
   "additionalProperties": false
 }

@@ -4,8 +4,11 @@ var map, feature;
 
 // Static map for Show Path view and Map page
 function showPathMap() {
+
+    // Initial View on Milano Duomo
     var view = new ol.View({
-        center: [1023046.9213,5694901.1407], // default center on Milan's Duomo
+        projection: 'EPSG:4326',
+        center: [9.1900, 45.4641], //default EPSG:3857: [1023046.9213,5694901.1407]
         zoom: 10
     });
 

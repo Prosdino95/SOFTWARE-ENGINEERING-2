@@ -37,12 +37,14 @@ function get_profile() {
 }
 
 $(function () {
-    $(document).ready(function () {
+    $('document').ready(function () {
         get_profile();
     });
 
     $("#welcome").click(function(event){
         event.preventDefault();
-        get_profile();
+        $('document').ready(function (){
+            get_profile();
+        });
     });
 });
