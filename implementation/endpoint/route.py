@@ -21,4 +21,4 @@ def get_route(token, gps_start, gps_stop):
     if req.status_code == 200:
         return req.text
     else:
-        return None
+        return "ERROR"

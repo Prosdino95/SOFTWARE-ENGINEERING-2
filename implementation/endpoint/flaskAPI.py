@@ -5,6 +5,8 @@ from registration import registration
 import profile
 import event
 import route
+from flexible_lunch import set_lunch
+import post_check
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -14,12 +16,18 @@ CORS(app)
 @app.route('/registration', methods=['POST'])
 def registration_api():
     user = flask.request.get_json()
+    try:
+        post_check.registration(user)
+    except Exception: return 400, "Bad Request"
     return registration(user)
 
 
 @app.route('/login', methods=['POST'])
 def login_api():
     user = flask.request.get_json()
+    try:
+         post_check.login(user)
+    except Exception: return "Bad Request"
     return login(user)
 
 
@@ -27,6 +35,9 @@ def login_api():
 @app.route('/modProfile', methods=['POST'])
 def mod_profile_api():
     user = flask.request.get_json()
+    try:
+        post_check.user_profile(user)
+    except Exception: return "Bad Request"
     profile.mod_profile(user)
     return "information changed"
 
@@ -34,6 +45,9 @@ def mod_profile_api():
 @app.route('/modProfilePreference', methods=['POST'])
 def mod_profile_preference_api():
     user = flask.request.get_json()
+    try:
+        post_check.preference(user)
+    except Exception: return "Bad Request"
     profile.mod_profile_preference(user)
     return "information changed"
 
@@ -41,6 +55,9 @@ def mod_profile_preference_api():
 @app.route('/modProfilePassword', methods=['POST'])
 def mod_profile_password_api():
     user = flask.request.get_json()
+    try:
+        post_check.mod_password(user)
+    except Exception: return "Bad Request"
     return profile.mod_profile_password(user)
 
 
@@ -63,6 +80,9 @@ def get_profile_api():
 @app.route('/addEvent', methods=['POST'])
 def add_event__api():
     user_event = flask.request.get_json()
+    try:
+        post_check.add_event(user_event)
+    except Exception: return "Bad Request"
     event.add_event(user_event)
     return "event added"
 
@@ -70,15 +90,21 @@ def add_event__api():
 @app.route('/modEvent', methods=['POST'])
 def mod_event__api():
     user_event = flask.request.get_json()
+    try:
+        post_check.mod_event(user_event)
+    except Exception: return "Bad Request"
     event.mod_event(user_event)
     return "event modified"
 
 
 @app.route('/delEvent', methods=['POST'])
 def del_event__api():
-    ev = flask.request.get_json()
-    token = ev["token"]
-    event_id = ev["id"]
+    user_event = flask.request.get_json()
+    try:
+        post_check.del_event(user_event)
+    except Exception: return "Bad Request"
+    token = user_event["token"]
+    event_id = user_event["id"]
     event.del_event(token, event_id)
     return "event deleted"
 
@@ -93,11 +119,24 @@ def get_event():
 @app.route('/getRoute', methods=['POST'])
 def get_route():
     ev = flask.request.get_json()
+    try:
+        post_check.get_route(ev)
+    except Exception: return "Bad Request"
     token = ev["token"]
-    gps_start = ev["gps_start"]
-    gps_stop = ev["gps_stop"]
+    gps_start = ev["starting_location"]
+    gps_stop = ev["meeting_location"]
     return route.get_route(token, gps_start, gps_stop)
 
+
+# API for flexible lunch
+@app.route('/flexibleLunch', methods=['POST'])
+def flexible_lunch_api():
+    event = flask.request.get_json()
+    try:
+        post_check.flexible_lunch(event)
+    except Exception: return "Bad Request"
+    set_lunch(event)
+    return "event added"
 
 if __name__ == "__main__":
     app.run()

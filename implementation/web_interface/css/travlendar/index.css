@@ -99,3 +99,11 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
+#add_event {
+    position: fixed;
+}
+
+button[id$='day_button'] {
+    position: fixed;
+}

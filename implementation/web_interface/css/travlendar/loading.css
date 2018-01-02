@@ -1,0 +1,40 @@
+.black_screen{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.2);
+    z-index: 4;
+}
+/*
+.white_screen{
+    position: fixed;
+    background: rgba(255,255,255,.3);
+    top: 20%;
+    bottom: 20%;
+
+    height: 60%;
+    width: 100%;
+    z-index: 5;
+}*/
+
+.spinner{
+    position: fixed;
+    left: 45%;
+    top: 40%;
+    z-index: 5;
+}
+
+/* MDL OVERRIDE */
+.mdl-spinner {
+    width: 84px;
+    height: 84px;
+}
+
+/* MDL OVERRIDE */
+.mdl-spinner__circle {
+    border-width: 9px;
+}
+
+.hiding{
+    visibility: hidden;
+}

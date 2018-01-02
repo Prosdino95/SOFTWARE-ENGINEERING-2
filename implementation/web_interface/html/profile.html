@@ -27,7 +27,7 @@
         </div>
 
         <!-- profile informations -->
-        <div class="mdl-tabs__panel is-active mdl-tabs" id="information-panel">
+        <form class="mdl-tabs__panel is-active mdl-tabs" id="information-panel">
 
             <div class="table-responsive">
                 <table class="mdl-data-table mdl-shadow--2dp trav-content-tab">
@@ -38,7 +38,7 @@
                         </td>
                         <td class="mdl-data-table__cell--non-numeric" >
                             <div class="mdl-textfield mdl-js-textfield" id="first_name_textfield">
-                                <input class="mdl-textfield__input" id="first_name" type="text">
+                                <input class="mdl-textfield__input" id="first_name" type="text" required>
                                 <label class="mdl-textfield__label" for="first_name">First Name...</label>
                             </div>
                         </td>
@@ -107,7 +107,7 @@
                                 <li class="mdl-list__item">
                                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id="notificate_email_checkbox"
                                            for="notificate-email">
-                                        <span class="mdl-checkbox__label">Email Notifications</span>
+                                        <span class="mdl-checkbox__label">Travlendar Notifications</span>
                                         <input type="checkbox" id="notificate-email" class="mdl-checkbox__input" value="ON" checked
                                                disabled>
                                     </label>
@@ -126,14 +126,14 @@
                     <td class="mdl-color--grey-100">
                         <div class="mdl-cell">
                             <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect"
-                                    type="button" id="submit_info">SAVE DETAILS
+                                    type="submit" id="submit_info">SAVE DETAILS
                             </button>
                         </div>
                     </td>
                     </tbody>
                 </table>
             </div>
-        </div>
+        </form>
 
         <!--Change image -->
         <div class="mdl-tabs__panel table-responsive" id="photo-panel">

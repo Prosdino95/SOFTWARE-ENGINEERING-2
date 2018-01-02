@@ -27,15 +27,18 @@ function resetDialog(){
 
 // Spawn Dialog which redirect navigation
 function redirectDialog(text, url) {
+    resetDialog();
     dialog(text, false, url);
 }
 
 //Spawn Error Dialog
 function errorDialog(text){
+    resetDialog();
     dialog(text, 'Error', false);
 }
 
 //Spawn warning dialog
 function submitDialog(text){
-   dialog(text, false, false);
+    resetDialog();
+    dialog(text, false, false);
 }

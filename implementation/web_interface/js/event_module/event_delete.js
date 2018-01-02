@@ -22,6 +22,9 @@ $(function () {
             remove_dialog.querySelector(".remove_event_button_dialog").addEventListener('click', function () {
                 remove_dialog.close();
                 document.querySelector("#extra_dialog").remove();
+
+                // Loading screen
+                showLoading();
                 componentHandler.upgradeDom();
 
                 //get token from cookie
@@ -40,7 +43,8 @@ $(function () {
                     success: function (response) {
                         // Show a friendly event_section
                         redirectDialog("Event removed correctly.", './index.html');
-                    },
+                        hideLoading();
+                        },
                     error: function (error) {
                         errorDialog(error);
                     }

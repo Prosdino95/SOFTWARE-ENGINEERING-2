@@ -12,6 +12,17 @@
 
     <title>Travlendar+</title>
 
+    <!-- Travlendar CSS -->
+
+    <link href="css/travlendar/index.css" rel="stylesheet">
+    <link href="css/travlendar/preferences.css" rel="stylesheet">
+    <link href="css/travlendar/profile.css" rel="stylesheet">
+    <link href="css/travlendar/calendar.css" rel="stylesheet">
+    <link href="css/travlendar/event_submit.css" rel="stylesheet">
+    <link href="css/travlendar/map.css" rel="stylesheet">
+    <link href="css/travlendar/right_drawer.css" rel="stylesheet">
+    <link href="css/travlendar/loading.css" rel="stylesheet">
+
     <!-- CSS Libraries -->
 
     <!-- Bootstrap Core CSS -->
@@ -45,18 +56,6 @@
 
     <!-- Toastr CSS -->
     <link href="css/library/toastr.min.css" rel="stylesheet">
-
-
-    <!-- Travlendar CSS -->
-
-    <link href="css/travlendar/index.css" rel="stylesheet">
-    <link href="css/travlendar/preferences.css" rel="stylesheet">
-    <link href="css/travlendar/profile.css" rel="stylesheet">
-    <link href="css/travlendar/calendar.css" rel="stylesheet">
-    <link href="css/travlendar/event_submit.css" rel="stylesheet">
-    <link href="css/travlendar/map.css" rel="stylesheet">
-    <link href="css/travlendar/right_drawer.css" rel="stylesheet">
-
 
     <!-- JS Libraries -->
 
@@ -101,6 +100,7 @@
     <script src="js/change_context.js"></script>
     <script src="js/index_profile.js"></script>
     <script src="js/dialog.js"></script>
+    <script src="js/loading_screen.js"></script>
 
     <!-- Profile Module -->
     <script src="js/profile_module/profile_information.js"></script>
@@ -122,6 +122,7 @@
     <script src="js/event_module/event_modify.js"></script>
     <script src="js/event_module/event_light_modify.js"></script>
     <script src="js/event_module/event_submit_header.js"></script>
+    <script src="js/event_module/event_flexible.js"></script>
 
     <!-- Map Module -->
     <script src="js/map_module/map_draggable.js"></script>
@@ -208,7 +209,16 @@
     </div>
 </dialog>
 
+<!-- Extra Features -->
 <div id="extra"></div>
+
+<!-- Loading Screen -->
+<div id="loading_screen" class="hiding">
+    <div class="black_screen"></div>
+    <div class="white_screen">
+        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner spinner is-active"></div>
+    </div>
+</div>
 </body>
 
 </html>

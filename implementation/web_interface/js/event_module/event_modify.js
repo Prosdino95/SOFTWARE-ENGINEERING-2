@@ -18,12 +18,16 @@ $(function() {
 
             $('<button>', {
                 class: 'mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect',
-                id: 'event_modify_form'
-                //type: 'submit'
+                id: 'button_event_modify_form',
+                type: 'submit'
             }).appendTo('#button_wrapper_form');
 
             $("#cancel_modify").text("CANCEL");
-            $("#event_modify_form").text("MODIFY EVENT");
+            $("#button_event_modify_form").text("MODIFY EVENT");
+
+            // changes to current DOM
+            $("#event_form").attr('id', 'event_modify_form');
+            $("#flexible_event_label").remove();
             componentHandler.upgradeDom();
 
             // update html textfield value
@@ -41,9 +45,6 @@ $(function() {
                 $("#end_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.start,"HH:mm"));
             }
 
-            (modifiedEvent.editable) ? document.querySelector('#flexible_event_checkbox').MaterialCheckbox.check() :
-                document.querySelector('#flexible_event_checkbox').MaterialCheckbox.uncheck();
-
             // coordinates
             $("#starting_location_textfield")[0].MaterialTextfield.change(modifiedEvent.starting_location);
             $("#meeting_location_textfield")[0].MaterialTextfield.change(modifiedEvent.meeting_location);
@@ -57,11 +58,12 @@ $(function() {
 
     });
 
-    $("#stage").on('click', '#cancel_modify', function(){
+    $("#stage").on('click', '#cancel_modify', function(event){
+        event.preventDefault();
         redirectDialog("Changes were not submitted.", './index.html');
     });
 
-    $("#stage").on("click", "#event_modify_form", function (event) {
+    $("#stage").on("submit", "#event_modify_form", function (event) {
         event.preventDefault();
 
         var title = $("#event_title").val();
@@ -70,7 +72,6 @@ $(function() {
         var start = $("#start_day").val() + " " + (starting_time ? starting_time : "00:00") + "+00:00";
         var end = $("#end_day").val() + " " + (ending_time ? ending_time : "00:00") + "+00:00";
         var color = colorfy();
-        var editable = $('input[id = flexible_event]').prop("checked");
 
         // obtain choord of the event
         var starting_location = $("#starting_location").val();
@@ -83,6 +84,9 @@ $(function() {
         //get token from cookie
         Cookies.json = true;  // important
         var token = Cookies.get("session_token");
+
+        // show loading screen
+        showLoading();
 
         // Post request to /addEvent
         $.ajax({
@@ -99,6 +103,9 @@ $(function() {
             }), // Alarm
 
             success: function (response) {
+
+                //hide loading
+                hideLoading();
 
                 // Show a friendly event_section
                 redirectDialog("Event modified correctly.", './index.html');

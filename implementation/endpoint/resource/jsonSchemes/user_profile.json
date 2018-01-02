@@ -1,0 +1,14 @@
+{
+  "type" : "object",
+  "properties": {
+      "token" : {"type": "string"},
+      "first_name": {"type": "string"},
+      "last_name": {"type": "string"},
+      "cellphone" : {"type": "string"},
+      "gender" : {"type": "string"},
+      "notify_tel" : {"type": "boolean"},
+      "image": {"type": "string"}
+      },
+  "required":["token"],
+  "additionalProperties": false
+}

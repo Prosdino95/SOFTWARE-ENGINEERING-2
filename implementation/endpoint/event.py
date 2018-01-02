@@ -18,6 +18,8 @@ def add_event(event):
 
 def del_event(token, event_id):
     r.connect(rts.ip, rts.port, "Travlendar").repl()
+    if not security_check(token, event_id):
+        return "illegal access"
     r.table("event").get(event_id).delete().run()
     r.table("event_submit").get(event_id).delete().run()
     check_overlays(token)
@@ -26,6 +28,8 @@ def del_event(token, event_id):
 def mod_event(event):
     r.connect(rts.ip, rts.port, "Travlendar").repl()
     token = event["token"]
+    if not security_check(token, event["id"]):
+        return "illegal access"
     r.table("event").get(event["id"]).update(event).run()
     check_overlays(token)
 
@@ -39,7 +43,7 @@ def check_overlays(token):
                 if j["end"] > i["start"]:
                     alarm = True
                     if i["flexible_lunch"]:
-                        rearrange_lunch(i, j, token)
+                        rearrange_lunch(i, j)
                     else:
                         set_alarm(i, j)
         if not alarm:
@@ -68,3 +72,10 @@ def get_event(token):
 def get_email(token):
     return token_query(token)
 
+
+def security_check(token, id):
+    events = get_event(token)
+    for e in events:
+        if e["id"] == id:
+            return True
+    return False

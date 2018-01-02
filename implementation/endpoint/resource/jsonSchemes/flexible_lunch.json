@@ -1,0 +1,18 @@
+{
+  "type" : "object",
+  "properties": {
+      "token": {"type": "string"},
+      "title": {"type": "string"},
+      "range_min" : {"type": "string"},
+      "range_max":{"type": "string"},
+      "starting_flexible_day":{"type": "string"},
+      "ending_flexible_day":{"type": "string"},
+      "duration_event":{"type": "string"},
+      "starting_location": {"type" : "string"},
+      "meeting_location": {"type" : "string"},
+      "alarm_timer": {"type" : "string"},
+      "alarm_message": {"type": "string"}
+      },
+  "required":["token", "range_max", "starting_flexible_day", "ending_flexible_day", "duration_event"],
+  "additionalProperties": false
+}
