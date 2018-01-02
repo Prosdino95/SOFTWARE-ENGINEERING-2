@@ -12,16 +12,7 @@
 
     <title>Travlendar+</title>
 
-    <!-- Travlendar CSS -->
 
-    <link href="css/travlendar/travlendar.css" rel="stylesheet">
-    <link href="css/travlendar/preferences.css" rel="stylesheet">
-    <link href="css/travlendar/profile.css" rel="stylesheet">
-    <link href="css/travlendar/calendar.css" rel="stylesheet">
-    <link href="css/travlendar/event_submit.css" rel="stylesheet">
-    <link href="css/travlendar/map.css" rel="stylesheet">
-    <link href="css/travlendar/right_drawer.css" rel="stylesheet">
-    <link href="css/travlendar/loading.css" rel="stylesheet">
 
     <!-- CSS Libraries -->
 
@@ -94,6 +85,16 @@
     <!-- Toastr JS -->
     <script src="js/library/toastr.min.js"></script>
 
+    <!-- Travlendar CSS -->
+
+    <link href="css/travlendar/travlendar.css" rel="stylesheet">
+    <link href="css/travlendar/preferences.css" rel="stylesheet">
+    <link href="css/travlendar/profile.css" rel="stylesheet">
+    <link href="css/travlendar/calendar.css" rel="stylesheet">
+    <link href="css/travlendar/event_submit.css" rel="stylesheet">
+    <link href="css/travlendar/map.css" rel="stylesheet">
+    <link href="css/travlendar/right_drawer.css" rel="stylesheet">
+    <link href="css/travlendar/loading.css" rel="stylesheet">
 
     <!-- Travlendar+ Scripts -->
 
@@ -130,6 +131,7 @@
     <script src="js/map_module/map.js"></script>
     <script src="js/map_module/map_header.js"></script>
     <script src="js/map_module/map_static.js"></script>
+    <script src="js/map_module/map_get_route.js"></script>
 
 
     <!-- Alarm System-->
@@ -215,7 +217,7 @@
 <div id="loading_screen" class="hiding">
     <div class="black_screen"></div>
     <div class="white_screen">
-        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner spinner is-active"></div>
+        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active" id="spinner"></div>
     </div>
 </div>
 </body>

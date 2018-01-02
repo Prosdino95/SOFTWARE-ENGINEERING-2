@@ -113,10 +113,12 @@ function newMap() {
     });
 
     // Geolocate Marker event
-    $("#geolocate_starting").on('click', function () {
+    $("#geolocate_starting").on('click', function (event) {
+        event.preventDefault();
         geolocateThisMarker(startMarker, view);
     });
-    $("#geolocate_meeting").on('click', function () {
+    $("#geolocate_meeting").on('click', function (event) {
+        event.preventDefault();
         geolocateThisMarker(meetingMarker, view);
     });
 
@@ -182,6 +184,22 @@ function createDragMarkers(eventClicked) {
 
     startMarker.setStyle(getIconStyle('./res/pin.png'));
     meetingMarker.setStyle(getIconStyle('./res/flag_finish.png'));
+
+    startMarker.on('change', function () {
+        $("#starting_location_textfield")[0].MaterialTextfield.change(startMarker.getGeometry().getCoordinates())
+    });
+    meetingMarker.on('change', function () {
+        $("#meeting_location_textfield")[0].MaterialTextfield.change(meetingMarker.getGeometry().getCoordinates())
+    });
+
+    $("#geolocate_starting").on('click', function (event) {
+        event.preventDefault();
+        geolocateThisMarker(startMarker, draggableMap.getView());
+    });
+    $("#geolocate_meeting").on('click', function (event) {
+        event.preventDefault();
+        geolocateThisMarker(meetingMarker, draggableMap.getView());
+    });
 
     // delete old markers
     draggebleFeature.clear();

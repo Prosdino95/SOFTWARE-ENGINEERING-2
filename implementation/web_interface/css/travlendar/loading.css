@@ -17,7 +17,7 @@
     z-index: 5;
 }*/
 
-.spinner{
+#spinner{
     position: fixed;
     left: 45%;
     top: 40%;
