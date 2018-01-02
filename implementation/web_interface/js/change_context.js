@@ -61,6 +61,8 @@ function refresh(){
     deleteMapHeader();
     deleteShowPathHeader();
 
+    // delete geolocation of markers
+    draggebleFeature.clear();
     // scroll to top page
     $('document').scrollTop(0);
 }

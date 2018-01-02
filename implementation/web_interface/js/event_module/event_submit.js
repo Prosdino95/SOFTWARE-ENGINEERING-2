@@ -24,6 +24,8 @@ $(function () {
 
     $("#stage").on("click", "#cancel_event", function(event){
         event.preventDefault();
+        // delete geolocation of markers
+        draggebleFeature.clear();
         redirectDialog("Event not submitted.", './travlendar.html');
     });
 

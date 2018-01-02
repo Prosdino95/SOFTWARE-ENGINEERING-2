@@ -60,6 +60,9 @@ $(function() {
 
     $("#stage").on('click', '#cancel_modify', function(event){
         event.preventDefault();
+
+        // delete geolocation of markers
+        draggebleFeature.clear();
         redirectDialog("Changes were not submitted.", './travlendar.html');
     });
 
