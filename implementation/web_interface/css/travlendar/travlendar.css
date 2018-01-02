@@ -92,111 +92,18 @@
 button[id$='day_button'] {
     position: fixed;
 }*/
-
-/* FIXING BUG CALENDAR BUTTONS */
-#add_event{
+.add_button{
     width: 20vmin;
     height: 20vmin;
     position: fixed;
     bottom: 2%;
     z-index: 5; /*important!*/
-
-    right: 5%;
 }
 
-#modify_button{
-    width: 17vmin;
-    height: 17vmin;
-    position: fixed;
-    bottom: 2%;
-    z-index: 5; /*important!*/
-
-    background: #FAFAFA;
-    right: 5%;
-}
-
-#delete_button{
-    width: 17vmin;
-    height: 17vmin;
-    position: fixed;
-    bottom: 2%;
-    z-index: 5; /*important!*/
-
-    background: #D50000;
-    left: 5%;
-}
-
-#map_button{
-    width: 17vmin;
-    height: 17vmin;
-    position: fixed;
-    bottom: 2%;
-    z-index: 5; /*important!*/
-
-    background: #3F51B5;
-    right: 15%;
-}
-
-/*.calendar_slide_button{
+.calendar_slide_button{
     width: 10vmin;
     height: 10vmin;
     position: fixed;
     top: 50%;
     z-index: 5; /*important!*/
-/*}*/
-
-#next_day_button{
-    width: 10vmin;
-    height: 10vmin;
-    position: fixed;
-    top: 50%;
-    z-index: 5; /*important!*/
-
-    right: 5%
 }
-#prev_day_button{
-    width: 10vmin;
-    height: 10vmin;
-    position: fixed;
-    top: 50%;
-    z-index: 5; /*important!*/
-
-    left: 5%
-}
-
-.calendar_container{
-    padding-bottom: 5%;
-    padding-top: 5%;
-}
-
-.calendar_panel{
-    background-color: white;
-    padding-right: 5%;
-    padding-left: 5%;
-}
-
-@media screen and (max-width: 480px) {
-    #delete_button{
-        left: 5%;
-    }
-
-    #map_button{
-        right: 25%;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .add_button{
-        width: 17vmin;
-        height: 17vmin;
-    }
-
-    #delete_button{
-        left: 5%;
-    }
-
-    #map_button{
-        right: 25%;
-    }
-}
-
