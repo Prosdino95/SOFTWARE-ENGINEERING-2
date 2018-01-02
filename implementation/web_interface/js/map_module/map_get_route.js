@@ -28,9 +28,9 @@ $(function(){
                 type: 'post',
                 data: JSON.stringify({
                     "token": token,
-                    "starting_location": starting_location,
-                    "meeting_location": meeting_location
-            }),
+                    "gps_start": starting_location.reverse(),
+                    "gps_stop": meeting_location.reverse()
+                }),
                 success: function (gpx_response) {
                     console.log(gpx_response);
                 },

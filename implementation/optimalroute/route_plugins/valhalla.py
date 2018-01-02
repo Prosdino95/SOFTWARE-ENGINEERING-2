@@ -49,7 +49,7 @@ def find_path(coord_begin, coord_end, mode):
     if mode == 'foot':
         route_request['costing'] = 'pedestrian'
     elif mode == 'bike':
-        route_request['costing'] = 'bycicle'
+        route_request['costing'] = 'bicycle'
     else:
         route_request['costing'] = mode
 
@@ -59,6 +59,7 @@ def find_path(coord_begin, coord_end, mode):
     request_time = requests.post(valhalla_url, json = route_request)
     if request.status_code == 200:
         return {'time': request_time.json()['trip']['summary']['time'],
+                'method': mode,
                 'path_gpx': request.text}
     else:
        return None
