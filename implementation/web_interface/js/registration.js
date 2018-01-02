@@ -28,6 +28,9 @@ $(function() {
             throw error();
         };
 
+        //show loading page
+        showLoading();
+
         // Post request
         $.ajax({
             url: 'http://127.0.0.1:5000/registration',
@@ -36,10 +39,22 @@ $(function() {
             type: 'post',
             data: JSON.stringify( { "first_name": first_name, "last_name": last_name, "password": pass, "email": email } ),
             success: function(response) {
-                (response === 'ok')? redirectDialog("Registration completed successfully!", "./index.html"): errorDialog("Registration failed");
+
+                // hide loading page
+                hideLoading();
+                if(response === 'ok'){
+                    redirectDialog("Registration completed successfully!", "./index.html");
+                } else {
+                    // hide loading page
+                    hideLoading();
+                    errorDialog("Registration failed");
+                }
             },
 
             error: function(error) {
+
+                // hide loading page
+                hideLoading();
                 errorDialog(error);
             }
         });

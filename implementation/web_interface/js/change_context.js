@@ -62,7 +62,9 @@ function refresh(){
     deleteShowPathHeader();
 
     // delete geolocation of markers
-    draggebleFeature.clear();
+   if(draggebleFeature){
+       draggebleFeature.clear();
+   }
     // scroll to top page
     $('document').scrollTop(0);
 }

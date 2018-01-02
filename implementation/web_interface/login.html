@@ -42,7 +42,11 @@
     <!-- Javascript -->
     <script src="js/login.js"></script>
     <script src="js/dialog.js"></script>
+    <script src="js/loading_screen.js"></script>
+
     <link href="css/login.css" rel="stylesheet">
+    <link href="css/travlendar/loading.css" rel="stylesheet">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -94,6 +98,13 @@
         </div>
     </form>
     <div class="mdl-layout-spacer"></div>
+</div>
+
+<!-- Loading Screen -->
+<div id="loading_screen" class="hiding">
+    <div class="white_screen">
+        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active" id="spinner"></div>
+    </div>
 </div>
 
 <!-- Dialog -->

@@ -8,6 +8,9 @@ $(function() {
         var email = $('#email').val();
         var pass = $('#password').val();
 
+        //show loading page
+        showLoading();
+
         // Post request
         $.ajax({
             url: 'http://127.0.0.1:5000/login',
@@ -24,10 +27,15 @@ $(function() {
                 	Cookies.json = true;
                 	Cookies.set("session_token", token['token']);
 
+                    // hide loading page
+                    hideLoading();
+
                 	// Redirect on travlendar.html
                     redirectDialog("Login successfully completed!", "./travlendar.html");
                 }
                 else{
+                    // hide loading page
+                    hideLoading();
                    errorDialog("Wrong email or password.");
                 }
             },
