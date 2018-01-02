@@ -56,9 +56,10 @@ def find_path(coord_begin, coord_end, mode):
     request = requests.post(valhalla_url, json = route_request)
     path = request.text
     route_request['directions_options']['format'] = 'json'
-    request_time = requests.post(valhalla_url, json = route_request)
+    request_data = requests.post(valhalla_url, json = route_request)
     if request.status_code == 200:
-        return {'time': request_time.json()['trip']['summary']['time'],
+        return {'time': request_data.json()['trip']['summary']['time'],
+                'distance': request_data.json()['trip']['summary']['length'],
                 'method': mode,
                 'path_gpx': request.text}
     else:
