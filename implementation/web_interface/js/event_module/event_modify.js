@@ -60,7 +60,7 @@ $(function() {
 
     $("#stage").on('click', '#cancel_modify', function(event){
         event.preventDefault();
-        redirectDialog("Changes were not submitted.", './index.html');
+        redirectDialog("Changes were not submitted.", './travlendar.html');
     });
 
     $("#stage").on("submit", "#event_modify_form", function (event) {
@@ -108,7 +108,7 @@ $(function() {
                 hideLoading();
 
                 // Show a friendly event_section
-                redirectDialog("Event modified correctly.", './index.html');
+                redirectDialog("Event modified correctly.", './travlendar.html');
             },
             error: function (error) {
                 errorDialog(error);

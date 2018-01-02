@@ -24,7 +24,7 @@ $(function () {
 
     $("#stage").on("click", "#cancel_event", function(event){
         event.preventDefault();
-        redirectDialog("Event not submitted.", './index.html');
+        redirectDialog("Event not submitted.", './travlendar.html');
     });
 
     $("#stage").on("submit", "#event_form", function (event) {
@@ -74,7 +74,7 @@ $(function () {
                 hideLoading();
 
                 // Show a friendly event_section
-                redirectDialog("Event submitted correctly.", './index.html');
+                redirectDialog("Event submitted correctly.", './travlendar.html');
             },
             error: function (error) {
                 errorDialog(error);

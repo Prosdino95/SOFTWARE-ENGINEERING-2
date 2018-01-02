@@ -6,7 +6,7 @@
 //        return string;
 //}
 
-// Renders profile information on index.html
+// Renders profile information on travlendar.html
 function get_profile() {
     //get token from cookie
     Cookies.json = true;  // important

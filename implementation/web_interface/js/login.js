@@ -22,8 +22,8 @@ $(function() {
                 	Cookies.json = true;
                 	Cookies.set("session_token", token['token']);
 
-                	// Redirect on index.html
-                    redirectDialog("Login successfully completed!", "./index.html");
+                	// Redirect on travlendar.html
+                    redirectDialog("Login successfully completed!", "./travlendar.html");
                 }
                 else{
                     errorDialog("Wrong email or password.");

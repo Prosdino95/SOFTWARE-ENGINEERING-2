@@ -60,7 +60,7 @@ function setControlButton(){
     }).appendTo('#stage');
 
     $('<button>', {
-        class: 'mcalendar_slide_button dl-button mdl-js-button mdl-button--icon mdi mdi-36px ' +
+        class: 'calendar_slide_button mdl-button mdl-js-button mdl-button--icon mdi mdi-36px ' +
         'mdl-color-text--primary mdi-chevron-left',
         id: 'prev_day_button'
     }).appendTo('#stage');
@@ -107,21 +107,21 @@ function spawnButtons(eventClicked, position_flag) {
     });
 
     $('<button>', {
-        class: 'mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ' +
-        'add_button animated mdi mdi-pencil mdl-color-text--grey-600 mdl-shadow--2dp',
+        class: 'add_button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ' +
+        'animated mdi mdi-pencil mdl-color-text--grey-600 mdl-shadow--2dp',
         id: 'modify_button'
     }).appendTo('#button_wrapper');
 
     $('<button>', {
-        class: 'mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ' +
-        'add_button animated mdi mdi-close mdl-color-text--red-100 mdl-shadow--2dp',
+        class: 'add_button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ' +
+        'animated mdi mdi-close mdl-color-text--red-100 mdl-shadow--2dp',
         id: 'delete_button'
     }).appendTo('#button_wrapper');
 
     if(position_flag) {
         $('<button>', {
-            class: 'mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ' +
-            'add_button animated mdi mdi-map-marker mdl-color-text--white mdl-shadow--2dp',
+            class: 'add_button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ' +
+            'animated mdi mdi-map-marker mdl-color-text--white mdl-shadow--2dp',
             id: 'map_button'
         }).appendTo('#button_wrapper');
     }

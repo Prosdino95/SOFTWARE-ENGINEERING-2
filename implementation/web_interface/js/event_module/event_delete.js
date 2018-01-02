@@ -42,7 +42,7 @@ $(function () {
 
                     success: function (response) {
                         // Show a friendly event_section
-                        redirectDialog("Event removed correctly.", './index.html');
+                        redirectDialog("Event removed correctly.", './travlendar.html');
                         hideLoading();
                         },
                     error: function (error) {

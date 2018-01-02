@@ -1,5 +1,5 @@
 
-// jQuery script to load the html pages on index.html
+// jQuery script to load the html pages on travlendar.html
 $(function (){
 
     // Default load the welcome page
