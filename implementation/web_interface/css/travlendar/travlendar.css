@@ -84,14 +84,7 @@
     background-size: cover;
 }
 
-/*
-#add_event {
-    position: fixed;
-}
-
-button[id$='day_button'] {
-    position: fixed;
-}*/
+/* FiXED BUG: CALENDAR BUTTONS */
 .add_button{
     width: 20vmin;
     height: 20vmin;
