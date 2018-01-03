@@ -224,3 +224,19 @@ function createDragMarkers(eventClicked) {
 function createMarker(offset) {
     return new ol.Feature(new ol.geom.Point([9.1900 + offset, 45.4641 + offset]));
 }
+
+//no more drag and drop
+function freezeMap(){
+    draggableMap.getInteractions().forEach(function(interaction){
+            interaction.setActive(false);
+    });
+
+    // disable geolocate buttons and input field
+    $('button[id*="geolocate"]').attr('disabled', 'true');
+    $("#starting_location").attr('readonly', true);
+    $("#meeting_location").attr('readonly', true);
+
+    // add default mouse navigable interaction and scroll zoom
+   draggableMap.addInteraction(new ol.interaction.DragPan);
+   draggableMap.addInteraction(new ol.interaction.MouseWheelZoom);
+};

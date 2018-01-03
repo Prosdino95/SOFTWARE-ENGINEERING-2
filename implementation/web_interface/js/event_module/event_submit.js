@@ -13,8 +13,11 @@ function colorfy() {
     }
 }
 
+
 // main
 $(function () {
+
+    var path_jason;
 
     // load submit event page
     $("#stage").on("click", "#add_event", function (event) {
@@ -24,14 +27,30 @@ $(function () {
 
     $("#stage").on("click", "#cancel_event", function(event){
         event.preventDefault();
+
+        $("#stage").trigger('unbind_path');
         // delete geolocation of markers
         draggebleFeature.clear();
         redirectDialog("Event not submitted.", './travlendar.html');
     });
 
+    // setting route
+    $("#stage").on("bind_path", function(event, routeData, index){
+        path_jason = routeData[index];
+    });
+
+    $("#stage").on("unbind_path", function(){
+        path_jason = null;
+    });
+
     $("#stage").on("submit", "#event_form", function (event) {
 
         event.preventDefault();
+        // check if jason path is binded
+        if(path_jason == null){
+            errorDialog("Please select a route before submitting!");
+            throw error;
+        };
 
         //get token from cookie
         Cookies.json = true;  // important
@@ -67,6 +86,7 @@ $(function () {
                 "title": title, "start": start, "end": end,
                 "color": color,
                 "starting_location": starting_location, "meeting_location": meeting_location, // Coordinates
+                "route": path_jason,
                 "alarm_timer": alarm_timer, "alarm_message": alarm_message
             }), // Alarm
 

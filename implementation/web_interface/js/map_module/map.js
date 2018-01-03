@@ -50,7 +50,8 @@ $(function () {
                         // update the map
                         passEventRoute(eventClicked);
                         addEventPositionMarker();
-
+                        loadPath(eventClicked.route, map);
+                        $("#stage").trigger('arrange_route', [ eventClicked ]);
 
                         spawnButtons(eventClicked, null);
                         // start timing

@@ -2,65 +2,25 @@ var modifiedEvent;
 
 $(function() {
 
+    var path_jason;
+
+    // setting route
+    $("#stage").on("bind_path", function(event, routeData, index){
+        path_jason = routeData[index];
+    });
+
+    $("#stage").on("unbind_path", function(){
+        path_jason = null;
+    });
+
     $("#stage").on("click", "#modify_button", function () {
-
-        $("#stage").load("./html/event_section/event_submit.html", function(){
-
-            $("#TITLE").text("Modify an event");
-            deleteCalendarButtons();
-            deleteMapHeader();
-            loadSubmitEventHeader();
-
-            $('<button>', {
-                class: 'mdl-button mdl-js-button mdl-button mdl-button--raised mdl-js-ripple-effect',
-                id: 'cancel_modify'
-            }).appendTo('#button_wrapper_form');
-
-            $('<button>', {
-                class: 'mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect',
-                id: 'button_event_modify_form',
-                type: 'submit'
-            }).appendTo('#button_wrapper_form');
-
-            $("#cancel_modify").text("CANCEL");
-            $("#button_event_modify_form").text("MODIFY EVENT");
-
-            // changes to current DOM
-            $("#event_form").attr('id', 'event_modify_form');
-            $("#flexible_event_label").remove();
-            componentHandler.upgradeDom();
-
-            // update html textfield value
-
-            $("#event_title_textfield")[0].MaterialTextfield.change(modifiedEvent.title);
-            $("#start_day_textfield")[0].MaterialTextfield.change((modifiedEvent.start).format("YYYY-MM-DD"));
-            $("#start_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.start,"HH:mm"));
-
-            if(modifiedEvent.end){
-                $("#end_day_textfield")[0].MaterialTextfield.change((modifiedEvent.end).format("YYYY-MM-DD"));
-                $("#end_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.end, "HH:mm"));
-
-            }else {
-                $("#end_day_textfield")[0].MaterialTextfield.change((modifiedEvent.start).format("YYYY-MM-DD"));
-                $("#end_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.start,"HH:mm"));
-            }
-
-            // coordinates
-            $("#starting_location_textfield")[0].MaterialTextfield.change(modifiedEvent.starting_location);
-            $("#meeting_location_textfield")[0].MaterialTextfield.change(modifiedEvent.meeting_location);
-
-            //alarm
-            $("#alarm_time_textfield")[0].MaterialTextfield.change(modifiedEvent.alarm_timer);
-            $("#alarm_message_textfield")[0].MaterialTextfield.change(modifiedEvent.alarm_message);
-
-            createDragMarkers(modifiedEvent);
-        });
-
+        initModifyEvent();
     });
 
     $("#stage").on('click', '#cancel_modify', function(event){
         event.preventDefault();
 
+        $("#stage").trigger('unbind_path');
         // delete geolocation of markers
         draggebleFeature.clear();
         redirectDialog("Changes were not submitted.", './travlendar.html');
@@ -68,6 +28,12 @@ $(function() {
 
     $("#stage").on("submit", "#event_modify_form", function (event) {
         event.preventDefault();
+
+        // check if jason path is binded
+        if(path_jason == null){
+            errorDialog("Please select a route before submitting!");
+            throw error;
+        };
 
         var title = $("#event_title").val();
         var starting_time = $("#start_time").val();
@@ -102,6 +68,7 @@ $(function() {
                 "title": title, "start": start, "end": end,
                 "color": color,
                 "starting_location": starting_location, "meeting_location": meeting_location, // Coordinates
+                "route": path_jason,
                 "alarm_timer": alarm_timer, "alarm_message": alarm_message
             }), // Alarm
 
@@ -119,6 +86,64 @@ $(function() {
         });
     });
 });
+
+function initModifyEvent(){
+    $("#stage").load("./html/event_section/event_submit.html", function(){
+
+        $("#TITLE").text("Modify an event");
+
+        deleteCalendarButtons();
+        deleteMapHeader();
+        loadSubmitEventHeader();
+
+        $('<button>', {
+            class: 'mdl-button mdl-js-button mdl-button mdl-button--raised mdl-js-ripple-effect',
+            id: 'cancel_modify'
+        }).appendTo('#button_wrapper_form');
+
+        $('<button>', {
+            class: 'mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect',
+            id: 'button_event_modify_form',
+            type: 'submit'
+        }).appendTo('#button_wrapper_form');
+
+        $("#cancel_modify").text("CANCEL");
+        $("#button_event_modify_form").text("MODIFY EVENT");
+
+        // changes to current DOM
+        $("#event_form").attr('id', 'event_modify_form');
+        $("#flexible_event_label").remove();
+        componentHandler.upgradeDom();
+
+        // update html textfield value
+
+        $("#event_title_textfield")[0].MaterialTextfield.change(modifiedEvent.title);
+        $("#start_day_textfield")[0].MaterialTextfield.change((modifiedEvent.start).format("YYYY-MM-DD"));
+        $("#start_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.start,"HH:mm"));
+
+        if(modifiedEvent.end){
+            $("#end_day_textfield")[0].MaterialTextfield.change((modifiedEvent.end).format("YYYY-MM-DD"));
+            $("#end_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.end, "HH:mm"));
+
+        }else {
+            $("#end_day_textfield")[0].MaterialTextfield.change((modifiedEvent.start).format("YYYY-MM-DD"));
+            $("#end_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.start,"HH:mm"));
+        }
+
+        // coordinates
+        $("#starting_location_textfield")[0].MaterialTextfield.change(modifiedEvent.starting_location);
+        $("#meeting_location_textfield")[0].MaterialTextfield.change(modifiedEvent.meeting_location);
+
+        //alarm
+        $("#alarm_time_textfield")[0].MaterialTextfield.change(modifiedEvent.alarm_timer);
+        $("#alarm_message_textfield")[0].MaterialTextfield.change(modifiedEvent.alarm_message);
+
+        //path
+        path_jason = null;
+
+        createDragMarkers(modifiedEvent);
+    });
+}
 
 function passModifyID(eventClicked){
     modifiedEvent = eventClicked;

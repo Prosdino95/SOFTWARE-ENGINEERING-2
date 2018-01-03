@@ -42,7 +42,6 @@ $(function () {
 
                 // click on event function
                 eventClick: function (eventClicked) {
-                    console.log(eventClicked);
                     if (button_timer) {
                         spawnButtons(eventClicked, true);
                         // start timing

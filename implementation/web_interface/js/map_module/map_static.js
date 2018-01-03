@@ -26,7 +26,13 @@ function showPathMap() {
     // if new event to show, update the map
     if(eventRoute){
         addEventPositionMarker();
+        addEventRoute();
+        $("#stage").trigger('arrange_route', [ eventRoute ]);
     }
+}
+
+function addEventRoute(){
+    loadPath(eventRoute.route, map);
 }
 
 function addEventPositionMarker(){
