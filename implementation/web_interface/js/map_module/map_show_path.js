@@ -16,6 +16,7 @@ $(function(){
         }).appendTo("#header_navigation");
 
         $("#map_go_back_link").click(function(){
+            deleteShowPathHeader();
             $("#calendar").click();
         });
     });

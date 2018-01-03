@@ -65,6 +65,9 @@ function refresh(){
    if(draggebleFeature){
        draggebleFeature.clear();
    }
+   // delete path
+     $("#stage").trigger('unbind_path');
+
     // scroll to top page
     $('document').scrollTop(0);
 }

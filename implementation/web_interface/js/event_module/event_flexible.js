@@ -1,4 +1,17 @@
 $(function(){
+
+    var path_jason;
+
+    // setting route
+    $("#stage").on("bind_path", function(event, routeData, index){
+        path_jason = routeData[index];
+    });
+
+    $("#stage").on("unbind_path", function(){
+        path_jason = null;
+    });
+
+
     $("#stage").on('click', '#flexible_event', function(){
 
         // if flexible flag checked modify DOM
@@ -15,6 +28,12 @@ $(function(){
     $("#stage").on('submit', '#flexible_event_form', function (event) {
 
     	event.preventDefault();
+
+        // check if jason path is binded
+        if(path_jason == null){
+            errorDialog("Please select a route before submitting!");
+            throw error;
+        };
 
         //get token from cookie
         Cookies.json = true;  // important
@@ -49,6 +68,7 @@ $(function(){
                 "starting_flexible_day": starting_flexible_day, "ending_flexible_day": ending_flexible_day,
                 "range_min": range_min, "range_max": range_max, "duration_event": duration_event,
                 "starting_location": starting_location, "meeting_location": meeting_location,
+                "route": path_jason,
                 "alarm_timer": alarm_timer, "alarm_message": alarm_message
             }),
 
@@ -98,5 +118,7 @@ function changeToFlexibleForm(){
 function returnToSubmitForm(){
     // reload this page and restore it with default DOM
     deleteSubmitEventHeader();
+    // delete path
+    $("#stage").trigger('unbind_path');
     initSubmitForm();
 };

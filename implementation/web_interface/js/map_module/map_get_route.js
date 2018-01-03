@@ -21,6 +21,9 @@ $(function(){
         var starting_location = fromStringToCoord(string_starting_location);
         var meeting_location = fromStringToCoord(string_meeting_location);
 
+        // show loading screen
+        showLoading();
+
         // ajax post
         $.ajax({
                 url: 'http://127.0.0.1:5000/getRoute',
@@ -34,48 +37,9 @@ $(function(){
                 }),
             success: function (gpx_response) {
 
-                console.log(gpx_response);
+                hideLoading();
                 var route = JSON.parse(gpx_response);
-                var data = route[0];
-
-                var style = {
-                    'Point': new ol.style.Style({
-                        image: new ol.style.Circle({
-                            fill: new ol.style.Fill({
-                                color: 'rgba(255,255,0,0.4)'
-                            }),
-                            radius: 5,
-                            stroke: new ol.style.Stroke({
-                                color: '#ff0',
-                                width: 1
-                            })
-                        })
-                    }),
-                    'LineString': new ol.style.Style({
-                        stroke: new ol.style.Stroke({
-                            color: '#f00',
-                            width: 3
-                        })
-                    }),
-                    'MultiLineString': new ol.style.Style({
-                        stroke: new ol.style.Stroke({
-                            color: '#0f0',
-                            width: 3
-                        })
-                    })
-                };
-
-                var vector = new ol.layer.Vector({
-                    source: new ol.source.Vector({
-                        features: new ol.format.GPX().readFeatures(data["path_gpx"]),
-                        format: new ol.format.GPX()
-                    }),
-                    style: function(feature) {
-                        return style[feature.getGeometry().getType()];
-                    }
-                });
-
-                draggableMap.addLayer(vector);
+                $("#stage").trigger('event_choose_route', [ route ]);
             },
             error: function (error) {
                 console.log(error);
