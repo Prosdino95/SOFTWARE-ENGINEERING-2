@@ -36,8 +36,5 @@ def token_query(token):
                              'WHERE TOKEN =?', (token,)).fetchone()
     if query is None:
         raise Exception('Illegal access')
-    if time() - query[2] > 30000:
-        print("new token")
-    # print the name just for test
     return query[0]
 

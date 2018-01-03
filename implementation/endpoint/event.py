@@ -23,6 +23,7 @@ def del_event(token, event_id):
     r.table("event").get(event_id).delete().run()
     r.table("event_submit").get(event_id).delete().run()
     check_overlays(token)
+    return "event deleted"
 
 
 def mod_event(event):
@@ -32,6 +33,7 @@ def mod_event(event):
         return "illegal access"
     r.table("event").get(event["id"]).update(event).run()
     check_overlays(token)
+    return "event modified"
 
 
 def check_overlays(token):
@@ -48,7 +50,6 @@ def check_overlays(token):
                         set_alarm(i, j)
         if not alarm:
             r.table("event").get(i["id"]).update({"alarm": False}).run()
-    return "all ok"
 
 
 def set_alarm(e1, e2):

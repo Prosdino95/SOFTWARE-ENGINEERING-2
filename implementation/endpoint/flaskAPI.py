@@ -7,6 +7,7 @@ import event
 import route
 from flexible_lunch import set_lunch
 import post_check
+from jsonschema import ValidationError
 import pprint
 
 app = flask.Flask(__name__)
@@ -19,7 +20,7 @@ def registration_api():
     user = flask.request.get_json()
     try:
         post_check.registration(user)
-    except Exception: return 400, "Bad Request"
+    except ValidationError: return "bad request"
     return registration(user)
 
 
@@ -27,8 +28,8 @@ def registration_api():
 def login_api():
     user = flask.request.get_json()
     try:
-         post_check.login(user)
-    except Exception: return "Bad Request"
+        post_check.login(user)
+    except ValidationError: return "Bad Request"
     return login(user)
 
 
@@ -38,7 +39,7 @@ def mod_profile_api():
     user = flask.request.get_json()
     try:
         post_check.user_profile(user)
-    except Exception: return "Bad Request"
+    except ValidationError: return "Bad Request"
     profile.mod_profile(user)
     return "information changed"
 
@@ -48,7 +49,7 @@ def mod_profile_preference_api():
     user = flask.request.get_json()
     try:
         post_check.preference(user)
-    except Exception: return "Bad Request"
+    except ValidationError: return "Bad Request"
     profile.mod_profile_preference(user)
     return "information changed"
 
@@ -58,7 +59,7 @@ def mod_profile_password_api():
     user = flask.request.get_json()
     try:
         post_check.mod_password(user)
-    except Exception: return "Bad Request"
+    except ValidationError: return "Bad Request"
     return profile.mod_profile_password(user)
 
 
@@ -83,7 +84,7 @@ def add_event__api():
     user_event = flask.request.get_json()
     try:
         post_check.add_event(user_event)
-    except Exception: return "Bad Request"
+    except ValidationError: return "Bad Request"
     event.add_event(user_event)
     return "event added"
 
@@ -93,9 +94,9 @@ def mod_event__api():
     user_event = flask.request.get_json()
     try:
         post_check.mod_event(user_event)
-    except Exception: return "Bad Request"
-    event.mod_event(user_event)
-    return "event modified"
+    except ValidationError: return "Bad Request"
+    return event.mod_event(user_event)
+
 
 
 @app.route('/delEvent', methods=['POST'])
@@ -103,11 +104,11 @@ def del_event__api():
     user_event = flask.request.get_json()
     try:
         post_check.del_event(user_event)
-    except Exception: return "Bad Request"
+    except ValidationError: return "Bad Request"
     token = user_event["token"]
     event_id = user_event["id"]
-    event.del_event(token, event_id)
-    return "event deleted"
+    return event.del_event(token, event_id)
+
 
 
 @app.route('/getEvent', methods=['GET'])
@@ -123,10 +124,10 @@ def get_route():
     with open('log.txt', 'a') as f:
         pprint.pprint('routing request', f)
         pprint.pprint(ev, f)
-    #try:
-    #    post_check.get_route(ev)
-    #except Exception: 
-    #    return "Bad Request"
+    try:
+        post_check.get_route(ev)
+    except ValidationError:
+        return "Bad Request"
     token = ev["token"]
     gps_start = ev["gps_start"]
     gps_stop = ev["gps_stop"]
@@ -139,9 +140,10 @@ def flexible_lunch_api():
     event = flask.request.get_json()
     try:
         post_check.flexible_lunch(event)
-    except Exception: return "Bad Request"
+    except ValidationError: return "Bad Request"
     set_lunch(event)
     return "event added"
+
 
 if __name__ == "__main__":
     app.run()
