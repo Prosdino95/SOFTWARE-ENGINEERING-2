@@ -11,7 +11,9 @@
                   "minItems": 2,
                   "maxItems": 2,
                   "items": {"type": "number"}
-                 },
+                 }
+  },
   "required":["token", "gps_start", "gps_stop"],
   "additionalProperties": false
 }
+

@@ -20,7 +20,7 @@ def registration_api():
     user = flask.request.get_json()
     try:
         post_check.registration(user)
-    except ValidationError: return "bad request"
+    except ValidationError: return "Bad Request"
     return registration(user)
 
 
