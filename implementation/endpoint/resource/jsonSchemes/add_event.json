@@ -13,5 +13,5 @@
       },
   "required":["token", "title", "start", "end", "color", "starting_location", "meeting_location",
       "alarm_timer", "alarm_message"],
-  "additionalProperties": false
+  "additionalProperties": true
 }

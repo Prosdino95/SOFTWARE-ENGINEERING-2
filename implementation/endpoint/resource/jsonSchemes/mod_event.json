@@ -13,5 +13,5 @@
       "alarm_message": {"type": "string"}
       },
   "required":["token", "id"],
-  "additionalProperties": false
+  "additionalProperties": true
 }
