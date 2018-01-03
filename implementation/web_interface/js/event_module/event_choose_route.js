@@ -28,7 +28,8 @@ $(function() {
             // freeze map
             freezeMap();
 
-            // transform get path button in cancel button
+            // NOT IMPLEMENTED
+        /*    // transform get path button in cancel button
             $('#get_path').removeClass("mdl-button--colored").addClass("mdl-color--grey-100");
             $('#get_path').text("CANCEL");
             $('#get_path').attr('id', 'cancel_choose_route');
@@ -40,7 +41,8 @@ $(function() {
                     event.preventDefault();
                     $("#stage").trigger('unbind_path');
                     redirectDialog("Event Canceled", './travlendar.html');
-                });
+                });*/
+            $('#get_path').remove();
         });
     });
 
@@ -98,7 +100,6 @@ $(function() {
             case "green_mode":
                 return "<i class='mdi mdi-earth mdi-24px mdl-color-text--green-500'></i>";
             default:
-                console.log(json);
                 return "";
         }
     }

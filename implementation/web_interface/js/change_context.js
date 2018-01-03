@@ -65,7 +65,10 @@ function refresh(){
    if(draggebleFeature){
        draggebleFeature.clear();
    }
-   // delete path
+   // refresh static map
+    passEventRoute(null);
+
+    // delete path
      $("#stage").trigger('unbind_path');
 
     // scroll to top page

@@ -17,6 +17,7 @@ $(function(){
 
         $("#map_go_back_link").click(function(){
             deleteShowPathHeader();
+            passEventRoute(null);
             $("#calendar").click();
         });
     });
