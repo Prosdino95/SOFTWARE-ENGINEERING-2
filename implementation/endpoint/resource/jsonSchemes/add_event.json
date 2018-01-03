@@ -6,12 +6,21 @@
       "start": {"type": "string", "format": "date"},
       "end": {"type": "string", "format": "date"},
       "color": {"type": "string"},
+      "route":{"type": "object",
+                   "minItems": 4,
+                   "maxItems": 4,
+                   "items": {"distance": "number",
+                   			"time":"number",
+                   			"method":"string",
+                   			"path_gpx":"path_gpx"	
+                   			}
+                  },
       "starting_location": {"type" : "string"},
       "meeting_location": {"type" : "string"},
       "alarm_timer": {"type" : "string"},
       "alarm_message": {"type": "string"}
       },
-  "required":["token", "title", "start", "end", "color", "starting_location", "meeting_location",
+  "required":["token", "title", "start", "route", "end", "color", "starting_location", "meeting_location",
       "alarm_timer", "alarm_message"],
-  "additionalProperties": true
+  "additionalProperties": false
 }

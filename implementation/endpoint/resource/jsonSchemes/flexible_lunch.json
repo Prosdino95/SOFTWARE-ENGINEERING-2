@@ -7,12 +7,21 @@
       "range_max":{"type": "string"},
       "starting_flexible_day":{"type": "string"},
       "ending_flexible_day":{"type": "string"},
+      "route":{"type": "object",
+                   "minItems": 4,
+                   "maxItems": 4,
+                   "items": {"distance": "number",
+                        "time":"number",
+                        "method":"string",
+                        "path_gpx":"path_gpx" 
+                        }
+                  },      
       "duration_event":{"type": "string"},
       "starting_location": {"type" : "string"},
       "meeting_location": {"type" : "string"},
       "alarm_timer": {"type" : "string"},
       "alarm_message": {"type": "string"}
       },
-  "required":["token", "range_max", "starting_flexible_day", "ending_flexible_day", "duration_event"],
+  "required":["token", "range_max", "route", "starting_flexible_day", "ending_flexible_day", "duration_event"],
   "additionalProperties": false
 }

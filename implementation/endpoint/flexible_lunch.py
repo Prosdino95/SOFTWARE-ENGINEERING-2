@@ -26,6 +26,9 @@ def set_lunch(event):
     lunch_event["alarm_timer"] = event["alarm_timer"]
     lunch_event["alarm_message"] = event["alarm_message"]
 
+    # setting route
+    lunch_event["route"] = event["route"]
+
     create_lunch(event)
     return ""
 
