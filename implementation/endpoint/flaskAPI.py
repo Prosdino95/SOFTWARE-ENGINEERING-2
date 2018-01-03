@@ -120,9 +120,6 @@ def get_event():
 @app.route('/getRoute', methods=['POST'])
 def get_route():
     ev = flask.request.get_json()
-    with open('log.txt', 'a') as f:
-        pprint.pprint('routing request', f)
-        pprint.pprint(ev, f)
     #try:
     #    post_check.get_route(ev)
     #except Exception: 
