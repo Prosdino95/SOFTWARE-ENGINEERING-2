@@ -4,6 +4,10 @@ import copy
 
 valhalla_url = 'http://{}:{}/route'
 
+mode_conversion = {'car': 'auto',
+                   'foot': 'pedestrian',
+                   'bike': 'bicycle'}
+
 def init(registry):
     global valhalla_url
     valhalla_ip = os.environ.get('VALHALLA_IP', '127.0.0.1')
@@ -38,7 +42,7 @@ returns a gpx with the route specified
 Parameters:
 coord_begin - tuple (latitude, longitude)
 coord_end - tuple (latitude, longitude)
-mode - can be either 'auto', 'foot', 'bike'
+mode - can be either 'car', 'foot', 'bike'
 """
 def find_path(coord_begin, coord_end, mode):
     route_request = copy.deepcopy(route_request_template)
@@ -46,13 +50,10 @@ def find_path(coord_begin, coord_end, mode):
                                    'lon': coord_begin[1]},
                                   {'lat': coord_end[0],
                                    'lon': coord_end[1]}]
-    if mode == 'foot':
-        route_request['costing'] = 'pedestrian'
-    elif mode == 'bike':
-        route_request['costing'] = 'bicycle'
+    if mode in mode_conversion:
+        route_request['costing'] = mode_conversion[mode]
     else:
         route_request['costing'] = mode
-
     request = requests.post(valhalla_url, json = route_request)
     path = request.text
     route_request['directions_options']['format'] = 'json'
