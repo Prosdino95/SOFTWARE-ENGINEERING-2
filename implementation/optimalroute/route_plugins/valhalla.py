@@ -14,7 +14,7 @@ def init(registry):
     valhalla_port = os.environ.get('VALHALLA_PORT', '8002')
     valhalla_url = valhalla_url.format(valhalla_ip, valhalla_port)
     registry.register_plugin('car',
-                             {'router': lambda x,y: find_path(x,y,'auto'),
+                             {'router': lambda x,y: find_path(x,y,'car'),
                               'id': 'valhalla_car',
                               'desc': 'Car routing with valhalla'})
     print('Registered valhalla car routing plugin')
