@@ -78,7 +78,7 @@ $(function(){
                 hideLoading();
 
                 // Show a friendly event_section
-                redirectDialog("Flexible lunch submitted correctly.", './travlendar.html');
+                redirectDialog("Flexible event submitted correctly.", './travlendar.html');
             },
             error: function (error) {
                 errorDialog(error);

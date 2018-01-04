@@ -22,13 +22,15 @@ $(function() {
 
                 componentHandler.upgradeDom();
 
+                // hide loading page
+                hideLoading();
+
                 if(token['token'] !== 'none'){
                 	// Saving token in a Cookie
                 	Cookies.json = true;
                 	Cookies.set("session_token", token['token']);
 
-                    // hide loading page
-                    hideLoading();
+
 
                 	// Redirect on travlendar.html
                     redirectDialog("Login successfully completed!", "./travlendar.html");

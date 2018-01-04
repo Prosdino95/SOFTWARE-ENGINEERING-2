@@ -57,7 +57,7 @@ $(function() {
         // show loading screen
         showLoading();
 
-        // Post request to /addEvent
+        // Post request to /modEvent
         $.ajax({
             url: 'http://127.0.0.1:5000/modEvent',
             dataType: 'text',
@@ -123,11 +123,13 @@ function initModifyEvent(){
 
         if(modifiedEvent.end){
             $("#end_day_textfield")[0].MaterialTextfield.change((modifiedEvent.end).format("YYYY-MM-DD"));
-            $("#end_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.end, "HH:mm"));
+          //  $("#end_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.end, "HH:mm"));
+            $("#end_time_textfield")[0].MaterialTextfield.change("");
 
         }else {
             $("#end_day_textfield")[0].MaterialTextfield.change((modifiedEvent.start).format("YYYY-MM-DD"));
-            $("#end_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.start,"HH:mm"));
+         //   $("#end_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.start,"HH:mm"));
+            $("#end_time_textfield")[0].MaterialTextfield.change("");
         }
 
         // coordinates

@@ -22,7 +22,7 @@ $(function () {
             Cookies.json = true;  // important
             var token = Cookies.get("session_token");
 
-            // Post request
+            // get request
             $.ajax({
                 url: 'http://127.0.0.1:5000/getProfile?token=' + token,
                 success: function (response) {
@@ -103,6 +103,10 @@ $(function () {
 
                 // Show a friendly event_section
                 submitDialog("Informations updated correctly.");
+
+                // update change name
+             //   document.querySelector('#first_name_drawer').text(first_name);
+                componentHandler.upgradeDom();
             },
             error: function (error) {
                 errorDialog(error);

@@ -1,0 +1,74 @@
+
+#card_body{
+    padding-top: 10vmin;
+}
+
+#banner_1{
+    background: url('../../res/carousel/4.jpg') center / cover;
+}
+
+#banner_1_title{
+    width: 100%;
+    padding-left: 5%;
+}
+
+#banner_1_text{
+    width: 100%;
+}
+#banner_1_body{
+    margin: auto;
+    width: 100%;
+}
+
+#banner_2{
+    background: url('../../res/carousel/5.jpg') center / cover;
+}
+.banner_2_black{
+    background: rgba(0%, 0%, 0%, 0.4);
+}
+
+#banner_2_body{
+    margin: auto;
+    width: 100%;
+}
+
+#banner_2_text{
+    width: 100%;
+}
+
+#banner_2_title{
+    width: 100%;
+    padding-left: 5%;
+}
+
+#banner_3{
+    background: url('../../res/carousel/3.jpg') center / cover;
+}
+
+#banner_3_button{
+    position:absolute;
+    right: 5%;
+    top: 10%;
+}
+
+#banner3_body{
+    width: 100%;
+}
+
+#banner_4{
+    background: url('../../res/carousel/2.jpg') center / cover;
+}
+
+#banner4_body{
+    width: 100%;
+}
+
+.banner4_line{
+    height: 1px;
+    background-color: #EEEEEE;
+}
+
+#footer_banner{
+    width: 100%;
+    margin-top: 20vmin;
+}
