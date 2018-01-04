@@ -1,3 +1,16 @@
+/**
+ * @module dialog
+ * @description handles the dialog screen
+ *
+ */
+
+/**
+ * build the correct dialog.
+ *
+ * @param {String} text
+ * @param {String} title
+ * @param {String} url
+ */
 function dialog(text, title, url){
     var dialog = document.querySelector('#trav_dialog');
     if (!dialog.showModal) {
@@ -20,24 +33,43 @@ function dialog(text, title, url){
     });
 }
 
+/**
+ * reset the current dialog
+ * @external ".text()"
+ * @see {@link http://api.jquery.com/text/}
+ */
 function resetDialog(){
     $("#warning_dialog").text("");
     $("#warning_title").text("");
 }
 
-// Spawn Dialog which redirect navigation
+/**
+ * Spawns Dialog which redirect navigation to the url passed.
+ *
+ * @param {String} text
+ * @param {String} url
+ */
 function redirectDialog(text, url) {
     resetDialog();
     dialog(text, false, url);
 }
 
-//Spawn Error Dialog
+/**
+ * Spawns an error Dialog.
+ *
+ * @param {String} text
+ */
+
 function errorDialog(text){
     resetDialog();
     dialog(text, 'Error', false);
 }
 
-//Spawn warning dialog
+/**
+ * Spawns a submit Dialog.
+ *
+ * @param {String} text
+ */
 function submitDialog(text){
     resetDialog();
     dialog(text, false, false);

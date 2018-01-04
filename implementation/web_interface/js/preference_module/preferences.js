@@ -1,3 +1,27 @@
+/**
+ * @module preference_module/preferences
+ * @description handles the preference of the user.
+ * @listens preference_load
+ * @listens click
+ * @fires ajax post
+ * @fires ajax get
+ */
+
+/**
+ * @external ".load()"
+ * @see {@link http://api.jquery.com/load/}
+ */
+
+/**
+ * @external ".on()"
+ * @see {@link http://api.jquery.com/on/}
+ */
+
+/**
+ * @external "jQuery.ajax"
+ * @see {@link http://api.jquery.com/category/ajax/global-ajax-event-handlers/}
+ */
+
 // main function
 $(function () {
 

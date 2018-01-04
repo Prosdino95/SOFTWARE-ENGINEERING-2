@@ -1,5 +1,17 @@
+/**
+ * @module map_module/map
+ * @description load main page map.
+ * @listen map_load
+ */
+
+
 // full calendar on right drawer
 $(function () {
+
+    /**
+     * @external "Full Calendar"
+     * @see {@link https://fullcalendar.io/docs/usage/}
+     */
 
     $("#stage").on("map_load", function (event) {
 

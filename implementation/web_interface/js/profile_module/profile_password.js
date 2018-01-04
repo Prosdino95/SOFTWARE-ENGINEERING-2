@@ -1,11 +1,37 @@
-/*
-     Update user password module.
-*/
+/**
+ * @module profile_module/profile_password
+ * @description handles the change password.
+ * @listens click
+ * @fires ajax post
+ */
+
+/**
+ * Check if password and retype password are the same.
+ * @param {String} password
+ * @param {String} retype_password
+ * @returns {boolean}
+ */
 
 // check if password and retype password are the same and not empty
 function passwordCheck(password, retype_password) {
      return !(password.length === 0) && (password === retype_password);
 }
+
+/**
+ * @external ".click()"
+ * @see {@link http://api.jquery.com/click/}
+ */
+
+/**
+ * @external ".on()"
+ * @see {@link http://api.jquery.com/on/}
+ */
+
+/**
+ * @external "jQuery.ajax"
+ * @see {@link http://api.jquery.com/category/ajax/global-ajax-event-handlers/}
+ */
+
 
 // main function
 $(function() {

@@ -1,3 +1,17 @@
+/**
+ * @module map_module/map_setup_route
+ * @description setup the path openlayer object
+ */
+
+/**
+ * @external "Open Layers"
+ * @see {@link http://openlayers.org/en/latest/apidoc/}
+ */
+
+/**
+ * init the style to apply on route
+ * @return {{LineString: ol.style.Style, MultiLineString: ol.style.Style}}
+ */
 function styleMyPath(){
     return {
       /*  'Point': new ol.style.Style({
@@ -28,6 +42,11 @@ function styleMyPath(){
     };
 }
 
+/**
+ * Put a gpx route on a OSM map
+ * @param route - gpx route
+ * @param map - OSM map
+ */
 function loadPath(route, map){
     refreshPath(map);
     var vector = new ol.layer.Vector({
@@ -43,7 +62,10 @@ function loadPath(route, map){
     map.addLayer(vector);
 }
 
-// delete path layer
+/**
+ * delete the path layer on the OSM map passed
+ * @param map
+ */
 function refreshPath(map){
 
     var pathLayer = function(a){ return a instanceof ol.layer.Vector};

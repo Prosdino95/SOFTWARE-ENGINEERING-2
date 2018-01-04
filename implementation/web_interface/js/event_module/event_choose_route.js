@@ -1,24 +1,31 @@
-$(function() {
+/**
+ * @module event_module/event_choose_route
+ * @description handles the creation of route table on event submit form.
+ * @listen event_choose_route
+ * @listen arrange_route
+ */
 
-    $("#stage").on("event_choose_route", function(event, route){
+$(function () {
+
+    $("#stage").on("event_choose_route", function (event, route) {
 
         // sort jasonArray on time expected
-        var routeData = route.sort(function(a, b){
-            if(a && b){
+        var routeData = route.sort(function (a, b) {
+            if (a && b) {
                 return parseInt(a.time) - parseInt(b.time);
-            }else
+            } else
                 return route;
         });
-        $("#display_route").load('./html/event_section/event_choose_route.html', function(){
+        $("#display_route").load('./html/event_section/event_choose_route.html', function () {
 
             // create html
-           for(var i in routeData){
-               $("#route_table").append(spawnRaw(routeData[i], i));
-           }
-           componentHandler.upgradeDom(); // important!
+            for (var i in routeData) {
+                $("#route_table").append(spawnRaw(routeData[i], i));
+            }
+            componentHandler.upgradeDom(); // important!
 
             // setting radio button events
-            $('input[id*="route_"]').click(function(event){
+            $('input[id*="route_"]').click(function (event) {
                 var index = $(this).attr("value");
                 componentHandler.upgradeDom();
                 loadPath(routeData[index], draggableMap);
@@ -29,25 +36,25 @@ $(function() {
             freezeMap();
 
             // NOT IMPLEMENTED
-        /*    // transform get path button in cancel button
-            $('#get_path').removeClass("mdl-button--colored").addClass("mdl-color--grey-100");
-            $('#get_path').text("CANCEL");
-            $('#get_path').attr('id', 'cancel_choose_route');
+            /*    // transform get path button in cancel button
+                $('#get_path').removeClass("mdl-button--colored").addClass("mdl-color--grey-100");
+                $('#get_path').text("CANCEL");
+                $('#get_path').attr('id', 'cancel_choose_route');
 
-            componentHandler.upgradeDom(); // important!
+                componentHandler.upgradeDom(); // important!
 
 
-                $('#cancel_choose_route').click(function(event){
-                    event.preventDefault();
-                    $("#stage").trigger('unbind_path');
-                    redirectDialog("Event Canceled", './travlendar.html');
-                });*/
+                    $('#cancel_choose_route').click(function(event){
+                        event.preventDefault();
+                        $("#stage").trigger('unbind_path');
+                        redirectDialog("Event Canceled", './travlendar.html');
+                    });*/
             $('#get_path').remove();
         });
     });
 
     // spawn ArrangeRoute for map place
-    $("#stage").on("arrange_route", function(event, eventClicked) {
+    $("#stage").on("arrange_route", function (event, eventClicked) {
         // refresh
         $("#display_route").empty();
         $("#display_route").load('./html/event_section/event_choose_route.html', function () {
@@ -58,8 +65,20 @@ $(function() {
             componentHandler.upgradeDom(); // important!
         });
     });
-        function spawnRaw(singleRoute, index){
-        if(singleRoute) {
+
+    /**
+     * @external ".appendTo()"
+     * @see {@link http://api.jquery.com/appendTo/}
+     */
+
+    /**
+     * creates html table raw from a json.
+     * @param {json} singleRoute - json object
+     * @param {number} index - number of the path
+     * @return {string}
+     */
+    function spawnRaw(singleRoute, index) {
+        if (singleRoute) {
             var name = 'Route ' + index;
             var time = moment.duration(singleRoute['time'], "seconds").humanize();
             var distance = singleRoute['distance'] + "km";
@@ -67,20 +86,26 @@ $(function() {
 
             // html
             return "<tr>" +
-                "<td class='mdl-data-table__cell--non-numeric' id='name_"+index+"'>" + name + "</td><" +
+                "<td class='mdl-data-table__cell--non-numeric' id='name_" + index + "'>" + name + "</td><" +
                 "<td>" + vehicle + "</td>" +
                 "<td>" + time + "</td>" +
                 "<td>" + distance + "</td>" +
                 "<td>" +
-                "<label class='mdl-radio mdl-js-radio mdl-js-ripple-effect mdl-color-text--blue-grey-700' for='route_"+index+"'>"+
-                "<input type='radio' id='route_"+index+"'class='mdl-radio__button' name='route' value="+index+">"+
-                "<span class='mdl-radio__label'></span></label></td>"+
+                "<label class='mdl-radio mdl-js-radio mdl-js-ripple-effect mdl-color-text--blue-grey-700' for='route_" + index + "'>" +
+                "<input type='radio' id='route_" + index + "'class='mdl-radio__button' name='route' value=" + index + ">" +
+                "<span class='mdl-radio__label'></span></label></td>" +
                 "</tr>"
-        }return ""
+        }
+        return ""
     }
 
-    function selectVehicle(json){
-        switch (json){
+    /**
+     * creates icon to append on the html raw of the path
+     * @param {json} json - json of the path
+     * @return {string} html - html icon to append
+     */
+    function selectVehicle(json) {
+        switch (json) {
             case "foot":
                 return "<i class='mdi mdi-walk mdi-24px mdl-color-text--blue-grey-700'></i>";
             case "bike":

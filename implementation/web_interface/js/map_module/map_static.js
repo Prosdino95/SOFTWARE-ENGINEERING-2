@@ -1,7 +1,33 @@
-// global variables
-var eventRoute;
-var map, feature;
+/**
+ * @module map_module/map_static
+ * @description init a static OSM map
+ */
 
+// global variables
+
+/**
+ * event to display the route
+ */
+var eventRoute;
+
+/**
+ * static map
+ */
+var map;
+
+/**
+ * feature loaded on static map
+ */
+var feature;
+
+/**
+ * @external "Open Layers"
+ * @see {@link http://openlayers.org/en/latest/apidoc/}
+ */
+
+/**
+ * creates the static map
+ */
 // Static map for Show Path view and Map page
 function showPathMap() {
 
@@ -31,10 +57,16 @@ function showPathMap() {
     }
 }
 
+/**
+ * add a route on map
+ */
 function addEventRoute(){
     loadPath(eventRoute.route, map);
 }
 
+/**
+ * display the event markers on the map
+ */
 function addEventPositionMarker(){
 
     // coord are saved on Event object as a string: need to parse it!
@@ -67,21 +99,39 @@ function addEventPositionMarker(){
     map.getView().fit(extent, map.getSize());
 }
 
+/**
+ * create a marker in a specific location
+ *
+ * @param location
+ * @return {ol.Feature}
+ */
 // Setup coordinate
 function createFixedMarker(location) {
     return new ol.Feature(new ol.geom.Point(location));
 }
 
+/**
+ * binds the event passed on eventRoute
+ * @param {Event_Object}eventClicked
+ */
 // bind an event to show
 function passEventRoute(eventClicked){
     eventRoute = eventClicked;
 }
 
+/**
+ * parse a string to a int coord
+ * @param {String} string
+ * @return {number[]} coord
+ */
 // parse string to get the coords
 function fromStringToCoord(string){
     return string.split(',').map(Number);
 }
 
+/**
+ * refresh the feature of OSM static map
+ */
 function deleteMarkers(){
     if(feature) {
         feature.clear();

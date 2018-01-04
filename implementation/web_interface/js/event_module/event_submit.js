@@ -1,3 +1,14 @@
+/**
+ * @module event_module/event_submit
+ * @description handles submit of events.
+ * @fires ajax post
+ */
+
+/**
+ * calculates the color string to apply to the event submitted
+ * @return {string}
+ */
+
 //Calculate the color of the event based on its type
 function colorfy() {
     var type = $('input[name = type]:checked').val();
@@ -17,6 +28,9 @@ function colorfy() {
 // main
 $(function () {
 
+    /**
+     * route path binded with the click of get path button
+     */
     var path_jason;
 
     // load submit event page
@@ -42,6 +56,11 @@ $(function () {
     $("#stage").on("unbind_path", function(){
         path_jason = null;
     });
+
+    /**
+     * @external ".submit()"
+     * @see {@link http://api.jquery.com/submit/}
+     */
 
     $("#stage").on("submit", "#event_form", function (event) {
 
@@ -104,6 +123,15 @@ $(function () {
         });
     });
 });
+
+/**
+ * @external ".load()"
+ * @see {@link http://api.jquery.com/load/}
+ */
+
+/**
+ * restore the submit form and refresh the modified
+ */
     function initSubmitForm(){
         $("#stage").load("./html/event_section/event_submit.html", function(){
 

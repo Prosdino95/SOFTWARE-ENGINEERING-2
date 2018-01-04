@@ -1,8 +1,28 @@
-/*
-     Update user picture.
-*/
+/**
+ * @module profile_module/profile_picture
+ * @description handles the change picture.
+ * @listens click
+ * @listens change
+ * @fires ajax
+ */
 
 $(function (){
+
+
+    /**
+     * @external ".click()"
+     * @see {@link http://api.jquery.com/click/}
+     */
+
+    /**
+     * @external ".on()"
+     * @see {@link http://api.jquery.com/on/}
+     */
+
+    /**
+     * @external "jQuery.ajax"
+     * @see {@link http://api.jquery.com/category/ajax/global-ajax-event-handlers/}
+     */
 
     // Submit the new image profile
     $("#stage").on("click", "#submit_picture", function (event){
@@ -27,6 +47,11 @@ $(function (){
 
         // show loading page
         showLoading();
+
+        /**
+         * @external "jQuery.ajax"
+         * @see {@link http://api.jquery.com/category/ajax/global-ajax-event-handlers/}
+         */
 
         $.ajax({
             url: 'http://127.0.0.1:5000/modProfile',
@@ -53,6 +78,12 @@ $(function (){
         });
     });
 
+
+    /**
+     * @external ".change()"
+     * @see {@link http://api.jquery.com/change/}
+     */
+
     //  Preview the chosen image profile to the user
     $("#stage").on("change", "#url_button", function (event){
 
@@ -65,8 +96,8 @@ $(function (){
         if(file.size > 10000000){
 
             // Show a friendly event_section
-            errorDialog("Image too bigger");
-            throw error();
+            errorDialog("Image too big");
+            throw "Image too big";
         }
 
         reader.addEventListener("load", function () {

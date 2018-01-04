@@ -1,17 +1,38 @@
-
-// format correctly First_name and Last_name
-function render_text(string){
+/**
+ * Format correctly First_name and Last_name textfield values.
+ * @param {String} string - the string to format
+ * @returns {String} a string well formatted.
+ */
+function render_text(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
 }
 
-// check if password and retype password are the same
+/**
+ * Check if password and retype password are the same.
+ * @param {String} password
+ * @param {String} retype_password
+ * @returns {boolean}
+ */
+
 function passwordCheck(password, retype_password) {
     return password === retype_password;
 }
 
-// sign up -- registration handler
-$(function() {
-    $(document).submit(function(event) {
+/**
+ * @module registration
+ * @description registration event handler
+ * @listens event submit event in document scope
+ * @fires ajax post request
+ */
+
+$(function () {
+
+    /**
+     * @external ".submit()"
+     * @see {@link http://api.jquery.com/submit/}
+     */
+
+    $(document).submit(function (event) {
 
         // prevent the default http POST
         event.preventDefault();
@@ -23,35 +44,37 @@ $(function() {
         var retype_pass = $('#retype_password').val();
 
         // Check passwords match
-        if(!passwordCheck(pass, retype_pass)){
+        if (!passwordCheck(pass, retype_pass)) {
             errorDialog("Passwords do not match.");
-            throw error();
-        };
+            throw "Passwords do not match";
+        }
 
         //show loading page
         showLoading();
 
+        /**
+         * @external "jQuery.ajax"
+         * @see {@link http://api.jquery.com/category/ajax/global-ajax-event-handlers/}
+         */
         // Post request
         $.ajax({
             url: 'http://127.0.0.1:5000/registration',
             dataType: 'text',
             contentType: "application/json; charset=utf-8",
             type: 'post',
-            data: JSON.stringify( { "first_name": first_name, "last_name": last_name, "password": pass, "email": email } ),
-            success: function(response) {
+            data: JSON.stringify({"first_name": first_name, "last_name": last_name, "password": pass, "email": email}),
+            success: function (response) {
 
                 // hide loading page
                 hideLoading();
-                if(response === 'ok'){
+                if (response === 'ok') {
                     redirectDialog("Registration completed successfully!", "./index.html");
                 } else {
-                    // hide loading page
-                    hideLoading();
                     errorDialog("Registration failed");
                 }
             },
 
-            error: function(error) {
+            error: function (error) {
 
                 // hide loading page
                 hideLoading();
@@ -69,7 +92,6 @@ $(function() {
      *
      *see https://github.com/google/material-design-lite/issues/1502 for more info
      *
-     * @public
      */
     MaterialTextfield.prototype.checkValidity = function () {
         if (this.input_.validity.valid) {
