@@ -17,7 +17,7 @@ def set_preference(email):
 
 
 def save_user(user):
-    r.connect(rt_server.ip, rt_server.port, "Travlendar").repl()
+    r.connect(rt_server.ip, rt_server.port, rt_server.db_name).repl()
     if r.table("user").filter(r.row["email"].eq(user["email"])).count().run() == 0:
         r.table("user").insert(user).run()
         set_preference(user["email"])

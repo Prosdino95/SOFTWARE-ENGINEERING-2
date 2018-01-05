@@ -6,7 +6,7 @@ import rt_server
 
 
 def login(user):
-    r.connect(rt_server.ip, rt_server.port, "Travlendar").repl() 
+    r.connect(rt_server.ip, rt_server.port, rt_server.db_name).repl()
     hash_pass = md5(user["password"].encode())
     cursor = r.table("user").get(user["email"]).run()
     if cursor is None:

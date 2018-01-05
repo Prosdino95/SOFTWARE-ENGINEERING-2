@@ -3,9 +3,10 @@ from tokenDB import token_query
 from flexible_lunch import rearrange_lunch
 import rt_server as rts
 
+r.connect(rts.ip, rts.port, rts.db_name).repl()
+
 
 def add_event(event):
-    r.connect(rts.ip, rts.port, "Travlendar").repl()
     token = event["token"]
     del event["token"]
     event["flexible_lunch"] = False
@@ -17,7 +18,6 @@ def add_event(event):
 
 
 def del_event(token, event_id):
-    r.connect(rts.ip, rts.port, "Travlendar").repl()
     if not security_check(token, event_id):
         return "illegal access"
     r.table("event").get(event_id).delete().run()
@@ -27,7 +27,6 @@ def del_event(token, event_id):
 
 
 def mod_event(event):
-    r.connect(rts.ip, rts.port, "Travlendar").repl()
     token = event["token"]
     if not security_check(token, event["id"]):
         return "illegal access"
@@ -60,7 +59,6 @@ def set_alarm(e1, e2):
 
 
 def get_event(token):
-    r.connect(rts.ip, rts.port, "Travlendar").repl()
     email = get_email(token)
     query = r.table("event_submit").filter(r.row["email"] == email).\
         eq_join("event", r.table("event")). \

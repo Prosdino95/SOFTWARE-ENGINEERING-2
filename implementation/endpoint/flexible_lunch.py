@@ -1,9 +1,9 @@
 import rethinkdb as r
 from tokenDB import token_query
 from datetime import time, datetime, timedelta
-import rt_server
+import rt_server as rts
 
-r.connect(rt_server.ip, rt_server.port, "Travlendar").repl()
+r.connect(rts.ip, rts.port, rts.db_name).repl()
 lunch_event = {"alarm": False,
                "color": "#536DFE",
                "editable": False,

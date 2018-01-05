@@ -10,7 +10,7 @@ url = 'http://{}:{}/route'.format(os.environ.get('OPTIMALROUTE_IP', '127.0.0.1')
 
 
 def get_route(token, gps_start, gps_stop):
-    r.connect(rts.ip, rts.port, "Travlendar").repl()
+    r.connect(rts.ip, rts.port, rts.db_name).repl()
     email = token_query(token)
     prefs = r.table("user").get(email).get_field('preference').run()
     trans_list = [elem[0] for elem in prefs.items() if elem[1]]
