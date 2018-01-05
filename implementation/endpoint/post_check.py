@@ -50,9 +50,3 @@ def get_route(json):
 def flexible_lunch(json):
     schema = load(open("resource/jsonSchemes/flexible_lunch.json"))
     validate(json, schema)
-
-
-
-if __name__ == "__main__":
-    schema = load(open("User_test.json"))
-    registration(schema)
