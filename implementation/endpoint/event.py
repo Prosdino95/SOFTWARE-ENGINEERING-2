@@ -2,6 +2,7 @@ import rethinkdb as r
 from tokenDB import token_query
 from flexible_lunch import rearrange_lunch
 import rt_server as rts
+from datetime import datetime
 
 r.connect(rts.ip, rts.port, rts.db_name).repl()
 
@@ -40,8 +41,9 @@ def check_overlays(token):
     for i in events_list:
         alarm = False
         for j in events_list:
-            if i != j and j["start"] < i["end"]:
-                if j["end"] > i["start"]:
+            if i != j and convert(j["start"]) < convert(i["end"]):
+                if convert(j["end"]) > convert(i["start"]):
+                    print("qui")
                     alarm = True
                     if i["flexible_lunch"]:
                         rearrange_lunch(i, j)
@@ -49,6 +51,11 @@ def check_overlays(token):
                         set_alarm(i, j)
         if not alarm:
             r.table("event").get(i["id"]).update({"alarm": False}).run()
+
+
+# this function convert the string in a date that is comparable
+def convert(str):
+    return datetime.strptime(str, "%Y-%m-%d %H:%M+00:00")
 
 
 def set_alarm(e1, e2):

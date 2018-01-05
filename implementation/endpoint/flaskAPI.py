@@ -29,7 +29,7 @@ def login_api():
     try:
         post_check.login(user)
     except ValidationError: return "Bad Request"
-    return login(user)
+    return flask.jsonify(token=login(user))
 
 
 # API for user's profile management
