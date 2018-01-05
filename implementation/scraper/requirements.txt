@@ -1,0 +1,6 @@
+utm
+pyshp
+rethinkdb
+schedule
+bs4
+requests

@@ -23,3 +23,6 @@ def get_bike_data():
                           'longitude': float(marker_split[2]),
                           'total_bikes': total_bikes})
     return bike_data
+
+def init():
+    pass
