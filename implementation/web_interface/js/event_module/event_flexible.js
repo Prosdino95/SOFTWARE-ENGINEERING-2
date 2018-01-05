@@ -1,5 +1,15 @@
+/**
+ * @module event_module/event_flexible
+ * @description handles the creation of event flexible form and submit.
+ * @fires ajax post
+ * @listen bind_path
+ */
+
 $(function(){
 
+    /**
+     * route path binded with the click of get path button
+     */
     var path_jason;
 
     // setting route
@@ -11,6 +21,10 @@ $(function(){
         path_jason = null;
     });
 
+    /**
+     * @external ".click()"
+     * @see {@link http://api.jquery.com/click/}
+     */
 
     $("#stage").on('click', '#flexible_event', function(){
 
@@ -78,7 +92,7 @@ $(function(){
                 hideLoading();
 
                 // Show a friendly event_section
-                redirectDialog("Flexible lunch submitted correctly.", './travlendar.html');
+                redirectDialog("Flexible event submitted correctly.", './travlendar.html');
             },
             error: function (error) {
                 errorDialog(error);
@@ -87,6 +101,10 @@ $(function(){
     });
 });
 
+/**
+ * change the submit form on a flexible event form
+ */
+
 // switch to flexible form
 function changeToFlexibleForm(){
 
@@ -94,6 +112,11 @@ function changeToFlexibleForm(){
     $("#button_wrapper_form").empty();
     $("#event_form").attr('id', 'flexible_event_form'); // change id of the form to attach it a new event
     componentHandler.upgradeDom();
+
+    /**
+     * @external ".load()"
+     * @see {@link http://api.jquery.com/load/}
+     */
 
     $('#submit_event_table').load('./html/event_section/flexible_form.html', function() {
 
@@ -114,6 +137,9 @@ function changeToFlexibleForm(){
     });
 };
 
+/**
+ * restore the submit event form.
+ */
 // switch to normal submit form
 function returnToSubmitForm(){
     // reload this page and restore it with default DOM

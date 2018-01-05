@@ -1,7 +1,29 @@
-// global variables
-var draggableMap, draggebleFeature;
+/**
+ * @module map_module/map_draggable
+ * @description init OSM draggable map
+ */
 
-// init a Draggable map
+/**
+ * open layer map object
+ */
+// global variables
+var draggableMap;
+
+/**
+ * open layer feature object
+ */
+var draggebleFeature;
+
+
+/**
+ * @external "Open Layers"
+ * @see {@link http://openlayers.org/en/latest/apidoc/}
+ */
+
+/**
+ * init a Draggable map
+ */
+
 function newMap() {
 
     // Drag and Drop Icons Setup
@@ -138,7 +160,11 @@ function newMap() {
     draggableMap.getView().fit(extent, draggableMap.getSize());
 }
 
-// Geolocate a Marker
+/**
+ * geolocate the marker passd
+ * @param marker
+ * @param view
+ */
 function geolocateThisMarker(marker, view) {
 
     // geolocalization init
@@ -160,7 +186,11 @@ function geolocateThisMarker(marker, view) {
     });
 }
 
-// Setup style marker
+/**
+ * Setup style marker
+ * @param url
+ * @return style
+ */
 function getIconStyle(url) {
     return new ol.style.Style({
         image: new ol.style.Icon(
@@ -171,7 +201,11 @@ function getIconStyle(url) {
     })
 };
 
-// create drag markers of event position
+/**
+ * create drag markers of event position
+ * @param {Event_Object} eventClicked
+ */
+
 function createDragMarkers(eventClicked) {
 
     // coord are saved on Event object as a string: need to parse it!
@@ -220,12 +254,19 @@ function createDragMarkers(eventClicked) {
     draggableMap.getView().fit(extent, draggableMap.getSize());
 }
 
-// create dummy initial marker
+/**
+ * create dummy initial marker
+ * @param offset
+ * @return {ol.Feature}
+ */
+
 function createMarker(offset) {
     return new ol.Feature(new ol.geom.Point([9.1900 + offset, 45.4641 + offset]));
 }
 
-//no more drag and drop
+/**
+ * no more drag and drop on Draggable map
+ */
 function freezeMap(){
     draggableMap.getInteractions().forEach(function(interaction){
             interaction.setActive(false);

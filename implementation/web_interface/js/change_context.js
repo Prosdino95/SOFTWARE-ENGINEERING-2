@@ -1,6 +1,19 @@
+/**
+ * @module change_context
+ * @description jQuery script to load the html pages on travlendar.html
+ * @listens click event
+ * @fires calendar_load
+ * @fires map_load
+ * @fires preference_load
+ * @fires profile_load
+ */
 
-// jQuery script to load the html pages on travlendar.html
 $(function (){
+
+    /**
+     * @external ".ready()"
+     * @see {@link http://api.jquery.com/ready/}
+     */
 
     // Default load the welcome page
     $(document).ready(function () {
@@ -10,6 +23,21 @@ $(function (){
         $("#TITLE").text("Home");
 
     });
+
+    /**
+     * @external ".click()"
+     * @see {@link http://api.jquery.com/click/}
+     */
+
+    /**
+     * @external ".load()"
+     * @see {@link http://api.jquery.com/load/}
+     */
+
+    /**
+     * @external ".trigger()"
+     * @see {@link http://api.jquery.com/trigger/}
+     */
 
     // load Welcome page
     $("#welcome").click(function(event){
@@ -51,6 +79,10 @@ $(function (){
         $("#stage").trigger("profile_load");
     });
 });
+
+/**
+ * remove dinamic html created and refresh the page
+ */
 
 // remove dinamic html created
 function refresh(){

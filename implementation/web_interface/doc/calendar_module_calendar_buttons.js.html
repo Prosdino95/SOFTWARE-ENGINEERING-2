@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: calendar_module/calendar_buttons.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: calendar_module/calendar_buttons.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @module calendar_module/calendar_buttons
+ * @description creates and handles calendar buttons.
+ */
+
+
+/**
+ * timer in which add button event is hidden and the others are visible
+ */
+// State variable
+var button_timer;
+
+/**
+ * blocks the button timer
+ */
+// side effect methods
+function block() { button_timer = false; }
+
+/**
+ * frees the button timer
+ */
+function free()  { button_timer = true;  }
+
+/**
+ * creates the header buttons of calendar
+ */
+
+//Adding navigation bar calendar button view
+function addingHeaderButtons() {
+
+    /**
+     * @external ".load()"
+     * @see {@link http://api.jquery.com/load/}
+     */
+    $("#header_navigation").load("./html/event_section/calendar_header.html", function () {
+
+        componentHandler.upgradeDom();
+
+        $("#header_navigation").on('click', "#week_button", function(){
+          setMonthView();
+        });
+        $("#header_navigation").on('click', "#agenda_button", function(){
+          setAgendaView()
+        });
+
+        $("#more_button_list").on('click', "#button_list_month", function(){
+            setMonthView()
+        });
+        $("#more_button_list").on('click', "#button_list_week", function(){
+            setWeekView()
+        });
+        $("#more_button_list").on('click', "#button_list_day", function(){
+            setDayView()
+        });
+        $("#more_button_list").on('click', "#button_list_agenda", function(){
+            setAgendaView()
+        });
+    });
+}
+
+/**
+ * @external "Full Calendar"
+ * @see {@link https://fullcalendar.io/docs/views/}
+ */
+
+/**
+ * set the calendar on Month view
+ */
+function setMonthView(){
+    $("#full-calendar").fullCalendar("changeView", "month");
+}
+
+/**
+ * set the calendar on Week view
+ */
+function setWeekView(){
+    $("#full-calendar").fullCalendar("changeView", "agendaWeek");
+}
+
+/**
+ * set the calendar on Day view
+ */
+function setDayView(){
+    $("#full-calendar").fullCalendar("changeView", "agendaDay");
+}
+
+/**
+ * set the calendar on Agenda view
+ */
+function setAgendaView(){
+    $("#full-calendar").fullCalendar("changeView", "listMonth");
+}
+
+/**
+ * setting prev and next buttons
+ */
+
+function setControlButton(){
+
+    $('&lt;button>', {
+        class: 'calendar_slide_button mdl-button mdl-js-button mdl-button--icon mdi mdi-36px ' +
+                'mdl-color-text--primary mdi-chevron-right',
+        id: 'next_day_button'
+    }).appendTo('#stage');
+
+    $('&lt;button>', {
+        class: 'calendar_slide_button mdl-button mdl-js-button mdl-button--icon mdi mdi-36px ' +
+        'mdl-color-text--primary mdi-chevron-left',
+        id: 'prev_day_button'
+    }).appendTo('#stage');
+
+    componentHandler.upgradeDom();
+
+    $("#next_day_button").click(function(){
+        $('#full-calendar').fullCalendar('next');
+    });
+    $("#prev_day_button").click(function(){
+        $('#full-calendar').fullCalendar('prev');
+    });
+}
+
+/**
+ * delete calendar buttons
+ */
+function deleteCalendarButtons(){
+
+    // header buttons
+    $('#week_button').remove();
+    $('#agenda_button').remove();
+    $('#more_button').remove();
+
+    // list buttons
+    $('#button_list_month').remove();
+    $('#button_list_week').remove();
+    $('#button_list_day').remove();
+    $('#button_list_agenda').remove();
+
+    // prev next buttons
+    $('#next_day_button').remove();
+    $('#prev_day_button').remove();
+}
+
+/**
+ * create button for submit delete and modify event
+ *
+ * @param {Event_Object}eventClicked
+ * @param position_flag
+ */
+
+function spawnButtons(eventClicked, position_flag) {
+
+    passModifyID(eventClicked);
+    passRemoveID(eventClicked);
+    passEventRoute(eventClicked);
+
+    $('#add_event').animateCss('bounceOut', function () {
+        $('#add_event').hide()
+    });
+
+    $('&lt;button>', {
+        class: 'add_button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ' +
+        'animated mdi mdi-pencil mdl-color-text--grey-600 mdl-shadow--2dp',
+        id: 'modify_button'
+    }).appendTo('#button_wrapper');
+
+    $('&lt;button>', {
+        class: 'add_button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ' +
+        'animated mdi mdi-close mdl-color-text--red-100 mdl-shadow--2dp',
+        id: 'delete_button'
+    }).appendTo('#button_wrapper');
+
+    if(position_flag) {
+        $('&lt;button>', {
+            class: 'add_button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect ' +
+            'animated mdi mdi-map-marker mdl-color-text--white mdl-shadow--2dp',
+            id: 'map_button'
+        }).appendTo('#button_wrapper');
+    }
+
+    $('#modify_button').animateCss('bounceIn', function(){
+    });
+    $('#map_button').animateCss('bounceIn', function(){
+    });
+    $('#delete_button').animateCss('bounceIn', function(){
+    });
+    componentHandler.upgradeDom();
+    // close transition
+    block();
+}
+
+/**
+ * delete the calendar buttons
+ */
+function deleteButtons() {
+
+    $('#modify_button').animateCss('bounceOut', function () {
+        $('#modify_button').remove();
+        $('#add_event').show();
+        $('#add_event').animateCss('bounceIn');
+    });
+
+    $('#map_button').animateCss('bounceOut', function () {
+        $('#map_button').remove();
+    });
+
+    $('#delete_button').animateCss('bounceOut', function () {
+        $('#delete_button').remove();
+    });
+    // endend the transition
+    free();
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-alarm_system_alarm_load.html">alarm_system/alarm_load</a></li><li><a href="module-alarm_system_alarm_notify.html">alarm_system/alarm_notify</a></li><li><a href="module-calendar_module_calendar_buttons.html">calendar_module/calendar_buttons</a></li><li><a href="module-calendar_module_calendar_load.html">calendar_module/calendar_load</a></li><li><a href="module-change_context.html">change_context</a></li><li><a href="module-dialog.html">dialog</a></li><li><a href="module-event_module_event_choose_route.html">event_module/event_choose_route</a></li><li><a href="module-event_module_event_delete.html">event_module/event_delete</a></li><li><a href="module-event_module_event_flexible.html">event_module/event_flexible</a></li><li><a href="module-event_module_event_light_modify.html">event_module/event_light_modify</a></li><li><a href="module-event_module_event_modify.html">event_module/event_modify</a></li><li><a href="module-event_module_event_submit.html">event_module/event_submit</a></li><li><a href="module-event_module_event_submit_header.html">event_module/event_submit_header</a></li><li><a href="module-loading_screen.html">loading_screen</a></li><li><a href="module-login.html">login</a></li><li><a href="module-map_module_map.html">map_module/map</a></li><li><a href="module-map_module_map_draggable.html">map_module/map_draggable</a></li><li><a href="module-map_module_map_get_route.html">map_module/map_get_route</a></li><li><a href="module-map_module_map_header.html">map_module/map_header</a></li><li><a href="module-map_module_map_setup_route.html">map_module/map_setup_route</a></li><li><a href="module-map_module_map_show_path.html">map_module/map_show_path</a></li><li><a href="module-map_module_map_static.html">map_module/map_static</a></li><li><a href="module-preference_module_preferences.html">preference_module/preferences</a></li><li><a href="module-preference_module_preferences_header.html">preference_module/preferences_header</a></li><li><a href="module-profile_module_profile_header.html">profile_module/profile_header</a></li><li><a href="module-profile_module_profile_information.html">profile_module/profile_information</a></li><li><a href="module-profile_module_profile_password.html">profile_module/profile_password</a></li><li><a href="module-profile_module_profile_picture.html">profile_module/profile_picture</a></li><li><a href="module-registration.html">registration</a></li></ul><h3>Externals</h3><ul><li><a href="external-_.appendTo()_.html">.appendTo()</a></li><li><a href="external-_.change()_.html">.change()</a></li><li><a href="external-_.click()_.html">.click()</a></li><li><a href="external-_.css()_.html">.css()</a></li><li><a href="external-_.load()_.html">.load()</a></li><li><a href="external-_.on()_.html">.on()</a></li><li><a href="external-_.ready()_.html">.ready()</a></li><li><a href="external-_.submit()_.html">.submit()</a></li><li><a href="external-_.text()_.html">.text()</a></li><li><a href="external-_.trigger()_.html">.trigger()</a></li><li><a href="external-_Event%2525252520Object_.html">Event Object</a></li><li><a href="external-_Full%25252520Calendar_.html">Full Calendar</a></li><li><a href="external-_jQuery.ajax_.html">jQuery.ajax</a></li><li><a href="external-_Open%25252520Layers_.html">Open Layers</a></li><li><a href="external-_toastr_.html">toastr</a></li></ul><h3>Classes</h3><ul><li><a href="-_anonymous_-dialogPolyfill.DialogManager.html">DialogManager</a></li></ul><h3>Global</h3><ul><li><a href="global.html#hideLoading">hideLoading</a></li><li><a href="global.html#passwordCheck">passwordCheck</a></li><li><a href="global.html#render_text">render_text</a></li><li><a href="global.html#showLoading">showLoading</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jan 04 2018 16:28:17 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

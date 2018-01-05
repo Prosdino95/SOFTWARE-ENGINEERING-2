@@ -1,13 +1,37 @@
+/**
+ * @module calendar_module/calendar_buttons
+ * @description creates and handles calendar buttons.
+ */
+
+
+/**
+ * timer in which add button event is hidden and the others are visible
+ */
 // State variable
 var button_timer;
 
+/**
+ * blocks the button timer
+ */
 // side effect methods
 function block() { button_timer = false; }
+
+/**
+ * frees the button timer
+ */
 function free()  { button_timer = true;  }
+
+/**
+ * creates the header buttons of calendar
+ */
 
 //Adding navigation bar calendar button view
 function addingHeaderButtons() {
 
+    /**
+     * @external ".load()"
+     * @see {@link http://api.jquery.com/load/}
+     */
     $("#header_navigation").load("./html/event_section/calendar_header.html", function () {
 
         componentHandler.upgradeDom();
@@ -34,23 +58,43 @@ function addingHeaderButtons() {
     });
 }
 
+/**
+ * @external "Full Calendar"
+ * @see {@link https://fullcalendar.io/docs/views/}
+ */
+
+/**
+ * set the calendar on Month view
+ */
 function setMonthView(){
     $("#full-calendar").fullCalendar("changeView", "month");
 }
 
+/**
+ * set the calendar on Week view
+ */
 function setWeekView(){
     $("#full-calendar").fullCalendar("changeView", "agendaWeek");
 }
 
+/**
+ * set the calendar on Day view
+ */
 function setDayView(){
     $("#full-calendar").fullCalendar("changeView", "agendaDay");
 }
 
+/**
+ * set the calendar on Agenda view
+ */
 function setAgendaView(){
     $("#full-calendar").fullCalendar("changeView", "listMonth");
 }
 
-//setting prev and next buttons
+/**
+ * setting prev and next buttons
+ */
+
 function setControlButton(){
 
     $('<button>', {
@@ -75,7 +119,9 @@ function setControlButton(){
     });
 }
 
-// delete calendar buttons
+/**
+ * delete calendar buttons
+ */
 function deleteCalendarButtons(){
 
     // header buttons
@@ -94,8 +140,13 @@ function deleteCalendarButtons(){
     $('#prev_day_button').remove();
 }
 
+/**
+ * create button for submit delete and modify event
+ *
+ * @param {Event_Object}eventClicked
+ * @param position_flag
+ */
 
-// create button for submit delete and modify event
 function spawnButtons(eventClicked, position_flag) {
 
     passModifyID(eventClicked);
@@ -137,6 +188,9 @@ function spawnButtons(eventClicked, position_flag) {
     block();
 }
 
+/**
+ * delete the calendar buttons
+ */
 function deleteButtons() {
 
     $('#modify_button').animateCss('bounceOut', function () {

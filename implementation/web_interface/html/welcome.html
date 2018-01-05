@@ -14,40 +14,159 @@
 </head>
 
 <body>
-    <div class = "container">
-        <header class="mdl-color-text--blue-grey-700 text-center welcome_box">
-            <h2>Welcome to Travlendar+</h2>
-        <h1 class="mdl-color-text--blue-grey-700 welcome_text" id="first_name"></h1>
-        <h1 id="last_name"class="mdl-color-text--blue-grey-700 mdl-typography--font-bold welcome_text"></h1>
-        </header>
 
-        <div class="panel mdl-color-white">
+<div class="container">
+
+<!--    <header class="mdl-color-text--blue-grey-700 text-center welcome_box">
+        <h2>Welcome</h2>
+        <h1 class="mdl-color-text--blue-grey-700 welcome_text" id="first_name"></h1>
+        <h1 id="last_name" class="mdl-color-text--blue-grey-700 mdl-typography--font-bold welcome_text"></h1>
+    </header>
+-->
+
+    <header class="mdl-grid">
+        <div class="mdl-cell--12-col-desktop mdl-cell--8-col" align="center">
+            <img src="./res/Logo.png" class="img-responsive" style="padding-top: 10px">
+        </div>
+    </header>
+
+
+    <div class="mdl-grid" id="card_body">
+
+
+        <div class="panel mdl-color-white mdl-cell--8-col mdl-cell--12-col-desktop">
             <p class="text-center mdl-color-text--blue-grey-700">
-                <em>
+                <em class="mdl-color-text--blue-grey-700">
                     Travelendar+ is a mobile and web application capable of improving
                     its user's everyday life with simplicity, efficency and safety.
                 </em>
             </p>
         </div>
-    </div>
 
-<!--
-    <div class = "mdl-grid">
-        <div class="mdl-cell--8-col">
-            <div class ="mdl-card mdl-cell mdl-cell--8-col">
-                <div class ="mdl-card__media">
-                    <h3> I Support My City</h3>
+        <!-- First Card -->
+
+        <div class="mdl-card mdl-shadow--2dp mdl-color-text--blue-grey-700 mdl-cell mdl-cell--8-col"
+             id="banner_1">
+
+            <div class="banner_2_black">
+
+                <div class="mdl-card__title" id="banner_1_body"></div>
+
+                <!-- not used -->
+                <div class="mdl-card__title"></div>
+                <div class="mdl-card__title"></div>
+                <div class="mdl-card__title"></div>
+                <div class="mdl-card__title"></div>
+
+                <div class="mdl-card__title-text mdl-color-text--white" id="banner_1_title">
+                    <h4 class="mdl-typography--font-bold">Manage your Life</h4>
                 </div>
-                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-                    <div> LOGO </div>
-                    <div>
-                        <strong>The New feauture</strong>
-                        <span>2 days ago</span>
-                    </div>
+                <div class="mdl-card__supporting-text mdl-color--white" id="banner_1_text">
+                    Schedule your business meetings with efficiency thanks to our innovative system.
+                </div>
+                <div class="mdl-card__actions mdl-color--white mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                       onclick="$('#calendar').click()">
+                        Get My Calendar
+                    </a>
                 </div>
             </div>
         </div>
+
+
+        <!-- Second Card -->
+
+        <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-color-text--blue-grey-700 mdl-cell--8-col mdl-cell--4-col-desktop"
+             id="banner_2">
+            <div class="banner_2_black">
+                <div class="mdl-card__title" id="banner_2_body"></div>
+
+                <!-- not used -->
+                <div class="mdl-card__title"></div>
+                <div class="mdl-card__title"></div>
+                <div class="mdl-card__title"></div>
+                <div class="mdl-card__title"></div>
+
+                <div class="mdl-card__title-text mdl-color-text--white" id="banner_2_title">
+                    <h4 class="mdl-typography--font-bold">"Arriving on time is the key of success of my business"</h4>
+                </div>
+                <div class="mdl-card__supporting-text mdl-card--border mdl-color--white" id="banner_2_text">
+                    Travlendar is a perfect daily application which will help you with your life
+                </div>
+            </div>
+        </div>
+
+        <!-- Third Card -->
+        <div class="mdl-card mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col" id="banner_3">
+            <div class="banner_2_black">
+                <button id= "banner_3_button" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--pink-A400 mdl-color-text--white"
+                        onclick="$('#maps').click()">
+                    <i class="material-icons">room</i>
+                </button>
+
+                <!-- not used -->
+                <div class="mdl-card__title "></div>
+                <div class="mdl-card__title "></div>
+                <div class="mdl-card__title "></div>
+                <div class="mdl-card__title "></div>
+                <div class="mdl-card__title "></div>
+
+                <div class="mdl-card__title mdl-color-text--white ">
+                    <h3 class="mdl-typography--font-bold">Schedule your meeting around the city</h3>
+                </div>
+
+                <div class="mdl-color-text--grey-700 mdl-color--white mdl-card--border mdl-card__supporting-text" id="banner3_body">
+                    With Travlendar+ you can organize your personal appointment and geolocate its locations. You will be
+                    able to integrate your business agenda with a working map and have everything under your control!
+                </div>
+            </div>
+        </div>
+
+        <!-- Forth Card -->
+
+        <div class="mdl-card mdl-cell--12-col-desktop mdl-cell--8-col" id="banner_4">
+            <div class="banner_2_black">
+
+                <!-- not used -->
+
+                <div class="mdl-card__title "></div>
+                <div class="mdl-card__title "></div>
+
+                <div class="mdl-card__title mdl-color-text--white ">
+                    <h3 class="mdl-typography--font-bold">Features</h3>
+                </div>
+
+                <div class="mdl-color-text--grey-700 mdl-color--white mdl-card--border mdl-card__supporting-text" id="banner4_body">
+
+                    <div class=" mdl-cell mdl-cell--12-col">
+                        <h5>Online Calendar</h5>
+                        You will be able to submit on it all your meetings!
+                    </div>
+                    <div class="mdl-layout-spacer banner4_line"></div>
+
+                    <div class=" mdl-cell mdl-cell--12-col">
+                        <h5>Map Route Calculator</h5>
+                        For every event you submit Travlendar will calculate for you the best route path to arrive at destination.
+                    </div>
+                    <div class="mdl-layout-spacer banner4_line"></div>
+
+                    <div class=" mdl-cell mdl-cell--12-col">
+                        <h5>Full Customizable Profile</h5>
+                        You are able to submit your preferences and set securerly your information, like changing an avatar picture,
+                        password and much more...
+                    </div>
+                </div>
+                </div>
+            <div class="mdl-card__actions mdl-color--white" style="width: 100%">
+                <a href="./index.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Read
+                    our Website</a>
+            </div>
+        </div>
     </div>
--->
+</div>
+
+
+    <footer class="mdl-mini-footer" id="footer_banner">
+    </footer>
 </body>
 </html>

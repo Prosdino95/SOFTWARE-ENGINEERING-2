@@ -1,3 +1,25 @@
+/**
+ * @module event_module/event_light_modify
+ * @description handles the creation of drag and drop modification of events.
+ * @fires ajax post
+ */
+
+/**
+ * @external "Event Object"
+ * @see {@link https://fullcalendar.io/docs/event_data/Event_Object/}
+ */
+
+/**
+ * modify the event with a drag and drop click
+ * @param {Event_Object}event
+ * @param revertFunc - callback function
+ */
+
+/**
+ * @external ".load()"
+ * @see {@link http://api.jquery.com/load/}
+ */
+
 function modifyLight(event, revertFunc){
 
     $('#extra').load("./html/event_section/event_light_modify.html", function () {

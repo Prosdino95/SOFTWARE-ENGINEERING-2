@@ -1,11 +1,37 @@
-/*
-     Update personal user information module.
-*/
+/**
+ * @module profile_module/profile_information
+ * @description handles the change information of the profile.
+ * @listens submit
+ * @listens profile_load
+ * @fires ajax post
+ * @fires ajax get
+ */
+
+/**
+ * Format correctly First_name and Last_name textfield values.
+ * @param {String} string - the string to format
+ * @returns {String} a string well formatted.
+ */
 
 // format correctly the text showed on the screen
 function render_text(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
 }
+
+/**
+ * @external ".load()"
+ * @see {@link http://api.jquery.com/load/}
+ */
+
+/**
+ * @external ".on()"
+ * @see {@link http://api.jquery.com/on/}
+ */
+
+/**
+ * @external "jQuery.ajax"
+ * @see {@link http://api.jquery.com/category/ajax/global-ajax-event-handlers/}
+ */
 
 // main function
 $(function () {
@@ -22,7 +48,7 @@ $(function () {
             Cookies.json = true;  // important
             var token = Cookies.get("session_token");
 
-            // Post request
+            // get request
             $.ajax({
                 url: 'http://127.0.0.1:5000/getProfile?token=' + token,
                 success: function (response) {
@@ -103,6 +129,10 @@ $(function () {
 
                 // Show a friendly event_section
                 submitDialog("Informations updated correctly.");
+
+                // update change name
+             //   document.querySelector('#first_name_drawer').text(first_name);
+                componentHandler.upgradeDom();
             },
             error: function (error) {
                 errorDialog(error);

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: event_module/event_choose_route.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: event_module/event_choose_route.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @module event_module/event_choose_route
+ * @description handles the creation of route table on event submit form.
+ * @listen event_choose_route
+ * @listen arrange_route
+ */
+
+$(function () {
+
+    $("#stage").on("event_choose_route", function (event, route) {
+
+        // sort jasonArray on time expected
+        var routeData = route.sort(function (a, b) {
+            if (a &amp;&amp; b) {
+                return parseInt(a.time) - parseInt(b.time);
+            } else
+                return route;
+        });
+        $("#display_route").load('./html/event_section/event_choose_route.html', function () {
+
+            // create html
+            for (var i in routeData) {
+                $("#route_table").append(spawnRaw(routeData[i], i));
+            }
+            componentHandler.upgradeDom(); // important!
+
+            // setting radio button events
+            $('input[id*="route_"]').click(function (event) {
+                var index = $(this).attr("value");
+                componentHandler.upgradeDom();
+                loadPath(routeData[index], draggableMap);
+                $("#stage").trigger('bind_path', [routeData, index]);
+            });
+
+            // freeze map
+            freezeMap();
+
+            // NOT IMPLEMENTED
+            /*    // transform get path button in cancel button
+                $('#get_path').removeClass("mdl-button--colored").addClass("mdl-color--grey-100");
+                $('#get_path').text("CANCEL");
+                $('#get_path').attr('id', 'cancel_choose_route');
+
+                componentHandler.upgradeDom(); // important!
+
+
+                    $('#cancel_choose_route').click(function(event){
+                        event.preventDefault();
+                        $("#stage").trigger('unbind_path');
+                        redirectDialog("Event Canceled", './travlendar.html');
+                    });*/
+            $('#get_path').remove();
+        });
+    });
+
+    // spawn ArrangeRoute for map place
+    $("#stage").on("arrange_route", function (event, eventClicked) {
+        // refresh
+        $("#display_route").empty();
+        $("#display_route").load('./html/event_section/event_choose_route.html', function () {
+            $("#route_table").append(spawnRaw(eventClicked.route, ""));
+            $("#ROUTE_PATH").text("Event Title");
+            $("#name_").text(eventClicked.title);
+            $(".mdl-radio").remove();
+            componentHandler.upgradeDom(); // important!
+        });
+    });
+
+    /**
+     * @external ".appendTo()"
+     * @see {@link http://api.jquery.com/appendTo/}
+     */
+
+    /**
+     * creates html table raw from a json.
+     * @param {json} singleRoute - json object
+     * @param {number} index - number of the path
+     * @return {string}
+     */
+    function spawnRaw(singleRoute, index) {
+        if (singleRoute) {
+            var name = 'Route ' + index;
+            var time = moment.duration(singleRoute['time'], "seconds").humanize();
+            var distance = singleRoute['distance'] + "km";
+            var vehicle = selectVehicle(singleRoute['method']);
+
+            // html
+            return "&lt;tr>" +
+                "&lt;td class='mdl-data-table__cell--non-numeric' id='name_" + index + "'>" + name + "&lt;/td>&lt;" +
+                "&lt;td>" + vehicle + "&lt;/td>" +
+                "&lt;td>" + time + "&lt;/td>" +
+                "&lt;td>" + distance + "&lt;/td>" +
+                "&lt;td>" +
+                "&lt;label class='mdl-radio mdl-js-radio mdl-js-ripple-effect mdl-color-text--blue-grey-700' for='route_" + index + "'>" +
+                "&lt;input type='radio' id='route_" + index + "'class='mdl-radio__button' name='route' value=" + index + ">" +
+                "&lt;span class='mdl-radio__label'>&lt;/span>&lt;/label>&lt;/td>" +
+                "&lt;/tr>"
+        }
+        return ""
+    }
+
+    /**
+     * creates icon to append on the html raw of the path
+     * @param {json} json - json of the path
+     * @return {string} html - html icon to append
+     */
+    function selectVehicle(json) {
+        switch (json) {
+            case "foot":
+                return "&lt;i class='mdi mdi-walk mdi-24px mdl-color-text--blue-grey-700'>&lt;/i>";
+            case "bike":
+                return "&lt;i class='mdi mdi-bike mdi-24px mdl-color-text--blue-grey-700'>&lt;/i>";
+            case "car":
+                return "&lt;i class='mdi mdi-car mdi-24px mdl-color-text--blue-grey-700'>&lt;/i>";
+            case "public_transport":
+                return "&lt;i class='mdi mdi-subway-variant mdi-24px mdl-color-text--blue-grey-700'>&lt;/i>";
+            case "train":
+                return "&lt;i class='mdi mdi-train mdi-24px mdl-color-text--blue-grey-700'>&lt;/i>";
+            case "airplane":
+                return "&lt;i class='mdi mdi-airplane mdi-24px mdl-color-text--blue-grey-700'>&lt;/i>";
+            case "bike_sharing":
+                return "&lt;i class='mdi mdi-bike mdi-24px mdl-color-text--blue-grey-700'>&lt;/i>";
+            case "car_sharing":
+                return "&lt;i class='mdi mdi-car-connected mdi-24px mdl-color-text--blue-grey-700'>&lt;/i>";
+            case "green_mode":
+                return "&lt;i class='mdi mdi-earth mdi-24px mdl-color-text--green-500'>&lt;/i>";
+            default:
+                return "";
+        }
+    }
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-alarm_system_alarm_load.html">alarm_system/alarm_load</a></li><li><a href="module-alarm_system_alarm_notify.html">alarm_system/alarm_notify</a></li><li><a href="module-calendar_module_calendar_buttons.html">calendar_module/calendar_buttons</a></li><li><a href="module-calendar_module_calendar_load.html">calendar_module/calendar_load</a></li><li><a href="module-change_context.html">change_context</a></li><li><a href="module-dialog.html">dialog</a></li><li><a href="module-event_module_event_choose_route.html">event_module/event_choose_route</a></li><li><a href="module-event_module_event_delete.html">event_module/event_delete</a></li><li><a href="module-event_module_event_flexible.html">event_module/event_flexible</a></li><li><a href="module-event_module_event_light_modify.html">event_module/event_light_modify</a></li><li><a href="module-event_module_event_modify.html">event_module/event_modify</a></li><li><a href="module-event_module_event_submit.html">event_module/event_submit</a></li><li><a href="module-event_module_event_submit_header.html">event_module/event_submit_header</a></li><li><a href="module-loading_screen.html">loading_screen</a></li><li><a href="module-login.html">login</a></li><li><a href="module-map_module_map.html">map_module/map</a></li><li><a href="module-map_module_map_draggable.html">map_module/map_draggable</a></li><li><a href="module-map_module_map_get_route.html">map_module/map_get_route</a></li><li><a href="module-map_module_map_header.html">map_module/map_header</a></li><li><a href="module-map_module_map_setup_route.html">map_module/map_setup_route</a></li><li><a href="module-map_module_map_show_path.html">map_module/map_show_path</a></li><li><a href="module-map_module_map_static.html">map_module/map_static</a></li><li><a href="module-preference_module_preferences.html">preference_module/preferences</a></li><li><a href="module-preference_module_preferences_header.html">preference_module/preferences_header</a></li><li><a href="module-profile_module_profile_header.html">profile_module/profile_header</a></li><li><a href="module-profile_module_profile_information.html">profile_module/profile_information</a></li><li><a href="module-profile_module_profile_password.html">profile_module/profile_password</a></li><li><a href="module-profile_module_profile_picture.html">profile_module/profile_picture</a></li><li><a href="module-registration.html">registration</a></li></ul><h3>Externals</h3><ul><li><a href="external-_.appendTo()_.html">.appendTo()</a></li><li><a href="external-_.change()_.html">.change()</a></li><li><a href="external-_.click()_.html">.click()</a></li><li><a href="external-_.css()_.html">.css()</a></li><li><a href="external-_.load()_.html">.load()</a></li><li><a href="external-_.on()_.html">.on()</a></li><li><a href="external-_.ready()_.html">.ready()</a></li><li><a href="external-_.submit()_.html">.submit()</a></li><li><a href="external-_.text()_.html">.text()</a></li><li><a href="external-_.trigger()_.html">.trigger()</a></li><li><a href="external-_Event%2525252520Object_.html">Event Object</a></li><li><a href="external-_Full%25252520Calendar_.html">Full Calendar</a></li><li><a href="external-_jQuery.ajax_.html">jQuery.ajax</a></li><li><a href="external-_Open%25252520Layers_.html">Open Layers</a></li><li><a href="external-_toastr_.html">toastr</a></li></ul><h3>Classes</h3><ul><li><a href="-_anonymous_-dialogPolyfill.DialogManager.html">DialogManager</a></li></ul><h3>Global</h3><ul><li><a href="global.html#hideLoading">hideLoading</a></li><li><a href="global.html#passwordCheck">passwordCheck</a></li><li><a href="global.html#render_text">render_text</a></li><li><a href="global.html#showLoading">showLoading</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jan 04 2018 16:28:17 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

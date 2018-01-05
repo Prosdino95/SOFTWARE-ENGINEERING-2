@@ -1,4 +1,24 @@
+/**
+ * @module event_module/event_delete
+ * @description handles the deletion of event submitted.
+ * @fires ajax post
+ */
+
+/**
+ * unique id of the event to remove
+ */
 var remove_id;
+
+/**
+ * @external ".load()"
+ * @see {@link http://api.jquery.com/load/}
+ */
+
+/**
+ * @external ".on()"
+ * @see {@link http://api.jquery.com/on/}
+ */
+
 
 $(function () {
 
@@ -55,6 +75,15 @@ $(function () {
     });
 });
 
+/**
+ * @external "Event Object"
+ * @see {@link https://fullcalendar.io/docs/event_data/Event_Object/}
+ */
+
+/**
+ * bind the remove_id variable with passed event
+ * @param {Event_Object}eventClicked
+ */
 function passRemoveID(eventClicked) {
     remove_id = eventClicked;
-};
+}

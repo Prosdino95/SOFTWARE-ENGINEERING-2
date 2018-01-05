@@ -1,3 +1,11 @@
+/**
+ * @module preference_module/preferences_header
+ * @description handles the loading and deleting of header preferences buttons.
+ */
+
+/**
+ * creates the preferences buttons
+ */
 function loadPreferenceHeader(){
 
     // create buttons
@@ -18,6 +26,10 @@ function loadPreferenceHeader(){
     componentHandler.upgradeDom();
 
 }
+
+/**
+ * deletes the header buttons
+ */
 
 function deletePreferenceHeader(){
     $("#normal_preferences_link").remove();

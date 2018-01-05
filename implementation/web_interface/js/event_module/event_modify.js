@@ -1,7 +1,30 @@
+/**
+ * @module event_module/event_modify
+ * @description handles the creation of modify event form.
+ * @fires ajax post
+ * @listen click
+ */
+
+/**
+ * event to modify
+ */
 var modifiedEvent;
+
+/**
+ * @external ".load()"
+ * @see {@link http://api.jquery.com/load/}
+ */
+
+/**
+ * @external ".click()"
+ * @see {@link http://api.jquery.com/click/}
+ */
 
 $(function() {
 
+    /**
+     * route path binded with the click of get path button
+     */
     var path_jason;
 
     // setting route
@@ -57,7 +80,7 @@ $(function() {
         // show loading screen
         showLoading();
 
-        // Post request to /addEvent
+        // Post request to /modEvent
         $.ajax({
             url: 'http://127.0.0.1:5000/modEvent',
             dataType: 'text',
@@ -87,6 +110,9 @@ $(function() {
     });
 });
 
+/**
+ * modify the submit form and change it to modify form
+ */
 function initModifyEvent(){
     $("#stage").load("./html/event_section/event_submit.html", function(){
 
@@ -123,11 +149,13 @@ function initModifyEvent(){
 
         if(modifiedEvent.end){
             $("#end_day_textfield")[0].MaterialTextfield.change((modifiedEvent.end).format("YYYY-MM-DD"));
-            $("#end_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.end, "HH:mm"));
+          //  $("#end_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.end, "HH:mm"));
+            $("#end_time_textfield")[0].MaterialTextfield.change("");
 
         }else {
             $("#end_day_textfield")[0].MaterialTextfield.change((modifiedEvent.start).format("YYYY-MM-DD"));
-            $("#end_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.start,"HH:mm"));
+         //   $("#end_time_textfield")[0].MaterialTextfield.change(moment(modifiedEvent.start,"HH:mm"));
+            $("#end_time_textfield")[0].MaterialTextfield.change("");
         }
 
         // coordinates
@@ -145,6 +173,10 @@ function initModifyEvent(){
     });
 }
 
+/**
+ * binds the event passed to the modifiedEvent variable
+ * @param {Event_Object}eventClicked
+ */
 function passModifyID(eventClicked){
     modifiedEvent = eventClicked;
 }

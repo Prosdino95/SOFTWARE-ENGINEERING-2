@@ -1,4 +1,17 @@
+/**
+ * @module map_module/map_header
+ * @description creates the header map buttons
+ */
+
+/**
+ * load the buttons
+ */
 function loadMapHeader(){
+
+    /**
+     * @external ".appendTo()"
+     * @see {@link http://api.jquery.com/appendTo/}
+     */
 
     // create buttons
     $('<a>', {
@@ -29,7 +42,9 @@ function loadMapHeader(){
     componentHandler.upgradeDom();
 }
 
-// delete header buttons
+/**
+ * delete header buttons
+ */
 function deleteMapHeader(){
     $("#map_event_list_link").remove();
 }

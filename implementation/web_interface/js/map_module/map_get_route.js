@@ -1,3 +1,10 @@
+/**
+ * @module map_module/map_get_route
+ * @description get path from ajax post
+ * @fires ajax post
+ * @fires event_choose_route
+ */
+
 $(function(){
 
     $("#stage").on('click', "#get_path", function(event){
@@ -14,7 +21,7 @@ $(function(){
         // throw error if undefined
         if(!string_starting_location || !string_meeting_location){
             errorDialog("Please setup starting point and meeting point first.");
-            throw(error);
+            throw("Please setup starting point and meeting point first.");
         }
 
         // parse to int

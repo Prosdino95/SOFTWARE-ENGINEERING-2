@@ -1,3 +1,22 @@
+/**
+ * @module alarm_system/alarm_notify
+ * @description handles the creation of the alarm message.
+ */
+
+/**
+ * @external "Event Object"
+ * @see {@link https://fullcalendar.io/docs/event_data/Event_Object/}
+ */
+
+/**
+ * @external "toastr"
+ * @see {@link https://codeseven.github.io/toastr/}
+ */
+
+/**
+ * creates the alarm message info.
+ * @param {Event_Object} event
+ */
 
 function alarm_info(event){
 

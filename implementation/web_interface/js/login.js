@@ -1,6 +1,17 @@
-// sign in -- login in handler
-$(function() {
-    $(document).submit(function(event) {
+/**
+ * @module login
+ * @description login event handler
+ * @listens event submit event in document scope
+ * @fires ajax post request
+ *
+ */
+
+$(function () {
+    /**
+     * @external ".submit()"
+     * @see {@link http://api.jquery.com/submit/}
+     */
+    $(document).submit(function (event) {
 
         // prevent the default http POST
         event.preventDefault();
@@ -11,35 +22,40 @@ $(function() {
         //show loading page
         showLoading();
 
+        /**
+         * @external "jQuery.ajax"
+         * @see {@link http://api.jquery.com/category/ajax/global-ajax-event-handlers/}
+         */
+
         // Post request
         $.ajax({
             url: 'http://127.0.0.1:5000/login',
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             type: 'post',
-            data: JSON.stringify( { "email" : email, "password" : pass} ),
-            success: function(token) {
+            data: JSON.stringify({"email": email, "password": pass}),
+            success: function (token) {
 
                 componentHandler.upgradeDom();
 
-                if(token['token'] !== 'none'){
-                	// Saving token in a Cookie
-                	Cookies.json = true;
-                	Cookies.set("session_token", token['token']);
+                // hide loading page
+                hideLoading();
 
-                    // hide loading page
-                    hideLoading();
+                if (token['token'] !== 'none') {
+                    // Saving token in a Cookie
+                    Cookies.json = true;
+                    Cookies.set("session_token", token['token']);
 
-                	// Redirect on travlendar.html
+                    // Redirect on travlendar.html
                     redirectDialog("Login successfully completed!", "./travlendar.html");
                 }
-                else{
+                else {
                     // hide loading page
                     hideLoading();
-                   errorDialog("Wrong email or password.");
+                    errorDialog("Wrong email or password.");
                 }
             },
-            error: function(error) {
+            error: function (error) {
                 errorDialog(error);
             }
         });

@@ -1,4 +1,17 @@
+/**
+ * @module event_module/event_submit_header
+ * @description handles the creation of header buttons for submit form
+ */
+
+/**
+ * creates the buttons to append on the header
+ */
 function loadSubmitEventHeader(){
+
+    /**
+     * @external ".appendTo()"
+     * @see {@link http://api.jquery.com/appendTo/}
+     */
 
     // create buttons
     $('<a>', {
@@ -26,6 +39,9 @@ function loadSubmitEventHeader(){
 
 }
 
+/**
+ * removes the submit buttons from the header.
+ */
 function deleteSubmitEventHeader(){
     $("#event_panel_link").remove();
     $("#route_panel_link").remove();

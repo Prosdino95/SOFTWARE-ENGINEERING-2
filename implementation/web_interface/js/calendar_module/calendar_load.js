@@ -1,8 +1,26 @@
+/**
+ * @module calendar_module/calendar_load
+ * @description load and init full calendar.
+ * @listen calendar_load
+ * @fires ajax get
+ */
+
+/**
+ * @external "Full Calendar"
+ * @see {@link https://fullcalendar.io/docs/usage/}
+ */
+
 $(function () {
 
     $("#stage").on("calendar_load", function () {
 
         $("#TITLE").text("Calendar");
+
+        /**
+         * @external ".load()"
+         * @see {@link http://api.jquery.com/load/}
+         */
+
         $("#stage").load("./html/calendar.html", function () {
 
             //  var initialLocaleCode = 'en'; NOT IMPLEMENTED

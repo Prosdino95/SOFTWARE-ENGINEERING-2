@@ -1,3 +1,25 @@
+/**
+ * @module profile_module/profile_header
+ * @description creates profile header buttons.
+ */
+
+
+/**
+ * creates buttons to append on header
+ * @fires click
+ * @listen click
+ */
+
+/**
+ * @external ".click()"
+ * @see {@link http://api.jquery.com/click/}
+ */
+
+/**
+ * @external ".appendTo()"
+ * @see {@link http://api.jquery.com/appendTo/}
+ */
+
 function loadProfileHeader(){
 
     // create buttons
