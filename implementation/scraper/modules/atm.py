@@ -10,6 +10,7 @@ import json
 import statistics
 import itertools
 import schedule
+import haversine
 
 dataset_url='http://dati.comune.milano.it/dataset/ds66_infogeo_fermate_metropolitana_localizzazione_'
 dl_regex=re.compile(r'"http.*?\.7z"')
@@ -50,8 +51,8 @@ def station_dict(record):
 
 
 def station_dist(station1, station2):
-    return math.sqrt((station1['lon'] - station2['lon'])**2 +
-                     (station1['lat'] - station2['lat'])**2)
+    return haversine.haversine((station1['lat'], station1['lon']),
+                               (station2['lat'], station2['lon']))
 
 
 def mkstationdb(stations):
