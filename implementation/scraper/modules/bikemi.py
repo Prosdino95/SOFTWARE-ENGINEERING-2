@@ -2,6 +2,8 @@ import requests
 import re
 import codecs
 import bs4
+import schedule
+import rethinkdb as r
 
 marker_re = re.compile('GoogleMap\.addMarker\(\'.*\)')
 
@@ -24,5 +26,16 @@ def get_bike_data():
                           'total_bikes': total_bikes})
     return bike_data
 
+def upload_data():
+    data = get_bike_data()
+    r.db('atm_mi').table('bikemi').delete().run()
+    r.db('atm_mi').table('bikemi').insert(data).run()
+
+
 def init():
-    pass
+    if "atm_mi" not in r.db_list().run():
+        r.db_create("atm_mi").run()
+    if "bikemi" not in r.db('atm_mi').table_list().run():
+        r.db("atm_mi").table_create("bikemi", primary_key="name").run()
+    upload_data()
+    schedule.every().hour.do(upload_data)
