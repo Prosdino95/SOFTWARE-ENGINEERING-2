@@ -75,7 +75,7 @@ def mkstationdb(stations):
         for station in stations[:]:
             if quadpoint['center'] in station['id']:
                 station['cardinality'] = len(quadpoint['branches'])
-                station['neighbours'] = quadpoint['branches']
+                station['neighbours'] = [[x] for x in quadpoint['branches']]
                 final_list.append(station)
                 stations.remove(station)
                 for elem in stations:
