@@ -4,3 +4,4 @@ rethinkdb
 schedule
 bs4
 requests
+haversine

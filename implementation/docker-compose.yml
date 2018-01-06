@@ -24,10 +24,13 @@ services:
     image: travlendar_optimalroute
     links:
      - valhalla:valhalla
+     - rethinkdb_data:rethinkdb_data
     environment:
      - VALHALLA_IP=valhalla
+     - RETHINKDB_IP=rethinkdb_data
     depends_on:
      - valhalla
+     - scraper
   webinterface:
     image: travlendar_webinterface
     ports:
