@@ -1,9 +1,21 @@
 import unittest
-import ProfileTest as t1
-import EventTest as t2
-import LoginTest as t3
-import FlexibleLunchTest as t4
+import importlib.util as im
 
+
+# start import test
+spec = im.spec_from_file_location("ProfileTest", "test/ProfileTest.py")
+t1 = im.module_from_spec(spec)
+spec.loader.exec_module(t1)
+spec = im.spec_from_file_location("EventTest", "test/EventTest.py")
+t2 = im.module_from_spec(spec)
+spec.loader.exec_module(t2)
+spec = im.spec_from_file_location("LoginTest", "test/LoginTest.py")
+t3 = im.module_from_spec(spec)
+spec.loader.exec_module(t3)
+spec = im.spec_from_file_location("FlexibleLunchTest", "test/FlexibleLunchTest.py")
+t4 = im.module_from_spec(spec)
+spec.loader.exec_module(t4)
+# end import test
 
 def suite():
     suite = unittest.TestSuite()
