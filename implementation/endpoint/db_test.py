@@ -1,9 +1,9 @@
 import rethinkdb as r
-import json
+import rt_server as rts
 
 
 def init_bd():
-    r.connect('127.0.0.1', 28015).repl()
+    r.connect(rts.ip, rts.port).repl()
     if "TravTest" not in r.db_list().run():
         r.db_create("TravTest").run()
         r.db("TravTest").table_create("user", primary_key='email').run()

@@ -43,7 +43,6 @@ def check_overlays(token):
         for j in events_list:
             if i != j and convert(j["start"]) < convert(i["end"]):
                 if convert(j["end"]) > convert(i["start"]):
-                    print("qui")
                     alarm = True
                     if i["flexible_lunch"]:
                         rearrange_lunch(i, j)

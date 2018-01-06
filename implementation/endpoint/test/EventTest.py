@@ -3,9 +3,11 @@ import event
 from login import login
 import registration
 import rethinkdb as r
+import db_test as testdb
 import rt_server as rts
 
 r.connect(rts.ip, rts.port, rts.db_name).repl()
+testdb.init_bd()
 rts.db_name = "TravTest"
 
 user = {
@@ -64,7 +66,3 @@ class EventTest(unittest.TestCase):
         elist = event.get_event(self.token)
         for e in elist:
             self.assertTrue(e["alarm"])
-
-
-if __name__ == '__main__':
-    unittest.main()

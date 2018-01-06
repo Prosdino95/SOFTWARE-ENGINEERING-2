@@ -2,12 +2,11 @@ import unittest
 import registration
 import login
 import rethinkdb as r
-import TravTest.db_test as testdb
+import db_test as testdb
 import rt_server as rts
-import TravTest.EventTest as event
 
 
-r.connect(rts.ip, rts.port).repl()
+r.connect(rts.ip, rts.port, rts.db_name).repl()
 testdb.init_bd()
 rts.db_name = "TravTest"
 
@@ -34,7 +33,3 @@ class LoginTest(unittest.TestCase):
     def login_phase(self):
         token = login.login(self.user)
         self.assertNotEqual(token, "none")
-
-
-if __name__ == '__main__':
-    unittest.main()

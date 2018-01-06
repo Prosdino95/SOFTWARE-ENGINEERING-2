@@ -1,12 +1,14 @@
 import unittest
+import rethinkdb as r
+import rt_server as rts
 import registration
 import profile
 from login import login
-import rethinkdb as r
-import rt_server as rts
+import db_test as testdb
 
 
 r.connect(rts.ip, rts.port, rts.db_name).repl()
+testdb.init_bd()
 rts.db_name = "TravTest"
 
 user = {
@@ -47,7 +49,3 @@ class ProfileTest(unittest.TestCase):
         profile.mod_profile_preference(self.preference)
         prof = profile.get_profile_preference(self.token)
         self.assertFalse(prof["car"])
-
-
-if __name__ == '__main__':
-    unittest.main()
