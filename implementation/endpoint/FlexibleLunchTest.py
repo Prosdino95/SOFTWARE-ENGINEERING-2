@@ -1,13 +1,15 @@
 import unittest
+import rethinkdb as r
 import registration
 import flexible_lunch
 from login import login
-import rethinkdb as r
+import db_test as testdb
 import rt_server as rts
 import event
 
 
 r.connect(rts.ip, rts.port, rts.db_name).repl()
+testdb.init_bd()
 rts.db_name = "TravTest"
 
 user = {
@@ -58,8 +60,7 @@ class FlexibleLunchTest(unittest.TestCase):
         r.table("event_submit").delete().run()
         r.table("user").delete().run()
 
-
-    def test_flexible1(self):
+    def test_flexible(self):
         flexible_lunch.set_lunch(fevent)
         id = event.get_event(self.token)[0]["id"]
         event.add_event(event1)
@@ -68,8 +69,4 @@ class FlexibleLunchTest(unittest.TestCase):
         event.add_event(event2)
         ev = r.table("event").get(id).run()
         self.assertEqual(ev["start"], "2017-10-10 13:00+00:00")
-
-
-if __name__ == '__main__':
-    unittest.main()
 
