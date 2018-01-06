@@ -1,6 +1,8 @@
 import utils
 import gpxpy
 import gpxpy.gpx
+import random
+
 
 class route:
     def __init__(self, gps_start, gps_end, mode, time, distance, gpx_route):
@@ -24,15 +26,20 @@ class route:
             self.gpx = utils.merge_gpx(self.gpx_route, other_route.gpx_route)
 
     def to_json(self):
-        dummy_gps = gpxpy.gpx.GPX()
-        dummy_gps.waypoints = self.generate_waypoints()
-        dummy_gps.routes.append(self.gpx_route)
+        waypoints = self.generate_waypoints()
+        xml_waypoints = ''.join(['<wpt lat="{}" lon="{}"></wpt>'.format(
+                                    x[0], x[1]) for x in waypoints])
+        xml_route = ''.join(['<rtept lat="{}" lon="{}"><name>{}</name></rtept>'.format(
+                                x[0], x[1], random.randint(100000000,1000000000))
+                             for x in waypoints])
+        final_xml = '<?xml version="1.0" encoding="UTF-8" standalone="no"?><gpx version="1.1" creator="optimalroute"><metadata/>' + \
+                    xml_waypoints + '<rte>' + xml_route + '</rte></gpx>'
         return {'time': self.time,
                 'distance': self.distance,
                 'method': self.mode,
-                'gpx': dummy_gps.to_xml(version = '1.1')
+                'gpx': final_xml
                }
 
     def generate_waypoints(self):
-        return [gpxpy.gpx.GPXWaypoint(x.latitude, x.longitude) for x in 
+        return [(x.latitude, x.longitude) for x in 
                 self.gpx_route.points]
