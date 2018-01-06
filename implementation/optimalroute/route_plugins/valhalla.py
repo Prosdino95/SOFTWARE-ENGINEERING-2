@@ -1,6 +1,7 @@
 import requests
 import os
 import copy
+import gpxpy
 
 valhalla_url = 'http://{}:{}/route'
 
@@ -8,8 +9,12 @@ mode_conversion = {'car': 'auto',
                    'foot': 'pedestrian',
                    'bike': 'bicycle'}
 
+pr = None
+
 def init(registry):
+    global pr
     global valhalla_url
+    pr = registry
     valhalla_ip = os.environ.get('VALHALLA_IP', '127.0.0.1')
     valhalla_port = os.environ.get('VALHALLA_PORT', '8002')
     valhalla_url = valhalla_url.format(valhalla_ip, valhalla_port)
@@ -59,9 +64,9 @@ def find_path(coord_begin, coord_end, mode):
     route_request['directions_options']['format'] = 'json'
     request_data = requests.post(valhalla_url, json = route_request)
     if request.status_code == 200:
-        return {'time': request_data.json()['trip']['summary']['time'],
-                'distance': request_data.json()['trip']['summary']['length'],
-                'method': mode,
-                'path_gpx': request.text}
+        return pr.get_route().route(coord_begin, coord_end, mode,
+                                    request_data.json()['trip']['summary']['time'],
+                                    request_data.json()['trip']['summary']['length'],
+                                    gpxpy.parse(request.text).routes[0])
     else:
        return None

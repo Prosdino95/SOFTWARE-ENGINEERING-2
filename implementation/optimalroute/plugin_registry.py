@@ -1,3 +1,6 @@
+import utils
+import route
+
 class plugin_registry:
     def __init__(self):
         self.plugindict = {}
@@ -19,3 +22,6 @@ class plugin_registry:
 
     def get_routers_by_category(self, category):
         return self.plugindict.get(category, [])
+
+    def get_route(self):
+        return route
