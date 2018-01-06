@@ -1,12 +1,11 @@
 FROM alpine:latest
 
-RUN apk update && apk add python3
+RUN apk -U add python3 py3-gunicorn
 
 COPY optimalroute /optimalroute
 
 RUN cd /optimalroute && \
-    pip3 install -r requirements.txt && \
-    apk --update add py3-gunicorn
+    pip3 install -r requirements.txt
 
 ENTRYPOINT cd /optimalroute && \
            gunicorn -b '0.0.0.0:6000' optimalroute:app

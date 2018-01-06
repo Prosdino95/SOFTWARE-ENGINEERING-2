@@ -1,12 +1,11 @@
 FROM alpine:latest
 
-RUN apk update && apk add python3
+RUN apk -U add python3 p7zip
 
 COPY scraper /scraper
 
 RUN cd /scraper && \
-    pip3 install -r requirements.txt && \
-    apk -U add p7zip
+    pip3 install -r requirements.txt
 
 ENTRYPOINT cd /scraper && \
            python3 scraper.py | tail -f /dev/null

@@ -1,12 +1,11 @@
 FROM alpine:latest
 
-RUN apk update && apk add python3
+RUN apk -U add python3 py3-gunicorn
 
 COPY endpoint /endpoint
 
 RUN cd /endpoint && \
-    pip3 install -r requirements.txt && \
-    apk update && apk add py3-gunicorn
+    pip3 install -r requirements.txt
 
 ENTRYPOINT cd /endpoint && \
            python3 rethinkDB.py && \
