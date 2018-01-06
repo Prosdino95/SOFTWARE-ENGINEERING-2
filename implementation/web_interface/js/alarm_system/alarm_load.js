@@ -17,6 +17,7 @@ $(function () {
             var event_list = response.filter(function (event) {
 
                 var alarm_offset = moment.duration(event.alarm_timer);
+                var route_time = moment.duration(event.route['time'], "seconds");
                 var today = moment().utc("00:00").format("YYYY-MM-DD");
 
                 /* DEBUG
@@ -33,14 +34,13 @@ $(function () {
                         moment(event.start, "YYYY-MM-DD").isSame(today) ||
                         // event of the day after but with alarm on the day before
                         moment(today).isSame(
-                            moment.utc(event.start).subtract(alarm_offset).format("YYYY-MM-DD"))
+                            moment.utc(event.start).subtract(alarm_offset).subtract(route_time).format("YYYY-MM-DD"))
                     ) &&
                     // consider only event not passed
-                    moment.utc(event.start).subtract(alarm_offset).isAfter(moment().utc("00:00"));
+                    moment.utc(event.start).subtract(alarm_offset).subtract(route_time).isAfter(moment().utc("00:00"));
             });
-
             event_list.forEach(function (event) {
-                setAlarm(event);
+                setAlarm(event);              
             });
         },
         error: function (error) {
@@ -76,10 +76,11 @@ function setAlarm(event) {
 
 function calculateTimeout(event) {
     var alarm_offset = moment.duration(event.alarm_timer);
-    var alarm_start = moment(event.start, "YYYY-MM-DD H:mm").subtract(alarm_offset);
+    var route_time = moment.duration(event.route['time'], "seconds");
+    var alarm_start = moment(event.start, "YYYY-MM-DD H:mm").subtract(alarm_offset).subtract(route_time);
     var result = alarm_start.diff(moment());
 
     // debug
-    //console.log("setting timer to: " + result + " millis");
+    console.log("setting timer to: " + result + " millis");
     return result;
 }
