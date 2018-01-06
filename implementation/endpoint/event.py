@@ -2,10 +2,12 @@ import rethinkdb as r
 from tokenDB import token_query
 from flexible_lunch import rearrange_lunch
 import rt_server as rts
+from datetime import datetime
+
+r.connect(rts.ip, rts.port, rts.db_name).repl()
 
 
 def add_event(event):
-    r.connect(rts.ip, rts.port, "Travlendar").repl()
     token = event["token"]
     del event["token"]
     event["flexible_lunch"] = False
@@ -17,7 +19,6 @@ def add_event(event):
 
 
 def del_event(token, event_id):
-    r.connect(rts.ip, rts.port, "Travlendar").repl()
     if not security_check(token, event_id):
         return "illegal access"
     r.table("event").get(event_id).delete().run()
@@ -27,7 +28,6 @@ def del_event(token, event_id):
 
 
 def mod_event(event):
-    r.connect(rts.ip, rts.port, "Travlendar").repl()
     token = event["token"]
     if not security_check(token, event["id"]):
         return "illegal access"
@@ -41,8 +41,9 @@ def check_overlays(token):
     for i in events_list:
         alarm = False
         for j in events_list:
-            if i != j and j["start"] < i["end"]:
-                if j["end"] > i["start"]:
+            if i != j and convert(j["start"]) < convert(i["end"]):
+                if convert(j["end"]) > convert(i["start"]):
+                    print("qui")
                     alarm = True
                     if i["flexible_lunch"]:
                         rearrange_lunch(i, j)
@@ -50,6 +51,11 @@ def check_overlays(token):
                         set_alarm(i, j)
         if not alarm:
             r.table("event").get(i["id"]).update({"alarm": False}).run()
+
+
+# this function convert the string in a date that is comparable
+def convert(str):
+    return datetime.strptime(str, "%Y-%m-%d %H:%M+00:00")
 
 
 def set_alarm(e1, e2):
@@ -60,7 +66,6 @@ def set_alarm(e1, e2):
 
 
 def get_event(token):
-    r.connect(rts.ip, rts.port, "Travlendar").repl()
     email = get_email(token)
     query = r.table("event_submit").filter(r.row["email"] == email).\
         eq_join("event", r.table("event")). \

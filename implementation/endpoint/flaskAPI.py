@@ -8,7 +8,6 @@ import route
 from flexible_lunch import set_lunch
 import post_check
 from jsonschema import ValidationError
-import pprint
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -30,7 +29,7 @@ def login_api():
     try:
         post_check.login(user)
     except ValidationError: return "Bad Request"
-    return login(user)
+    return flask.jsonify(token=login(user))
 
 
 # API for user's profile management
@@ -108,7 +107,6 @@ def del_event__api():
     token = user_event["token"]
     event_id = user_event["id"]
     return event.del_event(token, event_id)
-
 
 
 @app.route('/getEvent', methods=['GET'])
