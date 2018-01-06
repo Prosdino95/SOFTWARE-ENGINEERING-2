@@ -31,10 +31,11 @@ Back End Framework
     #)  **rethinkdb**:RethinkDB is open-source, scalable JSON database built from the ground up for the realtime web(see below for more information). 
     #)  **jsonschema**:JSON Schema is a vocabulary that allows you to annotate and validate JSON documents. We use this framework for check the accuracy of the POST requests.
             https://pypi.python.org/pypi/jsonschema.
+
 Rethink db
 -----------
-perche' abbiamo usato questo?
-https://www.rethinkdb.com/
+    perche' abbiamo usato questo?   
+    https://www.rethinkdb.com/
 
 adopted middleware
 -------------------
