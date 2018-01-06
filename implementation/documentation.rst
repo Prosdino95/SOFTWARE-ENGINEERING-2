@@ -56,6 +56,8 @@ Back End test
 we test the most important functions of the back end using the python framework unittest.
 These unit tests check the right work of the back end functions and their interaction with the database, so the tests need a rethink db to work.
 
+*instruction for test executions*: start a rethinkdb session and execute with pyton 3.6 the file TestSuite.py in the endpoint folder.
+
 System test
 ------------
 We use jmeter for testing all API endoint.
@@ -65,7 +67,9 @@ We test the API doing some Post and Get request and make some assert on the resp
     #) In the Thread Group: Registration,UserProfile,Event we test all API endpoint by do the correct Posts and make some assertion on the response.
     #) In the Thread Group: Post_missing_information we do some malformed post with some missing essential information. We expect a Bad Request response.
     #) In the Thread Group: Wrong_post we test a possible post that try to modify random event that not belong to the user. so in this case we expect an Illegal Accession response.
-    #) In the Thread Group: Illegal_token we test an incorrect login and some post with incorrect token. In tthat case when the Server see that the token is incorrect stop the computantion and send an error message.
+    #) In the Thread Group: Illegal_token we test an incorrect login and some post with incorrect token. In tthat case when the Server see that the token is incorrect stop the computantion and send an error message
+
+*instruction for test executions*: start the docker environment and open with Jmeter the file API_test.jmx in the system_test folder.
 
 
 Installation instructions
