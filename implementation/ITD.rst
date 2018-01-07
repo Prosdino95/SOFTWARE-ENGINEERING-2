@@ -170,9 +170,9 @@ Testing it was not simple. After trying to use QUnit library which let you write
 Thanks to Selenium is possible to create a custom user 'Marionette' navigation behaviour to test WebInterface functionality (like if the html div are correctly updated after a http post). Everything is written in Java with Selenium java API integrated with Junit library. Also when the test is finished it returns a clear html log file in which there are the test results.
 
 Tools:
-* Selenium API: http://docs.seleniumhq.org/
 
-*see /webInterfaceTest/README.md to setup the test environment.
+* Selenium API: http://docs.seleniumhq.org/
+* see /webInterfaceTest/README.md to setup the test environment.
 
 Back End test
 ---------------
