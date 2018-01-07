@@ -93,11 +93,22 @@ public class Main {
 		// very important
 		System.setProperty("webdriver.gecko.driver", "/home/archie/Travelandar+/RuggianoProsdocimiVercesi/implementation/test/webInterfaceTest/geckodriver");
 
+		//refresh db
+		driver = new FirefoxDriver();
+		driver.get("http://localhost/login.html");
+		driver.executeScript("$.post('http://127.0.0.1:5000/endTest', '')");
+		driver.quit();
+		
 		RegistrationTest.testRegistration();
 		LoginTest.testLogIn();
 		ProfileTest.mainTest();
 		EventTest.mainTest();
 		PreferenceTest.mainTest();
-
+		
+		//refresh db
+		driver = new FirefoxDriver();
+		driver.get("http://localhost/login.html");
+		driver.executeScript("$.post('http://127.0.0.1:5000/endTest', '')");
+		driver.quit();
 	}
 }
