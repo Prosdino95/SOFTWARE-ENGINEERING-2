@@ -32,7 +32,7 @@ def get_distance_types(distance):
         return ['foot','bike','bike_sharing']
     elif 0.5 < distance <= 10:
         return ['foot','bike','bike_sharing', 'public_transport',
-                'car_sharing','train']
+                'car_sharing','train', 'car']
     elif 10 < distance <= 20:
         return ['car', 'public_transport', 'train']
     elif 20 < distance <= 100:
@@ -53,8 +53,8 @@ def compute_route(gps_start, gps_end, allowed_types, depth = 0):
             lroutes = [None]
             rroutes = [None]
             if route.gps_start != gps_start:
-                lroutes.extend(compute_route(gps_start, route.gps_start,
-                                             allowed_types, depth+1))
+                lroutes = compute_route(gps_start, route.gps_start,
+                                        allowed_types, depth+1)
             if route.gps_end != gps_end:
                 rroutes = compute_route(route.gps_end, gps_end,
                                        allowed_types, depth+1)
@@ -63,7 +63,16 @@ def compute_route(gps_start, gps_end, allowed_types, depth = 0):
                 new_route.merge(route_combination[0], before = True)
                 new_route.merge(route_combination[1], before = False)
                 routes.append(new_route)
-    return sorted(routes, key = lambda x: x.time)[:5]
+    if depth > 0:
+        return sorted(routes, key = lambda x: x.time)[:5]
+    else:
+        final_list = []
+        used_route_modes = []
+        for route in sorted(routes, key = lambda x: x.time):
+            if not route.mode in used_route_modes:
+                final_list.append(route)
+                used_route_modes.append(route.mode)
+        return final_list[:5]
 
 
 
