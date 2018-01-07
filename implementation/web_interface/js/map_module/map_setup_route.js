@@ -51,7 +51,7 @@ function loadPath(route, map){
     refreshPath(map);
     var vector = new ol.layer.Vector({
         source: new ol.source.Vector({
-            features: new ol.format.GPX().readFeatures(route["path_gpx"]),
+            features: new ol.format.GPX().readFeatures(route["gpx"]),
             format: new ol.format.GPX()
         }),
         style: function(feature) {
