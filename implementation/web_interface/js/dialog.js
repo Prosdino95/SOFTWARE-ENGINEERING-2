@@ -81,8 +81,7 @@ function submitDialog(text){
  * @param response
  */
 function sessionExpired(response){
-/*    if (response === "Session Expired"){
+    if (response === "Session Expired"){
         redirectDialog("Session Expired", "./index.html")
-    }else{
-    window.location = "html/server_down.html"*/
+    }
 }
