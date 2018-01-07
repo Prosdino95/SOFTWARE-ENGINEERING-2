@@ -75,7 +75,7 @@ function modifyLight(event, revertFunc){
                     submitDialog("Event modified correctly.");
                 },
                 error: function (error) {
-                    errorDialog(error);
+                    window.location = "html/server_down.html"
                 }
             });
         });

@@ -35,7 +35,6 @@ $(function () {
             type: 'post',
             data: JSON.stringify({"email": email, "password": pass}),
             success: function (token) {
-
                 componentHandler.upgradeDom();
 
                 // hide loading page
@@ -56,7 +55,7 @@ $(function () {
                 }
             },
             error: function (error) {
-                errorDialog(error);
+                window.location = "html/server_down.html"
             }
         });
         // Clear input field

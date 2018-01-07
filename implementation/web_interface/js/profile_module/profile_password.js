@@ -76,7 +76,7 @@ $(function() {
                 submitDialog("Password updated correctly.", "");
             },
             error: function(error) {
-                errorDialog(error);
+                window.location = "html/server_down.html"
             }
         });
     });

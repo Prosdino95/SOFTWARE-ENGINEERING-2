@@ -78,7 +78,7 @@ $(function () {
 
                 // hide loading page
                 hideLoading();
-                errorDialog(error);
+                window.location = "html/server_down.html"
             }
         });
         // Clear input field

@@ -73,7 +73,7 @@ $(function (){
                 submitDialog("Profile picture updated successfully!");
             },
             error: function(error) {
-                errorDialog(error);
+                window.location = "html/server_down.html"
             }
         });
     });

@@ -66,7 +66,7 @@ $(function () {
                         hideLoading();
                         },
                     error: function (error) {
-                        errorDialog(error);
+                        window.location = "html/server_down.html"
                     }
                 });
             });
