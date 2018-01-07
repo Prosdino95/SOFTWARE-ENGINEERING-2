@@ -11,6 +11,10 @@ rt_ip = os.environ.get('RETHINKDB_IP','127.0.0.1')
 rt_port = os.environ.get('RETHINK_PORT', 28015)
 
 
+"""
+get_bike_data - gets the bike data from the bikemi.com website
+and returns the bike rack list as a json
+"""
 def get_bike_data():
     web_page = requests.get('http://www.bikemi.com/it/mappa-stazioni.aspx').content
     marker_list = marker_re.findall(web_page.decode('utf-8'))
@@ -30,6 +34,10 @@ def get_bike_data():
                           'total_bikes': total_bikes})
     return bike_data
 
+
+"""
+upload_data - function that updates the bikemi database
+"""
 def upload_data():
     data = get_bike_data()
     r.db('atm_mi').table('bikemi').delete().run()

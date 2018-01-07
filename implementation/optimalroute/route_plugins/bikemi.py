@@ -28,6 +28,11 @@ def init(registry):
     station_list = list(r.db('atm_mi').table('bikemi').run().items)
     print('Registered bikemi bike sharing plugin')
 
+"""
+find_closest(coordinate) - finds the closest bike rack given the coordinate
+coordinate[0] is the latitude
+coordinate[1] is the longitude
+"""
 def find_closest(coordinate):
     return sorted(station_list,
                   key = lambda x: haversine.haversine((x['latitude'], 
@@ -37,7 +42,12 @@ def find_closest(coordinate):
                                                      )
                  )[0]
 
-
+"""
+find_path(coord_begin, coord_end) - finds the shortest route from one bikemi
+bike rack to the next
+coord_begin is a tuple with the format (latitude, longitude)
+coord_end is a tuple with the format (latitude, longitude)
+"""
 def find_path(coord_begin, coord_end):
     begin_station = find_closest(coord_begin)
     end_station = find_closest(coord_end)

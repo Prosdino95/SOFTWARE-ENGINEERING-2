@@ -3,7 +3,9 @@ import gpxpy
 import gpxpy.gpx
 import random
 
-
+"""
+route - class to handle gpx routes
+"""
 class route:
     def __init__(self, gps_start, gps_end, mode, time, distance, gpx_route):
         self.gps_start = gps_start
@@ -13,6 +15,12 @@ class route:
         self.distance = distance
         self.gpx_route = gpx_route
 
+    """
+    merge - merges a route in the current
+    other_route - a route to be merged
+    before - if true merge the other_route before the current route, otherwise
+    merge after the current route
+    """
     def merge(self, other_route, before = True):
         if other_route is None:
             return
@@ -25,6 +33,10 @@ class route:
             self.gps_end = other_route.gps_end
             self.gpx = utils.merge_gpx(self.gpx_route, other_route.gpx_route)
 
+    """
+    to_json -  converts the current route into the json format used by the
+    web app to display the route
+    """
     def to_json(self):
         waypoints = self.generate_waypoints()
         xml_waypoints = ''.join(['<wpt lat="{}" lon="{}"></wpt>'.format(
