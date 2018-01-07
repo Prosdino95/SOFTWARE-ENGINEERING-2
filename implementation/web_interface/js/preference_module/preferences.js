@@ -42,10 +42,6 @@ $(function () {
                 url: 'http://127.0.0.1:5000/getProfilePreference?token=' + token,
                 success: function (preference) {
 
-                    // redirect if token is null
-                    sessionExpired(preference);
-
-
                     $.each(preference, function (key, val) {
                         if (key != "green_mode")
                             (preference[key]) ? document.querySelector('#' + key).MaterialIconToggle.check() :
@@ -100,9 +96,6 @@ $(function () {
             data: preference,
 
             success: function (response) {
-
-                // redirect if token is null
-                sessionExpired(response);
 
                 //hide loading page
                 hideLoading();
