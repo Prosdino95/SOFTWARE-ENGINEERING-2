@@ -74,5 +74,26 @@ We test the API doing some Post and Get request and make some assert on the resp
 
 Installation instructions
 ==========================
-(giacomoooooooooooooo (tutta tua sta parte)
+The installation instructions are as follows:
 
+#) Install **docker** as explained on https://docs.docker.com/engine/installation/
+#) Install **docker-compose** as explained on https://docs.docker.com/compose/install/
+#) Start the docker service using (might depend on the system used)
+
+  :code:`sudo systemctl start docker`
+
+#) make sure you are in the **implementation** directory and run:
+
+  :code:`sudo ./make_valhalla.sh`
+
+  this will build the valhalla server needed to get routing information
+
+5) then run
+
+  :code:`sudo ./build.sh`
+
+  this needs to be run every time there is a modification to the codebase
+
+6) Finally run :code:`sudo docker-compose up`
+
+  this will bring up the entire application with all its services in one command. The program is browsable by going at :code:`http://localhost`
