@@ -27,7 +27,6 @@ The optimal path route in this first version works only in Milan and works with:
     * By foot
     * Car
     * Bike
-    * ATM metro
     * BikeMy (bike sharing).
   
 In future release may be available other veichles and root path calculation (example: assemble different gpx route with different vehicle)
@@ -91,18 +90,17 @@ Frontend programming languages
 Travlendar was projected to be easy, simple, UI friendly, client-server application and cross-platforming.
 So why not using Web Programmation and Framework?
 
-Frontend is based on ModelViewControl and EventDispatching (see DD) and javascript libraries like JQuery are perfect for this scope. Also we didn't wanted to reinvent the wheel so we needed to have OpenSource, Full Documented and Maintened Libraries for the project. 
-Also Javascript - Html - CSS are perfect for client-server application, are used for Web Programming!
+Frontend is based on ModelViewControl and EventDispatching (see DD) and javascript libraries like JQuery are perfect for this scope. Also we didn't wanted to reinvent the wheel so we needed to have OpenSource, Full Documented and Maintened Libraries for the project.
+Also Javascript,html and CSS are perfect for client-server application and are used for Web Programming.  
 
-But the key is that we needed a cross-platforming language whose code is the same for a Broswer Application, Client Application, Android/iOS/Mobile Application. AND JAVASCRIPT CAN DO IT!
- thanks to OpenSource libraries like Electron and Cordova you can REUSE your javascript to build an android/ios/mobile COMPLETE application without changing a line of code! SOUNDS INCREDIBLE!
+But the key is that we needed a cross-platforming language whose code is the same for a Broswer Application, Client Application, Android/iOS/Mobile Application, javascript can obviously be run on a variety of platforms and thus allows easy integration to new platforms.
+ thanks to OpenSource libraries like Electron and Cordova you can reuse your javascript to build a complete android/ios/mobile application without changing a line of code.
 
-Other key reason is that Javascript is a simple and concise language with an INFINITE library and API support which can let you create a full working web application WITHOUT using a CLASS!   
+Other key reason is that Javascript is a simple and concise language with a vast library and API support which can let you create a full working web application with ease.
 
-Also Html5 is great to build UI layout, and CSS helps you to have a layout much RESPONSIVE as possible. 
-...DO WE NEED MORE REASONS? 
+Also Html5 is great to build UI layout, and CSS helps you to have a layout much responsive as possible.
 
-LIBRARIES USED:
+Libraries used:
 
 * FullCalendar API. https://fullcalendar.io/
 * OpenLayers v3 API. https://openlayers.org/
@@ -128,20 +126,32 @@ On the other hand it presents the following shortcomings:
 * Due to the dynamically typed nature run-time errors are prone to happen and thus the codebase requires stricter coverage
 
 Back End Framework
--------------------
-    #)  **unittest**:Python Framework for tests, is very similar to other test libraty like jUnit.
+------------------
+    #)  **unittest**: Python Framework for tests, is very similar to other test libraty like jUnit.
             https://docs.python.org/3/library/unittest.html.
-    #)  **flask**:Is a micro web framework written in Python and based on the Werkzeug toolkit and Jinja2 template engine.
+    #)  **flask**: Is a micro web framework written in Python and based on the Werkzeug toolkit and Jinja2 template engine.
             http://flask.pocoo.org.
-    #)  **flask_cors**:A Flask extension for handling Cross Origin Resource Sharing (CORS), making cross-origin AJAX possible.
+    #)  **flask_cors**: A Flask extension for handling Cross Origin Resource Sharing (CORS), making cross-origin AJAX possible.
             https://pypi.python.org/pypi/Flask-Cors
-    #)  **rethinkdb**:RethinkDB is open-source, scalable JSON database built from the ground up for the realtime web(see below for more information). 
-    #)  **jsonschema**:JSON Schema is a vocabulary that allows you to annotate and validate JSON documents. We use this framework for check the accuracy of the POST requests.
+    #)  **rethinkdb**: RethinkDB is open-source, scalable JSON database built from the ground up for the realtime web(see below for more information). 
+    #)  **jsonschema**: JSON Schema is a vocabulary that allows you to annotate and validate JSON documents. We use this framework for check the accuracy of the POST requests.
             https://pypi.python.org/pypi/jsonschema.
+    #)  **schedule**:library that allows to program the running of a function at a specified time, used in the scraping module to help modules that need to scan a certain informations source everyonce in a while 
+        https://github.com/dbader/schedule
+    #)  **BeautifulSoup**: python library to manipulate html pages, provided in the scraping module to aid the modules in data acquisition.
+        https://www.crummy.com/software/BeautifulSoup/
+    #)  **requests**: python library that semplifies making even the most complex HTTP requests.
+        http://docs.python-requests.org/en/master/
+    #)  **haversine**: python library to calculate the distance between 2 gps coordinates based on the haversine formula.
+        https://github.com/mapado/haversine
+    #)  **gpxpy**: python library that allows the manipulation of gpx files
+        https://github.com/tkrajina/gpxpy
 
-Rethink db
------------
- asdasd
+RethinkDB
+---------
+The choice for using RethinkDB as the backend database was based on various factors. First and foremost the fact that with both the user and data database were eterogeneous enough that a NoSQL database seemed more suited for the job, moreover since we were settled on the use of json throughout the codebase it seemed natural to find a database software that natively supported json. Finally RethinkDB supports the streaming of changesets to the clients, avoiding the use of polling.
+
+Thre main disadvantage to using RethinkDB and the underlying json model is that the information stored in unstructured and thus it is easier to have malformed data stored on the database. Also due to the NoSQL nature of the server performance is slightly inferior compared to a SQL database, however due to rethinkdb's support for sharding the leverages this deficency quite well.
 
 Structure of the source code
 =============================
@@ -153,9 +163,9 @@ The code is structured in the following way (starting inside the **implementatio
 * :code:`endpoint` contains the code regarding the HTTP endpoint
 * :code:`web_interface` contains the html, javascript and css files that present the website and interact with the endpoint server
 * :code:`optimalroute` contains code pertaining to the optimal route server that is used by the endpoint when asked for routes
-    * :code:`optimalroute/route_plugins` contains the plugins that provide the various pathing algorithms
+* :code:`optimalroute/route_plugins` contains the plugins that provide the various pathing algorithms
 * :code:`scraper` contains code for the scraper module which gathers data from the web to be used by the optimalroute server
-    * :code:`scraper/modules` has the individual modules that gather data for individual services
+* :code:`scraper/modules` has the individual modules that gather data for individual services
 * :code:`valhalla_server` contains the dockerfile to assemble the valhalla server together with the :code:`milan_map_full.pbf` which is a PBF-encoded map of the Milan metropolitan area
 
 
@@ -197,6 +207,8 @@ We test the API doing some Post and Get request and make some assert on the resp
 
 Installation instructions
 ==========================
+(note: these installation instructions are for linux-based operating systems, use in other OSes might require slight variation of the commands used)
+
 The installation instructions are as follows:
 
 #) Install **docker** as explained on https://docs.docker.com/engine/installation/
