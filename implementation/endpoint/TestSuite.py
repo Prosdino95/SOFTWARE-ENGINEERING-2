@@ -1,6 +1,8 @@
 import unittest
 import importlib.util as im
-
+import rethinkdb as r
+import rt_server
+import event
 
 # start import test
 spec = im.spec_from_file_location("ProfileTest", "test/ProfileTest.py")
@@ -16,6 +18,7 @@ spec = im.spec_from_file_location("FlexibleLunchTest", "test/FlexibleLunchTest.p
 t4 = im.module_from_spec(spec)
 spec.loader.exec_module(t4)
 # end import test
+
 
 def suite():
     suite = unittest.TestSuite()
