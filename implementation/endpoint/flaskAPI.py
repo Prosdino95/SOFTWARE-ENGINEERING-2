@@ -21,8 +21,6 @@ CORS(app)
 @app.route('/registration', methods=['POST'])
 def registration_api():
     user = flask.request.get_json()
-    if not token_check(user["token"]):
-        return "Session Expired"
     try:
         post_check.registration(user)
     except ValidationError: return "Bad Request"
@@ -32,8 +30,6 @@ def registration_api():
 @app.route('/login', methods=['POST'])
 def login_api():
     user = flask.request.get_json()
-    if not token_check(user["token"]):
-        return "Session Expired"
     try:
         post_check.login(user)
     except ValidationError: return "Bad Request"
