@@ -8,4 +8,4 @@ RUN cd /optimalroute && \
     pip3 install -r requirements.txt
 
 ENTRYPOINT cd /optimalroute && \
-           gunicorn -b '0.0.0.0:6000' optimalroute:app
+           gunicorn -R -b '0.0.0.0:6000' optimalroute:app

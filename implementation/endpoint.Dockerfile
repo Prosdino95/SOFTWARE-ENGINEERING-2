@@ -9,4 +9,4 @@ RUN cd /endpoint && \
 
 ENTRYPOINT cd /endpoint && \
            python3 rethinkDB.py && \
-           gunicorn -b 0.0.0.0 flaskAPI:app
+           gunicorn -R -b 0.0.0.0 flaskAPI:app
