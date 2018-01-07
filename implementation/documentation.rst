@@ -18,7 +18,19 @@ Adopted development frameworks
 
 Adopted programming languages
 ------------------------------
-    #)**Python**
+**Python**
+
+Python is a dynamically typed programming language that is used worldwide in a variety of applications. We chose this language over others for the following proprerties:
+
+* dynamically typed: allows the construction of complex datatypes with ease and removes the burden of memory managment thanks to its garbage collector
+* construction of plugin-frameworks such as those needed for the optimal route and scraper modules are trivial to implement
+* vast and production-ready collection of libraries, such as those needed to deploy web frameworks and produce http requests
+* interpreted: it allows for rapid prototyping of the application, does not need to be recompiled with every version and the container build process is very streamlined
+* can be trivially scaled for heavier workloads with appropiate libraries
+
+On the other hand it presents the following shortcomings:
+
+* Due to the dynamically typed nature run-time errors are prone to happen and thus the codebase requires stricter coverage
 
 Back End Framework
 -------------------
@@ -37,15 +49,25 @@ Rethink db
     perche' abbiamo usato questo?   
     https://www.rethinkdb.com/
 
-adopted middleware
--------------------
-
 api
 ----
 
 
 Structure of the source code
 =============================
+The code is structured in the following way (starting inside the **implementation** directory):
+
+* :code:`*.Dockerfile` docker build files
+* :code:`build_valhalla.sh` and :code:`build.sh` helper scripts to build the docker images
+* :code:`docker-compose.yml` describes the container order and network linking
+* :code:`endpoint` contains the code regarding the HTTP endpoint
+* :code:`web_interface` contains the html, javascript and css files that present the website and interact with the endpoint server
+* :code:`optimalroute` contains code pertaining to the optimal route server that is used by the endpoint when asked for routes
+    * :code:`optimalroute/route_plugins` contains the plugins that provide the various pathing algorithms
+* :code:`scraper` contains code for the scraper module which gathers data from the web to be used by the optimalroute server
+    * :code:`scraper/modules` has the individual modules that gather data for individual services
+* :code:`valhalla_server` contains the dockerfile to assemble the valhalla server together with the :code:`milan_map_full.pbf` which is a PBF-encoded map of the Milan metropolitan area
+
 
 
 Testing
