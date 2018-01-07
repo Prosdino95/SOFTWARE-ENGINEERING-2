@@ -7,14 +7,57 @@ Introduction
 
 Requirements and Functionalities
 =================================
-    "The requirements/functionalities that are actually implemented in the software
-    (with motivations for including them and excluding	 others if applicable)"
+With reference to the RASD and DD documents we are implemented some functionalities that we consider essential for the first version of Travlendat +.
 
+Implemented funzionalities
+----------------------------
+-------------------
+Calendar Functions
+-------------------
+There are implemented a completed calendar system in witch you can submit multile events and the user can see the complete agenda.
+The events can overlap and we are implemented a partucular "flexible event" that can rearrange itself(see RASD fom more information).
+
+--------------
+Map Functions
+--------------
+We are implemented a first version of Best Route algorithm that, considering the user's preference, calculate the best route to reach the meeting.
+The optimal path route in this first version works only in Milan and works with:
+
+    * By foot
+    * Car
+    * Bike
+    * ATM metro
+    * BikeMy (bike sharing)
+
+The meeting and the start locations need to be specified in the map at every event submit.
+The map can geolocalize the User.
+
+------------------------
+User Profile Functions
+------------------------
+We are implemented a complete user profile as we specify in the RASD.
+
+-------------
+Alarm System
+-------------
+The first version of the alarm system send a notify in the browser when the user need to start travel for reach the meeting.
+
+
+
+Not implemented funzionalities
+-------------------------------
+There are some features that were not included in this first version because they are too difficult to implement [*]_ or aren't essential for the first presentation. 
+    * The Alarm system notify the user when: he submit an event that overlaps with another.
+    * The Alarm system notify the user when he try to submit an event than he can't reach in time.
+    * The Alarm system have different type of notifications such email or message.
+    * The registration not required that the email are verified.
+    * The Best Route algorithm considers some unexpected event like traffic or meteo.
+    * The User can specify the start positions as the meeting position of the last event.
+
+.. [*] In the short time available
 
 Adopted development frameworks
 =================================
-    "(per ogni cosa scrivere vantaggi e svantaggi)"
-
 
 Adopted programming languages
 ------------------------------
