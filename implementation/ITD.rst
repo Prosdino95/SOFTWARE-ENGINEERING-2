@@ -5,7 +5,6 @@ Introduction
 ============
 This document present all the informations about the first implementation of Travlendar+.
 
-
 Requirements and Functionalities
 =================================
 With reference to the RASD and DD documents we are implemented some functionalities that we consider essential for the first version of Travlendat +.
@@ -15,50 +14,102 @@ Implemented funzionalities
 -------------------
 Calendar Functions
 -------------------
-There are implemented a completed calendar system in witch you can submit multile events and the user can see the complete agenda.
+We implemented a complete calendar system in which you can submit personal events and the user can access to his personal agenda.
 The events can overlap and we are implemented a partucular "flexible event" that can rearrange itself(see RASD fom more information).
+Everything is simple and intuitive just like mockups presented on the RASD.
 
 --------------
 Map Functions
 --------------
-We are implemented a first version of Best Route algorithm that, considering the user's preference, calculate the best route to reach the meeting.
+We implemented a first version of Best Route algorithm which calculates the best route to reach the meeting based on the user preferences.
 The optimal path route in this first version works only in Milan and works with:
 
     * By foot
     * Car
     * Bike
     * ATM metro
-    * BikeMy (bike sharing)
+    * BikeMy (bike sharing).
+  
+In future release may be available other veichles and root path calculation (example: assemble different gpx route with different vehicle)
 
-The meeting and the start locations need to be specified in the map at every event submit.
-The map can geolocalize the User.
+The meeting and the start locations need to be specified in the map on every personal event submission.
+The map is much user friendly as possible and it presents drag and drop markers to help the user to select the appointment's positions.
+The map can geolocalize the User, depending on the browser configuration and User choice to be geolocalized.
 
 ------------------------
 User Profile Functions
 ------------------------
-We are implemented a complete user profile as we specify in the RASD.
+We implemented a complete user profile as we specify in the RASD. This will used to collect data like personal preferences on types of vehicle which will be used for calculating route path. 
 
 -------------
 Alarm System
 -------------
-The first version of the alarm system send a notify in the browser when the user need to start travel for reach the meeting.
+The first version of the alarm system send a notify in the browser when the user need to start travel for reach the meeting just as info message. 
 
 
+Future Features
+---------------
+Feature not implemented (some of them may be under comments on the code)
 
-Not implemented funzionalities
--------------------------------
-There are some features that were not included in this first version because they are too difficult to implement [*]_ or aren't essential for the first presentation. 
+------------------
+Calendar Functions
+------------------
+
+* Adding support to different timezone and locale time setup.
+* Adding festivity and weather information using exteranl Api, which could give extra information to user and to optimal path server.
+
+-------------
+Map Functions
+-------------
+
+* Adding street names support on the meeting and starting location with external database or API.
+* Adding support to entire region or support other cities (ex: Rome). (it Needs LOT OF RAM)
+* Using different API for geolocation so to be more precise.
+* The User can specify the start positions as the meeting position of the last event.
+
+------------
+Alarm System
+------------
+* Adding Email warning message support if allowed by the user. (Need some module on the EE server);
+* Adding Telephone warning message support with sms. (Same)
+* Adding different type of warning message and more User Friendly. (See RASD for different types of warning)
+* New Alarm System trigger events:
     * The Alarm system notify the user when: he submit an event that overlaps with another.
     * The Alarm system notify the user when he try to submit an event than he can't reach in time.
-    * The Alarm system have different type of notifications such email or message.
-    * The registration not required that the email are verified.
-    * The Best Route algorithm considers some unexpected event like traffic or meteo.
-    * The User can specify the start positions as the meeting position of the last event.
+   
+------------
+Registration
+------------
+* The registration verify user with email authentication sending message with an url/password/hash.
 
-.. [*] In the short time available
 
 Adopted development frameworks
 =================================
+
+Frontend programming languages
+------------------------------
+Travlendar was projected to be easy, simple, UI friendly, client-server application and cross-platforming.
+So why not using Web Programmation and Framework?
+
+Frontend is based on ModelViewControl and EventDispatching (see DD) and javascript libraries like JQuery are perfect for this scope. Also we didn't wanted to reinvent the wheel so we needed to have OpenSource, Full Documented and Maintened Libraries for the project. 
+Also Javascript - Html - CSS are perfect for client-server application, are used for Web Programming!
+
+But the key is that we needed a cross-platforming language whose code is the same for a Broswer Application, Client Application, Android/iOS/Mobile Application. AND JAVASCRIPT CAN DO IT!
+ thanks to OpenSource libraries like Electron and Cordova you can REUSE your javascript to build an android/ios/mobile COMPLETE application without changing a line of code! SOUNDS INCREDIBLE!
+
+Other key reason is that Javascript is a simple and concise language with an INFINITE library and API support which can let you create a full working web application WITHOUT using a CLASS!   
+
+Also Html5 is great to build UI layout, and CSS helps you to have a layout much RESPONSIVE as possible. 
+...DO WE NEED MORE REASONS? 
+
+LIBRARIES USED:
+
+* FullCalendar API. https://fullcalendar.io/
+* OpenLayers v3 API. https://openlayers.org/
+* Moment http://momentjs.com/
+* Toast https://codeseven.github.io/toastr/
+* Material Design lite: https://getmdl.io/
+* JQuery https://jquery.com/
 
 Adopted programming languages
 ------------------------------
@@ -90,8 +141,7 @@ Back End Framework
 
 Rethink db
 -----------
-    perche' abbiamo usato questo?   
-    https://www.rethinkdb.com/
+ asdasd
 
 api
 ----
@@ -116,6 +166,17 @@ The code is structured in the following way (starting inside the **implementatio
 
 Testing
 ========
+
+WebInterface Test
+-----------------
+Testing it was not simple. After trying to use QUnit library which let you write unit test to javascript code we decided to use other apporoach. This is because we used a lot of JQuery code which dispatches on user events (like button clicks, writing input field...) which is intestable with standard unit test. So decided to use Test Automation technique, which is great for web application. After using for a while Phantomjs without a good result we adopted Selenium Test Automation to reach our goals.
+
+Thanks to Selenium is possible to create a custom user 'Marionette' navigation behaviour to test WebInterface functionality (like if the html div are correctly updated after a http post). Everything is written in Java with Selenium java API integrated with Junit library. Also when the test is finished it returns a clear html log file in which there are the test results.
+
+Tools:
+* Selenium API: http://docs.seleniumhq.org/
+
+*see /webInterfaceTest/README.md to setup the test environment.
 
 Back End test
 ---------------
