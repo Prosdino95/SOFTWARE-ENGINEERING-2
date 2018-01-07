@@ -135,11 +135,10 @@ def scan():
     station_array = list(map(station_dict, dataset.shapeRecords()))
     if "atm_mi" not in r.db_list().run():
         r.db_create("atm_mi").run()
+    if "stations" not in r.db("atm_mi").table_list().run():
         r.db("atm_mi").table_create("stations", primary_key="id").run()
-        r.db("atm_mi").table("stations").insert(mkstationdb(station_array)).run()
-    else:
-        r.db("atm_mi").table("stations").delete().run()
-        r.db("atm_mi").table("stations").insert(mkstationdb(station_array)).run()
+    r.db("atm_mi").table("stations").delete().run()
+    r.db("atm_mi").table("stations").insert(mkstationdb(station_array)).run()
 
 
 def init():
