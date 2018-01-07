@@ -1,3 +1,1 @@
-cd valhalla_custom
-docker build -t valhalla_custom .
-cd ..
+docker build -t valhalla_custom -f valhalla.Dockerfile .
