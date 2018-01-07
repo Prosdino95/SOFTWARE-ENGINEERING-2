@@ -50,9 +50,7 @@ $(function(){
                 $("#stage").trigger('event_choose_route', [ route ]);
             },
             error: function (error) {
-                    console.log(error.message);
-                console.log(error);
-                //window.location = "html/server_down.html"
+                window.location = "html/server_down.html"
             }
         });
     });

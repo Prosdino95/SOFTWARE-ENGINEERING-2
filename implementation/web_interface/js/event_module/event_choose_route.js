@@ -120,7 +120,7 @@ $(function () {
             case "airplane":
                 return "<i class='mdi mdi-airplane mdi-24px mdl-color-text--blue-grey-700'></i>";
             case "bike_sharing":
-                return "<i class='mdi mdi-bike mdi-24px mdl-color-text--blue-grey-700'></i>";
+                return "<i class='mdi mdi-bike mdi-24px mdl-color-text--blue-grey-700' href='https://www.bikemi.com/en/homepage.aspx'></i>";
             case "car_sharing":
                 return "<i class='mdi mdi-car-connected mdi-24px mdl-color-text--blue-grey-700'></i>";
             case "green_mode":
