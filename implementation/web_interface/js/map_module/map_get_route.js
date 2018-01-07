@@ -43,13 +43,18 @@ $(function(){
                     "gps_stop": meeting_location.reverse()
                 }),
             success: function (gpx_response) {
+                // redirect if token is null
+                sessionExpired(gpx_response);
 
                 hideLoading();
                 var route = JSON.parse(gpx_response);
+                console.log(route);
                 $("#stage").trigger('event_choose_route', [ route ]);
             },
             error: function (error) {
-                window.location = "html/server_down.html"
+                    console.log(error.message);
+                console.log(error);
+                //window.location = "html/server_down.html"
             }
         });
     });

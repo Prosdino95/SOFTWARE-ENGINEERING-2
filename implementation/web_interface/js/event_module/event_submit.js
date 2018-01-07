@@ -110,6 +110,8 @@ $(function () {
             }), // Alarm
 
             success: function (response) {
+                // redirect if token is null
+                sessionExpired(response);
 
                 //hide loading
                 hideLoading();

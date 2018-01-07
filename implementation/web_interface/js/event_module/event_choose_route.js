@@ -20,6 +20,7 @@ $(function () {
 
             // create html
             for (var i in routeData) {
+                console.log(routeData);
                 $("#route_table").append(spawnRaw(routeData[i], i));
             }
             componentHandler.upgradeDom(); // important!

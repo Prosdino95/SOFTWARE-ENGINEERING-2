@@ -74,3 +74,14 @@ function submitDialog(text){
     resetDialog();
     dialog(text, false, false);
 }
+
+/**
+ * rRedirect to index.html if Token is null
+ *
+ * @param response
+ */
+function sessionExpired(response){
+    if (response === "Session Expired"){
+        redirectDialog("Session Expired", "./index.html")
+    }
+}
