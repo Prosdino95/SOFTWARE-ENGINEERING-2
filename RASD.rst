@@ -37,7 +37,7 @@ Calendar Functions
  #) Show a personal calendar of 'Events' submitted.
  #) Let the User submit 'Events' on the calendar to plan his/her future appointments.
  #) Notify the User when the 'Event' is about to start and she/he needs to leave to be in time to the 'Event Meeting Location'.
- #) Let the User to create 'Flexible Event' for everyday short and low priority appointments.
+ #) Let the User to create 'Flexible Event' with a flexible time.
  
 
 ------------------------------
@@ -158,15 +158,15 @@ Calendar Functions Requirements
     
     #) The 'Alarm System' if activated must start before the start time of the 'Event'
     
- #) *Let the User to create 'Flexible Event' for everyday short and low priority appointments.*
+ #) *Let the User to create 'Flexible Event' with a flexible time.*
  
     #) The system must provide a 'Flexible Event' flag when the User is creating a new 'Event'
     
-    #) A 'Flexible Event' can be overlapped to an another 'Event'
+    #) A 'Flexible Event' have a duration and a time intervall.
     
-    #) A 'Flexible Event' can be copied and pasted on the Calendar and be repeated on several days of the same Week.
+    #) If a normal event is overlapped to a 'Flexible Event' this one rearrange itself in order to remain in the time interval and without overlaps.
     
-    #) A 'Flexible Event' can be easly suppressed.
+    #) If 'Flexible Event' can't remain the time interval don't rearrange itself and remeins overlapped with other event.
      
 
 ---------------------------------
@@ -197,6 +197,7 @@ Maps Geolocalization Requirements
    #) The system must provide a graphical feature in which the user can modify the path adding location on the virtual maps.
     
    #) The 'Best Route' Algorithm must update the Extimate time of arrival at destination depending on the geographical position of the 'Intermidiate Locations' added or the new 'Vehicle' speed average chosen.
+   
    #) In case of 'Costraint' too much strict the system can return a 'Warning' message notifing the User that a 'Best Route' does not exist with that 'Costraint'.
     
  6 *Consider on the possible 'Vehicle' avaible all the public transports of the city, railway stations, aeroports, train stations, car and bike sharing systems, bike, car and by foot.*       
@@ -381,14 +382,14 @@ Features
 ----------------
 The Main Screens
 ----------------
-         
-.. image:: Resources/MockUp/loading_template.png
+
+.. figure:: Resources/MockUp/loading_template.png
 
     The Loading page shows the Travlendar+ logo and has a nice interface.
     
     
     
-.. image:: Resources/MockUp/login_template.png
+.. figure:: Resources/MockUp/login_template.png
 
     The Login Page in which the user must enter his user name and a password.
     
@@ -694,7 +695,6 @@ Reliability
 
 *The main focus is on the 'Best Route' Algorithm and the calcolation of the 'Expected time' of Arrival at the 'Meeting Location'.*
 
- #) 'Best Route' Algorithm should be tested and have a coverage greater than 80%
  #) 'Expected time' of arrival at the 'Meeting Location' should be have a relative error of 5% of the time exstimated.
  #) If the user does not have internet connectivity on the mobile, he/she still could open the app and access to 'Calendar' function and view the meetings submitted.
  #) The 'Expected time' of arrival at the 'Meeting Location' should be updated constantly in case of changing of weather forecast or (**optional**) unexpected event (public transport goes off...)
