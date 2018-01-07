@@ -42,7 +42,7 @@ def get_distance_types(distance):
 
 def compute_route(gps_start, gps_end, allowed_types, depth = 0):
     if depth == 3: #We limit the depth to 3 to avoid too long response times
-        return pr.get_routers_by_category('foot')[0](gps_start, gps_end)
+        return [pr.get_routers_by_category('foot')[0]['router'](gps_start, gps_end)]
     distance = haversine.haversine(gps_start, gps_end)
     distance_types = get_distance_types(distance)
     types = utils.list_intersection(distance_types, allowed_types)
@@ -67,15 +67,6 @@ def compute_route(gps_start, gps_end, allowed_types, depth = 0):
 
 
 
-"""
-handle_request - parses the route request
-message format
-{
-    "gps_begin": [45.4781108, 9.2250824],
-    "gps_end": [45.4637344, 9.1888901],
-    "allowed_types": ['auto','foot']
-}
-"""
 @app.route('/route', methods = ['POST'])
 def handle_request():
     if not flask.request.headers['Content-Type'].startswith('application/json'):

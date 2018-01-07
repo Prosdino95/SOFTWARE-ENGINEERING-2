@@ -8,4 +8,4 @@ RUN cd /scraper && \
     pip3 install -r requirements.txt
 
 ENTRYPOINT cd /scraper && \
-           python3 scraper.py | tail -f /dev/null
+           python3 scraper.py

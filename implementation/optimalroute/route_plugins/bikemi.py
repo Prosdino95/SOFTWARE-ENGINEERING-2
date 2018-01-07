@@ -3,6 +3,7 @@ import os
 import copy
 import gpxpy
 import rethinkdb as r
+import haversine
 
 pr = None
 station_list = []
@@ -23,9 +24,10 @@ def init(registry):
 
 def find_closest(coordinate):
     return sorted(station_list,
-                  key = lambda x: haversine.haversine(x['lat'], x['lon'],
-                                                      coordinate[0],
-                                                      coordinate[1]
+                  key = lambda x: haversine.haversine((x['latitude'], 
+                                                       x['longitude']),
+                                                      (coordinate[0],
+                                                       coordinate[1])
                                                      )
                  )[0]
 
@@ -33,9 +35,9 @@ def find_closest(coordinate):
 def find_path(coord_begin, coord_end):
     begin_station = find_closest(coord_begin)
     end_station = find_closest(coord_end)
-    path = pr.get_routers_by_category('bike')['router']((begin_station['lat'],
-                                                         begin_station['lon']),
-                                                        (end_station['lat'],
-                                                         end_station['lon']))
+    path = pr.get_routers_by_category('bike')[0]['router']((begin_station['latitude'],
+                                                            begin_station['longitude']),
+                                                           (end_station['latitude'],
+                                                            end_station['longitude']))
     path.mode = 'bike_sharing'
     return path

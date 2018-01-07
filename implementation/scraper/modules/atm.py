@@ -130,7 +130,7 @@ def list_overlap(list1, list2):
 
 
 def scan():
-    r.connect(rt_ip, rt_port).repl()
+    r.connect(rt_ip, rt_port, timeout=10000).repl()
     dataset = dul_dataset(get_dl_link())
     station_array = list(map(station_dict, dataset.shapeRecords()))
     if "atm_mi" not in r.db_list().run():
@@ -143,6 +143,6 @@ def scan():
 
 
 def init():
-    print("Starting ATM module")
+    print("Starting ATM scraper module")
     scan()
     schedule.every(4).weeks.do(scan)

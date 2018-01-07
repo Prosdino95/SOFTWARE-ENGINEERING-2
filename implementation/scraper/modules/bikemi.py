@@ -4,8 +4,12 @@ import codecs
 import bs4
 import schedule
 import rethinkdb as r
+import os
 
 marker_re = re.compile('GoogleMap\.addMarker\(\'.*\)')
+rt_ip = os.environ.get('RETHINKDB_IP','127.0.0.1')
+rt_port = os.environ.get('RETHINK_PORT', 28015)
+
 
 def get_bike_data():
     web_page = requests.get('http://www.bikemi.com/it/mappa-stazioni.aspx').content
@@ -33,6 +37,7 @@ def upload_data():
 
 
 def init():
+    r.connect(rt_ip, rt_port).repl()
     if "atm_mi" not in r.db_list().run():
         r.db_create("atm_mi").run()
     if "bikemi" not in r.db('atm_mi').table_list().run():
