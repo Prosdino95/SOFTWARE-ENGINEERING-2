@@ -15,4 +15,4 @@ Software needed
 simply run `./make.sh`
 
 ## Implementations
-All information about the implementation are available in the file `documentation.pdf` in the implementation folder.
+All information about the implementation are available in the file `ITD.pdf` in the implementation folder.

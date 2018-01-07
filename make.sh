@@ -4,3 +4,7 @@ rm temp.pdf
 pandoc -s --toc -V geometry:margin=1.5in -V geometry:a4paper -o temp.pdf DD.rst && \
 gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=DeliveryFolder/DD1.pdf frontpage_DD.pdf temp.pdf && \
 rm temp.pdf
+cd implementation &&\
+pandoc -s --toc -V geometry:margin=1.5in -V geometry:a4paper -o temp.pdf ITD.rst && \
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=./ITD.pdf frontpage_ITD.pdf temp.pdf && \
+rm temp.pdf
