@@ -31,17 +31,6 @@ def suite():
     return suite
 
 
-# this function is called by the API end_test
-def end_test():
-    r.connect(rt_server.ip, rt_server.port, rt_server.db_name).repl()
-    user = "test@io.it"
-    ev_list = event.get_event(user)
-    for e in ev_list:
-        r.table("event").delete(e["id"])
-        r.table("event_submit").delete(e["id"])
-    r.table("user").delete(user)
-
-
 if __name__ == '__main__':
     runner = unittest.TextTestRunner()
     runner.run(suite())

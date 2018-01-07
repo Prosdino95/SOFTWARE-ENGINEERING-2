@@ -8,7 +8,8 @@ import route
 from flexible_lunch import set_lunch
 import post_check
 from jsonschema import ValidationError
-import TestSuite
+import rethinkdb as r
+import rt_server
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -144,7 +145,14 @@ def flexible_lunch_api():
 # Delete all information submitted by the tests
 @app.route('/endTest', methods=['POST'])
 def end_test_api():
-    TestSuite.end_test()
+    r.connect(rt_server.ip, rt_server.port, rt_server.db_name).repl()
+    user = "test@test.it"
+    ev_list = event.get_event(user)
+    for e in ev_list:
+        r.table("event").get(e["id"]).delete().run()
+        r.table("event_submit").get(e["id"]).delete().run()
+    r.table("user").get(user).delete().run()
+    return "OK"
 
 
 if __name__ == "__main__":
