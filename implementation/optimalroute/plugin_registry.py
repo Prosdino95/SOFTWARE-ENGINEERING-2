@@ -1,6 +1,11 @@
 import utils
 import route
 
+"""
+plugin_registry - a simple plugin registry implementation
+it mainly serves for plugins to register and use each other's
+functionality if needed
+"""
 class plugin_registry:
     def __init__(self):
         self.plugindict = {}

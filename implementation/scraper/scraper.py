@@ -5,7 +5,14 @@ import os
 import time
 import schedule
 
-
+"""
+init() - scraper init module
+this module has the only purpose of initializing
+all the modules inside the modules directory
+since the modules use the schedule module to
+schedule their operations the execution after init()
+is left to the individual modules
+"""
 def init():
     print("Starting scraper module")
     plugin_path = os.path.join(os.getcwd(), 'modules')
