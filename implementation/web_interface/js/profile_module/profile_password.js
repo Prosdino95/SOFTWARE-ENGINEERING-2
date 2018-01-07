@@ -69,9 +69,6 @@ $(function() {
 
             success: function(response) {
 
-                // redirect if token is null
-                sessionExpired(response);
-
                 // hide loading page
                 hideLoading();
 

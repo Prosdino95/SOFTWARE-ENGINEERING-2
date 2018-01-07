@@ -43,8 +43,6 @@ $(function(){
                     "gps_stop": meeting_location.reverse()
                 }),
             success: function (gpx_response) {
-                // redirect if token is null
-                sessionExpired(gpx_response);
 
                 hideLoading();
                 var route = JSON.parse(gpx_response);

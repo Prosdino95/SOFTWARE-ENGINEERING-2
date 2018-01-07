@@ -17,7 +17,6 @@ function get_profile() {
         url: 'http://127.0.0.1:5000/getProfile?token=' + token,
         success: function (response) {
 
-            sessionExpired(response);
             var profile = response['profile'];
 
             // Update Welcome Page
