@@ -4,6 +4,7 @@ import copy
 import gpxpy
 import rethinkdb as r
 import haversine
+import time
 
 pr = None
 station_list = []
@@ -18,7 +19,12 @@ def init(registry):
                               'desc': 'Bikemi routing'})
     rt_ip = os.environ.get('RETHINKDB_IP', '127.0.0.1')
     rt_port = os.environ.get('RETHINKDB_PORT', '28015')
-    r.connect(rt_ip, rt_port).repl()
+    r.connect(rt_ip, rt_port, timeout = 10000).repl()
+    while not ('atm_mi' in r.db_list().run()):
+        time.sleep(0.5)
+    while not ('bikemi' in r.db('atm_mi').table_list().run()):
+        time.sleep(0.5)
+    time.sleep(5)
     station_list = list(r.db('atm_mi').table('bikemi').run().items)
     print('Registered bikemi bike sharing plugin')
 
