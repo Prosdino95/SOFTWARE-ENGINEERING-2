@@ -84,6 +84,7 @@ def get_profile_preference_api():
 @app.route('/getProfile', methods=['GET'])
 def get_profile_api():
     token = flask.request.args.get('token', '')
+    print(token)
     if not token_check(token):
         return "Session Expired"
     json = profile.get_profile(token)
@@ -180,7 +181,7 @@ def end_test_api():
 
 
 def token_check(token):
-    if token is None or token == "":
+    if token is None or token == "" or token == "undefined":
         return False
     else:
         return True

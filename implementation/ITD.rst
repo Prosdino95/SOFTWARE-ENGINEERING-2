@@ -143,10 +143,6 @@ Rethink db
 -----------
  asdasd
 
-api
-----
-
-
 Structure of the source code
 =============================
 The code is structured in the following way (starting inside the **implementation** directory):

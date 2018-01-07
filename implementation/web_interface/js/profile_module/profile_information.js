@@ -53,6 +53,9 @@ $(function () {
                 url: 'http://127.0.0.1:5000/getProfile?token=' + token,
                 success: function (response) {
 
+                    // redirect if token is null
+                    sessionExpired(response);
+
                     var profile = response['profile'];
                     $("#first_name_textfield")[0].MaterialTextfield.change(profile['first_name']);
                     $("#last_name_textfield")[0].MaterialTextfield.change(profile['last_name']);
@@ -123,6 +126,9 @@ $(function () {
             }),
 
             success: function (response) {
+
+                // redirect if token is null
+                sessionExpired(response);
 
                 //hide loading
                 hideLoading();

@@ -61,6 +61,8 @@ $(function () {
                     }),
 
                     success: function (response) {
+                        // redirect if token is null
+                        sessionExpired(response);
 
                         // Show a friendly event_section
                         redirectDialog("Event removed correctly.", './travlendar.html');
