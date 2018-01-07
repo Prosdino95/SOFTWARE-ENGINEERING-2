@@ -21,10 +21,11 @@ def init(registry):
     #                         {'router': find_path,
     #                          'id': 'atmmi_metro',
     #                          'desc': 'ATM MI Metro Routing'})
-    while not 'atm_mi' in r.db_list().run():
+    while not ('atm_mi' in r.db_list().run()):
         time.sleep(0.5)
-    while 'stations' not in r.db('atm_mi').table_list().run():
+    while not ('stations' in r.db('atm_mi').table_list().run()):
         time.sleep(0.5)
+    time.sleep(5)
     station_list = list(r.db('atm_mi').table('stations').run().items)
     station_dict = mk_station_dict(station_list)
     #print('Registered ATM Milan Metro Routing plugin')
@@ -97,7 +98,7 @@ def station_path_line(s_begin, line, begin_cost = 0):
                 for nn in new_neigh:
                     if line in station_dict[nn[0]]['lines'] and nn[0] not in station_cost.keys():
                         new_neighbours[neigh[0]].append(nn[0])
-                new_neighbours[neigh[0]] = new_neigh 
+                new_neighbours[neigh[0]] = new_neigh
                 if list_difference(station_dict[neigh[0]]['lines'], [line]):
                     intersections.append(neigh[0])
         neighbours = new_neighbours
