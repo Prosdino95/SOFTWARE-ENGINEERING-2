@@ -3,6 +3,7 @@ import copy
 import gpxpy
 import rethinkdb as r
 import haversine
+import time
 
 pr = None
 station_list = None
@@ -20,6 +21,10 @@ def init(registry):
     #                         {'router': find_path,
     #                          'id': 'atmmi_metro',
     #                          'desc': 'ATM MI Metro Routing'})
+    while not 'atm_mi' in r.db_list().run():
+        time.sleep(0.5)
+    while 'stations' not in r.db('atm_mi').table_list().run():
+        time.sleep(0.5)
     station_list = list(r.db('atm_mi').table('stations').run().items)
     station_dict = mk_station_dict(station_list)
     #print('Registered ATM Milan Metro Routing plugin')
