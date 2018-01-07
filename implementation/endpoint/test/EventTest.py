@@ -50,14 +50,14 @@ class EventTest(unittest.TestCase):
     # try to add event1, modify with modevent1 and delete
     def test_add_mod_del(self):
         event.add_event(self.event1)
-        elist = event.get_event(self.token)
+        elist = event.get_event(event.get_email(self.token))
         id_event = elist[0]["id"]
         self.modevent1["id"] = id_event
         event.mod_event(self.modevent1)
         ev = r.table("event").get(self.modevent1["id"]).run()
         self.assertSequenceEqual(ev["name"], self.modevent1["name"])
         event.del_event(self.token, id_event)
-        elist = event.get_event(self.token)
+        elist = event.get_event(event.get_email(self.token))
         self.assertListEqual(elist, [])
 
     def test_overlay(self):

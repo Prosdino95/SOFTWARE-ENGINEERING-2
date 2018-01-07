@@ -1,6 +1,8 @@
 import unittest
 import importlib.util as im
-
+import rethinkdb as r
+import rt_server
+import event
 
 # start import test
 spec = im.spec_from_file_location("ProfileTest", "test/ProfileTest.py")
@@ -17,6 +19,7 @@ t4 = im.module_from_spec(spec)
 spec.loader.exec_module(t4)
 # end import test
 
+
 def suite():
     suite = unittest.TestSuite()
     suite.addTest(t1.ProfileTest('test_mod_profile'))
@@ -26,6 +29,17 @@ def suite():
     suite.addTest(t3.LoginTest('test_login'))
     suite.addTest(t4.FlexibleLunchTest('test_flexible'))
     return suite
+
+
+# this function is called by the API end_test
+def end_test():
+    r.connect(rt_server.ip, rt_server.port, rt_server.db_name).repl()
+    user = "test@io.it"
+    ev_list = event.get_event(user)
+    for e in ev_list:
+        r.table("event").delete(e["id"])
+        r.table("event_submit").delete(e["id"])
+    r.table("user").delete(user)
 
 
 if __name__ == '__main__':

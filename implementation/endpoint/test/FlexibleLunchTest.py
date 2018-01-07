@@ -62,7 +62,7 @@ class FlexibleLunchTest(unittest.TestCase):
 
     def test_flexible(self):
         flexible_lunch.set_lunch(fevent)
-        id = event.get_event(self.token)[0]["id"]
+        id = event.get_event(event.get_email(self.token))[0]["id"]
         event.add_event(event1)
         ev = r.table("event").get(id).run()
         self.assertEqual(ev["start"],"2017-10-10 13:00+00:00")

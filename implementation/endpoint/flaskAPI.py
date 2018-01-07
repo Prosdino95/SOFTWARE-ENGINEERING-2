@@ -8,6 +8,7 @@ import route
 from flexible_lunch import set_lunch
 import post_check
 from jsonschema import ValidationError
+import TestSuite
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -97,7 +98,6 @@ def mod_event__api():
     return event.mod_event(user_event)
 
 
-
 @app.route('/delEvent', methods=['POST'])
 def del_event__api():
     user_event = flask.request.get_json()
@@ -112,7 +112,7 @@ def del_event__api():
 @app.route('/getEvent', methods=['GET'])
 def get_event():
     token = flask.request.args.get('token', '')
-    json_list = event.get_event(token)
+    json_list = event.get_event(event.get_email(token))
     return flask.jsonify(json_list)
 
 
@@ -138,6 +138,13 @@ def flexible_lunch_api():
     except ValidationError: return "Bad Request"
     set_lunch(event)
     return "event added"
+
+
+# this api was called every time the tests written by us ends.
+# Delete all information submitted by the tests
+@app.route('/endTest', methods=['POST'])
+def end_test_api():
+    TestSuite.end_test()
 
 
 if __name__ == "__main__":

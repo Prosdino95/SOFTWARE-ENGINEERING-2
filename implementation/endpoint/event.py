@@ -37,7 +37,7 @@ def mod_event(event):
 
 
 def check_overlays(token):
-    events_list = get_event(token)
+    events_list = get_event(get_email(token))
     for i in events_list:
         alarm = False
         for j in events_list:
@@ -64,8 +64,7 @@ def set_alarm(e1, e2):
     r.table("event").get(id2).update({"alarm": True}).run()
 
 
-def get_event(token):
-    email = get_email(token)
+def get_event(email):
     query = r.table("event_submit").filter(r.row["email"] == email).\
         eq_join("event", r.table("event")). \
         without({"left": ["email", "event"]}).\
@@ -79,7 +78,7 @@ def get_email(token):
 
 
 def security_check(token, id):
-    events = get_event(token)
+    events = get_event(get_email(token))
     for e in events:
         if e["id"] == id:
             return True
