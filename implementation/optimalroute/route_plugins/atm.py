@@ -16,7 +16,7 @@ def init(registry):
     pr = registry
     rt_ip = os.environ.get('RETHINKDB_IP', '127.0.0.1')
     rt_port = os.environ.get('RETHINKDB_PORT', '28015')
-    r.connect(rt_ip, rt_port).repl()
+    r.connect(rt_ip, rt_port, timeout = 10000).repl()
     #registry.register_plugin('public_transport',
     #                         {'router': find_path,
     #                          'id': 'atmmi_metro',

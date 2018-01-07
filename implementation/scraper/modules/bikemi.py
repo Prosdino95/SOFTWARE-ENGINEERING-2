@@ -37,7 +37,7 @@ def upload_data():
 
 
 def init():
-    r.connect(rt_ip, rt_port).repl()
+    r.connect(rt_ip, rt_port, timeout = 10000).repl()
     if "atm_mi" not in r.db_list().run():
         r.db_create("atm_mi").run()
     if "bikemi" not in r.db('atm_mi').table_list().run():
