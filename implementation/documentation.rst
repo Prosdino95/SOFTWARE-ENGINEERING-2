@@ -3,6 +3,7 @@
 
 Introduction
 ============
+This document present all the informations about the first implementation of Travlendar+.
 
 
 Requirements and Functionalities
