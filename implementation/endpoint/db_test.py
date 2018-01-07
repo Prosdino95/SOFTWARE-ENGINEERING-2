@@ -2,6 +2,7 @@ import rethinkdb as r
 import rt_server as rts
 
 
+# this function initialize the Test db, this db is only use in the backend test
 def init_bd():
     r.connect(rts.ip, rts.port).repl()
     if "TravTest" not in r.db_list().run():

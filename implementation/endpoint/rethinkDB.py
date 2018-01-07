@@ -2,6 +2,8 @@ import rethinkdb as r
 import rt_server
 
 
+# this function initialize the travlendar user db.
+
 def init_bd():
     r.connect(rt_server.ip, rt_server.port).repl()
     if "Travlendar" not in r.db_list().run():

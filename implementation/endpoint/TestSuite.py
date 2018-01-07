@@ -20,6 +20,7 @@ spec.loader.exec_module(t4)
 # end import test
 
 
+# test suite for the back end the tesa are in the test folder
 def suite():
     suite = unittest.TestSuite()
     suite.addTest(t1.ProfileTest('test_mod_profile'))

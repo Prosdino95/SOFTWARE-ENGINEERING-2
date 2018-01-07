@@ -30,6 +30,7 @@ def get_profile_preference(token):
     return result
 
 
+# update the password if and only if the old password is correct
 def mod_profile_password(user):
     current_password = md5(user["current_password"].encode())
     new_password = md5(user["new_password"].encode())

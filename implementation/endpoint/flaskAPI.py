@@ -14,6 +14,8 @@ import rt_server
 app = flask.Flask(__name__)
 CORS(app)
 
+# this module use the flask framework to setup the API of Travlendar
+
 
 # API for registration and login
 @app.route('/registration', methods=['POST'])

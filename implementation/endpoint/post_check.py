@@ -2,51 +2,53 @@ from jsonschema import validate
 from json import load
 
 
+# this functions check in the json of the post is correct, load the scheme file and validete with
+# jsonschema library
 def registration(json):
-    schema = load(open("resource/jsonSchemes/registration.json"))
-    validate(json, schema)
+    scheme = load(open("resource/jsonSchemes/registration.json"))
+    validate(json, scheme)
 
 
 def login(json):
-    schema = load(open("resource/jsonSchemes/login.json"))
-    validate(json, schema)
+    scheme = load(open("resource/jsonSchemes/login.json"))
+    validate(json, scheme)
 
 
 def mod_password(json):
-    schema = load(open("resource/jsonSchemes/mod_password_profile.json"))
-    validate(json, schema)
+    scheme = load(open("resource/jsonSchemes/mod_password_profile.json"))
+    validate(json, scheme)
 
 
 def preference(json):
-    schema = load(open("resource/jsonSchemes/preference.json"))
-    validate(json, schema)
+    scheme = load(open("resource/jsonSchemes/preference.json"))
+    validate(json, scheme)
 
 
 def user_profile(json):
-    schema = load(open("resource/jsonSchemes/user_profile.json"))
-    validate(json, schema)
+    scheme = load(open("resource/jsonSchemes/user_profile.json"))
+    validate(json, scheme)
 
 
 def add_event(json):
-    schema = load(open("resource/jsonSchemes/add_event.json"))
-    validate(json, schema)
+    scheme = load(open("resource/jsonSchemes/add_event.json"))
+    validate(json, scheme)
 
 
 def mod_event(json):
-    schema = load(open("resource/jsonSchemes/mod_event.json"))
-    validate(json, schema)
+    scheme = load(open("resource/jsonSchemes/mod_event.json"))
+    validate(json, scheme)
 
 
 def del_event(json):
-    schema = load(open("resource/jsonSchemes/del_event.json"))
-    validate(json, schema)
+    scheme = load(open("resource/jsonSchemes/del_event.json"))
+    validate(json, scheme)
 
 
 def get_route(json):
-    schema = load(open("resource/jsonSchemes/route.json"))
-    validate(json, schema)
+    scheme = load(open("resource/jsonSchemes/route.json"))
+    validate(json, scheme)
 
 
 def flexible_lunch(json):
-    schema = load(open("resource/jsonSchemes/flexible_lunch.json"))
-    validate(json, schema)
+    scheme = load(open("resource/jsonSchemes/flexible_lunch.json"))
+    validate(json, scheme)
