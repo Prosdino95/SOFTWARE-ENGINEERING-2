@@ -48,10 +48,23 @@ Other test Case
 ================
 (qualsiasi altro test purche' sia motivato)
 
+* When submitting an event the "Customize" button does not overwrite the "Global Travel Preferences" or any personal preference category chosen before.
+
+* Weather information is always the same.
+
+* Vehicles not working: Car Sharing, Bike, Bike Sharing, Taxi.
+
+* Vehicle working: Car Owned, Walk.
+
+* Public transport: You cannot force a computation of the path with specified transport, because Google considers them only when their ETA is competitive respect the others vehicles. The preference setting on pubblic transport is just a filter on what google passes to the app.   
+
+* Every time I click the 'Server IP' button and confirm on the server box, The App receive always different "restore password" even if the server ip is not changed.  
+
 Other notes
 ============
 
 * No Java Packages used.
 * No JavaDoc paper committed. (why do you document the code if you don't commit a javadoc???)
+* APK installer says that no privilege are needed by the app, while still at first login you need to accept the policies. No Android Manifest Setted
 
 (varie ed eventuali sulla qualita' del codice e dei doc)
