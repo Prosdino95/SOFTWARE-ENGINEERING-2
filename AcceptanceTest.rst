@@ -182,7 +182,7 @@ existence.
 Corrupt event submit
 --------------------
 
-the client does not control the validility of the server json response. It is possible to use a proxy which is triggered when client submits an event and it sends back a corrupted response with invalid data.
+The client does not control the validility of the server's json responses. It is possible to man in the middle attack which is triggered when client submits an event and it sends back a corrupted response with invalid data.
 
 for these guide we used :code:`mitmproxy`, :code:`mitmweb` :code:`pathod`
 
@@ -214,9 +214,10 @@ stop the proxy server and open a terminal and run
 
 .. code::
 
-   pathod -p 7070 -d ~/PATH/TO/JSON -a '/web/v1/user/appointment=200:c"application/json":b<invalid_response'
+   pathod -p 7070 -d ~/PATH/TO/JSON \
+   -a '/web/v1/user/appointment=200:c"application/json":b<invalid_response'
 
-where :code:`~/PATH/TO/JSON` is the path in which you have the :code:`invalid_response` file which contains the json response. The json is provided to you on these repository. pathod now will run on the port 7070 and when it will receive an http request with /web/v1/user/appointment url will send back a 200 message with content type :code:`application/json` with the :code:`invalid_response` content as body.
+where :code:`~/PATH/TO/JSON` is the path in which you have the :code:`invalid_response` file which contains the json response. The json is provided to you in this repository. pathod now will run on the port 7070 and when it will receive an http request with /web/v1/user/appointment url will send back a 200 message with content type :code:`application/json` with the :code:`invalid_response` content as body.
 
 now run 
 
@@ -234,7 +235,7 @@ On agenda you will see your invalid event submitted correctly!
        
 Deleting Event
 --------------
-this problem involves data structure of travlendar plus project. All Events submitted are identified with an incremental Integer id chosen by the server. I suppose that it is liked to the creation of data record on the mysql db. Anyway with a simply spoof of the access token it is possible to delete a vast range of data simply with a for and curl command. I suppose that in these case are not deleted only the users event, but all users events. (I really hope it is not!)
+This bug involves data structure of travlendar plus project. All Events submitted are identified with an incremental Integer id chosen by the server. It is probably linked to the creation of data record on the mysql db. With a simply spoof of the access token it is possible to delete a vast range of data simply with a for loop and a curl command. In these cases it is not only possible to delete user's events, but all users' events.
 
 for these guide we used :code:`mitmproxy`, :code:`mitmweb` :code:`curl`
 
@@ -268,14 +269,15 @@ now open a terminal and run
 .. code::
 
    for i in `seq 1 9999`; do
-            curl -i -H "Authorization: Bearer 50ab7dc9-19d7-49b5-ac5f-08e210129d76" -H "Content-Type: application/json" -X DELETE  http://localhost:8080/web/v1/user/appointment/$i
+            curl -i -H "Authorization: Bearer 50ab7dc9-19d7-49b5-ac5f-08e210129d76" \
+             -H "Content-Type: application/json" \
+             -X DELETE  http://localhost:8080/web/v1/user/appointment/$i
         done
         
 remember to paste after the :code:`-H` the session token discovered before.
 
-You are now deleting all the event with an id from 1 to 9999!!!
-
-(see delete.sh script for more info)
+And now all events with id between 1 and 9999 have been deleted.
+See the attached :code:`delete.sh` file for additional information.
 
 Other notes
 ============
