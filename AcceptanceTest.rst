@@ -107,7 +107,6 @@ The test return an error 400.
 ----------------------
 Submit Standard Event
 ----------------------
-*jmeter test reference: Event*
 
 we noticed a strange bug in the app. 
 when we submit the event the server answer with the possible paths list but when we try to select a path some times we see this screen:
@@ -123,7 +122,7 @@ The post as can see in jmeter test report the message:
 Submit Flexible Event
 ----------------------
 
-The flexible lunch dont' work both in the app and in the Jmeter Test.
+The flexible lunch dont' work both in the app.
 
 The Server answer at the post is: 
     :code:`"error": "The minReservationTime is greater than the allowed timeslot"`
