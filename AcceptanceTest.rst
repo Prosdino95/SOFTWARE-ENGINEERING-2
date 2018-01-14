@@ -20,7 +20,7 @@ Commit info
 * Author: Filip Krasniqi <filip.krasniqi@mail.polimi.it>.
 * Date: Sun Jan 7 23:59:28 2018 +0100.
 
-(all other commit posted after the last date of submission were ignored. All above information were given by "git log" command.)
+All other commit posted after the last date of submission were ignored. All above information were given by "git log" command.
 
 Installation and Setup
 =======================
@@ -64,6 +64,95 @@ Document Inconsistencies
 * Is not specified why a PHP server implementation was replaced by a JEE server with glassfish. (see RASD 3.1.3).
 
 * Is not clear the algotithm design and with which vehicle can calculate the best path. Also the City Bike, Inrix, Car2Go API are not implemented and their neglect is not mentioned in ITD document. (see RASD 2.1)
+
+Analysis of functionalities
+-----------------------------
+
+For our analysis we setted the follow environment. 
+
+* We Started in local the Server using the file Web.war
+
+* We setted a server proxy using mitmproxy, with this tool we  can see the api calls and the files json exchanged.
+
+* We tried some action with the application and register the information exchanged by the client and the server.
+
+* We try to reproduce the Post calls with jmeter so we have sort of log of our test in the file TODO.
+
+In the follow we report our result about the test of the functionalities with some bug and jmeter test reference.
+
+-------------
+Registration
+-------------
+*jmeter test reference: Registration*
+
+The registration password check don't work very well.
+The application ask a password with: "Contain at least 8 characters, one lower case character, one upper case character, one number and one special character" but if we set this type of password the server refuse the post.
+The relative jmeter test fail and return error 400.
+
+With some probabilities the regular expression for check the password in the Server is not correct.
+
+*Actual regular expression*: :code:`((?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[.:-_,;*+\\[\\]@!\"&/()=?#$%\\\\]).{8})`
+
+*Possible work regular expression*: :code:`(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}`
+
+------
+Login
+------
+*jmeter test reference: Login*
+
+We can't perform a login test without a registration.
+The test return an error 400.
+
+----------------------
+Submit Standard Event
+----------------------
+*jmeter test reference: Event*
+
+we noticed a strange bug in the app. 
+when we submit the event the server answer with the possible paths list but when we try to select a path some times we see this screen:
+
+    .. image:: Resources/PathBug.png
+
+The post as can see in jmeter test report the message: 
+    :code:`"error": "The routine appointment doesn't have any possible instance!"`
+
+----------------------
+Submit Flexible Event
+----------------------
+
+The flexible lunch dont' work both in the app and in the Jmeter Test.
+
+The Server answer at the post is: 
+    :code:`"error": "The minReservationTime is greater than the allowed timeslot"`
+
+We find this bug in the code that check the reservation time:
+
+The code perform this:
+        :code:`if(minReservationTime > start.getTimestamp() - end.getTimestamp())` 
+
+Instead of this: 
+        :code:`if(minReservationTime > end.getTimestamp() - start.getTimestamp())`
+
+------------------
+Submit Preference
+------------------
+*jmeter test reference: Thread group Preference*
+
+The submit of the preference to the server work fine.
+
+*note:* every time the user select a preference the app send a Put Request at the server.
+To restrict number of the request the app can send a unique post when the user finish to setting the preference.
+
+---------------
+Malformed post
+---------------
+*jmeter test reference: Malformed Post*
+
+We tried to use Jmeter to send at the server some malformed post requests. for istance: with some null or missing fields.
+Those tests verify de robustness of the server.
+all the tests the server response whith a bad request so the server request's check  work fine.
+
+Some exemple of this tests are in jmeter
 
 Other test Case
 ================
