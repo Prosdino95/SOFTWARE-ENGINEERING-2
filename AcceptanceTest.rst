@@ -33,7 +33,7 @@ The client side installation procedure was done by using the provided apk inside
 Server Side
 -----------
 
-For consistency's sake the we decided to utilize docker to deploy the server component. The installation procedure is as follows:
+For consistency's sake the we decided to utilize docker to deploy the server component. Docker allowed us to have consistent results while we were testing the server on our computers. The war file used was the one provided in :code:`DeliveryFolder/Implementation`, The installation procedure that we followed is as follows:
 
 .. code::
 
@@ -41,7 +41,7 @@ For consistency's sake the we decided to utilize docker to deploy the server com
   sudo ./build.sh
   sudo docker-compose up
 
-the rest of the testing was done using the local server. One detail that was not explicitly specifified in the ITD document was that the mysql server's ip was hardcoded to :code:`localhost`, something that revealed itself to be cumbersome in our docker setup and it would cause major issues if it were used in the setup shown in the RASD (3.4.3).
+the rest of the testing was done using the local server. One detail that was not explicitly specifified in the ITD document was that the mysql server's ip was hardcoded to :code:`localhost`, something that revealed itself to be cumbersome in our docker setup and it would cause major issues if it were used in the setup as shown in the RASD (3.4.3).
 
 
 acceptance test cases cases
@@ -173,7 +173,7 @@ Other notes
 * No Java Packages used.
 * No JavaDoc paper committed. (why do you document the code if you don't commit a javadoc???)
 * APK installer says that no privilege are needed by the app, while still at first login you need to accept the policies. No Android Manifest Setted
-* we were unable to build the server component via :code:`mvn package`, as some of the required libraries were missing from the :code:`pom.xml`.
+* we were unable to build the server component via :code:`mvn package`, as some of the required libraries were missing from the :code:`pom.xml`. We are acting in good faith that the :code:`web.war` file provided in the repo reflects the actual code that is in the source directory.
 
 
 (varie ed eventuali sulla qualita' del codice e dei doc)
