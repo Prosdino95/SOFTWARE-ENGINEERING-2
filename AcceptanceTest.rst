@@ -43,9 +43,6 @@ For consistency's sake the we decided to utilize docker to deploy the server com
 
 the rest of the testing was done using the local server. One detail that was not explicitly specifified in the ITD document was that the mysql server's ip was hardcoded to :code:`localhost`, something that revealed itself to be cumbersome in our docker setup and it would cause major issues if it were used in the setup shown in the RASD (3.4.3).
 
-Moreover it should be noted that that we were unable to build the server component via :code:`mvn package`, as some of the required libraries were missing from the :code:`pom.xml`.
-
-
 
 acceptance test cases cases
 ============================
@@ -176,5 +173,7 @@ Other notes
 * No Java Packages used.
 * No JavaDoc paper committed. (why do you document the code if you don't commit a javadoc???)
 * APK installer says that no privilege are needed by the app, while still at first login you need to accept the policies. No Android Manifest Setted
+* we were unable to build the server component via :code:`mvn package`, as some of the required libraries were missing from the :code:`pom.xml`.
+
 
 (varie ed eventuali sulla qualita' del codice e dei doc)
