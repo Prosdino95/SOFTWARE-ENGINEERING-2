@@ -88,9 +88,13 @@ The relative jmeter test fail and return error 400.
 
 With some probabilities the regular expression for check the password in the Server is not correct.
 
-*Actual regular expression*: :code:`((?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[.:-_,;*+\\[\\]@!\"&/()=?#$%\\\\]).{8})`
+*Actual regular expression*: 
 
-*Possible work regular expression*: :code:`(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}`
+:code:`((?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[.:-_,;*+\\[\\]@!\"&/()=?#$%\\\\]).{8})`
+
+*Possible work regular expression*:
+ 
+:code:`(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}`
 
 ------
 Login
@@ -109,7 +113,9 @@ we noticed a strange bug in the app.
 when we submit the event the server answer with the possible paths list but when we try to select a path some times we see this screen:
 
     .. image:: Resources/PathBug.png
-
+       :height: 300px
+       :width: 400 px
+    
 The post as can see in jmeter test report the message: 
     :code:`"error": "The routine appointment doesn't have any possible instance!"`
 
