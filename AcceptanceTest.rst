@@ -180,7 +180,106 @@ Other test Case
 
 Security issues
 ===============
+in these part we present all the security issues found and a small guide to prove their
+existence.
 
+Corrupt event submit
+--------------------
+
+the client does not control the validility of the server json response. It is possible to use a proxy which is triggered when client submits an event and it sends back a corrupted response with invalid data.
+
+for these guide we used :code:`mitmproxy`, :code:`mitmweb` :code:`pathod`
+
+.. code::
+
+ install mitmproxy. see guide on http://docs.mitmproxy.org/en/stable/install.html
+ 
+run the server war locally. In our example is setted on :code:`localhost:8080`
+
+open a terminal and run:
+
+.. code::
+
+   mitmweb -p 1234 -R http://localhost:8080
+
+you can use :code:`mitmproxy` if you like. With these command we will have the proxy server up on 1234 port which will catch all the http messages and it will redirect them to localhost on port 8080.
+
+open android application. go to "Server Ip" and put the IP address of the machine wehere the proxy server runs and port 1234. for example
+
+.. code::
+
+   192.168.0.1:1234
+
+now on the app try to submit an event. click first button, click second button (filling all the textfield with valid data).
+
+on the path page don't click the button.
+
+stop the proxy server and open a terminal and run
+
+.. code::
+
+   pathod -p 7070 -d ~/PATH/TO/JSON -a '/web/v1/user/appointment=200:c"application/json":b<invalid_response'
+
+where :code:`~/PATH/TO/JSON` is the path in which you have the :code:`invalid_response` file which contains the json response. The json is provided to you on these repository. pathod now will run on the port 7070 and when it will receive an http request with /web/v1/user/appointment url will send back a 200 message with content type :code:`application/json` with the :code:`invalid_response` content as body.
+
+now run 
+
+.. code::
+
+   mitmweb -p 1234 -R http://localhost:7070
+
+and click the third button of the app.
+On agenda you will see your invalid event submitted correctly!
+
+    .. image:: AcceptanceTest_files/invalid_response.jpg
+       :height: 200 px
+       :width: 300 px
+       
+       
+Deleting Event
+--------------
+this problem involves data structure of travlendar plus project. All Events submitted are identified with an incremental Integer id chosen by the server. I suppose that it is liked to the creation of data record on the mysql db. Anyway with a simply spoof of the access token it is possible to delete a vast range of data simply with a for and curl command. I suppose that in these case are not deleted only the users event, but all users events. (I really hope it is not!)
+
+for these guide we used :code:`mitmproxy`, :code:`mitmweb` :code:`curl`
+
+setup the same above configuration.
+
+run war server locally on :code:`localhost:8080` in these guide we used a docker container.
+
+open a terminal and run:
+
+.. code::
+
+   mitmweb -p 1234 -R http://localhost:8080
+
+you can use :code:`mitmproxy` if you like. With these command we will have the proxy server up on 1234 port which will catch all the http messages and it will redirect them to localhost on port 8080.
+
+open android application. go to "Server Ip" and put the IP address of the machine wehere the proxy server runs and port 1234. for example
+
+.. code::
+
+   192.168.0.1:1234
+
+
+make some Post request on the application. Go to the mitmweb page and copy the :code:`Authorization` header. In these example
+
+    :code:`Authorization: Bearer 50ab7dc9-19d7-49b5-ac5f-08e210129d76`
+    
+important all the token are "unique" so it is important to verify the header every time.
+
+now open a terminal and run 
+
+.. code::
+
+   for i in `seq 1 9999`; do
+            curl -i -H "Authorization: Bearer 50ab7dc9-19d7-49b5-ac5f-08e210129d76" -H "Content-Type: application/json" -X DELETE  http://localhost:8080/web/v1/user/appointment/$i
+        done
+        
+remember to paste after the :code:`-H` the session token discovered before.
+
+You are now deleting all the event with an id from 1 to 9999!!!
+
+(see delete.sh script for more info)
 
 Other notes
 ============

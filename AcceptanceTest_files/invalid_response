@@ -1,0 +1,202 @@
+{
+  "id": 4,
+  "title": "Hack",
+  "description": "Hack",
+  "start": {
+    "timestamp": 1518057600158,
+    "timezone": "Europe/Rome",
+    "hours": 3,
+    "minutes": 40
+  },
+  "end": {
+    "timestamp": -31536000,
+    "timezone": "Europe/Rome",
+    "hours": 17,
+    "minutes": 40
+  },
+  "appointmentCategory": {
+    "id": 165,
+    "eco": false,
+    "allowedTravelTypes": [
+      {
+        "id": 166,
+        "categoryId": 165,
+        "travelType": {
+          "travelType": "WALK",
+          "travelParent": "WALK"
+        },
+        "enabled": true,
+        "travelFilters": []
+      },
+      {
+        "id": 167,
+        "categoryId": 165,
+        "travelType": {
+          "travelType": "OWN_BIKE",
+          "travelParent": "BIKE"
+        },
+        "enabled": true,
+        "travelFilters": []
+      },
+      {
+        "id": 168,
+        "categoryId": 165,
+        "travelType": {
+          "travelType": "SHARING_BIKE",
+          "travelParent": "BIKE"
+        },
+        "enabled": true,
+        "travelFilters": []
+      },
+      {
+        "id": 169,
+        "categoryId": 165,
+        "travelType": {
+          "travelType": "OWN_CAR",
+          "travelParent": "CAR"
+        },
+        "enabled": true,
+        "travelFilters": []
+      },
+      {
+        "id": 170,
+        "categoryId": 165,
+        "travelType": {
+          "travelType": "SHARING_CAR",
+          "travelParent": "CAR"
+        },
+        "enabled": true,
+        "travelFilters": []
+      },
+      {
+        "id": 171,
+        "categoryId": 165,
+        "travelType": {
+          "travelType": "TRAIN",
+          "travelParent": "PUBLIC_TRANSPORTATION"
+        },
+        "enabled": true,
+        "travelFilters": []
+      },
+      {
+        "id": 172,
+        "categoryId": 165,
+        "travelType": {
+          "travelType": "BUS",
+          "travelParent": "PUBLIC_TRANSPORTATION"
+        },
+        "enabled": true,
+        "travelFilters": []
+      },
+      {
+        "id": 173,
+        "categoryId": 165,
+        "travelType": {
+          "travelType": "METRO",
+          "travelParent": "PUBLIC_TRANSPORTATION"
+        },
+        "enabled": true,
+        "travelFilters": []
+      },
+      {
+        "id": 174,
+        "categoryId": 165,
+        "travelType": {
+          "travelType": "TRAM",
+          "travelParent": "PUBLIC_TRANSPORTATION"
+        },
+        "enabled": true,
+        "travelFilters": []
+      },
+      {
+        "id": 175,
+        "categoryId": 165,
+        "travelType": {
+          "travelType": "TAXI",
+          "travelParent": "PUBLIC_TRANSPORTATION"
+        },
+        "enabled": true,
+        "travelFilters": []
+      },
+      {
+        "id": 176,
+        "categoryId": 165,
+        "travelType": {
+          "travelType": "FERRY",
+          "travelParent": "PUBLIC_TRANSPORTATION"
+        },
+        "enabled": true,
+        "travelFilters": []
+      },
+      {
+        "id": 177,
+        "categoryId": 165,
+        "travelType": {
+          "travelType": "FUNICULAR",
+          "travelParent": "PUBLIC_TRANSPORTATION"
+        },
+        "enabled": true,
+        "travelFilters": []
+      },
+      {
+        "id": 178,
+        "categoryId": 165,
+        "travelType": {
+          "travelType": "OTHER",
+          "travelParent": "PUBLIC_TRANSPORTATION"
+        },
+        "enabled": true,
+        "travelFilters": []
+      }
+    ]
+  },
+  "appointmentPosition": {
+    "placeId": "ChIJnWlhGSiVhkcRazXXKl50Brk",
+    "name": "Hacktown",
+    "address": "0123 HackTown, Metropolitan City of Hack, Hackworld",
+    "latitude": 45.5508,
+    "longitude": 9.07792
+  },
+  "startingPosition": {
+    "placeId": "ChIJnWlhGSiVhkcRazXXKl50Brk",
+    "name": "Hacktown",
+    "address": "0123 HackTown, Metropolitan City of Hack, Hackworld",
+    "latitude": 45.5508,
+    "longitude": 9.07792
+  },
+  "travels": [
+    {
+      "distance": 99999,
+      "travelType": {
+        "travelType": "FUNICULAR",
+        "travelParent": "PUBLIC_TRANSPORTATION"
+      },
+      "timeArrival": {
+        "timestamp": -15180576,
+        "timezone": "Europe/Rome",
+        "hours": 69,
+        "minutes": 69
+      },
+      "timeDeparture": {
+        "timestamp": -31536000,
+        "timezone": "Europe/Rome",
+        "hours": 69,
+        "minutes": 69
+      },
+      "steps": [
+        {
+          "latitude": 45.55084,
+          "longitude": 9.077955,
+          "timestamp": 1518057600158
+        },
+        {
+          "latitude": 45.55084,
+          "longitude": 9.077955,
+          "timestamp": 1518057600158
+        }
+      ],
+      "public": false
+    }
+  ],
+  "routine": false
+}
