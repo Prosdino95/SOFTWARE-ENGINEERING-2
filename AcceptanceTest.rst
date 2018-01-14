@@ -5,7 +5,7 @@ Introduction
 ============
 This document present all the informations about the Acceptance Test of Travlendar+.
 
-analized project
+analyzed project
 =================
 AldeghiKrasniqiMazzoleni project.
 
@@ -20,7 +20,7 @@ Commit info
 * Author: Filip Krasniqi <filip.krasniqi@mail.polimi.it>.
 * Date: Sun Jan 7 23:59:28 2018 +0100.
 
-All other commit posted after the last date of submission were ignored. All above information were given by "git log" command.
+All other commit posted after the last date of submission were ignored. All above information were obtained with "git log" command.
 
 Installation and Setup
 =======================
@@ -33,7 +33,7 @@ The client side installation procedure was done by using the provided apk inside
 Server Side
 -----------
 
-For consistency's sake the we decided to utilize docker to deploy the server component. The installation procedure is as follows:
+For consistency's sake we decided to utilize docker to deploy the server component. The installation procedure is as follows:
 
 .. code::
 
@@ -47,16 +47,18 @@ the rest of the testing was done using the local server. One detail that was not
 acceptance test cases cases
 ============================
 
-Document Inconsistencies
-------------------------
+Documents inconsistencies
+-------------------------
+
+Comparing the RASD, DD and ITD document with the code we found those inconsistencies:
 
 * There are not motivation on why Travlendar+ has to present to the user a disclamer for the use of personal information. Even external information provided from a facebook or external login are not specified what will need for. There are not specified requirements or algorithm which will not work if those informations are not inserted.(see RASD 2.4-Disclamer Approvance)
 
-* There is not a clear model of the Data Structure on the RASD and the DD. How the data are managed by the database is not clearly written. For example are not specified the tables used and the organization of the information on the different databases, local with REALM and remote with MTSQL (see RASD and DD).
+* There is not a clear model of the data structure on the RASD and the DD. How the data are managed by the database is not clearly written in any document. For example are not specified the tables used and the organization of the information on the different database, the local REALM and  the remote MYSQL (see RASD and DD).
 
-* Is not a 'Thin Client' a client which has implemented a local database synchronized with a server. (see DD 2.7 and ITD 4-client_side).
+* Is not a 'Thin Client' a client which has implemented a local database synchronized with a server. Also the app takes 61,94 MB on a Android 6.0 device, which is not so 'Thin'(see DD 2.7 and ITD 4-client_side).
 
-* Is not specified why it is required a forced synchronization of the client data to server data if the client can't work properly without internet connection (and so without server ednpoint connection). (see ITD 4-client_side).
+* Is not specified why it is required a forced synchronization of the client data to server data even if the client can't work properly without internet connection (and so without server ednpoint connection). (see ITD 4-client_side).
 
 * Is not specified why a PHP server implementation was replaced by a JEE server with glassfish. (see RASD 3.1.3).
 
@@ -75,15 +77,15 @@ For our analysis we setted the follow environment.
 
 * We try to reproduce the Post calls with jmeter so we have sort of log of our test in the file AcceptanceTest.jmx.
 
-In the follow we report our result about the test of the functionalities with some bug and jmeter test reference.
+In the follow we report our results of test of the functionalities with some presumed bug and jmeter test reference.
 
 -------------
 Registration
 -------------
 *jmeter test reference: Registration*
 
-The registration password check don't work very well.
-The application ask a password with: "Contain at least 8 characters, one lower case character, one upper case character, one number and one special character" but if we set this type of password the server refuse the post.
+The registration password check does not work properly.
+The application asks a password that "Contain at least 8 characters, one lower case character, one upper case character, one number and one special character" but if we set this type of password the server refuses the POST.
 The relative jmeter test fail and return error 400.
 
 With some probabilities the regular expression for check the password in the Server is not correct.
@@ -92,24 +94,20 @@ With some probabilities the regular expression for check the password in the Ser
 
 :code:`((?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[.:-_,;*+\\[\\]@!\"&/()=?#$%\\\\]).{8})`
 
-*Possible work regular expression*:
- 
-:code:`(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}`
-
 ------
 Login
 ------
 *jmeter test reference: Login*
 
 We can't perform a login test without a registration.
-The test return an error 400.
+The test returns an error 400.
 
 ----------------------
 Submit Standard Event
 ----------------------
 
 we noticed a strange bug in the app. 
-when we submit the event the server answer with the possible paths list but when we try to select a path some times we see this screen:
+when we submit the event the server answers with the possible paths list but when we try to select a path some times we see this screen:
 
     .. image:: Resources/PathBug.png
        :height: 300px
@@ -122,7 +120,7 @@ The post as can see in jmeter test report the message:
 Submit Flexible Event
 ----------------------
 
-The flexible lunch dont' work both in the app.
+The flexible lunch seems not working properly.
 
 The Server answer at the post is: 
     :code:`"error": "The minReservationTime is greater than the allowed timeslot"`
@@ -140,21 +138,22 @@ Submit Preference
 ------------------
 *jmeter test reference: Thread group Preference*
 
-The submit of the preference to the server work fine.
+The submit of the preference to the server works fine.
 
-*note:* every time the user select a preference the app send a Put Request at the server.
-To restrict number of the request the app can send a unique post when the user finish to setting the preference.
+*note:* every time the user selects a preference the app sends a Put Request to the server.
+To limit the JSON traffic between Client and Server the application should present a `submit button` which if it is pressed, it triggers an unique post to the server.
 
 ---------------
 Malformed post
 ---------------
 *jmeter test reference: Malformed Post*
 
-We tried to use Jmeter to send at the server some malformed post requests. for istance: with some null or missing fields.
-Those tests verify de robustness of the server.
-all the tests the server response whith a bad request so the server request's check  work fine.
+We tried to use Jmeter to send to the server some malformed post requests. for istance: with some null or missing fields.
+Those tests verified the robustness of the server and that the group spent a lot of time implementing checks functions, Enum types and extended exceptions.
+This is not true for the client which is completely vulnerable and it relies heavily on what server sends to him. (see Security Issues).
 
 Some exemple of this tests are in jmeter
+
 
 Other test Case
 ================
@@ -170,6 +169,13 @@ Other test Case
 * Public transport: You cannot force a computation of the path with specified transport, because Google considers them only when their ETA is competitive respect the others vehicles. The preference setting on pubblic transport is just a filter on what google passes to the app.   
 
 * Every time I click the 'Server IP' button and confirm on the server box, The App receive always different "restore password" even if the server ip is not changed.  
+
+* json traffic is really high and reduces the performance. A lot of data is redundant and not self-explanatory. Also a json message for submit an event is about 2,6kB, which is not few(see jsonMessage.json)
+
+
+Security issues
+===============
+
 
 Other notes
 ============
