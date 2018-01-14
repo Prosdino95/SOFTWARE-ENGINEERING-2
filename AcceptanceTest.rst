@@ -229,8 +229,8 @@ and click the third button of the app.
 On agenda you will see your invalid event submitted correctly!
 
     .. image:: AcceptanceTest_files/invalid_response.jpg
-       :height: 200 px
-       :width: 300 px
+       :height: 300 px
+       :width: 400 px
        
        
 Deleting Event
