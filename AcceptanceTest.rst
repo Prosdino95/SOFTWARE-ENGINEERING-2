@@ -110,7 +110,7 @@ The code perform this:
         :code:`if(minReservationTime > start.getTimestamp() - end.getTimestamp())` 
 
 Instead of this: 
-        :code:`if(minReservationTime > start.getTimestamp() - end.getTimestamp())`
+        :code:`if(minReservationTime > end.getTimestamp() - start.getTimestamp())`
 
 ------------------
 Submit Preference
@@ -119,7 +119,7 @@ Submit Preference
 
 The submit of the preference to the server work fine.
 
-*note:* that every time the user select a preference the app send a Put Request at the server.
+*note:* every time the user select a preference the app send a Put Request at the server.
 To restrict number of the request the app can send a unique post when the user finish to setting the preference.
 
 ---------------
