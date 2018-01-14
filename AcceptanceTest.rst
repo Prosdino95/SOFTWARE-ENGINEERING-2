@@ -33,7 +33,11 @@ The client side installation procedure was done by using the provided apk inside
 Server Side
 -----------
 
+<<<<<<< HEAD
 For consistency's sake we decided to utilize docker to deploy the server component. The installation procedure is as follows:
+=======
+For consistency's sake the we decided to utilize docker to deploy the server component. Docker allowed us to have consistent results while we were testing the server on our computers. The war file used was the one provided in :code:`DeliveryFolder/Implementation`, The installation procedure that we followed is as follows:
+>>>>>>> 59788520765ae8497b2bbe7cd7953f0cac055d4d
 
 .. code::
 
@@ -41,7 +45,7 @@ For consistency's sake we decided to utilize docker to deploy the server compone
   sudo ./build.sh
   sudo docker-compose up
 
-the rest of the testing was done using the local server. One detail that was not explicitly specifified in the ITD document was that the mysql server's ip was hardcoded to :code:`localhost`, something that revealed itself to be cumbersome in our docker setup and it would cause major issues if it were used in the setup shown in the RASD (3.4.3).
+the rest of the testing was done using the local server. One detail that was not explicitly specifified in the ITD document was that the mysql server's ip was hardcoded to :code:`localhost`, something that revealed itself to be cumbersome in our docker setup and it would cause major issues if it were used in the setup as shown in the RASD (3.4.3).
 
 
 acceptance test cases cases
@@ -105,6 +109,7 @@ The test returns an error 400.
 ----------------------
 Submit Standard Event
 ----------------------
+*jmeter test reference: Event*
 
 we noticed a strange bug in the app. 
 when we submit the event the server answers with the possible paths list but when we try to select a path some times we see this screen:
