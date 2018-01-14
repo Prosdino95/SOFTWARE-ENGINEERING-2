@@ -24,7 +24,28 @@ Commit info
 
 Installation and Setup
 =======================
-(qualita' della doc ed eventuali problemi, le mail non sono da considerare doc secondo me)
+The installation procedure was accomplished in the following ways:
+
+Client Side
+-----------
+The client side installation procedure was done by using the provided apk inside :code:`DeliveryFolder/Implementation`, which was not accounted for in the ITD document. The apk was installed on a variety of devices using Android Virtual Device Manager.
+
+Server Side
+-----------
+
+For consistency's sake the we decided to utilize docker to deploy the server component. The installation procedure is as follows:
+
+.. code::
+
+  cp <Repo Folder>/DeliveryFolder/Implementation/web.war .
+  sudo ./build.sh
+  sudo docker-compose up
+
+the rest of the testing was done using the local server. One detail that was not explicitly specifified in the ITD document was that the mysql server's ip was hardcoded to :code:`localhost`, something that revealed itself to be cumbersome in our docker setup and it would cause major issues if it were used in the setup shown in the RASD (3.4.3).
+
+Moreover it should be noted that that we were unable to build the server component via :code:`mvn package`, as some of the required libraries were missing from the :code:`pom.xml`.
+
+
 
 acceptance test cases cases
 ============================
