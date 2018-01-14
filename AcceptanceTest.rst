@@ -33,11 +33,7 @@ The client side installation procedure was done by using the provided apk inside
 Server Side
 -----------
 
-<<<<<<< HEAD
-For consistency's sake we decided to utilize docker to deploy the server component. The installation procedure is as follows:
-=======
 For consistency's sake the we decided to utilize docker to deploy the server component. Docker allowed us to have consistent results while we were testing the server on our computers. The war file used was the one provided in :code:`DeliveryFolder/Implementation`, The installation procedure that we followed is as follows:
->>>>>>> 59788520765ae8497b2bbe7cd7953f0cac055d4d
 
 .. code::
 
@@ -48,8 +44,8 @@ For consistency's sake the we decided to utilize docker to deploy the server com
 the rest of the testing was done using the local server. One detail that was not explicitly specifified in the ITD document was that the mysql server's ip was hardcoded to :code:`localhost`, something that revealed itself to be cumbersome in our docker setup and it would cause major issues if it were used in the setup as shown in the RASD (3.4.3).
 
 
-acceptance test cases cases
-============================
+Acceptance Test Cases
+=====================
 
 Documents inconsistencies
 -------------------------
@@ -68,20 +64,20 @@ Comparing the RASD, DD and ITD document with the code we found those inconsisten
 
 * Is not clear the algotithm design and with which vehicle can calculate the best path. Also the City Bike, Inrix, Car2Go API are not implemented and their neglect is not mentioned in ITD document. (see RASD 2.1)
 
-Analysis of functionalities
------------------------------
+Analysis of Functionalities
+---------------------------
 
-For our analysis we setted the follow environment. 
+For our analysis we used the following environment. 
 
-* We Started in local the Server using the file Web.war
+* We started in local the Server using the file Web.war
 
-* We setted a server proxy using mitmproxy, with this tool we  can see the api calls and the files json exchanged.
+* We used mitmproxy, a proxy server that allows us to see the api calls and the json files exchanged between the server and the client.
 
-* We tried some action with the application and register the information exchanged by the client and the server.
+* We tried some actions provided by the application and register the information exchanged by the client and the server.
 
-* We try to reproduce the Post calls with jmeter so we have sort of log of our test in the file AcceptanceTest.jmx.
+* We tried to reproduce the Post calls with jmeter, we have stored a log of our test in the file AcceptanceTest.jmx.
 
-In the follow we report our results of test of the functionalities with some presumed bug and jmeter test reference.
+In the following section we report our results of test of the functionalities with some presumed bugs and jmeter test reference.
 
 -------------
 Registration
@@ -92,7 +88,7 @@ The registration password check does not work properly.
 The application asks a password that "Contain at least 8 characters, one lower case character, one upper case character, one number and one special character" but if we set this type of password the server refuses the POST.
 The relative jmeter test fail and return error 400.
 
-With some probabilities the regular expression for check the password in the Server is not correct.
+The most probable cause of this is that the server-side regex responsible for this is not the correct one.
 
 *Actual regular expression*: 
 
@@ -175,7 +171,7 @@ Other test Case
 
 * Every time I click the 'Server IP' button and confirm on the server box, The App receive always different "restore password" even if the server ip is not changed.  
 
-* json traffic is really high and reduces the performance. A lot of data is redundant and not self-explanatory. Also a json message for submit an event is about 2,6kB, which is not few(see jsonMessage.json)
+* json traffic is really high and reduces the performance. A lot of data is redundant and not self-explanatory. Also a json message for submit an event is about 2,6kB, which is not lightweight (see jsonMessage.json)
 
 
 Security issues
@@ -285,6 +281,7 @@ Other notes
 ============
 
 * No Java Packages used.
-* No JavaDoc paper committed. (why do you document the code if you don't commit a javadoc???)
-* APK installer says that no privilege are needed by the app, while still at first login you need to accept the policies. No Android Manifest Setted
+* While the code features well-documented functions, there is no compiled javadoc html folder with them.
+* APK installer says that no privilege are needed by the app, however at first login you need to accept their policies. No Android manifest is set.
 * we were unable to build the server component via :code:`mvn package`, as some of the required libraries were missing from the :code:`pom.xml`.
+* The use of a backtracking-regex for password checking was unnecessary, as a much simpler and flexible checkPassword could have been implemented with a for loop.
