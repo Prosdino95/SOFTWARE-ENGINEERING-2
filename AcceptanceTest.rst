@@ -3,7 +3,7 @@
 
 Introduction
 ============
-
+This document present all the informations about the Acceptance Test of Travlendar+.
 
 analized project
 =================
@@ -73,7 +73,7 @@ For our analysis we setted the follow environment.
 
 * We tried some action with the application and register the information exchanged by the client and the server.
 
-* We try to reproduce the Post calls with jmeter so we have sort of log of our test in the file TODO.
+* We try to reproduce the Post calls with jmeter so we have sort of log of our test in the file AcceptanceTest.jmx.
 
 In the follow we report our result about the test of the functionalities with some bug and jmeter test reference.
 
@@ -88,9 +88,13 @@ The relative jmeter test fail and return error 400.
 
 With some probabilities the regular expression for check the password in the Server is not correct.
 
-*Actual regular expression*: :code:`((?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[.:-_,;*+\\[\\]@!\"&/()=?#$%\\\\]).{8})`
+*Actual regular expression*: 
 
-*Possible work regular expression*: :code:`(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}`
+:code:`((?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[.:-_,;*+\\[\\]@!\"&/()=?#$%\\\\]).{8})`
+
+*Possible work regular expression*:
+ 
+:code:`(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}`
 
 ------
 Login
@@ -109,7 +113,9 @@ we noticed a strange bug in the app.
 when we submit the event the server answer with the possible paths list but when we try to select a path some times we see this screen:
 
     .. image:: Resources/PathBug.png
-
+       :height: 300px
+       :width: 400 px
+    
 The post as can see in jmeter test report the message: 
     :code:`"error": "The routine appointment doesn't have any possible instance!"`
 
@@ -117,7 +123,7 @@ The post as can see in jmeter test report the message:
 Submit Flexible Event
 ----------------------
 
-The flexible lunch dont' work both in the app and in the Jmeter Test.
+The flexible lunch dont' work both in the app.
 
 The Server answer at the post is: 
     :code:`"error": "The minReservationTime is greater than the allowed timeslot"`
@@ -153,7 +159,6 @@ Some exemple of this tests are in jmeter
 
 Other test Case
 ================
-(qualsiasi altro test purche' sia motivato)
 
 * When submitting an event the "Customize" button does not overwrite the "Global Travel Preferences" or any personal preference category chosen before.
 
@@ -173,7 +178,4 @@ Other notes
 * No Java Packages used.
 * No JavaDoc paper committed. (why do you document the code if you don't commit a javadoc???)
 * APK installer says that no privilege are needed by the app, while still at first login you need to accept the policies. No Android Manifest Setted
-* we were unable to build the server component via :code:`mvn package`, as some of the required libraries were missing from the :code:`pom.xml`. We are acting in good faith that the :code:`web.war` file provided in the repo reflects the actual code that is in the source directory.
-
-
-(varie ed eventuali sulla qualita' del codice e dei doc)
+* we were unable to build the server component via :code:`mvn package`, as some of the required libraries were missing from the :code:`pom.xml`.
