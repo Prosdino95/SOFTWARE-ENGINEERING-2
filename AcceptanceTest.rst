@@ -3,7 +3,7 @@
 
 Introduction
 ============
-
+This document present all the informations about the Acceptance Test of Travlendar+.
 
 analized project
 =================
@@ -73,7 +73,7 @@ For our analysis we setted the follow environment.
 
 * We tried some action with the application and register the information exchanged by the client and the server.
 
-* We try to reproduce the Post calls with jmeter so we have sort of log of our test in the file TODO.
+* We try to reproduce the Post calls with jmeter so we have sort of log of our test in the file AcceptanceTest.jmx.
 
 In the follow we report our result about the test of the functionalities with some bug and jmeter test reference.
 
@@ -159,7 +159,6 @@ Some exemple of this tests are in jmeter
 
 Other test Case
 ================
-(qualsiasi altro test purche' sia motivato)
 
 * When submitting an event the "Customize" button does not overwrite the "Global Travel Preferences" or any personal preference category chosen before.
 
@@ -180,6 +179,3 @@ Other notes
 * No JavaDoc paper committed. (why do you document the code if you don't commit a javadoc???)
 * APK installer says that no privilege are needed by the app, while still at first login you need to accept the policies. No Android Manifest Setted
 * we were unable to build the server component via :code:`mvn package`, as some of the required libraries were missing from the :code:`pom.xml`.
-
-
-(varie ed eventuali sulla qualita' del codice e dei doc)
