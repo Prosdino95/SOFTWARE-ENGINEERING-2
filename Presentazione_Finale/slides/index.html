@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Software Engineering Project - RASD</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/travlendar.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+				<section data-separator="^\r?\n---\r?\n$" data-separator-vertical="^\r?\n--\r?\n$" data-markdown>
+                    <textarea data-template>
+## Software Engineering Project
+### Presentation
+
+Marco Prosdocimi - 
+Enrico Ruggiano  - 
+Giacomo Vercesi
+
+<img src="assets/Logo.png" style="max-width: 70%"/>
+
+---
+
+# Functionalities
+
+--
+
+The main idea of our Travlendar+ system was to develop a multi tier architecture as simple as possible.
+
+**Simplicity** => Maintanability => Good Teamwork => Better Result
+
+<img src="assets/simple.jpeg" style="max-width: 45%"/>
+
+--
+
+Also we focused on the three main functionality:
+    
+* Calendar application functionality
+* Map application which could calculate a best path
+* Personal User login/registration system  
+
+--
+
+
+## Calendar application
+
+* Basic function of adding deleting, modifing an event.
+
+* Follow some Time Standard rapresentation (iso8601, unix timestamp)
+
+* Show to user the event submitted in a UI friendly
+
+--
+
+
+## Map 
+
+* calculate best path from a starting location to a ending location
+
+* manage geographical coordinates data
+
+--
+
+
+## User
+
+* manage personal user data
+* login/regstration session support
+
+--
+
+
+## Other Specific function
+
+* manage User preferences
+* best path on preference
+* notification support
+* periodic event
+* flexible events
+
+---
+
+# UI
+
+--
+
+Particular attenction on the Graphics aspects of the client application to have the best result as possible.
+
+Best UI graphics is the key of success in software market.
+
+<img src="assets/ui.png" style="max-width: 70%"/>
+
+--
+
+So we decided on an immediate Design as an every day application.
+* Material Design guidelines.
+
+<img src="assets/mdl.png" style="max-width: 70%; border-radius: 50%"/>
+
+--
+
+Same graphical layout on every type of different clients => Usability 
+
+Also we wanted High Customizability with a personal User page in which can upload secondary and optional information data.
+
+--
+
+<img src="assets/Calendar.png" style="max-width: 70%"/>
+
+--
+
+<img src="assets/Preference01.png" style="max-width: 40%"/>
+
+--
+
+<img src="assets/Routes.png" style="max-width: 40%"/>
+
+---
+
+                    </textarea>
+                </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide',
+
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
