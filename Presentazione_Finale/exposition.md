@@ -87,7 +87,7 @@ Also thanks to JQUERY we could implement ModelViewControl and Event-Based design
 
 Html documents are the static layout page which works like a reactive gui.
 
-JQuery and javascript code watch the html and when user makes some particular actions, it triggers execution of code.
+When user permorms some particular actions, Jquery triggers execution of javascript code.
 
 The tasks assigned for javascript frontend code are only two:
 
