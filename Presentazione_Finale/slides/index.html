@@ -107,6 +107,26 @@ Also we focused on the three main functionality:
 
 ---
 
+## Architecture
+
+<img src="assets/architecture.png" style="max-width: 70%"/>
+
+--
+
+## Optimal Path
+
+* RESTful Api
+* Computes the best routes and the mode of transportations for the given trip
+* closely cooperates with the scraper module
+
+--
+
+## User Data and Transport DBs
+
+* Used for storing persistent data
+
+---
+
 # UI
 
 --
@@ -141,6 +161,29 @@ Also we wanted High Customizability with a personal User page in which can uploa
 --
 
 <img src="assets/Routes.png" style="max-width: 40%"/>
+
+---
+
+# Docker
+
+<img src="assets/docker.png" style="max-width: 40%"/>
+
+--
+
+#### Docker features:
+* Scalability
+* Reproducibility
+* Application Isolation
+* Network Simulation
+* Platform-independent build process
+
+--
+
+### Docker in Travlendar
+
+* All the components use a different container
+* Network-based interaction
+* Extremely simple to isolate and firewall individual components
 
 ---
 
@@ -223,6 +266,39 @@ The tasks of javascript frontend code are only two:
 
 ---
 
+# RethinkDB
+
+--
+
+### RethinkDB
+
+* document-oriented database
+* natively works with json
+* multilingual bindings
+
+---
+
+# OptimalRoute and Valhalla
+
+--
+
+### Valhalla
+
+* OpenStreetMap routing engine
+* REST Api
+* Supports car, foot and bike routing
+
+--
+
+### OptimalRoute
+
+* 'glue' between routing data/engines
+* REST Api
+* Closely interacts with the scraper component via the Transport DB
+
+
+---
+
 # Testing Frontend
 
 --
@@ -285,7 +361,7 @@ test Automation technique, which is great and widely used for web application
 
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
+		<script src="js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
