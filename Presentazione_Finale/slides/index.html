@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Software Engineering Project - RASD</title>
+		<title>Software Engineering Project </title>
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -107,12 +107,33 @@ Also we focused on the three main functionality:
 
 ---
 
-## Architecture
+# Architecture
+
+--
 
 <img src="assets/architecture.png" style="max-width: 70%"/>
 
 --
 
+## Client
+
+* Thin
+* Simple
+* Cross platform
+
+--
+
+## RestFull
+
+<img src="assets/RESTful.png" style="max-width: 80%"/>
+
+--
+
+## Server Side
+
+<img src="assets/Component_view.png" style="max-width: 80%"/>
+
+--
 ## Optimal Path
 
 * RESTful Api
@@ -126,7 +147,6 @@ Also we focused on the three main functionality:
 * Used for storing persistent data
 
 ---
-
 # UI
 
 --
@@ -266,6 +286,79 @@ The tasks of javascript frontend code are only two:
 
 ---
 
+# Backend
+
+--
+
+## Python
+
+* Dynamically type system
+* Interpreted but efficent
+* Very easy to use
+* Vast collection of libraries
+<img src="assets/python.png" style="max-width: 50%"/>
+
+
+--
+
+### RethinkDB and Python
+<img src="assets/python.png" style="max-width: 40%" align="right"/>
+
+
+<img src="assets/rethinkdb_py.jpg" style="max-width: 40%"/>
+
+--
+
+## Flask
+
+Is a micro web framework
+
+ API enpoint
+
+<img src="assets/flask.png" style="max-width: 40%"/>
+
+--
+
+```python
+@app.route('/registration', methods=['POST'])
+def registration_api():
+    user = flask.request.get_json()
+    response = registration(user)
+    return response
+```
+
+--
+
+## JsonSchema
+
+* Check and validate JSON Post request
+
+```python
+def registration(json):
+    scheme = load(open("resource/registration.json"))
+    validate(json, scheme)
+```
+
+--
+
+#### registration.json
+
+```json
+{
+  "type" : "object",
+  "properties": {
+      "first_name": {"type": "string"},
+      "last_name": {"type": "string"},
+      "email": {"type": "string"},
+      "password": {"type": "string"}
+    },
+  "required":["first_name", "last_name", "email", "password"],
+  "additionalProperties": false
+}  
+```
+
+---
+
 # RethinkDB
 
 --
@@ -353,6 +446,56 @@ test Automation technique, which is great and widely used for web application
 <img src="assets/log.png" style="max-width: 100%"/>
 
 ---
+
+# Testing Backend
+
+--
+
+## python test
+unittest framework
+
+--
+
+```python
+    @classmethod
+    def setUpClass(cls):
+        # code
+
+    # the tests need login
+    def setUp(self):
+        # code
+
+    def tearDown(self):
+       # code
+
+    @classmethod
+    def tearDownClass(cls):
+        # code
+``` 
+
+---
+
+# System Test
+
+--
+
+## Jmeter
+
+* Test Restfull Api
+
+<img src="assets/jmeter.png" style="max-width: 100%"/>
+
+--
+
+* Perform Post or Get Request
+* Make an assertion of the response 
+* Suppose the back end work correctly
+
+
+
+
+
+
 
 
                     </textarea>
