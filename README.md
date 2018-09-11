@@ -16,3 +16,12 @@ simply run `./make.sh`
 
 ## Implementations
 All information about the implementation are available in the file `ITD.pdf` in the implementation folder.
+
+## Copyright
+
+All code was witten by:
+Ruggiano Enrico,
+Marco Prosdocimi,
+Vercesi Giacomo,
+For software engineering 2 project,
+Politecnico di Milano 2018
